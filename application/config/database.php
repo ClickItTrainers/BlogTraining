@@ -75,10 +75,15 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'element.04',
-	'database' => 'blog',
+	'hostname' => '',
+	'username' => '',
+<<<<<<< HEAD
+	'password' => '',
+	'database' => '',
+=======
+	'password' => 'root',
+	'database' => 'blog3',
+>>>>>>> origin/master
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
