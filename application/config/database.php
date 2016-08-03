@@ -77,13 +77,8 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => '',
 	'username' => '',
-<<<<<<< HEAD
 	'password' => '',
 	'database' => '',
-=======
-	'password' => 'root',
-	'database' => 'blog3',
->>>>>>> origin/master
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

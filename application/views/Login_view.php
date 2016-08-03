@@ -21,14 +21,14 @@
 						</div>
 						<div class="form-login">
 
-						<form >
-							<p>username:</p>
+						<form  action="<?php echo base_url() ?>Login_controller/entrada_login" method="post">
+							<p>Username:</p>
 					<input type="text" name="username" class="form-control input-sm chat-input"/>
-							<span class="text-danger"><?php echo form_error('username'); ?></span>
+							<span class="text-danger"><?php echo form_error('email'); ?></span>
 
 							<br>
 
-							<p>password:</p>
+							<p>Password:</p>
 							<input type="password" name="password" class="form-control input-sm chat-input" />
 							<span class="text-danger"><?php echo form_error('password')?></span>
 

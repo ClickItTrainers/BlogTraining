@@ -12,9 +12,16 @@ class Login_controller extends CI_Controller
 
   public function index()
   {
-    $data['titulo']= 'login';
+    $data['titulo']= 'Login';
     $data['token'] = $this->token();
     $this->load->view('Login_view',$data);
+  }
+
+  public function index_registro()
+  {
+    $data['titulo'] = 'Register'
+    $data['token'] = $this->token();
+    $this->load->view('Register_view', $data);
   }
 
   public function token()
@@ -84,21 +91,20 @@ window.location.href = '$url'; </script>";*/
 		 if($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token'))
 		 {
 		     //Reglas de validacion
-			$this->form_validation->set_rules('nameu', 'nameu', 'required|trim|max_length[50]|htmlspecialchars');
-			$this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|max_length[50]|htmlspecialchars');
-			$this->form_validation->set_rules('user', 'user', 'required|trim|max_length[50]|htmlspecialchars');
-			$this->form_validation->set_rules('pass', 'password', 'required|trim|min_length[6]|max_length[50]|htmlspecialchars');
+			$this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|max_length[40]|htmlspecialchars');
+			$this->form_validation->set_rules('username', 'username', 'required|trim|max_length[20]|htmlspecialchars');
+			$this->form_validation->set_rules('password', 'password', 'required|trim|min_length[8]|max_length[20]|htmlspecialchars');
 
 			//$this->form_validation->set_message('alpha_spaces', 'The field only accept alphabetic characters');
 	    $this->form_validation->set_message('valid_email', 'The text is not a email address');
 			$this->form_validation->set_message('required', 'The field must not be empty');
-			$this->form_validation->set_message('min_length', 'The field %s needs to have at less 6 chars');
-			$this->form_validation->set_message('max_length', 'The field %s can not have more than 50 chars');
+			$this->form_validation->set_message('min_length', 'The field %s needs to have at less 8 chars');
+			$this->form_validation->set_message('max_length', 'The field %s can not have more than %s chars');
 
  	if (!$this->form_validation->run())
  	  {
       //Si no pasamos la validación volvemos al formulario mostrando los errores
- 		   //$this->index();
+ 		   $this->index_registro();
 		 }
      else
 		{
@@ -114,8 +120,8 @@ window.location.href = '$url'; </script>";*/
 			$insert_pass = $this->Login_model->registro($username, $email, $hash);
 			if ($insert_pass)
 			{
-				/*$url = base_url().'Login/index';
-				echo "<script> alert ('¡Sucesfully!');
+				$url = base_url().'Login_controller/index';
+				echo "<script> alert ('¡Saved!');
 				window.location.href = '$url';
 				</script>";*/
 
