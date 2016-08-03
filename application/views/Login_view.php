@@ -5,8 +5,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?php echo $titulo ?></title>
-	<link href="<?php echo base_url()?>assets/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="<?php echo base_url()?>assets/dist/css/login.css" rel="stylesheet">
+	<link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?php echo base_url()?>assets/css/login.css" rel="stylesheet">
 </head>
 	<body>
 
@@ -22,9 +22,11 @@
 						<div class="form-login">
 
 						<form  action="<?php echo base_url() ?>Login_controller/entrada_login" method="post">
-							<p>Username:</p>
-					<input type="text" name="username" class="form-control input-sm chat-input"/>
+							<p>Email:</p>
+
+					<input type="text" name="email" class="form-control input-sm chat-input"/>
 							<span class="text-danger"><?php echo form_error('email'); ?></span>
+
 
 							<br>
 

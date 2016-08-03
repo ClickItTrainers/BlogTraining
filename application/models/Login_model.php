@@ -12,7 +12,7 @@ class Login_model extends CI_Model
   {
     //Obtener los datos del usuario
     $this->db->where('email',$email);
-    $query = $this->db->get('Users');
+    $query = $this->db->get('users');
 		//Si coincide se procede
 		if ($query->num_rows() > 0){
 			$user = $query->row();
@@ -21,12 +21,13 @@ class Login_model extends CI_Model
 
 			/*Procedimiento para comprobar
 			si el password coincide*/
-			if($this->bcrypt->check_password($hash, $pass))
+			if($this->bcrypt->check_password($password, $pass))
 			{
 				return $query->row();
 			}else
 			{
-
+        echo "<script> alert('Password wrong')</script>";
+        redirect(base_url().'Login_controller');
 			}
     }
   }
@@ -41,6 +42,6 @@ class Login_model extends CI_Model
 		);
 
     //Linea para la insercion de los datos del array en la bd
-		return $this->db->insert('Users', $data);
+		return $this->db->insert('users', $data);
   }
 }
