@@ -72,6 +72,11 @@ class Login_controller extends CI_Controller
       </script>";
 
 
+    }else {
+      $url = base_url().'Login_controller';
+      echo "<script> alert('That user does not exist');
+      window.location.href='$url';
+      </script>";
     }
   }
 }

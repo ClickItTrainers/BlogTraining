@@ -26,8 +26,10 @@ class Login_model extends CI_Model
 				return $query->row();
 			}else
 			{
-        echo "<script> alert('Password wrong')</script>";
-        redirect(base_url().'Login_controller');
+        $url = base_url().'Login_controller';
+        echo "<script> alert('Wrong password');
+        window.location.href='$url';
+        </script>";
 			}
     }
   }
