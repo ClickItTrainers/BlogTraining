@@ -22,9 +22,11 @@
 						<div class="form-login">
 
 						<form  action="<?php echo base_url() ?>Login_controller/entrada_login" method="post">
-							<p>Username:</p>
+							<p>Email:</p>
+
 					<input type="text" name="email" class="form-control input-sm chat-input"/>
 							<span class="text-danger"><?php echo form_error('email'); ?></span>
+
 
 							<br>
 

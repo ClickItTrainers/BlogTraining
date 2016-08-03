@@ -29,5 +29,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 #-------Bootstrap 3 files
 assets3/*
 
-#..........Database
 application/config/database.php

@@ -124,7 +124,6 @@ window.location.href = '$url'; </script>";*/
 				echo "<script> alert ('¡Saved!');
 				window.location.href = '$url';
 				</script>";
-
 			}
         else
     		{
