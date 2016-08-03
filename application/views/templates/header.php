@@ -48,7 +48,7 @@
                         <a href="#">About</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url();?>index.php/Home/contact">Contact</a>
+                        <a href="<?php echo base_url();?>index.php/Mailgun_controller/contactUs">Contact</a>
                     </li>
                 <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
                     <li> 
@@ -64,16 +64,16 @@
                 <?php if ($this->session->userdata('is_logued_in') == FALSE) { ?>
 
                     <li>
-                        <a href="<?php echo base_url() ?>index.php/Security/login">Login!</a>
+                        <a href="<?php echo base_url() ?>index.php/Login_controller/entrada_login">Login!</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url() ?>index.php/Security">Sign-Up..</a>
+                        <a href="<?php echo base_url() ?>index.php/Login_controller/registro_user">Sign-Up..</a>
                     </li>
 
                 <?php } else { ?>
 
                     <li> 
-                        <a href="<?php echo base_url(); ?>index.php/Security/logout">Logout</a>
+                        <a href="<?php echo base_url(); ?>index.php/Login_controller/logout">Logout</a>
                     </li>
                 <?php } ?>
                 </ul>

@@ -6,14 +6,14 @@
 			parent::__construct();
 		}
 
-		// Shows a list of the posts
+		// Sends a list of the posts in Home page
 		public function posts_list(){
 			$this->db->order_by('id_post', 'desc');
 			$query = $this->db->get('posts');
 			return $query->result();
 		}
 
-		// Shows the details of one post by ID
+		// Sends the details of one post by ID
 		public function posts_details($id_post){
 			$this->db->where('id_post', $id_post);
 			$query = $this->db->get('posts');
@@ -24,7 +24,7 @@
                 return $this->db->insert($table, $data);
         }
 
-        // Shows a list of the posts of the user
+        // Sends a list of the posts of the user
 		public function posts_list_user($user){
 			$this->db->where('username', $user);
 			$this->db->order_by('id_post', 'desc');
@@ -32,17 +32,7 @@
 			return $query->result();
 		}
 
-		// --------------------------------------------------
-		/*public function add_comment($id_post){
-			$data = array(
-				'id_comment' => $id_comment,
-				'id_post' => $id_post,
-				'id_user' => $id_user,
-				'comment' => $comment
-			);
-			$this->db->insert('comments', $data);
-		}*/
-
+		// Sends the comments of one post
 		public function getComments($id_post){
         	$this->db->where('id_post', $id_post);
         	$this->db->order_by('id_comment', 'desc');

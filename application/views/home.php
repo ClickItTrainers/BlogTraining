@@ -3,8 +3,8 @@
 
 
 	<h1 class="page-header">
-        Welcome to my Blog
-        <small><?php echo $this->session->userdata('username');?></small>
+        Welcome to our Blog
+        <small>Dear: <?php echo $this->session->userdata('username');?></small>
     </h1>
 
 
@@ -19,7 +19,7 @@
                     <?php echo anchor($url, $item->title) ?>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php"> <?php echo $item->username ?> </a> <!-- nombre de autor -->
+                    by <a href="index.php"> <?php echo $item->username ?> </a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> <?php echo $item->date ?></p>
                 <hr>
