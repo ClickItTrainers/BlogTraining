@@ -1,0 +1,42 @@
+
+.container{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container-new{
+	border: 1px solid #A89999;
+	min-width: 750px;
+	padding: 30px;
+	border-radius: 10px;
+}
+
+.container-contact{
+	min-width: 900px;
+}
+
+.btn{background-color: #273B47; color: white;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
