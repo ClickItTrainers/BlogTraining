@@ -111,7 +111,7 @@ window.location.href = '$url'; </script>";*/
     //Si funciona se procesan los datos
 		$email = $this->input->post('email');
 		$username = $this->input->post('username');
-		$password = $this->input->post('pass');
+		$password = $this->input->post('password');
 		$hash = $this->bcrypt->hash_password($password);
 		//Probar si la contraseña se encripto
 		if ($this->bcrypt->check_password($password, $hash))

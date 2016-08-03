@@ -21,12 +21,13 @@ class Login_model extends CI_Model
 
 			/*Procedimiento para comprobar
 			si el password coincide*/
-			if($this->bcrypt->check_password($hash, $pass))
+			if($this->bcrypt->check_password($password, $pass))
 			{
 				return $query->row();
 			}else
 			{
-        
+        echo "<script> alert('Password wrong')</script>";
+        redirect(base_url().'Login_controller');
 			}
     }
   }
