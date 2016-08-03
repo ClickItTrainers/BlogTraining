@@ -50,16 +50,16 @@ class Mailgun_controller extends CI_Controller {
       	$this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
 
       	if($this->form_validation->run() == FALSE){
-        	
+
         	$this->contactUs();
-      
+
 	    } else {
 
 	    	$email = $this->input->post('email');
 	    	$subject = $this->input->post('subject');
 	    	$msg = $this->input->post('message');
 
-	    	$this->My_mailgun->admin_mail($email, $subject, $msg);
+	    	$this->my_mailgun->admin_mail($email, $subject, $msg);
 
 			if ($api_key) {
 	        	echo "<script> alert('Email sent!'); </script>";
