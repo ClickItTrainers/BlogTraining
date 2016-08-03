@@ -19,7 +19,7 @@ class Login_controller extends CI_Controller
 
   public function index_registro()
   {
-    $data['titulo'] = 'Register'
+    $data['titulo'] = 'Register';
     $data['token'] = $this->token();
     $this->load->view('Register_view', $data);
   }
@@ -38,7 +38,7 @@ class Login_controller extends CI_Controller
   {
   //Reglas de validación
   $this->form_validation->set_rules('email', 'email', 'required|trim|max_length[50]|htmlspecialchars');
-  $this->form_validation->set_rules('pass', 'pass', 'required|trim|max_length[50]|htmlspecialchars');
+  $this->form_validation->set_rules('password', 'password', 'required|trim|max_length[50]|htmlspecialchars');
 
 
   $this->form_validation->set_message('required', 'This field must not be empty');
@@ -53,7 +53,7 @@ class Login_controller extends CI_Controller
   {
 
     $email = $this->input->post('email');
-    $password = $this->input->post('pass');
+    $password = $this->input->post('password');
 
 
     $login = $this->Login_model->login($email, $password);
@@ -66,10 +66,10 @@ class Login_controller extends CI_Controller
         'email' => $login->email
         );
       $this->session->set_userdata($dat);
-      /*$url = base_url().'Home';
+      $url = base_url().'Home';
       echo "<script> alert('Welcome');
       window.location.href='$url';
-      </script>";*/
+      </script>";
 
 
     }
@@ -110,7 +110,7 @@ window.location.href = '$url'; </script>";*/
 		{
     //Si funciona se procesan los datos
 		$email = $this->input->post('email');
-		$username = $this->input->post('user');
+		$username = $this->input->post('username');
 		$password = $this->input->post('pass');
 		$hash = $this->bcrypt->hash_password($password);
 		//Probar si la contraseña se encripto
@@ -123,7 +123,7 @@ window.location.href = '$url'; </script>";*/
 				$url = base_url().'Login_controller/index';
 				echo "<script> alert ('¡Saved!');
 				window.location.href = '$url';
-				</script>";*/
+				</script>";
 
 			}
         else

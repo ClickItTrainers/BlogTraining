@@ -12,7 +12,7 @@ class Login_model extends CI_Model
   {
     //Obtener los datos del usuario
     $this->db->where('email',$email);
-    $query = $this->db->get('Users');
+    $query = $this->db->get('users');
 		//Si coincide se procede
 		if ($query->num_rows() > 0){
 			$user = $query->row();
@@ -26,7 +26,7 @@ class Login_model extends CI_Model
 				return $query->row();
 			}else
 			{
-
+        
 			}
     }
   }
@@ -41,6 +41,6 @@ class Login_model extends CI_Model
 		);
 
     //Linea para la insercion de los datos del array en la bd
-		return $this->db->insert('Users', $data);
+		return $this->db->insert('users', $data);
   }
 }
