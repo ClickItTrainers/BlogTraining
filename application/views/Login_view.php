@@ -24,13 +24,13 @@
 						<form  action="<?php echo base_url() ?>Login_controller/entrada_login" method="post">
 							<p>Username:</p>
 					<input type="text" name="username" class="form-control input-sm chat-input"/>
-							<span class="text-danger"><?php echo form_error('email'); ?></span>
+							<span class="text-danger"><?php echo form_error('email');?></span>
 
 							<br>
 
 							<p>Password:</p>
-							<input type="password" name="password" class="form-control input-sm chat-input" />
-							<span class="text-danger"><?php echo form_error('password')?></span>
+							<input type="password" name="pass" class="form-control input-sm chat-input" />
+							<span class="text-danger"><?php echo form_error('pass')?></span>
 
 							</br>
 							<input type="hidden" name="token" value="<?php echo $token?>" />

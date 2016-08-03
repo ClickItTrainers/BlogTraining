@@ -19,7 +19,7 @@ class Login_controller extends CI_Controller
 
   public function index_registro()
   {
-    $data['titulo'] = 'Register'
+    $data['titulo'] = 'Register';
     $data['token'] = $this->token();
     $this->load->view('Register_view', $data);
   }
@@ -123,8 +123,7 @@ window.location.href = '$url'; </script>";*/
 				$url = base_url().'Login_controller/index';
 				echo "<script> alert ('¡Saved!');
 				window.location.href = '$url';
-				</script>";*/
-
+				</script>";
 			}
         else
     		{

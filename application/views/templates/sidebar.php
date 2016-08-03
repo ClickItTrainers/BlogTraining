@@ -4,14 +4,13 @@
     <!-- Blog Search Well -->
     <div class="card bg-faded card-block">
          <h4>Blog Search</h4>
-        <div class="input-group">
-            <input type="text" class="form-control" /> <span class="input-group-btn">
 
-                            <button class="btn btn-secondary" type="button">
 
-                                <span class="glyphicon glyphicon-search"></span>
-            </button>
-            </span>
+         <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button">Buscar!</button>
+          </span>
         </div>
         <!-- /.input-group -->
     </div>
