@@ -1,10 +1,9 @@
 
 	<title> <?php echo $title ?> </title>
 
-
-	<h1 class="page-header">
-        Welcome to our Blog
-        <small>Dear: <?php echo $this->session->userdata('username');?></small>
+	<h1 class="page-header tittle">
+        Welcome to my Blog
+        <small class="size"><?php echo $this->session->userdata('username');?></small>
     </h1>
 
 
@@ -13,13 +12,12 @@
 			$url = 'post/' . $item->id_post . '/';
 			$url .= url_title(convert_accented_characters($item->title), '-', TRUE);
 	?>
-
 			<!-- Blog Post List -->
                 <h2>
                     <?php echo anchor($url, $item->title) ?>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php"> <?php echo $item->username ?> </a>
+                    by <a href="index.php"> <?php echo $item->username ?> </a> <!-- nombre de autor -->
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> <?php echo $item->date ?></p>
                 <hr>
@@ -33,7 +31,6 @@
 	<?php
 		endforeach;
 	?>
-
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="previous">

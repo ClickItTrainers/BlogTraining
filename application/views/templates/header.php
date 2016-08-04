@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="<?php echo base_url(); ?>assets/css/blog.css" rel="stylesheet">
 
+    <!-- Home css -->
+    <link href="<?php echo base_url(); ?>assets/css/home.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,58 +30,59 @@
 </head>
 
 <body>
-
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-dark bg-inverse tall-header" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="<?php echo base_url(); ?>">Home</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url();?>index.php/Mailgun_controller/contactUs">Contact</a>
-                    </li>
-                <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
-                    <li> 
-                       <a href="<?php echo base_url();?>index.php/Home/profile" >My Profile</a>
-                    </li>
-                    <li> 
-                       <a href="<?php echo base_url();?>index.php/Home/new_post" >Add Post</a>
-                    </li>
-                <?php } ?>
-                </ul>
+               <nav class="navbar navbar-light ">
+                  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+                    &#9776;
+                  </button>
+                  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+                    <ul class="nav navbar-nav">
+                      <li class="nav-item ">
+                         <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link" href="<?php echo base_url();?>index.php/Home/contact">Contact <span class="sr-only">(current)</span></a>
+                      </li>
 
-                <ul class="nav navbar-nav navbar-right">
+                     <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
+                      <li class="nav-item ">
+                        <a class="nav-link" href="<?php echo base_url();?>index.php/Home/profile" >My Profile <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link" href="<?php echo base_url();?>index.php/Home/new_post" >Add Post<span class="sr-only">(current)</span></a>
+                      </li>
+
+                        <?php } ?>
+                    </ul>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+           <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+                <ul class="nav navbar-nav navbar-right text-xs-right">
                 <?php if ($this->session->userdata('is_logued_in') == FALSE) { ?>
 
                     <li>
-                        <a href="<?php echo base_url() ?>index.php/Login_controller/entrada_login">Login!</a>
+                        <a class="nav-link href="<?php echo base_url() ?>index.php/Security/login">Login!</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url() ?>index.php/Login_controller/registro_user">Sign-Up..</a>
+                        <a class="nav-link href="<?php echo base_url() ?>index.php/Security">Sign-Up..</a>
                     </li>
 
                 <?php } else { ?>
 
-                    <li> 
-                        <a href="<?php echo base_url(); ?>index.php/Login_controller/logout">Logout</a>
+                    <li>
+                        <a class="nav-link href="<?php echo base_url(); ?>index.php/Security/logout">Logout</a>
                     </li>
                 <?php } ?>
                 </ul>
-            </div>
             <!-- /.navbar-collapse -->
+                 </div>
+             </nav>
         </div>
         <!-- /.container -->
     </nav>
@@ -87,6 +91,6 @@
     <div class="container">
 
         <div class="row">
-            
+
             <!-- Blog Entries Column -->
             <div class="col-md-8">
