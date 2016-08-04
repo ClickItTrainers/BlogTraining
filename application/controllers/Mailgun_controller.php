@@ -61,13 +61,7 @@ class Mailgun_controller extends CI_Controller {
 
 	    	$this->my_mailgun->admin_mail($email, $subject, $msg);
 
-			if ($api_key) {
-	        	echo "<script> alert('Email sent!'); </script>";
-	        	$this->contactUs();
-        	} else {
-        		echo "<script> alert('Error sending the email!'); </script>";
-	        	$this->contactUs();
-        	}
+
         }
     }
 }
