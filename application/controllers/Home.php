@@ -20,7 +20,7 @@ class Home extends CI_Controller {
 		$data['posts_arr'] = $this->Posts_model->posts_list();
 		$data['title'] = "Three Musketeers Blog";
 		$data['page'] = 'admin/home';
-		$this->load->view('templates/template', $data);
+		$this->load->view('admin/templates/template', $data);
 	}
 
 	// Shows the details of one post by ID
