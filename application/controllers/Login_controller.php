@@ -43,7 +43,7 @@ class Login_controller extends CI_Controller
       $this->form_validation->set_rules('password', 'password', 'required|trim|max_length[50]|htmlspecialchars');
 
       // Error messages
-      $this->form_validation->set_message('required', '*Required email');
+      $this->form_validation->set_message('required', '*Required field');
       $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
       $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
 
