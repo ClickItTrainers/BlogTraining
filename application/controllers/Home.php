@@ -8,10 +8,18 @@ class Home extends CI_Controller {
 	}
 
 	// It loads the Home page view
-	public function index() {
+	public function index(){
 		$data['posts_arr'] = $this->Posts_model->posts_list();
 		$data['title'] = "Three Musketeers Blog";
 		$data['page'] = 'home';
+		$this->load->view('templates/template', $data);
+	}
+
+	//Loads the Home page view
+	public function admin_index(){
+		$data['posts_arr'] = $this->Posts_model->posts_list();
+		$data['title'] = "Three Musketeers Blog";
+		$data['page'] = 'admin/home';
 		$this->load->view('templates/template', $data);
 	}
 
@@ -43,7 +51,7 @@ class Home extends CI_Controller {
 
 		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[1]|max_length[70]');
       	$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[1]|max_length[100]');
-      	$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[1]|max_length[255]'); 
+      	$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[1]|max_length[255]');
       	// Error messages
       	$this->form_validation->set_message('required', '*Required field');
       	$this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
@@ -51,7 +59,7 @@ class Home extends CI_Controller {
 
       	if($this->form_validation->run() == FALSE){
         $this->new_post();
-      
+
 	    }else{
 
 
