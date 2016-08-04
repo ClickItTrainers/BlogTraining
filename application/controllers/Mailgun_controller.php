@@ -53,15 +53,15 @@ class Mailgun_controller extends CI_Controller {
 
         	$this->contactUs();
 
-	    } else {
+	       } else {
 
-	    	$email = $this->input->post('email');
-	    	$subject = $this->input->post('subject');
-	    	$msg = $this->input->post('message');
+    	    	$email = $this->input->post('email');
+    	    	$subject = $this->input->post('subject');
+    	    	$msg = $this->input->post('message');
 
-	    	$this->my_mailgun->admin_mail($email, $subject, $msg);
+    	    	$this->my_mailgun->admin_mail($email, $subject, $msg);
 
-
-        }
+            redirect('/Mailgun_controller/contactUs', 'refresh');
+          }
     }
 }

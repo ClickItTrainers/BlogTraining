@@ -16,7 +16,7 @@
 			<div class="row">
 		      <div class="col-md-6 col-md-offset-3">
 		        <div class="well well-sm">
-		          <form class="form-horizontal" action="<?php echo base_url() ?>index.php/Mailgun_controller/send_mail" method="post">
+		          <form class="form-horizontal" action="<?php echo base_url() ?>Mailgun_controller/send_mail" method="post">
 		          <fieldset>
 		            <legend class="text-center">Contact us</legend>
 		    
