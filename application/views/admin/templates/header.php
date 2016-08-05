@@ -40,14 +40,14 @@
                   <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
                     <ul class="nav navbar-nav">
                       <li class="nav-item ">
-                         <a class=" nav bar-brand nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                         <a class=" nav bar-brand nav-link" href="<?php base_url()?>admin">Home <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item ">
                         <!--/ / TODO: Make an about page -->
-                        <a class="nav-link" href="#">Users <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="<?php base_url()?>users">Users <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item ">
-                        <a class="nav-link" href="#">Posts <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="<?php base_url()?>profileadmin">My profile <span class="sr-only">(current)</span></a>
                       </li>
 
                      <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>

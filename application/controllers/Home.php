@@ -25,6 +25,20 @@ class Home extends CI_Controller {
 		$this->load->view('admin/templates/template', $data);
 	}
 
+	public function admin_users()
+	{
+		$data['title'] = "Three Musketeers Blog";
+		$data['page'] = 'admin/users';
+		$this->load->view('admin/templates/template', $data);
+	}
+
+	public function admin_profile()
+	{
+		$data['title'] = "Three Musketeers Blog";
+		$data['page'] = 'admin/my_profile';
+		$this->load->view('admin/templates/template', $data);
+	}
+
 	// Shows the details of one post by ID
 	public function posts_details($id_post){
 		$id_clean = $this->security->xss_clean($id_post);
