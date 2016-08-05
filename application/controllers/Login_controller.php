@@ -87,7 +87,7 @@ class Login_controller extends CI_Controller
       {
         $this->session->sess_destroy();
         $url = base_url().'Home';
-        echo "<script> alert('¡See ya!');
+        echo "<script> alert('See ya!');
         window.location.href = '$url'; </script>";
     }
 
@@ -129,7 +129,7 @@ class Login_controller extends CI_Controller
         if ($insert_pass)
         {
           $url = base_url().'Login_controller/index';
-          echo "<script> alert ('¡Saved!');
+          echo "<script> alert ('Saved!');
           window.location.href = '$url';
           </script>";
         }
