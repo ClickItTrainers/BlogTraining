@@ -25,7 +25,7 @@ function validar(e) {
     <div class="row">
     <textarea name="text" style="width: 70%; height: 40%" rows="10" onkeypress="return validar(event)"></textarea><br/><br/>
     <input type="submit" class="btn btn-success" name="submit" value="Enviar"/>
-    <button href="<?php echo base_url();?>"class="btn btn-danger">Regresar</button><br/>
+    <a href="<?php echo base_url();?>Home"class="btn btn-danger">Regresar</a><br/>
 </div>
 </form>
 </center>
