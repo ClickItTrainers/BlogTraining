@@ -53,36 +53,29 @@
                             <li class="nav-item ">
                               <a class="nav-link" href="<?php echo base_url();?>contact">Contact <span class="sr-only">(current)</span></a>
                             </li>
-
                            <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
                             <li class="nav-item ">
                               <a class="nav-link" href="<?php echo base_url();?>index.php/Home/profile" >My Profile <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item ">
-                              <a class="nav-link" href="<?php echo base_url();?>index.php/Home/new_post" >Add Post<span class="sr-only">(current)</span></a>
+                              <a class="nav-link" href="<?php echo base_url();?>new" >Add Post<span class="sr-only">(current)</span></a>
                             </li>
-
                               <?php } ?>
                           </ul>
-
-                  <!-- Collect the nav links, forms, and other content for toggling -->
-                 <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+                          <!-- Collect the nav links, forms, and other content for toggling -->
+                      <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
                       <div class="container-login">
                       <ul class="nav navbar-nav navbar-right text-xs-right">
-
                       <?php if ($this->session->userdata('is_logued_in') == FALSE) { ?>
-
                           <li class="right">
                               <a class="nav-link" href="<?php echo base_url() ?>login">Login</a>
                           </li>
                           <li class="right">
                               <a class="nav-link" href="<?php echo base_url() ?>register">Sign-Up</a>
                           </li>
-
                       <?php } else { ?>
-
                           <li >
-                              <a class="nav-link" href="<?php echo base_url(); ?>index.php/Security/logout">Logout</a>
+                              <a class="nav-link" href="<?php echo base_url(); ?>logout">Logout</a>
                           </li>
                       <?php } ?>
                       </ul>
