@@ -38,7 +38,7 @@
                             <?php echo anchor($url, $item->title) ?>
                         </h2>
                         <p class="lead display-inline size-small">
-                            by <a href="index.php"> Cesar valdez<!-- <?php echo $item->username ?>  --></a> <!-- nombre de autor -->
+                            by <a href="index.php"> <?php $a = $item->id_post; echo $a; ?> </a>
                         </p>
                         <p class="display-inline size-small"><span class="glyphicon glyphicon-time "></span> <?php echo $item->date ?></p>
                       

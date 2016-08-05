@@ -5,8 +5,7 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Posts_model');
-		$this->load->model('Comment_model');
-
+		$this->load->model('getDB/Users_model');
 	}
 
 	// It loads the Home page view
@@ -51,7 +50,7 @@ class Home extends CI_Controller {
 
 	// It loads the profile view
 	public function profile() {
-		$id_user = $this->Comment_model->get_userID();
+		$id_user = $this->Users_model->get_userID();
 		$user = $this->session->userdata('username');
 		$data['posts_arr'] = $this->Posts_model->posts_list_user($id_user);
 		$data['title'] = " $user profile";
@@ -81,7 +80,7 @@ class Home extends CI_Controller {
 
 
             $post = array(
-            	'id_user' => $this->Comment_model->get_userID(),
+            	'id_user' => $this->Users_model->get_userID(),
             	'id_category' => $this->input->post('category'),
                 'title' => $this->input->post('title'),
                 'description' => $this->input->post('description'),

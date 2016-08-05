@@ -7,13 +7,14 @@ class Mailgun_controller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Comment_model');
+    $this->load->model('getDB/Users_model');
 		$this->load->library('My_mailgun');
 	}
 
 	// Creates data to send it to the model
 	public function comment(){
         $id_post = $this->input->post('id_post');
-        $id_user = $this->Comment_model->get_userID();
+        $id_user = $this->Users_model->get_userID();
         $comment = $this->input->post('comment');
 
         $this->Comment_model->insert_comment($id_post, $id_user, $comment);
@@ -22,7 +23,7 @@ class Mailgun_controller extends CI_Controller {
         if ($query) {
 
         	// Email of the owner of the post
-        	$email = $this->Comment_model->get_email($id_post);
+        	$email = $this->Users_model->get_email($id_post);
 
         	$this->My_mailgun->comment_mail($email, $comment);
         }
