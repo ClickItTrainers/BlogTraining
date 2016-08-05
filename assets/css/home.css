@@ -2,7 +2,7 @@ body{background-color: }
 
 /*header*/
 
-.tall-header{padding:0; background-color: #222; margin-bottom:25px;}
+.tall-header{padding:0; background-color: #222; margin-bottom:40px;}
 
 nav a {margin-left: 15px;}
 
@@ -15,7 +15,7 @@ nav.navbar {
 }
 
 /*home*/
-.right{margin-right:70px;}
+/*.right{margin-right:15px;}*/
 
 .padding{padding-bottom: 40px;}
 

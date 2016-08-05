@@ -14,7 +14,7 @@
     </div>
     <div class="row">
         <!-- Blog Entries Column -->
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 right">
+        <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 right">
         	<title> <?php echo $title ?> </title>
         	<h1 class="page-header tittle down">
                 Welcome to my Blog
