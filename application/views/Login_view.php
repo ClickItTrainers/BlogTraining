@@ -4,7 +4,7 @@
 <head lang="es">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?php echo $tittle ?></title>
+	<title><?php echo $title ?></title>
 	<link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
 
 	<link href="<?php echo base_url()?>assets/css/login.css" rel="stylesheet">

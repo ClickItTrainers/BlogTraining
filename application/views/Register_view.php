@@ -22,19 +22,19 @@
 
 								<form action="<?php echo base_url() ?>Login_controller/registro_user" method="post">
 
-									<p>username:</p>
+									<p>Username:</p>
 									<input type="text" name="username" class="form-control input-sm chat-input" value="<?php echo set_value('username'); ?>"/>
 									<span class="text-danger"><?php echo form_error('username'); ?></span>
 
 									<br>
 
-									<p>email:</p>
+									<p>Email:</p>
 									<input type="email" name="email" class="form-control input-sm chat-input" value="<?php echo set_value('email'); ?>"/>
 									<span class="text-danger"><?php echo form_error('email')?></span>
 
 									<br>
 
-									<p>password:</p>
+									<p>Password:</p>
 									<input type="password" name="password" class="form-control input-sm chat-input"/>
 									<span class="text-danger"><?php echo form_error('password')?></span>
 
