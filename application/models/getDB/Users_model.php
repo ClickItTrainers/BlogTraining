@@ -35,19 +35,4 @@ class Users_model extends CI_Model{
 			}
 			return $email;
 		}
-
-		// Gets the username, owner of the post
-		public function get_username($id_post){
-			$this->db->select('username');
-			$this->db->from('users u');
-			$this->db->join('posts p', 'u.id_user = p.id_user');
-			$this->db->where('id_post', $id_post);
-
-			$query = $this->db->get();
-
-			foreach ($query->result() as $row){
-				   $username = $row->username;
-			}
-			return $username;
-		}
 }

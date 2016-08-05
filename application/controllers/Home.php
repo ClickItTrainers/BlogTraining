@@ -11,9 +11,9 @@ class Home extends CI_Controller {
 	// It loads the Home page view
 	public function index(){
 		$data['posts_arr'] = $this->Posts_model->posts_list();
+		$data['users_arr'] = $this->Posts_model->users_list();
 		$data['title'] = "Three Musketeers Blog";
 		$data['page'] = 'home';
-		
 		$this->load->view('templates/template', $data);
 	}
 
