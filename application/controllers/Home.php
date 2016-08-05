@@ -74,23 +74,21 @@ class Home extends CI_Controller {
       	$this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
       	$this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
 
-      	if($this->form_validation->run() == FALSE){
-        $this->new_post();
-
-	    }else{
-
-
+      	if($this->form_validation->run() == FALSE)
+				{
+        	$this->new_post();
+	    	}
+				else
+				{
             $post = array(
             	'id_user' => $this->Comment_model->get_userID(),
             	'id_category' => $this->input->post('category'),
-                'title' => $this->input->post('title'),
-                'description' => $this->input->post('description'),
-                'content' => $this->input->post('content'),
-                'date' => date('Y-m-d H:i:s'));
-
+              'title' => $this->input->post('title'),
+              'description' => $this->input->post('description'),
+              'content' => $this->input->post('content'),
+              'date' => date('Y-m-d H:i:s'));
             $this->Posts_model->insert('post', $post);
             redirect(base_url());
         }
-
-    }
+  }
 }

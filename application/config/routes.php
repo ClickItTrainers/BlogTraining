@@ -57,6 +57,7 @@ $route['register'] = 'Login_controller/index_registro';
 $route['admin'] = 'Home/admin_index';
 $route['contact'] = 'Mailgun_controller/contactUs';
 $route['new'] = 'Home/new_post';
+$route['logout'] = 'Login_controller/logout';
 $route['users'] = 'Home/admin_users';
 $route['profileadmin'] = 'Home/admin_profile';
 $route['default_controller'] = 'home';
