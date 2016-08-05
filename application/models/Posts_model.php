@@ -15,6 +15,12 @@
 			return $query->result();
 		}
 
+		// Sends a list of the users in Home page
+		public function users_list(){
+			$query = $this->db->get('users');
+			return $query->result();
+		}
+
 		// Sends the details of one post by ID
 		public function posts_details($id_post){
 			$this->db->where('id_post', $id_post);
