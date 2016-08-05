@@ -15,7 +15,7 @@
 			return $query->result();
 		}
 
-		// Sends a list of the users in Home page
+		// Sends a list of the users
 		public function users_list(){
 			$query = $this->db->get('users');
 			return $query->result();

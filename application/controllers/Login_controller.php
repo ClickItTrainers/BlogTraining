@@ -12,14 +12,14 @@ class Login_controller extends CI_Controller
 
   public function index()
   {
-    $data['titulo']= 'Login';
+    $data['title']= 'Login';
     $data['token'] = $this->token();
     $this->load->view('Login_view',$data);
   }
 
   public function index_registro()
   {
-    $data['titulo'] = 'Register';
+    $data['title'] = 'Register';
     $data['token'] = $this->token();
     $this->load->view('Register_view', $data);
   }
