@@ -5,8 +5,7 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Posts_model');
-		$this->load->model('Comment_model');
-
+		$this->load->model('getDB/Users_model');
 	}
 
 	// It loads the Home page view
@@ -14,6 +13,7 @@ class Home extends CI_Controller {
 		$data['posts_arr'] = $this->Posts_model->posts_list();
 		$data['title'] = "Three Musketeers Blog";
 		$data['page'] = 'home';
+		
 		$this->load->view('templates/template', $data);
 	}
 
@@ -51,7 +51,7 @@ class Home extends CI_Controller {
 
 	// It loads the profile view
 	public function profile() {
-		$id_user = $this->Comment_model->get_userID();
+		$id_user = $this->Users_model->get_userID();
 		$user = $this->session->userdata('username');
 		$data['posts_arr'] = $this->Posts_model->posts_list_user($id_user);
 		$data['title'] = " $user profile";
@@ -74,21 +74,23 @@ class Home extends CI_Controller {
       	$this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
       	$this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
 
-      	if($this->form_validation->run() == FALSE)
-				{
-        	$this->new_post();
-	    	}
-				else
-				{
+      	if($this->form_validation->run() == FALSE){
+        $this->new_post();
+
+	    }else{
+
+
             $post = array(
-            	'id_user' => $this->Comment_model->get_userID(),
+            	'id_user' => $this->Users_model->get_userID(),
             	'id_category' => $this->input->post('category'),
-              'title' => $this->input->post('title'),
-              'description' => $this->input->post('description'),
-              'content' => $this->input->post('content'),
-              'date' => date('Y-m-d H:i:s'));
+                'title' => $this->input->post('title'),
+                'description' => $this->input->post('description'),
+                'content' => $this->input->post('content'),
+                'date' => date('Y-m-d H:i:s'));
+
             $this->Posts_model->insert('post', $post);
             redirect(base_url());
         }
-  }
+
+    }
 }

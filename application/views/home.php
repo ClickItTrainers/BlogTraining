@@ -30,7 +30,8 @@
                             <?php echo anchor($url, $item->title) ?>
                         </h2>
                         <p class="lead display-inline size-small">
-                            by <a href="index.php"> autor<!-- <?php echo $item->username ?>  --></a> <!-- nombre de autor -->
+
+                            by <a href="index.php"> autor<!-- <?php echo $item->username ?>  --></a>
                         </p>
                         <p class="display-inline size-small"><span class="glyphicon glyphicon-time "></span> <?php echo $item->date ?></p>
                         <img class="img-fluid down" src="http://placehold.it/900x300" alt="">
