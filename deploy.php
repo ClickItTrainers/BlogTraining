@@ -9,6 +9,7 @@
     // array of commands
     $commands = array(
         'echo $PWD',
+	'ls',
         'whoami',
         'git fetch origin',
         'git merge origin master',
