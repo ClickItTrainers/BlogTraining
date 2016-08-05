@@ -23,8 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://149.56.23.33/';
-
+$config['base_url'] = 'http://www.blogtraining.com';
 /*
 |--------------------------------------------------------------------------
 | Index File
