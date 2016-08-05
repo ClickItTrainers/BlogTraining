@@ -9,10 +9,8 @@
     // array of commands
     $commands = array(
         'echo $PWD',
-	'ls',
         'whoami',
-        'git fetch origin',
-        'git merge origin master',
+        'git pull',
         'git status',
         'git submodule sync',
         'git submodule update',
