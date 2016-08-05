@@ -26,7 +26,11 @@
 			$this->db->where('username', $user);
 
 			$query = $this->db->get();
-			return $query->result();
+
+			foreach ($query->result() as $row){
+				   $id_user = $row->id_user;
+			}
+			return $id_user;
 		}
 
 		// Gets the email of the owner of the post
@@ -36,8 +40,7 @@
 			$this->db->join('posts p', 'u.id_user = p.id_user');
 			$this->db->where('id_post', $id_post);
 
-			$query = $this->db->get();
-			return $query->result();
+			return $this->db->get()->row();
 		}
 
 

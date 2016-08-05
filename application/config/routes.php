@@ -54,8 +54,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['login'] = 'Login_controller/index';
 $route['register'] = 'Login_controller/index_registro';
-$route['admin'] = 'home/admin_index';
+$route['admin'] = 'Home/admin_index';
 $route['contact'] = 'Mailgun_controller/contactUs';
+$route['new'] = 'Home/new_post';
+$route['users'] = 'Home/admin_users';
+$route['profileadmin'] = 'Home/admin_profile';
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
