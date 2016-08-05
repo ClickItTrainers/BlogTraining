@@ -1,3 +1,10 @@
+<!-- Bootstrap Core CSS -->
+<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="<?php echo base_url(); ?>assets/css/blog.css" rel="stylesheet">
+<!-- Home css -->
+<link href="<?php echo base_url(); ?>assets/css/home.css" rel="stylesheet">
+
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
   <script type="text/javascript">
