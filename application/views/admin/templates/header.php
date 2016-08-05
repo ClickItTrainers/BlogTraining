@@ -41,6 +41,7 @@
                       <li class="nav-item ">
                         <a class="nav-link" href="<?php base_url()?>profileadmin">My profile <span class="sr-only">(current)</span></a>
                       </li>
+
                      <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
                       <li class="nav-item ">
                         <a class="nav-link" href="#" >My Profile <span class="sr-only">(current)</span></a>
@@ -68,6 +69,7 @@
                     <!-- /.navbar-collapse -->
                   </div>
                 </nav>
+
               </div>
               <!-- /.container -->
             </nav>
