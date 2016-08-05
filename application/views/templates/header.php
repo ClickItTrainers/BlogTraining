@@ -52,10 +52,10 @@
 
                      <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
                       <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url();?>index.php/Home/profile" >My Profile <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="<?php echo base_url();?>Home/profile" >My Profile <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url();?>index.php/Home/new_post" >Add Post<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="<?php echo base_url();?>Home/new_post" >Add Post<span class="sr-only">(current)</span></a>
                       </li>
 
                         <?php } ?>
@@ -78,7 +78,7 @@
                 <?php } else { ?>
 
                     <li >
-                        <a class="nav-link" href="<?php echo base_url(); ?>index.php/Security/logout">Logout</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>Login_controller/logout">Logout</a>
                     </li>
                 <?php } ?>
                 </ul>
