@@ -29,63 +29,65 @@
 
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-dark bg-inverse tall-header" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-               <nav class="navbar navbar-light ">
-                  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
-                    &#9776;
-                  </button>
-                  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-                    <ul class="nav navbar-nav">
-                      <li class="nav-item ">
-                         <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item ">
-                        <!--/ / TODO: Make an about page -->
-                        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url();?>contact">Contact <span class="sr-only">(current)</span></a>
-                      </li>
 
-                     <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
-                      <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url();?>Home/profile" >My Profile <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url();?>Home/new_post" >Add Post<span class="sr-only">(current)</span></a>
-                      </li>
 
-                        <?php } ?>
-                    </ul>
+    <div class="row">
+      <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
+          <!-- Navigation -->
+          <nav class="navbar navbar-dark bg-inverse tall-header" role="navigation">
+              <div class="container">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                     <nav class="navbar navbar-light ">
+                        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+                          &#9776;
+                        </button>
+                        <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+                          <ul class="nav navbar-nav">
+                            <li class="nav-item ">
+                               <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item ">
+                              <!--/ / TODO: Make an about page -->
+                              <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-link" href="<?php echo base_url();?>contact">Contact <span class="sr-only">(current)</span></a>
+                            </li>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-           <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
-                <div class="container-login">
-                <ul class="nav navbar-nav navbar-right text-xs-right">
+                           <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
+                            <li class="nav-item ">
+                              <a class="nav-link" href="<?php echo base_url();?>index.php/Home/profile" >My Profile <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-link" href="<?php echo base_url();?>index.php/Home/new_post" >Add Post<span class="sr-only">(current)</span></a>
+                            </li>
 
-                <?php if ($this->session->userdata('is_logued_in') == FALSE) { ?>
+                              <?php } ?>
+                          </ul>
 
-                    <li class="right">
-                        <a class="nav-link" href="<?php echo base_url() ?>login">Login</a>
-                    </li>
-                    <li class="right">
-                        <a class="nav-link" href="<?php echo base_url() ?>register">Sign-Up</a>
-                    </li>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                 <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+                      <div class="container-login">
+                      <ul class="nav navbar-nav navbar-right text-xs-right">
 
-                <?php } else { ?>
+                      <?php if ($this->session->userdata('is_logued_in') == FALSE) { ?>
 
-                    <li >
-                        <a class="nav-link" href="<?php echo base_url(); ?>Login_controller/logout">Logout</a>
-                    </li>
-                <?php } ?>
-                </ul>
+                          <li class="right">
+                              <a class="nav-link" href="<?php echo base_url() ?>login">Login</a>
+                          </li>
+                          <li class="right">
+                              <a class="nav-link" href="<?php echo base_url() ?>register">Sign-Up</a>
+                          </li>
+
+                      <?php } else { ?>
+
+                          <li >
+                              <a class="nav-link" href="<?php echo base_url(); ?>index.php/Security/logout">Logout</a>
+                          </li>
+                      <?php } ?>
+                      </ul>
+                   </nav>
               </div>
-            <!-- /.navbar-collapse -->
-                 </div>
-             </nav>
-        </div>
-        <!-- /.container -->
-    </nav>
+          </nav>
+      </div>
+    </div>

@@ -18,7 +18,7 @@
     <link href="<?php echo base_url(); ?>assets/css/blog.css" rel="stylesheet">
 
     <!-- Home css -->
-    <link href="<?php echo base_url(); ?>assets/css/home.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/homeA.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,22 +40,19 @@
                   <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
                     <ul class="nav navbar-nav">
                       <li class="nav-item ">
-                         <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
+                         <a class=" nav bar-brand nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item ">
                         <!--/ / TODO: Make an about page -->
-                        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">Users <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url();?>contact">Contact <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">Posts <span class="sr-only">(current)</span></a>
                       </li>
 
                      <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
                       <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url();?>index.php/Home/profile" >My Profile <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url();?>index.php/Home/new_post" >Add Post<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#" >My Profile <span class="sr-only">(current)</span></a>
                       </li>
 
                         <?php } ?>
@@ -89,11 +86,3 @@
         </div>
         <!-- /.container -->
     </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-
-            <!-- Blog Entries Column -->
-            <div class="col-md-8">
