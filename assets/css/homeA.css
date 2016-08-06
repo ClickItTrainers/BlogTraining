@@ -4,9 +4,11 @@ body{
 
 
 /*header*/
+div .container{margin-top: }
+
 .size{font-size: 20px; color: gray;}
 
-.tall-header{padding:0; background-color: #222; margin-bottom:90px;}
+.tall-header{padding:0; background-color: #222; /*margin-bottom:90px;*/}
 
 nav a {margin-left: 15px;}
 
@@ -19,6 +21,9 @@ nav.navbar {background-color: #293F54}
 
 
 /*home*/
+.padding-top{padding-top: 90px;}
+
+
 div .card-primary{background-color: white;}
 
 div .card-primary p {color: black; font-size: 25px; margin: 0; background-color: rgba(255, 255, 255, .8);}

@@ -4,7 +4,7 @@
 		<div class="container">
 
 			<div class="row">
-		      <div class="col-lg-7 col-md-9 col-sm-12 col-xs-12 col-md-offset-3 border margin">
+		      <div class="col-lg-7 col-md-9 col-sm-12 col-xs-12 col-md-offset-3 border margin col-center">
 		        <div class="well well-sm">
 		          <form class="form-horizontal" action="<?php echo base_url() ?>Mailgun_controller/send_mail" method="post">
 		          <fieldset>
@@ -41,7 +41,7 @@
 		            <!-- Form actions -->
 		            <div class="form-group">
 		              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 botton-right">
-		                <button type="submit" class="btn btn-primary">Submit</button>
+		                <button type="submit" class="btn btn-primary">Enviar</button>
 		              </div>
 		            </div>
 		          </fieldset>

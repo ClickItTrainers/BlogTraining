@@ -9,8 +9,7 @@
     <title><?php echo $title ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="<?php echo base_url(); ?>assets/css/blog.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/bootstrap-responsive.css" rel="stylesheet">
     <!-- Home css -->
     <link href="<?php echo base_url(); ?>assets/css/homeA.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -42,11 +41,6 @@
                         <a class="nav-link" href="<?php base_url()?>profileadmin">My profile <span class="sr-only">(current)</span></a>
                       </li>
 
-                     <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
-                      <li class="nav-item ">
-                        <a class="nav-link" href="#" >My Profile <span class="sr-only">(current)</span></a>
-                      </li>
-                        <?php } ?>
                     </ul>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->

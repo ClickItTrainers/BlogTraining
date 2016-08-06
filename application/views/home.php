@@ -1,7 +1,7 @@
 <div class="container">
          <div class="row padding">
             <!-- Blog Sidebar Widgets Column -->
-            <div class="col-lg-5 col-md-8 col-sm-10 col-xs-9">
+            <div class="col-lg-5 col-md-8 col-sm-10 col-xs-9 col-center">
                 <!-- Blog Search Well -->
                      <div class="input-group">
                       <input type="text" class="form-control" placeholder="Search for...">

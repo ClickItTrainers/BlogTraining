@@ -13,7 +13,10 @@ nav button{color:white;}
 nav.navbar {background-color: #293F54;}
 
 /*home*/
-/*.right{margin-right:15px;}*/
+.col-center{
+    float: none;
+    margin: 0 auto;
+}
 
 .padding{padding-bottom: 40px;}
 
