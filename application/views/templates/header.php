@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <meta charset="utf-8">
-    <head>
+  <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $title ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="<?php echo base_url(); ?>assets/css/blog.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/bootstrap-responsive.css" rel="stylesheet">
     <!-- Home css -->
     <link href="<?php echo base_url(); ?>assets/css/home.css" rel="stylesheet">
-</head>
+ </head>
 <body>
     <div class="row">
       <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
