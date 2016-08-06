@@ -33,7 +33,9 @@ class Mailgun_controller extends CI_Controller {
 	// Load the ContactUs view
 	public function contactUs(){
 		$data['title'] = "Contact Us!";
+    $this->load->view('templates/header', $data);
 		$this->load->view('contactUs', $data);
+    $this->load->view('templates/footer', $data);
 	}
 
 	// Verify the input validations (send email to the administrator)
