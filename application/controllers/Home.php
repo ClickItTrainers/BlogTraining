@@ -5,11 +5,13 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Posts_model');
+		$this->load->model('getDB/Users_model');
 	}
 
 	// It loads the Home page view
 	public function index(){
 		$data['posts_arr'] = $this->Posts_model->posts_list();
+		$data['users_arr'] = $this->Posts_model->users_list();
 		$data['title'] = "Three Musketeers Blog";
 		$data['page'] = 'home';
 		$this->load->view('templates/template', $data);
@@ -20,6 +22,20 @@ class Home extends CI_Controller {
 		$data['posts_arr'] = $this->Posts_model->posts_list();
 		$data['title'] = "Three Musketeers Blog";
 		$data['page'] = 'admin/home';
+		$this->load->view('admin/templates/template', $data);
+	}
+
+	public function admin_users()
+	{
+		$data['title'] = "Three Musketeers Blog";
+		$data['page'] = 'admin/users';
+		$this->load->view('admin/templates/template', $data);
+	}
+
+	public function admin_profile()
+	{
+		$data['title'] = "Three Musketeers Blog";
+		$data['page'] = 'admin/my_profile';
 		$this->load->view('admin/templates/template', $data);
 	}
 
@@ -35,8 +51,9 @@ class Home extends CI_Controller {
 
 	// It loads the profile view
 	public function profile() {
+		$id_user = $this->Users_model->get_userID();
 		$user = $this->session->userdata('username');
-		$data['posts_arr'] = $this->Posts_model->posts_list_user($user);
+		$data['posts_arr'] = $this->Posts_model->posts_list_user($id_user);
 		$data['title'] = " $user profile";
 		$this->load->view('templates/profile', $data);
 	}
@@ -64,7 +81,7 @@ class Home extends CI_Controller {
 
 
             $post = array(
-            	'id_user' => $this->Comment_model->get_userID(),
+            	'id_user' => $this->Users_model->get_userID(),
             	'id_category' => $this->input->post('category'),
                 'title' => $this->input->post('title'),
                 'description' => $this->input->post('description'),

@@ -3,13 +3,21 @@
 	class Posts_model extends CI_Model{
 
 		public function __construct(){
+			
 			parent::__construct();
 		}
 
 		// Sends a list of the posts in Home page
 		public function posts_list(){
 			$this->db->order_by('id_post', 'desc');
+			//$this->db->limit(5);
 			$query = $this->db->get('posts');
+			return $query->result();
+		}
+
+		// Sends a list of the users
+		public function users_list(){
+			$query = $this->db->get('users');
 			return $query->result();
 		}
 
@@ -25,11 +33,13 @@
         }
 
         // Sends a list of the posts of the user
-		public function posts_list_user($user){
-			$this->db->where('username', $user);
+		public function posts_list_user($id_user){
+			$this->db->select('*');
+			$this->db->from('posts p');
+			$this->db->join('users u', 'p.id_user = u.id_user');
+			$this->db->where('p.id_user', $id_user);
 			$this->db->order_by('id_post', 'desc');
-			$query = $this->db->get('posts');
-			return $query->result();
+			return $this->db->get()->result();
 		}
 
 		// Sends the comments of one post

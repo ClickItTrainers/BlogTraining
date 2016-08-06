@@ -13,7 +13,7 @@ class Login_controller extends CI_Controller
 
   public function index()
   {
-    $data['titulo']= 'Login';
+    $data['title']= 'Login';
     $data['token'] = $this->token();
 
     $fb = new Facebook\Facebook([
@@ -29,7 +29,7 @@ class Login_controller extends CI_Controller
 
   public function index_registro()
   {
-    $data['titulo'] = 'Register';
+    $data['title'] = 'Register';
     $data['token'] = $this->token();
     $this->load->view('Register_view', $data);
   }
@@ -128,11 +128,12 @@ class Login_controller extends CI_Controller
     }
 
 
+
     public function logout()
     {
       $this->session->sess_destroy();
       $url = base_url().'Home';
-      echo "<script> alert('¡See ya!');
+      echo "<script> alert('See ya!');
       window.location.href = '$url'; </script>";
     }
 
@@ -174,7 +175,7 @@ class Login_controller extends CI_Controller
             if ($insert_pass)
             {
               $url = base_url().'Login_controller/index';
-              echo "<script> alert ('¡Saved!');
+              echo "<script> alert ('Saved!');
               window.location.href = '$url';
               </script>";
             }
