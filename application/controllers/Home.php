@@ -9,18 +9,17 @@ class Home extends CI_Controller {
 	}
 
 	// It loads the Home page view
-	public function index(){
+	public function index(){	
+		$data['title'] = "Three Musketeers Blog";
 		$data['posts_arr'] = $this->Posts_model->posts_list();
 		$data['users_arr'] = $this->Posts_model->users_list();
 		$data['category_arr'] = $this->Users_model->get_category();
-		$data['title'] = "Three Musketeers Blog";
 		$data['page'] = 'home';
 		$this->load->view('templates/template', $data);
 	}
 
 	//Loads the Home page view
 	public function admin_index(){
-		$data['posts_arr'] = $this->Posts_model->posts_list();
 		$data['title'] = "Three Musketeers Blog";
 		$data['page'] = 'admin/home';
 		$this->load->view('admin/templates/template', $data);
