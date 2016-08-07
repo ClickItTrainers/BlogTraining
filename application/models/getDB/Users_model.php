@@ -35,4 +35,28 @@ class Users_model extends CI_Model{
 			}
 			return $email;
 		}
+
+		// Gets the user type of the user that is logged in
+		public function get_userType(){
+			$user = $this->session->userdata('username');
+			$this->db->select('type');
+			$this->db->from('users');
+			$this->db->where('username', $user);
+
+			$query = $this->db->get();
+
+			foreach ($query->result() as $row){
+				   $type = $row->type;
+			}
+			return $type;
+		}
+
+		// Gets a list of all categories
+		public function get_category(){
+			$this->db->select('name');
+			$this->db->from('categories');
+
+			$query = $this->db->get()->result();
+			return $query;
+		}
 }

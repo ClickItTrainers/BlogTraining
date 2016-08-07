@@ -9,6 +9,7 @@ class Login_controller extends CI_Controller
   {
     parent::__construct();
     $this->load->library('bcrypt');
+    $this->load->Model('getDB/Users_model');
   }
 
   public function index()
@@ -110,13 +111,18 @@ class Login_controller extends CI_Controller
             'email' => $login->email);
             $this->session->set_userdata($dat);
 
-            $url = base_url().'Home';
-            echo "<script> alert('Welcome');
-            window.location.href='$url';
-            </script>";
+          if ($this->Users_model->get_userType() == 1) {
+              $url = base_url() . 'Home/admin_index';
+          }else{
+              $url = base_url() . 'Home';
           }
-          else
-          {
+
+          echo "<script> alert('Welcome');
+          window.location.href='$url';
+          </script>";
+        }
+        else
+        {
 
             $url = base_url().'Login_controller';
             echo "<script> alert('That user does not exist');

@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row padding">
+	<div class="row padding padding-top">
 		<div class="col-md-6">
 			<div class="card card-inverse card-primary text-xs-center">
 			  <div class="card-block">

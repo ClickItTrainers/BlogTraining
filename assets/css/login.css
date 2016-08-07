@@ -1,51 +1,44 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400);
 body {
-  background-color:#fff;
+ /* background-color:#fff;*/
   -webkit-font-smoothing: antialiased;
   font: normal 14px Roboto,arial,sans-serif;
-/*  background-image: url(../img/login.jpg);
-  background-size: cover;*/
+  background-image: url(../img/login.jpg);
+/*  background-size: cover;*/
 }
-
-.flex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 .container {
-   /* max-width: 290px;*/
-    margin-top:30px;
+    margin-top:40px;
     padding: 25px;
-   /* position: fixed;*/
 }
 
-.text{
-    max-width: 350px;
-    background-color: #273B47;
-    padding: 10px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
 
-.text h4 {
+div .form-login h4 {
  border:0 solid #fff;
  text-align: center;
- color: white;
+ border-bottom:1px solid #EAEAEA;
+ padding: 10px 0;
+}
+
+div .form-login p
+{
+    padding-top:20px; 
+}
+
+.col-center{
+    float: none;
+    margin: 0 auto;
 }
 
 .form-login {
-    max-width: 350px;
     border: 1px solid gray;
     padding-top: 35px;
     padding-bottom: 45px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 55px;
+    padding-right: 55px;
     border-color: #d2d2d2;
     box-shadow:0 1px 0 #cfcfcf;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-radius: 10px;
     background-color: white;
 }
 
@@ -53,13 +46,21 @@ body {
     border-radius: 10px;
 }
 
+    input[type="text"],
+    input[type="password"]
+    {       
+        height: 35px;
+    }
+
 .wrapper {
     text-align: center;
 }
 
 /*buttons*/
 
-.button{ background: #273B47; min-width: 250px; font-size: 16px; }
+.display{display: block;}
+
+.button{ background: #273B47; min-width: 140px; font-size: 16px; }
 
 .azm-social {
     margin: 0;
@@ -73,15 +74,14 @@ body {
 .azm-social:hover, .azm-social:focus, .azm-social:active { outline: 0; opacity: 0.8; color: #fff; }
 
 .azm-btn {
-    height: 40px;
-    margin: 8px;
-    padding: 13px 17px;
+    margin: 10px 3px;
+    padding: 0 10px;
     font-size: 14px;
     line-height: 21px;
     font-weight: 300;
-    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 25px;
 }
-.azm-btn i { font-size: 21px; line-height: 21px; vertical-align: top; }
+.azm-btn i { font-size: 15px; line-height: 21px; vertical-align: top; }
 
 .azm-btn i:after {
     content: "";
@@ -162,7 +162,28 @@ body {
 
 
 
+/*media screen*/
+@media screen and (max-width: 550px)
+{
+    div .form-login h4 
+    {
+        font-size: 20px;
+    }
 
+    input[type="text"],
+    input[type="email"],
+    input[type="password"]
+    {       
+        height: 30px;
+    }
+
+    div .form-login p
+    {
+        padding-top: 10px;
+        margin-bottom: 8px;
+    }
+
+}
 
 
 

@@ -5,6 +5,7 @@
             <div class="row">
                 <div class="col-xl-6">
                     <ul class="list-unstyled">
+
                         <li><a href="#">Category Name</a>
                         </li>
                         <li><a href="#">Category Name</a>
@@ -13,19 +14,19 @@
                         </li>
                         <li><a href="#">Category Name</a>
                         </li>
+
                     </ul>
                 </div>
                 <!-- /.col-xl-6 -->
                 <div class="col-xl-6">
                     <ul class="list-unstyled">
-                        <li><a href="#">Category Name</a>
-                        </li>
-                        <li><a href="#">Category Name</a>
-                        </li>
-                        <li><a href="#">Category Name</a>
-                        </li>
-                        <li><a href="#">Category Name</a>
-                        </li>
+
+                        <?php foreach ($category_arr as $item){ ?>
+                            <li>
+                                <a href="#"> <?php echo $item->name ?> </a>
+                            </li>
+                        <?php } ?>
+                        
                     </ul>
                 </div>
                 <!-- /.col-xl-6 -->

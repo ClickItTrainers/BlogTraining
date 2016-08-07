@@ -3,6 +3,7 @@
 
 <head lang="es">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?php echo $title ?></title>
 	<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/login.css" rel="stylesheet">
@@ -14,14 +15,10 @@
 
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12 col-md-8 col-sm-12 col-xs-12">
-						<div class="text">
-							<h4>Please Register</h4>
-							</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 							<div class="form-login">
-
 								<form action="<?php echo base_url() ?>Login_controller/registro_user" method="post">
-
+									<h4>Please Register</h4>
 									<p>Username:</p>
 									<input type="text" name="username" class="form-control input-sm chat-input" value="<?php echo set_value('username'); ?>"/>
 									<span class="text-danger"><?php echo form_error('username'); ?></span>
@@ -42,12 +39,14 @@
 									<input type="hidden" name="token" value="<?php echo $token?>" />
 
 									<div class="wrapper">
+									<div class="display">
 										<input class=" button btn azm-social azm-btn azm-border-bottom azm-drupal" type="submit" name="submit" value="Login">
+									</div>
 										<!-- <a href="#" class="btn azm-social azm-btn azm-border-bottom azm-drupal"><i class="fa"></i> Login </a> -->
 
-										<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i> Log in with Facebook</a>
-										<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-twitter"><i class="fa fa-twitter"></i> Log in with Twitter</a>
-										<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i> Log in with Google+</a>
+										<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
+										<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-twitter"><i class="fa fa-twitter"></i></a>
+										<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a>
 									</div>
 
 								</form>
