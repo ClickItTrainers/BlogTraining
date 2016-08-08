@@ -11,8 +11,10 @@ class Admin_controller extends CI_Controller
 
   public function show_users()
   {
-    $data['title'] = 'Users';
     $data['users'] = $this->Users_model->get_users();
-    $this->load->view('admin/users', $data);
+    $data['title'] = "Three Musketeers Blog";
+    $data['page'] = 'admin/users';
+    $this->load->view('admin/templates/template', $data);
+  
   }
 }
