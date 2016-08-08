@@ -40,7 +40,7 @@
 
 									<div class="wrapper">
 									<div class="display">
-										<input class=" button btn azm-social azm-btn azm-border-bottom azm-drupal" type="submit" name="submit" value="Login">
+										<input class=" button btn azm-social azm-btn azm-border-bottom azm-drupal" type="submit" name="submit" value="Register">
 									</div>
 										<!-- <a href="#" class="btn azm-social azm-btn azm-border-bottom azm-drupal"><i class="fa"></i> Login </a> -->
 

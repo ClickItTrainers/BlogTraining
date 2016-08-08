@@ -30,7 +30,7 @@ div .caption a{background-color:#337ab7; font-size: 13px; padding: 7px;}
 
 .down{position: absolute; bottom: 0;}
 
-.size-img{margin-right: auto; margin-left: auto; display: block; line-height: 1.42857143;}
+.size-img{margin-right: auto; margin-left: auto; display: block; line-height: 1.42857143; margin-bottom: 20px;}
 
 div .caption{margin: 0 0 10px; font-weight: 500;}
 
@@ -38,23 +38,28 @@ div .caption h3{color:#0275d8;}
 
 .font-size{font-size: 14px; }
 
-.container-edit{background-color: white; margin-bottom: 15px; border-top: 1px solid rgba(27, 35, 43, .1);; max-width: 210px;  padding: 10px 0; text-align: center; margin-right: auto; margin-left: auto;}
+/*.container-edit{background-color: white; margin-bottom: 15px; border-top: 1px solid rgba(27, 35, 43, .1);; max-width: 210px;  padding: 10px 0; text-align: center; margin-right: auto; margin-left: auto;}
+*/
 
 div .container-edit a{padding: 4px 10px;}
 
+.down-delete{position: absolute; bottom: 0; right: 0} 
+
+.center{text-align: center;}
+
 .margin-space{margin-right: 10px;}
-
+/*
 .edit{background-color: red; display: inline-block;}
-
+*/
 /*.container-post p{
   white-space:   nowrap;
    text-overflow: ellipsis;
   overflow: hidden;
   }
 */
-.color-red{background-color: #DD2121}
+/*.color-red{background-color: #DD2121}
 
-.color-red:hover {background-color: #A81414;}
+.color-red:hover {background-color: #A81414;}*/
 
 .color-green{background-color: #578E57;}
 
@@ -66,7 +71,6 @@ div .profile-usermenu li{padding: 10px 0;}
 .profile-content {
   padding: 20px;
   background: #fff;
-  min-height: 460px;
 }
 
 legend{text-align: center; border-bottom: 1px solid rgba(27, 35, 43, .1); margin-bottom: 20px;}
@@ -119,9 +123,9 @@ legend{text-align: center; border-bottom: 1px solid rgba(27, 35, 43, .1); margin
 
 .profile-userbuttons .btn {
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  padding: 6px 15px;
+  padding: 9px 10px;
   margin-right: 5px;
 }
 

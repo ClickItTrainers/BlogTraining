@@ -1,6 +1,7 @@
 	<title><?php echo $title ?></title>
 	<link href="<?php echo base_url(); ?>assets/css/profile.css" rel="stylesheet">
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/showProfile.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 	<body>
 		<div class="container">
@@ -23,13 +24,12 @@
 						</div>
 						<!-- END SIDEBAR USER TITLE -->
 						<!-- SIDEBAR BUTTONS -->
-						<!-- <div class="profile-userbuttons">
-							<a href="<?php echo base_url(); ?>">
-								<button type="button" class="btn btn-success btn-sm">Home</button>
+						<div class="profile-userbuttons">
+							<!-- <a href="<?php echo base_url(); ?>">
+								<button type="button" class="btn btn-success btn-sm">Home</button> -->
 							<a href="<?php echo base_url(); ?>index.php/Security/logout">
-								<button type="button" class="btn btn-danger btn-sm">Logout</button>
-							</a>
-						</div> -->
+								<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</button></i></a>
+						</div>
 						<!-- END SIDEBAR BUTTONS -->
 						<!-- SIDEBAR MENU -->
 						<div class="profile-usermenu">
@@ -77,52 +77,24 @@
 											        	 el niño tuvo un grave accidente
 											        </h3>
 											        <p class="font-size">
-											         	el niño tuvo un grave accidente el niño tuvo un grave accidente el niño
-											         	el niño tuvo un grave accidente ...
-											        	
+											         	el niño tuvo un grave accidente el niño tuvo 
 											        </p>
 											        <p class="down">
 											          <a href="" class="btn btn-primary" role="button">Read more</a>
 											          <span class="glyphicon glyphicon-chevron-right"></span></a>
 											        </p>
 										      </div>
-									    </div>
-									    <div class="container-edit">
-									          <a href="" class="btn btn-primary margin-space color-green" role="button">Edit</a>
-									          <span class="glyphicon glyphicon-chevron-right"></span></a>
-									          <a href="" class="btn btn-primary color-red" role="button">Delete</a>
-									          <span class="glyphicon glyphicon-chevron-right"></span></a>
-									     </div>
 
+										      <div class="down-delete center">
+										          	<div class="profile-userbuttons">
+														<a href="<?php echo base_url(); ?>index.php/Security/logout">
+															<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</button></i>
+														</a>
+											  		 </div>
+									    	  </div>
+									    </div>
 									</div>
 
-									
-									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
-									    <div class="size-img container-post">
-										      <img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed">
-										      <div class="caption">
-											        <h3>
-											        	 el niño tuvo un grave accidente
-											        </h3>
-											        <p class="font-size">
-											         	el niño tuvo un grave accidente el niño tuvo un grave accidente el niño
-											         	el niño tuvo un grave accidente ...
-											        	
-											        </p>
-											        <p class="down">
-											          <a href="" class="btn btn-primary" role="button">Read more</a>
-											          <span class="glyphicon glyphicon-chevron-right"></span></a>
-											        </p>
-										      </div>
-									    </div>
-									    <div class="container-edit">
-									          <a href="" class="btn btn-primary margin-space color-green" role="button">Edit</a>
-									          <span class="glyphicon glyphicon-chevron-right"></span></a>
-									          <a href="" class="btn btn-primary color-red" role="button">Delete</a>
-									          <span class="glyphicon glyphicon-chevron-right"></span></a>
-									     </div>
-
-									</div>
 
 
 									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
@@ -133,51 +105,24 @@
 											        	 el niño tuvo un grave accidente
 											        </h3>
 											        <p class="font-size">
-											         	el niño tuvo un grave accidente el niño tuvo un grave accidente el niño
-											         	el niño tuvo un grave accidente ...
-											        	
+											         	el niño tuvo un grave accidente el niño tuvo 
 											        </p>
 											        <p class="down">
 											          <a href="" class="btn btn-primary" role="button">Read more</a>
 											          <span class="glyphicon glyphicon-chevron-right"></span></a>
 											        </p>
 										      </div>
-									    </div>
-									    <div class="container-edit">
-									          <a href="" class="btn btn-primary margin-space color-green" role="button">Edit</a>
-									          <span class="glyphicon glyphicon-chevron-right"></span></a>
-									          <a href="" class="btn btn-primary color-red" role="button">Delete</a>
-									          <span class="glyphicon glyphicon-chevron-right"></span></a>
-									     </div>
 
+										      <div class="down-delete center">
+										          	<div class="profile-userbuttons">
+														<a href="<?php echo base_url(); ?>index.php/Security/logout">
+															<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</button></i>
+														</a>
+											  		 </div>
+									    	  </div>
+									    </div>
 									</div>
 
-									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
-									    <div class="size-img container-post">
-										      <img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed">
-										      <div class="caption">
-											        <h3>
-											        	 el niño tuvo un grave accidente
-											        </h3>
-											        <p class="font-size">
-											         	el niño tuvo un grave accidente el niño tuvo un grave accidente el niño
-											         	el niño tuvo un grave accidente ...
-											        	
-											        </p>
-											        <p class="down">
-											          <a href="" class="btn btn-primary" role="button">Read more</a>
-											          <span class="glyphicon glyphicon-chevron-right"></span></a>
-											        </p>
-										      </div>
-									    </div>
-									    <div class="container-edit">
-									          <a href="" class="btn btn-primary margin-space color-green" role="button">Edit</a>
-									          <span class="glyphicon glyphicon-chevron-right"></span></a>
-									          <a href="" class="btn btn-primary color-red" role="button">Delete</a>
-									          <span class="glyphicon glyphicon-chevron-right"></span></a>
-									     </div>
-
-									</div>
 
 
 									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
@@ -188,27 +133,110 @@
 											        	 el niño tuvo un grave accidente
 											        </h3>
 											        <p class="font-size">
-											         	el niño tuvo un grave accidente el niño tuvo un grave accidente el niño
-											         	el niño tuvo un grave accidente ...
-											        	
+											         	el niño tuvo un grave accidente el niño tuvo 
 											        </p>
 											        <p class="down">
 											          <a href="" class="btn btn-primary" role="button">Read more</a>
 											          <span class="glyphicon glyphicon-chevron-right"></span></a>
 											        </p>
 										      </div>
-									    </div>
-									    <div class="container-edit">
-									          <a href="" class="btn btn-primary margin-space color-green" role="button">Edit</a>
-									          <span class="glyphicon glyphicon-chevron-right"></span></a>
-									          <a href="" class="btn btn-primary color-red" role="button">Delete</a>
-									          <span class="glyphicon glyphicon-chevron-right"></span></a>
-									     </div>
 
+										      <div class="down-delete center">
+										          	<div class="profile-userbuttons">
+														<a href="<?php echo base_url(); ?>index.php/Security/logout">
+															<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</button></i>
+														</a>
+											  		 </div>
+									    	  </div>
+									    </div>
 									</div>
 
-									
-									
+
+
+
+									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+									    <div class="size-img container-post">
+										      <img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed">
+										      <div class="caption">
+											        <h3>
+											        	 el niño tuvo un grave accidente
+											        </h3>
+											        <p class="font-size">
+											         	el niño tuvo un grave accidente el niño tuvo 
+											        </p>
+											        <p class="down">
+											          <a href="" class="btn btn-primary" role="button">Read more</a>
+											          <span class="glyphicon glyphicon-chevron-right"></span></a>
+											        </p>
+										      </div>
+
+										      <div class="down-delete center">
+										          	<div class="profile-userbuttons">
+														<a href="<?php echo base_url(); ?>index.php/Security/logout">
+															<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</button></i>
+														</a>
+											  		 </div>
+									    	  </div>
+									    </div>
+									</div>
+
+
+
+									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+									    <div class="size-img container-post">
+										      <img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed">
+										      <div class="caption">
+											        <h3>
+											        	 el niño tuvo un grave accidente
+											        </h3>
+											        <p class="font-size">
+											         	el niño tuvo un grave accidente el niño tuvo 
+											        </p>
+											        <p class="down">
+											          <a href="" class="btn btn-primary" role="button">Read more</a>
+											          <span class="glyphicon glyphicon-chevron-right"></span></a>
+											        </p>
+										      </div>
+
+										      <div class="down-delete center">
+										          	<div class="profile-userbuttons">
+														<a href="<?php echo base_url(); ?>index.php/Security/logout">
+															<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</button></i>
+														</a>
+											  		 </div>
+									    	  </div>
+									    </div>
+									</div>
+
+
+									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+									    <div class="size-img container-post">
+										      <img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed">
+										      <div class="caption">
+											        <h3>
+											        	 el niño tuvo un grave accidente
+											        </h3>
+											        <p class="font-size">
+											         	el niño tuvo un grave accidente el niño tuvo 
+											        </p>
+											        <p class="down">
+											          <a href="" class="btn btn-primary" role="button">Read more</a>
+											          <span class="glyphicon glyphicon-chevron-right"></span></a>
+											        </p>
+										      </div>
+
+										      <div class="down-delete center">
+										          	<div class="profile-userbuttons">
+														<a href="<?php echo base_url(); ?>index.php/Security/logout">
+															<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</button></i>
+														</a>
+											  		 </div>
+									    	  </div>
+									    </div>
+									</div>
+
+
+
 							</div>
 
 							<!-- Account Settings -->
