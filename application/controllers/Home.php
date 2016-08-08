@@ -55,13 +55,18 @@ class Home extends CI_Controller {
 		$user = $this->session->userdata('username');
 		$data['posts_arr'] = $this->Posts_model->posts_list_user($id_user);
 		$data['title'] = " $user profile";
+		$this->load->view('templates/header', $data);
 		$this->load->view('templates/profile', $data);
+    	$this->load->view('templates/footer', $data);
 	}
+
 
 	// It loads the newpost view
 	public function new_post() {
 		$data['title'] = "Create new post";
+		$this->load->view('templates/header', $data);
 		$this->load->view('newPost', $data);
+		 $this->load->view('templates/footer', $data);
 	}
 
 	public function insert_post(){

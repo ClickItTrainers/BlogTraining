@@ -18,8 +18,6 @@ nav button{color:white;}
 
 nav.navbar {background-color: #293F54}
 
-
-
 /*home*/
 .padding-top{padding-top: 90px;}
 
@@ -30,9 +28,9 @@ div .card-primary p {color: black; font-size: 25px; margin: 0; background-color:
 
 div .card-block{padding: 4px;}
 
-.url-user{background-image: url("../img/user.png"); height: 250px;}
+.url-user{/*background-image: url("../img/user.png");*/ height: 250px; background-size: cover;}
 
-.url-profile{background-image: url("../img/profile.png"); height: 250px;}
+.url-profile{/*background-image: url("../img/profile.png");*/ height: 250px;}
 
 .color{background-color: black;}
 

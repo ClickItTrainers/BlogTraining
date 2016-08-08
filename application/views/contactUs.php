@@ -41,7 +41,7 @@
 		            <!-- Form actions -->
 		            <div class="form-group">
 		              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 botton-right">
-		                <button type="submit" class="btn btn-primary">Enviar</button>
+		                <button type="submit" class="btn btn-primary">Submit</button>
 		              </div>
 		            </div>
 		          </fieldset>

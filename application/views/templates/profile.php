@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html>
-
-<head lang="es">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title><?php echo $title ?></title>
-	<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/profile.css" rel="stylesheet">
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/showProfile.js"></script>
 </head>
 	<body>
-
-		<style>
-			
-		</style>
-
 		<div class="container">
 			<div class="row profile">
-				<div class="col-md-3">
+				<div class=" col-lg-3 col-md-3 col-sm-4 col-xs-12">
 					<div class="profile-sidebar">
 						<!-- SIDEBAR USERPIC -->
 						<div class="profile-userpic">
-							<img src="<?php echo base_url(); ?>assets/images/jordan.jpg" class="img-responsive" alt="">
+							<img src="<?php echo base_url(); ?>assets/img/jordan.jpg" class="img-fluid" alt="">
 						</div>
 						<!-- END SIDEBAR USERPIC -->
 						<!-- SIDEBAR USER TITLE -->
@@ -34,19 +23,18 @@
 						</div>
 						<!-- END SIDEBAR USER TITLE -->
 						<!-- SIDEBAR BUTTONS -->
-						<div class="profile-userbuttons">
+						<!-- <div class="profile-userbuttons">
 							<a href="<?php echo base_url(); ?>">
 								<button type="button" class="btn btn-success btn-sm">Home</button>
-							<a>
 							<a href="<?php echo base_url(); ?>index.php/Security/logout">
 								<button type="button" class="btn btn-danger btn-sm">Logout</button>
 							</a>
-						</div>
+						</div> -->
 						<!-- END SIDEBAR BUTTONS -->
 						<!-- SIDEBAR MENU -->
 						<div class="profile-usermenu">
 							<ul class="nav">
-								<li class="active">
+								<li class="active padding-li">
 									<a href="" onclick="myFunctionO()">
 									<i class="glyphicon glyphicon-home"></i>
 									Overview </a>
@@ -71,49 +59,161 @@
 					<!-- END MENU -->
 					</div>
 				</div>
-				<div class="col-md-9">
-					<div cl >
+					
+				<!-- 	overview -->
+					<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 ">
+						<div class="profile-content">
+							<!-- Overview -->
+							<div id="overview" class="container-style">
+								<!-- Form Name -->
+								<legend>Posts List</legend>
+								
 
-						<!-- Overview -->
-						<div id="overview" class="container" style="background-color:#E0E0E0; margin: 0 auto; width: 750px; border-radius:5px;">
-							<!-- Form Name -->
-							<legend>Posts List</legend>
-
-
-								<?php
-									foreach ($posts_arr as $item):
-										$url = 'post/' . $item->id_post . '/';
-										$url .= url_title(convert_accented_characters($item->title), '-', TRUE);
-								?>
-										
-									<div class="col-sm-6 col-md-4">
-									    <div class="thumbnail" style="">
-									      <img class="img-responsive" src="<?php echo base_url(); ?>assets/images/hitman.jpg" alt="Loading image failed">
-									      <div class="caption">
-									        <h3>
-									        	<?php echo anchor($url, $item->title) ?>
-									        </h3>
-									        <p>
-									        	<?php echo $item->description ?>
-									        </p>
-
-									        <p>
-									          <a href="<?php echo base_url() . "index.php/" . $url ?>" class="btn btn-primary" role="button">Read more</a>
-									          <span class="glyphicon glyphicon-chevron-right"></span></a>
-									        </p>
-									      </div>
+									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+									    <div class="size-img container-post">
+										      <img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed">
+										      <div class="caption">
+											        <h3>
+											        	 el niño tuvo un grave accidente
+											        </h3>
+											        <p class="font-size">
+											         	el niño tuvo un grave accidente el niño tuvo un grave accidente el niño
+											         	el niño tuvo un grave accidente ...
+											        	
+											        </p>
+											        <p class="down">
+											          <a href="" class="btn btn-primary" role="button">Read more</a>
+											          <span class="glyphicon glyphicon-chevron-right"></span></a>
+											        </p>
+										      </div>
 									    </div>
-									  </div>
+									    <div class="container-edit">
+									          <a href="" class="btn btn-primary margin-space color-green" role="button">Edit</a>
+									          <span class="glyphicon glyphicon-chevron-right"></span></a>
+									          <a href="" class="btn btn-primary color-red" role="button">Delete</a>
+									          <span class="glyphicon glyphicon-chevron-right"></span></a>
+									     </div>
 
-								<?php
-									endforeach;
-								?>
-						</div>
-						<!-- End Overview -->
-						
-						<!-- Account Settings -->
-						<div id="settings" class="container" style="background-color:#E0E0E0; margin: 0 auto; width: 750px; border-radius:5px; display:none;">
-							<form class="form-horizontal">
+									</div>
+
+									
+									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+									    <div class="size-img container-post">
+										      <img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed">
+										      <div class="caption">
+											        <h3>
+											        	 el niño tuvo un grave accidente
+											        </h3>
+											        <p class="font-size">
+											         	el niño tuvo un grave accidente el niño tuvo un grave accidente el niño
+											         	el niño tuvo un grave accidente ...
+											        	
+											        </p>
+											        <p class="down">
+											          <a href="" class="btn btn-primary" role="button">Read more</a>
+											          <span class="glyphicon glyphicon-chevron-right"></span></a>
+											        </p>
+										      </div>
+									    </div>
+									    <div class="container-edit">
+									          <a href="" class="btn btn-primary margin-space color-green" role="button">Edit</a>
+									          <span class="glyphicon glyphicon-chevron-right"></span></a>
+									          <a href="" class="btn btn-primary color-red" role="button">Delete</a>
+									          <span class="glyphicon glyphicon-chevron-right"></span></a>
+									     </div>
+
+									</div>
+
+
+									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+									    <div class="size-img container-post">
+										      <img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed">
+										      <div class="caption">
+											        <h3>
+											        	 el niño tuvo un grave accidente
+											        </h3>
+											        <p class="font-size">
+											         	el niño tuvo un grave accidente el niño tuvo un grave accidente el niño
+											         	el niño tuvo un grave accidente ...
+											        	
+											        </p>
+											        <p class="down">
+											          <a href="" class="btn btn-primary" role="button">Read more</a>
+											          <span class="glyphicon glyphicon-chevron-right"></span></a>
+											        </p>
+										      </div>
+									    </div>
+									    <div class="container-edit">
+									          <a href="" class="btn btn-primary margin-space color-green" role="button">Edit</a>
+									          <span class="glyphicon glyphicon-chevron-right"></span></a>
+									          <a href="" class="btn btn-primary color-red" role="button">Delete</a>
+									          <span class="glyphicon glyphicon-chevron-right"></span></a>
+									     </div>
+
+									</div>
+
+									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+									    <div class="size-img container-post">
+										      <img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed">
+										      <div class="caption">
+											        <h3>
+											        	 el niño tuvo un grave accidente
+											        </h3>
+											        <p class="font-size">
+											         	el niño tuvo un grave accidente el niño tuvo un grave accidente el niño
+											         	el niño tuvo un grave accidente ...
+											        	
+											        </p>
+											        <p class="down">
+											          <a href="" class="btn btn-primary" role="button">Read more</a>
+											          <span class="glyphicon glyphicon-chevron-right"></span></a>
+											        </p>
+										      </div>
+									    </div>
+									    <div class="container-edit">
+									          <a href="" class="btn btn-primary margin-space color-green" role="button">Edit</a>
+									          <span class="glyphicon glyphicon-chevron-right"></span></a>
+									          <a href="" class="btn btn-primary color-red" role="button">Delete</a>
+									          <span class="glyphicon glyphicon-chevron-right"></span></a>
+									     </div>
+
+									</div>
+
+
+									<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+									    <div class="size-img container-post">
+										      <img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed">
+										      <div class="caption">
+											        <h3>
+											        	 el niño tuvo un grave accidente
+											        </h3>
+											        <p class="font-size">
+											         	el niño tuvo un grave accidente el niño tuvo un grave accidente el niño
+											         	el niño tuvo un grave accidente ...
+											        	
+											        </p>
+											        <p class="down">
+											          <a href="" class="btn btn-primary" role="button">Read more</a>
+											          <span class="glyphicon glyphicon-chevron-right"></span></a>
+											        </p>
+										      </div>
+									    </div>
+									    <div class="container-edit">
+									          <a href="" class="btn btn-primary margin-space color-green" role="button">Edit</a>
+									          <span class="glyphicon glyphicon-chevron-right"></span></a>
+									          <a href="" class="btn btn-primary color-red" role="button">Delete</a>
+									          <span class="glyphicon glyphicon-chevron-right"></span></a>
+									     </div>
+
+									</div>
+
+									
+									
+							</div>
+
+							<!-- Account Settings -->
+					<div id="settings" class=" settings" >
+						<form class="form-horizontal">
 							<fieldset>
 
 							<!-- Form Name -->
@@ -121,71 +221,63 @@
 
 							<!-- Email input-->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="textinput">Change Email ID</label>  
-							  <div class="col-md-4">
-							  <input id="textinput" name="textinput" type="text" placeholder="your current email " class="form-control input-md">
-							  <span class="help-block">your new email ID</span>  
+							  <label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Change Email ID</label>  
+							  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+							  <input id="textinput" name="textinput" type="text" placeholder="your current email " class="form-control input-md height">
+							  <span class="help-block color">your new email ID</span>  
 							  </div>
 							</div>
 
 							<!-- Password input-->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="passwordinput">New password</label>
-							  <div class="col-md-4">
+							  <label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="passwordinput">New password</label>
+							  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 							    <input id="passwordinput" name="passwordinput" type="password" placeholder="new password" class="form-control input-md">
-							    
 							  </div>
 							</div>
-
 							<!-- Password input-->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="passwordinput">Repeat password</label>
-							  <div class="col-md-4">
+							  <label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="passwordinput">Repeat password</label>
+							  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 							    <input id="passwordinput" name="passwordinput" type="password" placeholder="repeat password" class="form-control input-md">
-							    
 							  </div>
 							</div>
-
 							<!-- Birth input-->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="passwordinput">Birth</label>
-							  <div class="col-md-4">
+							  <label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="passwordinput">Birth</label>
+							  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 							    <input id="passwordinput" name="passwordinput" type="password" placeholder="your birth" class="form-control input-md">
 							    
 							  </div>
 							</div>
-
 							<!-- Select Basic -->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="selectbasic">Gender</label>
-							  <div class="col-md-4">
+							  <label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="selectbasic">Gender</label>
+							  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 							    <select id="selectbasic" name="selectbasic" class="form-control">
 							      <option value="1">Female</option>
 							      <option value="2">Male</option>
 							    </select>
 							  </div>
 							</div>
-
 							<!-- Address Input -->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="textinput">Address</label>  
-							  <div class="col-md-4">
+							  <label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Address</label>  
+							  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 							  <input id="textinput" name="textinput" type="text" placeholder="your current address" class="form-control input-md">  
 							  </div>
 							</div>
-
 							<!-- Cel Input -->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="textinput">Celphone</label>  
-							  <div class="col-md-4">
+							  <label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Celphone</label>  
+							  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 							  <input id="textinput" name="textinput" type="text" placeholder="your current celphone" class="form-control input-md">
 							  </div>
 							</div>
-
 							<!-- Select Multiple -->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="selectmultiple">What is your job ?</label>
-							  <div class="col-md-4">
+							  <label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="selectmultiple">What is your job ?</label>
+							  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 							    <select id="selectmultiple" name="selectmultiple" class="form-control" multiple="multiple">
 							      <option value="1">Student</option>
 							      <option value="2">Office employee</option>
@@ -193,28 +285,31 @@
 							    </select>
 							  </div>
 							</div>
-
 							<!-- Save Button -->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="singlebutton">Save your data</label>
-							  <div class="col-md-4">
+							  <label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="singlebutton">Save your data</label>
+							  <div class="col-md-4 margin-right">
 							    <button id="singlebutton" name="singlebutton" class="btn btn-success">Save</button>
 							  </div>
 							</div>
-
 							<!-- Delete Button -->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="singlebutton">Remove my account</label>
+							  <label class="col-lg-4 col-md-4 col-sm-12 col-xs-12 control-label" for="singlebutton">Remove my account</label>
 							  <div class="col-md-4">
 							    <button id="singlebutton" name="singlebutton" class="btn btn-danger">remove</button>
 							  </div>
 							</div>
 
 							</fieldset>
-							</form>
+						</form>
 
-						</div>
-					<!-- End Account Settings -->
+					</div>
+
+				<!-- End Account Settings -->
+					</div>
+				</div>	
+						<!-- End Overview -->
+					
 
 					</div>
 				</div>

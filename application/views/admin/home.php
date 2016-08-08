@@ -4,7 +4,7 @@
 			<div class="card card-inverse card-primary text-xs-center">
 			  <div class="card-block">
 			    <blockquote class="card-blockquote">
-			    <img src="" class="img-fluid  url-user">
+			    <img src="<?php echo base_url(); ?>assets/img/user.jpg" alt="Loading image failed" class="img-fluid  url-user">
 			    <div class="color">
 			      <p>Users</p>
 			    </div>
@@ -18,7 +18,7 @@
 			<div class="card card-inverse card-primary text-xs-center">
 			  <div class="card-block">
 			    <blockquote class="card-blockquote">
-			      <img src="" class="img-fluid url-profile">
+			      <img src="<?php echo base_url(); ?>assets/img/profile.jpg" alt="Loading image failed" class="img-fluid url-profile">
 			      <div class="color">
 			     	 <p>My profile</p>
 			      </div>
