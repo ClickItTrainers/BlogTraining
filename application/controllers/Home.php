@@ -56,7 +56,7 @@ class Home extends CI_Controller {
 		$data['posts_arr'] = $this->Posts_model->posts_list_user($id_user);
 		$data['title'] = " $user profile";
 		$this->load->view('templates/header', $data);
-		$this->load->view('templates/profile', $data);
+		$this->load->view('profile', $data);
     	$this->load->view('templates/footer', $data);
 	}
 

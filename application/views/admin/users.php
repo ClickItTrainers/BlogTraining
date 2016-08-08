@@ -1,6 +1,7 @@
 <?php $this->load->view('templates/header'); ?>
 <title><?php echo $title ?></title>
 <link href="<?php echo base_url(); ?>assets/css/usersA.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <div class="container">
          <div class="row">
@@ -27,22 +28,23 @@
                     <th>Email</th>
                     <th>Name</th>
                     <th>Gender</th>
-                    <th>Picture</th>
+                    <th></th>
+
                   </tr>
                 </thead>
 
                 <tbody>
                   <?php foreach ($users as $item): ?>
                   <tr>
+
                     <td scope="row"><?php echo $item->id_user; ?></td>
                     <td><?php echo $item->username; ?></td>
                     <td><?php echo $item->email; ?></td>
                     <td>Cesar</td>
                     <td>Hombre</td>
-                    <td>:D</td>
+                    <td><a href="#" class=""><i class="fa fa-trash font-i"></i></a></td>
                   </tr>
                 <?php endforeach; ?>
-
 
                 </tbody>
               </table>
