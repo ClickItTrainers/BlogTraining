@@ -36,6 +36,14 @@ class Users_model extends CI_Model{
 			return $email;
 		}
 
+		//Gets all the users for the admins
+		public function get_users()
+		{
+			$this->db->order_by('id_user', 'desc');
+			$query = $this->db->get('users');
+			return $query->result();
+		}
+
 		// Gets the user type of the user that is logged in
 		public function get_userType(){
 			$user = $this->session->userdata('username');

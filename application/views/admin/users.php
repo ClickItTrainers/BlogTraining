@@ -1,3 +1,4 @@
+<?php $this->load->view('templates/header'); ?>
 <title><?php echo $title ?></title>
 <link href="<?php echo base_url(); ?>assets/css/usersA.css" rel="stylesheet">
 
@@ -29,58 +30,25 @@
                     <th>Picture</th>
                   </tr>
                 </thead>
+
                 <tbody>
+                  <?php foreach ($users as $item): ?>
                   <tr>
-                    <td scope="row">1</td>
-                    <td>Cesar valdez</td>
-                    <td>cesar@gmail.com</td>
+                    <td scope="row"><?php echo $item->id_user; ?></td>
+                    <td><?php echo $item->username; ?></td>
+                    <td><?php echo $item->email; ?></td>
                     <td>Cesar</td>
                     <td>Hombre</td>
                     <td>:D</td>
                   </tr>
-                    <th scope="row">2</th>
-                    <td>Cesar valdez</td>
-                    <td>cesar@gmail.com</td>
-                    <td>Cesar</td>
-                    <td>Hombre</td>
-                    <td>:D</td>
-                  </tr>
-                  <tr>
-                    <td scope="row">1</td>
-                    <td>Cesar valdez</td>
-                    <td>cesar@gmail.com</td>
-                    <td>Cesar</td>
-                    <td>Hombre</td>
-                    <td>:D</td>
-                  </tr>
-                    <th scope="row">2</th>
-                    <td>Cesar valdez</td>
-                    <td>cesar@gmail.com</td>
-                    <td>Cesar</td>
-                    <td>Hombre</td>
-                    <td>:D</td>
-                  </tr>
-                  <tr>
-                    <td scope="row">1</td>
-                    <td>Cesar valdez</td>
-                    <td>cesar@gmail.com</td>
-                    <td>Cesar</td>
-                    <td>Hombre</td>
-                    <td>:D</td>
-                  </tr>
-                    <th scope="row">2</th>
-                    <td>Cesar valdez</td>
-                    <td>cesar@gmail.com</td>
-                    <td>Cesar</td>
-                    <td>Hombre</td>
-                    <td>:D</td>
-                  </tr>
-               
-               
+                <?php endforeach; ?>
+
+
                 </tbody>
               </table>
-            
+
           </div>
         </div>
 
 </div>
+<?php $this->load->view('templates/footer'); ?>
