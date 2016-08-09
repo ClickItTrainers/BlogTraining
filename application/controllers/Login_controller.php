@@ -111,12 +111,12 @@ class Login_controller extends CI_Controller
             'email' => $login->email);
             $this->session->set_userdata($dat);
 
-          if ($this->Users_model->get_userType() == 1) {
+          /*if ($this->Users_model->get_userType() == 1) {
               $url = base_url() . 'Home/admin_index';
           }else{
               $url = base_url() . 'Home';
-          }
-
+          }*/
+          $url = base_url() . 'Home';
           echo "<script> alert('Welcome');
           window.location.href='$url';
           </script>";

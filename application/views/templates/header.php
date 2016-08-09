@@ -28,24 +28,20 @@
                                <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item ">
-                              <!--/ / TODO: Make an about page -->
-                              <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item ">
                               <a class="nav-link" href="<?php echo base_url();?>contact">Contact <span class="sr-only">(current)</span></a>
                             </li>
                            <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
                             <li class="nav-item ">
-                              <a class="nav-link" href="<?php echo base_url();?>Home/profile" >My Profile <span class="sr-only">(current)</span></a>
+                              <a class="nav-link" href="<?php echo base_url();?>Profile_controller" >My Profile <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item ">
                               <a class="nav-link" href="<?php echo base_url();?>new" >Add Post<span class="sr-only">(current)</span></a>
                             </li>
                             <?php if ($this->session->userdata('username') == 'Alejandro') { ?>
                             <li class="nav-item ">
-                              <a class="nav-link" href="<?php echo base_url();?>Home/admin_index" >Panel<span class="sr-only">(current)</span></a>
+                              <a class="nav-link" href="<?php echo base_url();?>Home/admin_index">Panel<span class="sr-only">(current)</span></a>
                             </li>
-                            <?php } 
+                            <?php }
                             }?>
                           </ul>
                           <!-- Collect the nav links, forms, and other content for toggling -->

@@ -54,6 +54,12 @@
 			return $this->db->get()->result();
 		}
 
+		public function delete_post($id_post)
+		{
+			$this->db->where('id_post', $id_post);
+			return $this->db->delete('posts');
+		}
+
 		// Sends the comments of one post
 		public function getComments($id_post){
         	$this->db->where('id_post', $id_post);

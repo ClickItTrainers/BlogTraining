@@ -9,7 +9,7 @@ class Home extends CI_Controller {
 	}
 
 	// It loads the Home page view
-	public function index(){	
+	public function index(){
 		$data['title'] = "Three Musketeers Blog";
 		$data['posts_arr'] = $this->Posts_model->posts_list();
 		$data['users_arr'] = $this->Posts_model->users_list();
@@ -42,18 +42,6 @@ class Home extends CI_Controller {
 		$data['page'] = 'details';
 		$this->load->view('templates/template', $data);
 	}
-
-	// It loads the profile view
-	public function profile() {
-		$id_user = $this->Users_model->get_userID();
-		$user = $this->session->userdata('username');
-		$data['posts_arr'] = $this->Posts_model->posts_list_user($id_user);
-		$data['title'] = " $user profile";
-		$this->load->view('templates/header', $data);
-		$this->load->view('profile', $data);
-    	$this->load->view('templates/footer', $data);
-	}
-
 
 	// It loads the newpost view
 	public function new_post() {

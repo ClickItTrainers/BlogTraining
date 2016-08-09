@@ -59,7 +59,7 @@ class Users_model extends CI_Model{
 		}
 
 		// Gets the user type of the user that is logged in
-		public function get_userType(){
+		/*public function get_userType(){
 			$user = $this->session->userdata('username');
 			$this->db->select('type');
 			$this->db->from('users');
@@ -71,7 +71,7 @@ class Users_model extends CI_Model{
 				   $type = $row->type;
 			}
 			return $type;
-		}
+		}*/
 
 		// Gets a list of all categories
 		public function get_category(){
