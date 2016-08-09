@@ -14,7 +14,7 @@
       <div class="modal-body">
 
         <!-- content goes here -->
-        <form method="post" action="<?php base_url()?>/Admin_controller/update_post">
+        <form method="post" action="<?php base_url()?>Admin_controller/update_post">
           <div class="form-group">
             <label for="title">Title:</label>
             <input type="text" class="form-control" value="<?php echo $details->title ?>" name="title">
@@ -71,7 +71,7 @@
 
       <!-- Post Content -->
       <p class="lead"> <?php echo $details->description; ?> </p>
-      <p> <?php echo $details->content; ?> </p> 
+      <p> <?php echo $details->content; ?> </p>
 
       <hr>
 
@@ -82,7 +82,7 @@
         <!-- Comments Form -->
         <div class="well">
           <h4>Leave a Comment:</h4>
-          <form role="form" action="<?php echo base_url(); ?>index.php/Home/comment" method="post">
+          <form role="form" action="<?php echo base_url(); ?>Mailgun_controller/comment" method="post">
             <div class="form-group">
               <textarea maxlength="255" name="comment" class="form-control" rows="3" style="resize: none;"></textarea>
             </div>

@@ -35,13 +35,15 @@
                 <tbody>
                   <?php foreach ($users as $item): ?>
                   <tr>
-                  
+                    <form action="<?php echo base_url()?>Admin_controller/delete_user" method="post">
                     <td scope="row"><?php echo $item->id_user; ?></td>
+                    <input type="hidden" name="id" value="<?php echo $item->id_user;?>">
                     <td><?php echo $item->username; ?></td>
                     <td><?php echo $item->email; ?></td>
                     <td></td>
                     <td></td>
-                    <td><a href="#" class=""><i class="fa fa-trash font-i"></i></a></td>
+                    <td><button type="submit"><i class="fa fa-trash font-i"></i></a></td>
+                    </form>
                   </tr>
                 <?php endforeach; ?>
 
@@ -52,4 +54,3 @@
         </div>
 
 </div>
-

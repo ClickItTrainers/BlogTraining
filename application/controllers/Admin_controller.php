@@ -19,6 +19,20 @@ class Admin_controller extends CI_Controller
 
   }
 
+  public function delete_user()
+  {
+    $id_user = $this->input->post('id');
+    $res = $this->Users_model->delete_user($id_user);
+
+    if($res)
+    {
+      $url = base_url() . 'Admin_controller/show_users';
+      echo "<script> alert('¡User deleted!');
+      window.location.href='$url';
+      </script>";
+    }
+  }
+
   public function update_post()
   {
     $id_post = $this->input->post('id_post');

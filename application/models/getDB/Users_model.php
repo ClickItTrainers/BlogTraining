@@ -21,6 +21,13 @@ class Users_model extends CI_Model{
 			return $id_user;
 		}
 
+		//Delete the user that the admin selected
+		public function delete_user($id_user)
+		{
+			$this->db->where('id_user', $id_user);
+			return $this->db->delete('users');
+		}
+
 		// Gets the email of the owner of the post
 		public function get_email($id_post){
 			$this->db->select('email');
