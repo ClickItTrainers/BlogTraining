@@ -8,15 +8,13 @@
 	<link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
 
 	<link href="<?php echo base_url()?>assets/css/login.css" rel="stylesheet">
+	
+	<!--Pulling Awesome Font -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 	<body class="img-fluid">
 
-			<!--Pulling Awesome Font -->
-			<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-
-	<!--Pulling Awesome Font -->
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-8 col-sm-12 col-xs-12">

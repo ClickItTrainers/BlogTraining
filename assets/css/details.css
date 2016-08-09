@@ -1,0 +1,50 @@
+/*home comments*/
+.display-inline{display: inline-block;}
+
+.display-inline button{padding: 6px 9px;}
+
+.color-date{color:gray;}
+
+
+/*update post*/
+.text-center{text-align: center;}
+
+div .modal-header{padding-bottom: 5px}
+
+button .btn{padding: 5px;}
+
+div .modal-body{padding: 25px 35px;}
+
+div .modal-body button {padding: 5px 9px;}
+
+div .form-group .form-control{}
+
+
+/*comments*/
+.well{min-height: 20px; padding: 19px; margin-bottom: 20px; border-radius: 4px;}
+
+
+
+
+/*media buttons edit and delete*/
+@media screen and (max-width: 390px)
+{
+	div .display-inline button{font-size:12px; padding: 4px 4px;/*position: absolute; bottom:470px;*/ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

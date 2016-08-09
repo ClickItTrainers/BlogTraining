@@ -1,4 +1,6 @@
-<div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-warning center-block">Edit Post</button></div>
+  <title><?php echo $title ?></title>
+  <link href="<?php echo base_url(); ?>assets/css/details.css" rel="stylesheet">
+
 
 
 <!-- line modal -->
@@ -7,22 +9,22 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-        <h3 class="modal-title" id="lineModalLabel">Update Post</h3>
+        <h3 class="modal-title text-center" id="lineModalLabel">Update Post</h3>
       </div>
       <div class="modal-body">
 
         <!-- content goes here -->
         <form method="post" action="<?php base_url()?>/Admin_controller/update_post">
           <div class="form-group">
-            <label for="title">Title</label>
+            <label for="title">Title:</label>
             <input type="text" class="form-control" value="<?php echo $details->title ?>" name="title">
           </div>
           <div class="form-group">
-            <label for="description">Description</label>
+            <label for="description">Description:</label>
             <input type="texts" class="form-control" value="<?php echo $details->description ?>" name="description">
           </div>
           <div class="form-group">
-            <label for="content">Content</label>
+            <label for="content">Content:</label>
             <textarea class="form-control" rows="8" name="content">
               <?php echo $details->content ?>
             </textarea>
@@ -36,6 +38,7 @@
   </div>
 </div>
 
+
 <div class="container">
   <div class="row">
     <div class="col-lg-8">
@@ -47,14 +50,17 @@
       <h1> <?php echo $details->title; ?> </h1>
 
       <!-- Author -->
-      <p class="lead">
+      <p class="lead display-inline">
         by <a href="#"><?php echo $username ?></a>
+
+        <div class="center display-inline"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-warning"><i class="fa fa-pencil-square-o"> Edit Post</button></i></div>
+        <div class="center display-inline"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-danger "><i class="fa fa-trash"> Delete Post</button></i></div>
       </p>
 
       <hr>
 
       <!-- Date/Time -->
-      <p><span class="glyphicon glyphicon-time"></span> <?php echo $details->date; ?> </p>
+      <p class="color-date"><i class="fa fa-clock-o"></i> <?php echo $details->date; ?> </p>
 
       <hr>
 
@@ -65,7 +71,7 @@
 
       <!-- Post Content -->
       <p class="lead"> <?php echo $details->description; ?> </p>
-      <p> <?php echo $details->content; ?> </p>
+      <p> <?php echo $details->content; ?> </p> 
 
       <hr>
 
@@ -74,7 +80,7 @@
       <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
 
         <!-- Comments Form -->
-        <div class="well" style="background-color: #B0B0B0;">
+        <div class="well">
           <h4>Leave a Comment:</h4>
           <form role="form" action="<?php echo base_url(); ?>index.php/Home/comment" method="post">
             <div class="form-group">

@@ -9,7 +9,7 @@
                         <button class="btn btn-secondary" type="button">Buscar!</button>
                       </span>
                     </div>
-                    <!-- /.input-group -->
+                    <!-- /.input-group --> 
             </div>
     </div>
     <div class="row">
@@ -45,10 +45,10 @@
 
                                 </a>
                         </p>
-                        <p class="display-inline size-small"><span class="glyphicon glyphicon-time "></span> <?php echo $item->date ?></p>
+                        <p class="display-inline size-small"><i class="fa fa-clock-o"></i> <?php echo $item->date ?></p>
                         <img class="img-fluid down" src="http://placehold.it/900x300" alt="">
                         <p><?php echo $item->description ?></p>
-                        <a class="btn btn-primary" href="index.php/<?php echo $url ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <a class="btn btn-primary" href="index.php/<?php echo $url ?>">Read More <i class="fa fa-angle-right "></i></a>
                         <hr>
         	<?php
         		endforeach;
