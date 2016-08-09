@@ -3,7 +3,7 @@
 	class Posts_model extends CI_Model{
 
 		public function __construct(){
-			
+
 			parent::__construct();
 		}
 
@@ -20,6 +20,18 @@
 			$query = $this->db->get('users');
 			return $query->result();
 		}
+
+		//Update the information of the post
+		public function update_post($id_post, $title, $description, $content)
+	  {
+	    $data = array(
+	      'title' => $title,
+	      'description' => $description,
+	      'content' => $content
+	    );
+	    $this->db->where('id_post', $id_post);
+	    return $this->db->update('posts', $data);
+	  }
 
 		// Sends the details of one post by ID
 		public function posts_details($id_post){

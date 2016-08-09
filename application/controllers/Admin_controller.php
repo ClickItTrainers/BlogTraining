@@ -7,6 +7,7 @@ class Admin_controller extends CI_Controller
   {
     parent::__construct();
     $this->load->model('getDB/Users_model');
+    $this->load->model('Posts_model');
   }
 
   public function show_users()
@@ -15,6 +16,22 @@ class Admin_controller extends CI_Controller
     $data['title'] = "Three Musketeers Blog";
     $data['page'] = 'admin/users';
     $this->load->view('admin/templates/template', $data);
-  
+
+  }
+
+  public function update_post()
+  {
+    $id_post = $this->input->post('id_post');
+    $title = $this->input->post('title');
+    $desc = $this->input->post('description');
+    $cont = $this->input->post('content');
+
+    $update = $this->Posts_model->update_post($id_post, $title, $desc, $cont);
+
+    if($update){
+      $url = 'post/' . $id_post . '/';
+      $url .= url_title(convert_accented_characters($title), '-', TRUE);
+      redirect($url);
+    }
   }
 }

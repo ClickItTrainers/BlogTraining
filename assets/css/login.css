@@ -22,7 +22,7 @@ div .form-login h4 {
 
 div .form-login p
 {
-    padding-top:20px; 
+    padding-top:20px;
 }
 
 .col-center{
@@ -48,7 +48,7 @@ div .form-login p
 
     input[type="text"],
     input[type="password"]
-    {       
+    {
         height: 35px;
     }
 
@@ -165,7 +165,7 @@ div .form-login p
 /*media screen*/
 @media screen and (max-width: 550px)
 {
-    div .form-login h4 
+    div .form-login h4
     {
         font-size: 20px;
     }
@@ -173,7 +173,7 @@ div .form-login p
     input[type="text"],
     input[type="email"],
     input[type="password"]
-    {       
+    {
         height: 30px;
     }
 
@@ -184,9 +184,3 @@ div .form-login p
     }
 
 }
-
-
-
-
-
-
