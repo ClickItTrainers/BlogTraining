@@ -1,6 +1,6 @@
 <?php
 {
-	if($this->session->userdata('user')===null)
+	if($this->session->userdata('is_logued_in')===null)
 	{
 		redirect(base_url());
 	}
