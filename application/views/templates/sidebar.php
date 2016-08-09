@@ -20,8 +20,6 @@
             <!-- /.row -->
         </div>
         <!-- Side Widget Well -->
-
-
         <div class="card bg-faded card-block">
              <h4>Side Widget Well</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis
