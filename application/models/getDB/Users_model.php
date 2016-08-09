@@ -50,6 +50,7 @@ class Users_model extends CI_Model{
 			return $query->result();
 		}
 
+	
 		//
 		public function get_username($id_post){
 			$this->db->select('username');

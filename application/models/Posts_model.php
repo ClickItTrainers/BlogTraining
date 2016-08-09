@@ -60,11 +60,14 @@
 			return $this->db->delete('posts');
 		}
 
-		// Sends the comments of one post
-		public function getComments($id_post){
-        	$this->db->where('id_post', $id_post);
-        	$this->db->order_by('id_comment', 'desc');
-        	return $this->db->get('comments')->result();
+		//test
+		public function get_comments($id_post)
+		{
+			$this->db->select('u.username,c.*');
+			$this->db->from('users u, comments c');
+			$this->db->where('u.id_user=c.id_user');
+			$this->db->where('c.id_post', $id_post);
+			$this->db->order_by('id_comment', 'desc');
+			return $this->db->get()->result();
 		}
-
 	}

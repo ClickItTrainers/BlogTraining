@@ -1,7 +1,7 @@
 <?php
 
 	class Comment_model extends CI_Model{
-		
+
 		public function __construct(){
 			parent::__construct();
 		}
@@ -15,6 +15,6 @@
 				'comment' => $comment
 			);
 			$query = $this->db->insert('comments', $data);
-			return $query->result();
+			return $query;
 		}
 	}
