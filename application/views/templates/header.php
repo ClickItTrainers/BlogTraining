@@ -27,21 +27,24 @@
                         <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
                           <ul class="nav navbar-nav">
                             <li class="nav-item ">
-                               <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
+                               <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only"></span></a>
                             </li>
                             <li class="nav-item ">
-                              <a class="nav-link" href="<?php echo base_url();?>contact"><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact <span class="sr-only">(current)</span></a>
+                              <a class="nav-link" href="<?php echo base_url();?>contact"><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact <span class="sr-only"></span></a>
                             </li>
                            <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
                             <li class="nav-item ">
                               <a class="nav-link" href="<?php echo base_url();?>Profile_controller" ><i class="fa fa-user" aria-hidden="true"></i> <?php echo $this->session->userdata('username');?> <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item ">
-                              <a class="nav-link" href="<?php echo base_url();?>new" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Add Post<span class="sr-only">(current)</span></a>
+                              <a class="nav-link" href="<?php echo base_url();?>new" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Add Post<span class="sr-only"></span></a>
                             </li>
-                            <?php if ($this->session->userdata('username') == 'Alejandro') { ?>
+                            <?php if ($this->session->userdata('username') == 'Alejandro' ||
+                                      $this->session->userdata('username') == 'mena' ||
+                                      $this->session->userdata('username') == 'Chavez_97' ||
+                                      $this->session->userdata('username') == 'cesar' ) { ?>
                             <li class="nav-item ">
-                              <a class="nav-link" href="<?php echo base_url();?>Home/admin_index">Panel<span class="sr-only">(current)</span></a>
+                              <a class="nav-link" href="<?php echo base_url();?>Home/admin_index">Panel<span class="sr-only"></span></a>
                             </li>
                             <?php }
                             }?>
