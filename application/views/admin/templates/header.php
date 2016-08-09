@@ -10,6 +10,8 @@
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Home css -->
     <link href="<?php echo base_url(); ?>assets/css/homeA.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -31,7 +33,7 @@
                   <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
                     <ul class="nav navbar-nav">
                       <li class="nav-item ">
-                         <a class=" nav bar-brand nav-link" href="<?php base_url()?>">Home <span class="sr-only">(current)</span></a>
+                         <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only"></span></a>
                       </li>
 
                     </ul>
