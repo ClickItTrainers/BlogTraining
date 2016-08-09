@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 
-
+$route['update'] = 'Admin_controller/update_post';
 $route['login'] = 'Login_controller/index';
 $route['profile'] = 'Profile_controller';
 $route['admin/users'] = 'Admin_controller/show_users';

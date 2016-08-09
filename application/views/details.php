@@ -1,8 +1,5 @@
   <title><?php echo $title ?></title>
   <link href="<?php echo base_url(); ?>assets/css/details.css" rel="stylesheet">
-
-
-
 <!-- line modal -->
 <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -14,7 +11,7 @@
       <div class="modal-body">
 
         <!-- content goes here -->
-        <form method="post" action="<?php base_url()?>Admin_controller/update_post">
+        <form method="post" action="<?php echo base_url();?>update">
           <div class="form-group">
             <label for="title">Title:</label>
             <input type="text" class="form-control" value="<?php echo $details->title ?>" name="title">
@@ -27,7 +24,7 @@
             <label for="content">Content:</label>
             <textarea class="form-control" rows="8" name="content"><?php echo $details->content ?></textarea>
           </div>
-          <?php echo form_hidden('id_post', $this->uri->segment(2)) ?>
+          <?php echo form_hidden('id_post', $details->id_post); ?>
           <button type="submit" class="btn btn-success">Submit</button>
           <button type="submit" class="btn btn-danger">Cancel</button>
         </form>
