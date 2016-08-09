@@ -1,3 +1,10 @@
+<?php
+{
+	if($this->session->userdata('is_logued_in')===null)
+	{
+		redirect(base_url());
+	}
+}?>
 <title><?php echo $title ?></title>
 <link href="<?php echo base_url(); ?>assets/css/new-post.css" rel="stylesheet">
 
@@ -18,7 +25,7 @@
 <div class="container">
     <div class="row">
          <div class="col-lg-11 col-md-9 col-sm-12 col-xs-12 border margin col-center">
-            <center> 
+            <center>
                 <h2><?php echo $title; ?></h2>
                 <?php echo validation_errors();?>
                 <?php echo form_open(base_url().'Home/new_post');?>
@@ -35,10 +42,10 @@
                          <input type="submit" class="btn btn-success" name="submit" value="Send"/>
                      </div>
                 </div>
-               
+
                 </form>
             </center>
-        
+
          </div>
     </div>
 </div>

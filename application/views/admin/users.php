@@ -1,3 +1,10 @@
+<?php
+{
+	if($this->session->userdata('is_logued_in')===null)
+	{
+		redirect(base_url());
+	}
+}?>
 <title><?php echo $title ?></title>
 <link href="<?php echo base_url(); ?>assets/css/usersA.css" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">

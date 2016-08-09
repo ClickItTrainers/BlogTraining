@@ -31,7 +31,7 @@
                   <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
                     <ul class="nav navbar-nav">
                       <li class="nav-item ">
-                         <a class=" nav bar-brand nav-link" href="<?php base_url()?>index">Home <span class="sr-only">(current)</span></a>
+                         <a class=" nav bar-brand nav-link" href="<?php base_url()?>">Home <span class="sr-only">(current)</span></a>
                       </li>
 
                     </ul>
@@ -40,7 +40,7 @@
                     <div class="container-login">
                       <ul class="nav navbar-nav navbar-right text-xs-right">
                           <li >
-                            <a class="nav-link" href="<?php echo base_url(); ?>Login_controller/logout">Logout</a>
+                            <a class="nav-link" href="<?php echo base_url();?>logout">Logout</a>
                           </li>
                       </ul>
                     </div>

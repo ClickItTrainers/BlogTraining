@@ -1,3 +1,11 @@
+<?php
+{
+	if($this->session->userdata('is_logued_in')===null)
+	{
+		redirect(base_url());
+	}
+}?>
+
 <div class="container">
 	<div class="row padding padding-top">
 		<div class="col-md-6">
@@ -11,7 +19,7 @@
 			    </blockquote>
 			  </div>
 			</div>
-			
+
 		</div>
 
 		<div class="col-md-6">
@@ -26,7 +34,5 @@
 			    </blockquote>
 			  </div>
 			</div>
-			
+
 		</div>
-		
-			
