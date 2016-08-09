@@ -9,7 +9,7 @@
                         <button class="btn btn-secondary" type="button">Buscar!</button>
                       </span>
                     </div>
-                    <!-- /.input-group --> 
+                    <!-- /.input-group -->
             </div>
     </div>
     <div class="row">
@@ -17,8 +17,7 @@
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 right">
         	<title> <?php echo $title ?> </title>
         	<h1 class="page-header tittle down">
-                Welcome to my Blog
-                <small class="size "><?php echo $this->session->userdata('username');?></small>
+                Welcome to the Blog
           </h1>
         	<?php
         		foreach ($posts_arr as $item):

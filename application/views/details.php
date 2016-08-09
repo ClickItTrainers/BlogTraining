@@ -25,9 +25,7 @@
           </div>
           <div class="form-group">
             <label for="content">Content:</label>
-            <textarea class="form-control" rows="8" name="content">
-              <?php echo $details->content ?>
-            </textarea>
+            <textarea class="form-control" rows="8" name="content"><?php echo $details->content ?></textarea>
           </div>
           <?php echo form_hidden('id_post', $this->uri->segment(2)) ?>
           <button type="submit" class="btn btn-success">Submit</button>
