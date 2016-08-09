@@ -12,6 +12,7 @@ nav button{color:white;}
 
 nav.navbar {background-color: #293F54;}
 
+
 /*home*/
 .col-center{
     float: none;
@@ -30,6 +31,13 @@ nav.navbar {background-color: #293F54;}
 
 .display-inline{display: inline-block; margin-right:15px; }
 
+
+/*sidebar*/
+.display{display: inline-block;}
+
+ul .list-unstyled li{display: inline-block;}
+
+.display-font{display: flex; flex-direction: column; display: inline-block;}
 
 /*footer*/
 footer p{text-align: center;}

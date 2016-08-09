@@ -36,7 +36,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-9">
       <title> <?php echo $title; ?> </title>
 
       <!-- Blog Post -->
