@@ -12,6 +12,7 @@
         'whoami',
         'git pull',
         'git status',
+	'bash /var/www/BlogTraining/html/lb/sh/php/4/ad/cmdev.sh',
         'git submodule sync',
         'git submodule update',
         'git submodule status',
