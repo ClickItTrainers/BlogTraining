@@ -1,3 +1,10 @@
+<?php
+{
+	if($this->session->userdata('user')===null)
+	{
+		redirect(base_url());
+	}
+}?>
 <title><?php echo $title ?></title>
 <link href="<?php echo base_url(); ?>assets/css/usersA.css" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -35,7 +42,7 @@
                 <tbody>
                   <?php foreach ($users as $item): ?>
                   <tr>
-                  
+
                     <td scope="row"><?php echo $item->id_user; ?></td>
                     <td><?php echo $item->username; ?></td>
                     <td><?php echo $item->email; ?></td>
@@ -52,4 +59,3 @@
         </div>
 
 </div>
-
