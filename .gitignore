@@ -31,4 +31,3 @@ assets3/*
 
 #-------Database config
 application/config/database.php
-application/config/config.php
