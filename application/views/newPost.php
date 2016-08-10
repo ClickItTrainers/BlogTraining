@@ -41,7 +41,7 @@
 												foreach ($category_arr as $item)
 												{
 													$count++?>
-													<label class="btn btn-success">
+													<label class="btn btn-outline-success">
 														<input type="radio" name="category" value="<?php echo $count;?>"><?php echo $item->name;?></input>
 													</label><br>
 												<?php ; } ?>

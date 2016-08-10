@@ -14,7 +14,7 @@
 			    <blockquote class="card-blockquote">
 			    <img src="<?php echo base_url(); ?>assets/img/user.jpg" alt="Loading image failed" class="img-fluid  url-user">
 			    <div class="color">
-			      <a href="<?php echo base_url() ?>Admin_controller/show_users"> <p>Users</p> </a>
+			      <a href="<?php echo base_url() ?>admin/users"> <p>Users</p> </a>
 			    </div>
 			    </blockquote>
 			  </div>
