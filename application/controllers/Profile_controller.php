@@ -32,6 +32,7 @@ class Profile_controller extends CI_Controller
 
     if ($delete)
     {
+      
       $url = base_url() . 'Profile_controller';
       echo "<script> alert('¡Post Deleted!');
       window.location.href='$url';

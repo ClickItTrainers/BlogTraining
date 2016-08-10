@@ -27,7 +27,6 @@
           </div>
           <?php echo form_hidden('id_post', $details->id_post); ?>
           <button type="submit" class="btn btn-success">Submit</button>
-          <button type="submit" class="btn btn-danger">Cancel</button>
         </form>
       </div>
     </div>
@@ -55,11 +54,14 @@
               <i class="fa fa-pencil-square-o"> Edit Post</i>
               </button>
           </div>
+          <?php echo form_open(base_url().'Profile_controller/delete_post') ?>
+            <?php echo form_hidden('id_post', $details->id_post); ?>
           <div class="center display-inline">
             <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-danger ">
               <i class="fa fa-trash"> Delete Post</i>
           </button>
           </div>
+        <?php echo form_close();?>
           <?php } ?>
         </p>
       </p>
@@ -76,7 +78,7 @@
 
       <!-- Post Content -->
       <p class="lead"> <?php echo $details->description; ?> </p>
-      <p> <?php echo $details->content; ?> </p> 
+      <p> <?php echo $details->content; ?> </p>
 
       <hr>
 
