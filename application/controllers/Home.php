@@ -5,6 +5,7 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Posts_model');
+		$this->load->model('Comment_model');
 		$this->load->model('getDB/Users_model');
 		$this->load->helper('my_date');
 	}
@@ -34,6 +35,8 @@ class Home extends CI_Controller {
 		$datestring = 'l, F d, o - h:i A';
 		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
 		$data['date'] = timestamp_to_date($time, $datestring);
+		$times = mysqldatetime_to_timestamp($this->Comment_model->get_date());
+		$data['dates'] = timestamp_to_date($times, $datestring);
 		$this->load->view('templates/template', $data);
 	}
 
