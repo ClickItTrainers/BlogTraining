@@ -9,7 +9,6 @@
         <h3 class="modal-title text-center" id="lineModalLabel">Update Post</h3>
       </div>
       <div class="modal-body">
-
         <!-- content goes here -->
         <form method="post" action="<?php echo base_url();?>update">
           <div class="form-group">
@@ -72,11 +71,11 @@
       <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid" src="<?php base_url() ?>assets/img/hitman.jpg" alt="">
+        <img class="img-fluid" src="<?php base_url(); ?>assets/img/hitman.jpg" alt="">
 
       <!-- Post Content -->
       <p class="lead"> <?php echo $details->description; ?> </p>
-      <p> <?php echo $details->content; ?> </p> 
+      <p> <?php echo $details->content; ?> </p>
 
       <hr>
 
