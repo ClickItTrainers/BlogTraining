@@ -24,12 +24,14 @@
 					</div>
 					<!-- END SIDEBAR USER TITLE -->
 					<!-- SIDEBAR BUTTONS -->
+					<?php if ($this->session->userdata('admin')) {?>
 					<div class="profile-userbuttons">
 						<!-- <a href="<?php echo base_url(); ?>">
 						<button type="button" class="btn btn-success btn-sm">Home</button> -->
 						<a href="<?php echo base_url(); ?>index.php/Security/logout">
 							<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</button></i></a>
 						</div>
+						<?php } ?>
 						<!-- END SIDEBAR BUTTONS -->
 						<!-- SIDEBAR MENU -->
 						<div class="profile-usermenu">

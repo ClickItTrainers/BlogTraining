@@ -6,6 +6,7 @@
                 <!-- /.col-xl-6 -->
                     <div class="col-xl-2 display">
                         <ul class="list-unstyled">
+                
                             <li>
                                  <i class="fa fa-space-shuttle"></i>
                             </li>
@@ -48,14 +49,8 @@
                              <li>
                                  <i class="fa fa-google "></i>
                             </li>
-                             
-                           
                         </ul>
-
-                        
-                    </div>
-
-
+                  </div>
                     <div class="col-xl-6 display">
                             <ul class="list-unstyled">
                                     <?php foreach ($category_arr as $item){ ?>

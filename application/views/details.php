@@ -1,5 +1,5 @@
-  <title><?php echo $title ?></title>
-  <link href="<?php echo base_url(); ?>assets/css/details.css" rel="stylesheet">
+<title><?php echo $title ?></title>
+<link href="<?php echo base_url(); ?>assets/css/details.css" rel="stylesheet">
 <!-- line modal -->
 <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -48,22 +48,31 @@
       <!-- Author -->
       <p class="lead display-inline">
         by <a href="#"><?php echo $username ?></a>
-
-        <div class="center display-inline"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-warning"><i class="fa fa-pencil-square-o"> Edit Post</button></i></div>
-        <div class="center display-inline"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-danger "><i class="fa fa-trash"> Delete Post</button></i></div>
+        <?php if($this->session->userdata('admin') || $this->session->userdata('username') == $username)
+        {?>
+          <div class="center display-inline">
+            <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-warning">
+              <i class="fa fa-pencil-square-o"> Edit Post</i>
+              </button>
+          </div>
+          <div class="center display-inline">
+            <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-danger ">
+              <i class="fa fa-trash"> Delete Post</i>
+          </button>
+          </div>
+          <?php } ?>
+        </p>
       </p>
 
       <hr>
 
       <!-- Date/Time -->
-      <p class="color-date"><i class="fa fa-clock-o"></i> <?php echo $details->date; ?> </p>
+      <p class="color-date"><i class="fa fa-clock-o"></i> <?php echo $date; ?> </p>
 
       <hr>
 
-      <!-- Preview Image -->
-      <img class="img-fluid" src="http://placehold.it/900x300" alt="">
-
-      <hr>
+        <!-- Preview Image -->
+        <img class="img-fluid" src="http://placehold.it/900x300" alt="">
 
       <!-- Post Content -->
       <p class="lead"> <?php echo $details->description; ?> </p>
@@ -71,27 +80,30 @@
 
       <hr>
 
-      <!-- Blog Comments -->
-
-      <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
-
-        <!-- Comments Form -->
-        <div class="well">
-          <h4>Leave a Comment:</h4>
-          <form role="form" action="<?php echo base_url(); ?>Mailgun_controller/comment" method="post">
-            <div class="form-group">
-              <textarea maxlength="255" name="comment" class="form-control" rows="3" style="resize: none;"></textarea>
-            </div>
-            <?php echo form_hidden('id_post', $this->uri->segment(2)) ?>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-
-        <?php } ?>
+        <!-- Post Content -->
+        <p class="lead"> <?php echo $details->description; ?> </p>
+        <p> <?php echo $details->content; ?> </p>
 
         <hr>
 
-        <!-- Posted Comments -->
+        <!-- Blog Comments -->
+
+        <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
+
+          <!-- Comments Form -->
+          <div class="well">
+            <h4>Leave a Comment:</h4>
+            <form role="form" action="<?php echo base_url(); ?>Mailgun_controller/comment" method="post">
+              <div class="form-group">
+                <textarea maxlength="255" name="comment" class="form-control" rows="3" style="resize: none;"></textarea>
+              </div>
+              <?php echo form_hidden('id_post', $this->uri->segment(2)) ?>
+              <?php echo form_hidden('tit', $details->title) ?>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+
+          <?php } ?>
 
         <?php if (empty($comments)) {
           foreach ($comentarios as $item): ?>
@@ -103,7 +115,7 @@
                 </a>
                   <h3 ><?php echo $item->username; ?></h3>
                   <h4 class="media-heading size-font">
-                      <small><?php echo $item->date; ?></small>
+                      <small><?php echo $dates; ?></small>
                   </h4>
              </div>
               <div class="padding-container">
@@ -111,38 +123,38 @@
               </div>
           </div>
 
-        <?php endforeach; ?>
+          <?php endforeach; ?>
 
-        <?php }else{ ?>
+          <?php }else{ ?>
 
-          <div class="media">
-            <div class="media-body">
-              <?php echo "No hay comentarios" ?>
+            <div class="media">
+              <div class="media-body">
+                <?php echo "No hay comentarios" ?>
+              </div>
             </div>
-          </div>
-          <?php } ?>
+            <?php } ?>
 
-          <!-- Comment on comment
-          <div class="media">
-          <a class="pull-left" href="#">
-          <img class="media-object" src="http://placehold.it/64x64" alt="">
-        </a>
-        <div class="media-body">
-        <h4 class="media-heading">Start Bootstrap
-        <small>August 25, 2014 at 9:30 PM</small>
-      </h4>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-      Nested Comment
-      <div class="media">
-      <a class="pull-left" href="#">
-      <img class="media-object" src="http://placehold.it/64x64" alt="">
-    </a>
-    <div class="media-body">
-    <h4 class="media-heading">Nested Start Bootstrap
-    <small>August 25, 2014 at 9:30 PM</small>
-  </h4>
-  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-</div>
+            <!-- Comment on comment
+            <div class="media">
+            <a class="pull-left" href="#">
+            <img class="media-object" src="http://placehold.it/64x64" alt="">
+          </a>
+          <div class="media-body">
+          <h4 class="media-heading">Start Bootstrap
+          <small>August 25, 2014 at 9:30 PM</small>
+        </h4>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        Nested Comment
+        <div class="media">
+        <a class="pull-left" href="#">
+        <img class="media-object" src="http://placehold.it/64x64" alt="">
+      </a>
+      <div class="media-body">
+      <h4 class="media-heading">Nested Start Bootstrap
+      <small>August 25, 2014 at 9:30 PM</small>
+    </h4>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
 </div>
 End Nested Comment
 </div>

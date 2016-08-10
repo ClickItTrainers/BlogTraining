@@ -7,7 +7,7 @@
 	class My_mailgun {
 
 		public function __construct(){
-			
+
 		}
 
 		// Contact with the admin of the blog
@@ -41,11 +41,7 @@
 											'subject' 	=> 'New comment in your post',
 											'text' 		=> $comment ));
 
-				if ($api_key) {
-						echo "<script> alert('Email sent to the owner!'); </script>";
-				} else {
-						echo "<script> alert('Error sending the email to the owner!'); </script>";
-				}
+											return $api_key;
 	    }
 
 	    // Sends email when a post is edited

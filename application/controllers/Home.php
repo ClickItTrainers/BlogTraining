@@ -5,7 +5,9 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Posts_model');
+		$this->load->model('Comment_model');
 		$this->load->model('getDB/Users_model');
+		$this->load->helper('my_date');
 	}
 
 	// It loads the Home page view
@@ -13,22 +15,12 @@ class Home extends CI_Controller {
 		$data['title'] = "Three Musketeers Blog";
 		$data['posts_arr'] = $this->Posts_model->posts_list();
 		$data['users_arr'] = $this->Posts_model->users_list();
+		$datestring = 'l, F d, o - h:i A';
+		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
+		$data['date'] = timestamp_to_date($time, $datestring);
 		$data['category_arr'] = $this->Users_model->get_category();
 		$data['page'] = 'home';
 		$this->load->view('templates/template', $data);
-	}
-
-	//Loads the Home page view
-	public function admin_index(){
-		$data['title'] = "Three Musketeers Blog";
-		$data['page'] = 'admin/home';
-		$this->load->view('admin/templates/template', $data);
-	}
-
-	public function admin_profile(){
-		$data['title'] = "Three Musketeers Blog";
-		$data['page'] = 'admin/my_profile';
-		$this->load->view('admin/templates/template', $data);
 	}
 
 	// Shows the details of one post by ID
@@ -40,12 +32,18 @@ class Home extends CI_Controller {
 		$data['category_arr'] = $this->Users_model->get_category();
 		$data['title'] = $data['details']->title;
 		$data['page'] = 'details';
+		$datestring = 'l, F d, o - h:i A';
+		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
+		$data['date'] = timestamp_to_date($time, $datestring);
+		$times = mysqldatetime_to_timestamp($this->Comment_model->get_date());
+		$data['dates'] = timestamp_to_date($times, $datestring);
 		$this->load->view('templates/template', $data);
 	}
 
 	// It loads the newpost view
 	public function new_post() {
 		$data['title'] = "Create new post";
+		$data['category_arr'] = $this->Users_model->get_category();
 		$this->load->view('templates/header', $data);
 		$this->load->view('newPost', $data);
 		$this->load->view('templates/footer', $data);
@@ -53,17 +51,16 @@ class Home extends CI_Controller {
 
 	public function insert_post(){
 
-		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[1]|max_length[70]');
-		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[1]|max_length[100]');
-		$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[1]|max_length[255]');
+		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[70]');
+		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[100]');
+		$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]');
 		// Error messages
 		$this->form_validation->set_message('required', '*Required field');
-		$this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
-		$this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
+		$this->form_validation->set_message('min_length', '* The field %s must be at least %s characters');
+		$this->form_validation->set_message('max_length', "* The field %s can't be more than %s characters");
 
 		if($this->form_validation->run() == FALSE){
 			$this->new_post();
-
 		}else{
 
 
@@ -75,7 +72,7 @@ class Home extends CI_Controller {
 				'content' => $this->input->post('content'),
 				'date' => date('Y-m-d H:i:s'));
 
-				$this->Posts_model->insert('post', $post);
+				$this->Posts_model->insert('posts', $post);
 				redirect(base_url());
 			}
 

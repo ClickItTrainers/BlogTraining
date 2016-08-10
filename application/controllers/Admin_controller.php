@@ -10,6 +10,19 @@ class Admin_controller extends CI_Controller
     $this->load->model('Posts_model');
   }
 
+  //Loads the Home page view
+	public function index(){
+		$data['title'] = "Three Musketeers Blog";
+		$data['page'] = 'admin/home';
+		$this->load->view('admin/templates/template', $data);
+	}
+
+	public function admin_profile(){
+		$data['title'] = "Three Musketeers Blog";
+		$data['page'] = 'admin/my_profile';
+		$this->load->view('admin/templates/template', $data);
+	}
+
   public function show_users()
   {
     $data['users'] = $this->Users_model->get_users();
@@ -45,7 +58,9 @@ class Admin_controller extends CI_Controller
     if($update){
       $url = 'post/' . $id_post . '/';
       $url .= url_title(convert_accented_characters($title), '-', TRUE);
-      redirect($url);
+      echo "<script> alert('¡Post updated!');
+      window.location.href='$url';
+      </script>";
     }
   }
 }
