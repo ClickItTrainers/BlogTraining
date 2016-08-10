@@ -26,7 +26,7 @@
                         <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
                           <ul class="nav navbar-nav">
                             <li class="nav-item ">
-                               <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only"></span></a>
+                               <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                             </li>
                             <li class="nav-item ">
                               <a class="nav-link" href="<?php echo base_url();?>contact"><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact <span class="sr-only"></span></a>
@@ -54,20 +54,21 @@
                           <!-- Collect the nav links, forms, and other content for toggling -->
                       <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
                       <div class="container-login">
-                      <ul class="nav navbar-nav navbar-right text-xs-right">
-                      <?php if ($this->session->userdata('is_logued_in') == FALSE) { ?>
-                          <li class="right">
-                              <a class="nav-link" href="<?php echo base_url();?>login"><i class="fa fa-check" aria-hidden="true"></i> Login</a>
-                          </li>
-                          <li class="right">
-                              <a class="nav-link" href="<?php echo base_url();?>register"><i class="fa fa-plus" aria-hidden="true"></i> Sign-Up</a>
-                          </li>
-                      <?php } else { ?>
-                          <li >
-                              <a class="nav-link" href="<?php echo base_url();?>logout"><i class="fa fa-times" aria-hidden="true"></i> Logout</a>
-                          </li>
-                      <?php } ?>
-                      </ul>
+                        <ul class="nav navbar-nav navbar-right text-xs-right">
+                        <?php if ($this->session->userdata('is_logued_in') == FALSE) { ?>
+                            <li class="right">
+                                <a class="nav-link" href="<?php echo base_url();?>login"><i class="fa fa-check" aria-hidden="true"></i> Login</a>
+                            </li>
+                            <li class="right">
+                                <a class="nav-link" href="<?php echo base_url();?>register"><i class="fa fa-plus" aria-hidden="true"></i> Sign-Up</a>
+                            </li>
+                        <?php } else { ?>
+                            <li class="right" >
+                                <a class="nav-link" href="<?php echo base_url();?>logout"><i class="fa fa-times" aria-hidden="true"></i> Logout</a>
+                            </li>
+                        <?php } ?>
+                        </ul>
+                     
                    </nav>
               </div>
           </nav>

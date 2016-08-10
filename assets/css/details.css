@@ -5,6 +5,8 @@
 
 .color-date{color:gray;}
 
+.margin-bottom{margin-bottom: 20px;}
+
 
 /*update post*/
 .text-center{text-align: center;}
@@ -17,21 +19,44 @@ div .modal-body{padding: 25px 35px;}
 
 div .modal-body button {padding: 5px 9px;}
 
-div .form-group .form-control{}
 
 
 /*comments*/
-.well{min-height: 20px; padding: 19px; margin-bottom: 20px; border-radius: 4px;}
+.well{min-height: 20px; padding: 19px; margin-bottom: 20px; border-radius: 4px; background-color: rgba(162, 149, 149, .2);}
+
+.padding-container{padding: 20px 20px 7px 20px}
+
+.margin-right{margin-right: 20px;}
+
+.size-img{width: 50px; height: 50px; border-radius: 50%;}
+
+.size-font{font-size: 16px;}
+
+.border{border: 1px solid rgba(0,0,0,.2); border-radius: 10px;}
+
+div .media img{display: inline-block;}
+
+div .media-body{max-width: 690px; }
+
+div .media-body h3{font-size: 20px; }
+
+div .media-body small{color:gray;}
+
+/*div .media-body h4{display: inline-block;}*/
 
 
 
 
-/*media buttons edit and delete*/
+/*media buttons edit and delete, buttons size*/
 @media screen and (max-width: 390px)
 {
 	div .display-inline button{font-size:12px; padding: 4px 4px;/*position: absolute; bottom:470px;*/ }
 }
 
+@media screen and (max-width: 991px)
+{
+	div .card-block{display: none; }
+}
 
 
 

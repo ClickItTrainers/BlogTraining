@@ -1,20 +1,70 @@
-    <div class="col-lg-4 col-md-4 col-sm-9 col-xs-9">
+    <div class="col-lg-3 col-md-4 col-sm-9 col-xs-9">
         <!-- Blog Categories Well -->
         <div class="card bg-faded card-block">
              <h4>Blog Categories</h4>
             <div class="row">
                 <!-- /.col-xl-6 -->
-                <div class="col-xl-6">
-                    <ul class="list-unstyled">
-
-                        <?php foreach ($category_arr as $item){ ?>
+                    <div class="col-xl-2 display">
+                        <ul class="list-unstyled">
                             <li>
-                                <a href="#"> <?php echo $item->name ?> </a>
+                                 <i class="fa fa-space-shuttle"></i>
                             </li>
-                        <?php } ?>
+                             <li>
+                                 <i class="fa fa-gamepad"></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-linux"></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-windows "></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-apple"></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-android"></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-mobile"></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-rss"></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-clock-o "></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-laptop"></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-cloud-download"></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-desktop"></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-globe"></i>
+                            </li>
+                             <li>
+                                 <i class="fa fa-google "></i>
+                            </li>
+                             
+                           
+                        </ul>
 
-                    </ul>
-                </div>
+                        
+                    </div>
+
+
+                    <div class="col-xl-6 display">
+                            <ul class="list-unstyled">
+                                    <?php foreach ($category_arr as $item){ ?>
+                                        <li>
+                                            <a href="#"> <?php echo $item->name ?> </a>
+                                        </li>
+                                    <?php } ?>
+                            </ul>
+                    </div>
                 <!-- /.col-xl-6 -->
             </div>
             <!-- /.row -->

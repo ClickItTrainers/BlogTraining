@@ -36,7 +36,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-9 margin-bottom">
       <title> <?php echo $title; ?> </title>
 
       <!-- Blog Post -->
@@ -100,25 +100,23 @@
 
           <?php } ?>
 
-          <hr>
-
-          <!-- Posted Comments -->
-
-          <?php if (empty($comments)) {
-            foreach ($comentarios as $item): ?>
-            <!-- Comment -->
-            <div class="media">
-              <a class="pull-left" href="#">
-                <img class="media-object" src="http://placehold.it/64x64" alt="">
-              </a>
+        <?php if (empty($comments)) {
+          foreach ($comentarios as $item): ?>
+          <!-- Comment -->
+          <div class="media padding-container border">
               <div class="media-body">
-                <h2><?php echo $item->username; ?></h2>
-                <h4 class="media-heading">
-                  <small><?php echo $item->date; ?></small>
-                </h4>
-                <?php echo $item->comment; ?>
+                <a class="pull-left margin-right" href="#">
+                  <img class="media-object size-img" src="http://placehold.it/64x64" alt="">
+                </a>
+                  <h3 ><?php echo $item->username; ?></h3>
+                  <h4 class="media-heading size-font">
+                      <small><?php echo $item->date; ?></small>
+                  </h4>
+             </div>
+              <div class="padding-container">
+                  <?php echo $item->comment; ?>
               </div>
-            </div>
+          </div>
 
           <?php endforeach; ?>
 

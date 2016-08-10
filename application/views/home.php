@@ -6,7 +6,7 @@
                      <div class="input-group">
                       <input type="text" class="form-control" placeholder="Search for...">
                       <span class="input-group-btn">
-                        <button class="btn btn-secondary" type="button">Buscar!</button>
+                        <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
                       </span>
                     </div>
                     <!-- /.input-group -->
@@ -14,7 +14,7 @@
     </div>
     <div class="row">
         <!-- Blog Entries Column -->
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 right">
+        <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 right">
         	<title> <?php echo $title ?> </title>
         	<h1 class="page-header tittle down">
                 Welcome to the Blog
