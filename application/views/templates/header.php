@@ -26,7 +26,7 @@
                         <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
                           <ul class="nav navbar-nav">
                             <li class="nav-item ">
-                               <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only"></span></a>
+                               <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                             </li>
                             <li class="nav-item ">
                               <a class="nav-link" href="<?php echo base_url();?>contact"><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact <span class="sr-only"></span></a>
