@@ -15,6 +15,19 @@
 			return $query->result();
 		}
 
+		// Gets the date in a long format
+		public function get_date(){
+			$this->db->select('date', "DATE_FORMAT(date,'%b %d %Y %h:%i %p')");
+			$this->db->from('posts');
+
+			$query = $this->db->get();
+
+			foreach ($query->result() as $row){
+				   $date = $row->date;
+			}
+			return $date;
+		}
+
 		// Sends a list of the users
 		public function users_list(){
 			$query = $this->db->get('users');

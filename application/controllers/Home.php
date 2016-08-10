@@ -6,6 +6,7 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Posts_model');
 		$this->load->model('getDB/Users_model');
+		$this->load->helper('my_date');
 	}
 
 	// It loads the Home page view
@@ -13,6 +14,9 @@ class Home extends CI_Controller {
 		$data['title'] = "Three Musketeers Blog";
 		$data['posts_arr'] = $this->Posts_model->posts_list();
 		$data['users_arr'] = $this->Posts_model->users_list();
+		$datestring = 'l, F d, o - h:i A';
+		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
+		$data['date'] = timestamp_to_date($time, $datestring);
 		$data['category_arr'] = $this->Users_model->get_category();
 		$data['page'] = 'home';
 		$this->load->view('templates/template', $data);
@@ -40,6 +44,9 @@ class Home extends CI_Controller {
 		$data['category_arr'] = $this->Users_model->get_category();
 		$data['title'] = $data['details']->title;
 		$data['page'] = 'details';
+		$datestring = 'l, F d, o - h:i A';
+		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
+		$data['date'] = timestamp_to_date($time, $datestring);
 		$this->load->view('templates/template', $data);
 	}
 

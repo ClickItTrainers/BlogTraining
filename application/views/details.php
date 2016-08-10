@@ -55,7 +55,7 @@
       <hr>
 
       <!-- Date/Time -->
-      <p class="color-date"><i class="fa fa-clock-o"></i> <?php echo $details->date; ?> </p>
+      <p class="color-date"><i class="fa fa-clock-o"></i> <?php echo $date; ?> </p>
 
       <hr>
 

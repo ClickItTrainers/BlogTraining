@@ -40,7 +40,7 @@
                             </li>
                             <?php if ($this->session->userdata('username') == 'Alejandro' ||
                                       $this->session->userdata('username') == 'mena' ||
-                                      $this->session->userdata('username') == 'Chavez_97' ||
+                                      $this->session->userdata('username') == 'Luis_97' ||
                                       $this->session->userdata('username') == 'cesar' ) { ?>
                             <li class="nav-item ">
                               <a class="nav-link" href="<?php echo base_url();?>Home/admin_index">Panel<span class="sr-only"></span></a>

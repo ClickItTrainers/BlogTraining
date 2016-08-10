@@ -14,7 +14,7 @@
 			    <blockquote class="card-blockquote">
 			    <img src="<?php echo base_url(); ?>assets/img/user.jpg" alt="Loading image failed" class="img-fluid  url-user">
 			    <div class="color">
-			      <p>Users</p>
+			      <a href="<?php echo base_url() ?>Admin_controller/show_users"> <p>Users</p> </a>
 			    </div>
 			    </blockquote>
 			  </div>
@@ -28,7 +28,7 @@
 			    <blockquote class="card-blockquote">
 			      <img src="<?php echo base_url(); ?>assets/img/profile.jpg" alt="Loading image failed" class="img-fluid url-profile">
 			      <div class="color">
-			     	 <p>My profile</p>
+			     	<a href="<?php echo base_url() ?>Profile_controller"> <p>My profile</p> </a>
 			      </div>
 			      <!-- <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer> -->
 			    </blockquote>
