@@ -72,19 +72,13 @@
       <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid" src="http://placehold.it/900x300" alt="">
+        <img class="img-fluid" src="<?php base_url() ?>assets/img/hitman.jpg" alt="">
 
       <!-- Post Content -->
       <p class="lead"> <?php echo $details->description; ?> </p>
       <p> <?php echo $details->content; ?> </p> 
 
       <hr>
-
-        <!-- Post Content -->
-        <p class="lead"> <?php echo $details->description; ?> </p>
-        <p> <?php echo $details->content; ?> </p>
-
-        <hr>
 
         <!-- Blog Comments -->
 
