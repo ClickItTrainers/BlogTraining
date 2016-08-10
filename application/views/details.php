@@ -61,9 +61,6 @@
           </div>
           <?php } ?>
         </p>
-
-        <!--<div class="center display-inline"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-warning"><i class="fa fa-pencil-square-o"> Edit Post</button></i></div>
-        <div class="center display-inline"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-danger "><i class="fa fa-trash"> Delete Post</button></i></div>-->
       </p>
 
       <hr>
