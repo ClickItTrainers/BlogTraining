@@ -46,7 +46,7 @@
                             </li>
                             <?php if ($this->session->userdata('admin')) { ?>
                             <li class="nav-item ">
-                              <a class="nav-link" href="<?php echo base_url();?>Admin_controller">Panel<span class="sr-only"></span></a>
+                              <a class="nav-link" href="<?php echo base_url();?>admin">Panel<span class="sr-only"></span></a>
                             </li>
                             <?php }
                             }?>
@@ -68,7 +68,7 @@
                             </li>
                         <?php } ?>
                         </ul>
-                     
+
                    </nav>
               </div>
           </nav>

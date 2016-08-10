@@ -33,6 +33,7 @@ class Home extends CI_Controller {
 	// It loads the newpost view
 	public function new_post() {
 		$data['title'] = "Create new post";
+		$data['category_arr'] = $this->Users_model->get_category();
 		$this->load->view('templates/header', $data);
 		$this->load->view('newPost', $data);
 		$this->load->view('templates/footer', $data);
@@ -40,17 +41,16 @@ class Home extends CI_Controller {
 
 	public function insert_post(){
 
-		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[1]|max_length[70]');
-		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[1]|max_length[100]');
-		$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[1]|max_length[255]');
+		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[70]');
+		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[100]');
+		$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]');
 		// Error messages
 		$this->form_validation->set_message('required', '*Required field');
-		$this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
-		$this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
+		$this->form_validation->set_message('min_length', '* The field %s must be at least %s characters');
+		$this->form_validation->set_message('max_length', "* The field %s can't be more than %s characters");
 
 		if($this->form_validation->run() == FALSE){
 			$this->new_post();
-
 		}else{
 
 
@@ -62,7 +62,7 @@ class Home extends CI_Controller {
 				'content' => $this->input->post('content'),
 				'date' => date('Y-m-d H:i:s'));
 
-				$this->Posts_model->insert('post', $post);
+				$this->Posts_model->insert('posts', $post);
 				redirect(base_url());
 			}
 
