@@ -23,19 +23,29 @@
 <div class="container">
     <div class="row">
          <div class="col-lg-11 col-md-9 col-sm-12 col-xs-12 border margin col-center">
-                <?php echo validation_errors();?>
-                 <?php echo form_open(base_url().'Home/insert_post');?>
+
+            <form method="post" action="<?php echo base_url() ?>/Home/insert_post">
+
                 <div class="row">
                     <div class="col-lg-11 col-md-9 col-sm-12 col-xs-12">
-
-							<h2><?php echo $title; ?></h2>
+                        <h2><?php echo $title; ?></h2>
                         <legend for="title">Title</legend>
-                        <input type="input" class="width" name="title" onkeypress="return validar(event)" /><br>
-						<legend for="description">Description</legend>
-						<input type="input" class="width" name="description" onkeypress="return validar(event)" /><br>
+                        <input type="input" class="width" name="title" onkeypress="return validar(event)"/>
+                        <span class="text-danger"><?php echo form_error('title'); ?></span>
+
+                        </br>
+
+                        <legend for="description">Description</legend>
+                        <input type="input" class="width" name="description" onkeypress="return validar(event)"/>
+                        <span class="text-danger"><?php echo form_error('description'); ?></span>
+
+                        </br>
+
                     </div>
+
 					<div class="col-lg-1">
-						<legend>Category</legend>
+						<legend for="category">Category</legend>
+
 						<div class="btn-group" data-toggle="buttons">
 
 							<?php $count=0;
@@ -44,19 +54,27 @@
 								$count++?>
 								<label class="btn btn-outline-success">
 									<input type="radio" name="category" value="<?php echo $count;?>"><?php echo $item->name;?></input>
-								</label><br>
+								</label>
+                                </br>
 							<?php ; } ?>
+                            <span class="text-danger"><?php echo form_error('category'); ?></span>
 						</div>
 					</div>
+
                 </div>
                 <div class="row">
                     <div class="col-lg-11 col-md-9 col-sm-12 col-xs-12">
                         <legend for="text">Content of the post</legend>
-                            <textarea name="content" class="size-text" rows="8" onkeypress="return validar(event)"></textarea><br/><br/>
-                         <input type="submit" class="btn btn-success" name="submit" value="Send"/>
+                        <textarea name="content" class="size-text" rows="8" onkeypress="return validar(event)"></textarea>
+                        <span class="text-danger"><?php echo form_error('content'); ?></span>
+                        
+                        </br>
+                        </br>
+
+                        <input type="submit" class="btn btn-success" name="submit" value="Send"/>
                      </div>
                 </div>
-                </form>
+            </form>
          </div>
     </div>
 </div>
