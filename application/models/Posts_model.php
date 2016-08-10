@@ -19,7 +19,7 @@
 		public function get_date(){
 			$this->db->select('date', "DATE_FORMAT(date,'%b %d %Y %h:%i %p')");
 			$this->db->from('posts');
-
+			$date = null;
 			$query = $this->db->get();
 
 			foreach ($query->result() as $row){
