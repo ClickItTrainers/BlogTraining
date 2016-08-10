@@ -20,32 +20,42 @@
             return !patron.test(te);
         }
 </script>
-
-
 <div class="container">
     <div class="row">
          <div class="col-lg-11 col-md-9 col-sm-12 col-xs-12 border margin col-center">
-            <center>
-                <h2><?php echo $title; ?></h2>
                 <?php echo validation_errors();?>
-                <?php echo form_open(base_url().'Home/new_post');?>
+                <?php echo form_open(base_url().'Home/insert_post');?>
                 <div class="row">
                     <div class="col-lg-11 col-md-9 col-sm-12 col-xs-12">
-                        <label for="title">Title</label><br />
-                        <input type="input" class="width" name="title" onkeypress="return validar(event)" /><br /><br/>
+											<h2><?php echo $title; ?></h2>
+                        <legend for="title">Title</legend>
+                        <input type="input" class="width" name="title" onkeypress="return validar(event)" /><br />
+												<legend for="description">Description</legend>
+												<input type="input" class="width" name="description" onkeypress="return validar(event)" /><br />
                     </div>
+										<div class="col-lg-1">
+											<legend for="description">Category</legend>
+											<div class="btn-group" data-toggle="buttons">
+
+												<?php $count=0;
+												foreach ($category_arr as $item)
+												{
+													$count++?>
+													<label class="btn btn-success">
+														<input type="radio" name="category" value="<?php echo $count;?>"><?php echo $item->name;?></input>
+													</label><br>
+												<?php ; } ?>
+											</div>
+										</div>
                 </div>
                 <div class="row">
                     <div class="col-lg-11 col-md-9 col-sm-12 col-xs-12">
-                        <label for="text">Text</label><br />
-                            <textarea name="text" class="size-text" rows="8" onkeypress="return validar(event)"></textarea><br/><br/>
+                        <legend for="text">Content of the post</legend>
+                            <textarea name="content" class="size-text" rows="8" onkeypress="return validar(event)"></textarea><br/><br/>
                          <input type="submit" class="btn btn-success" name="submit" value="Send"/>
                      </div>
                 </div>
-
                 </form>
-            </center>
-
          </div>
     </div>
 </div>
