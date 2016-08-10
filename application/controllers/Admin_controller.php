@@ -58,7 +58,9 @@ class Admin_controller extends CI_Controller
     if($update){
       $url = 'post/' . $id_post . '/';
       $url .= url_title(convert_accented_characters($title), '-', TRUE);
-      redirect($url);
+      echo "<script> alert('¡Post updated!');
+      window.location.href='$url';
+      </script>";
     }
   }
 }

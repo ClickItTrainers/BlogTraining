@@ -93,6 +93,7 @@
                 <textarea maxlength="255" name="comment" class="form-control" rows="3" style="resize: none;"></textarea>
               </div>
               <?php echo form_hidden('id_post', $this->uri->segment(2)) ?>
+              <?php echo form_hidden('tit', $details->title) ?>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
