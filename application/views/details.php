@@ -110,7 +110,7 @@
                 </a>
                   <h3 ><?php echo $item->username; ?></h3>
                   <h4 class="media-heading size-font">
-                      <small><?php echo $item->date; ?></small>
+                      <small><?php echo $dates; ?></small>
                   </h4>
              </div>
               <div class="padding-container">
