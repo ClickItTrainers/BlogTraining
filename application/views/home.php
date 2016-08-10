@@ -9,7 +9,7 @@
                         <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
                       </span>
                     </div>
-                    <!-- /.input-group -->
+                    <!-- /.input-group --> 
             </div>
     </div>
     <div class="row">

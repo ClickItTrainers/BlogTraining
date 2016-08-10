@@ -31,7 +31,7 @@
                 <?php echo form_open(base_url().'Home/new_post');?>
                 <div class="row">
                     <div class="col-lg-11 col-md-9 col-sm-12 col-xs-12">
-                        <label for="title">Title</label><br />
+                        <label  class="display-inline-block" for="title">Title</label><br />
                         <input type="input" class="width" name="title" onkeypress="return validar(event)" /><br /><br/>
                     </div>
                 </div>

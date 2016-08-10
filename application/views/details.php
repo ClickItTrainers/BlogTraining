@@ -23,6 +23,7 @@
           <div class="form-group">
             <label for="content">Content:</label>
             <textarea class="form-control" rows="8" name="content"><?php echo $details->content ?></textarea>
+
           </div>
           <?php echo form_hidden('id_post', $details->id_post); ?>
           <button type="submit" class="btn btn-success">Submit</button>
@@ -66,7 +67,7 @@
 
       <!-- Post Content -->
       <p class="lead"> <?php echo $details->description; ?> </p>
-      <p> <?php echo $details->content; ?> </p>
+      <p> <?php echo $details->content; ?> </p> 
 
       <hr>
 

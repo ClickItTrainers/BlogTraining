@@ -62,7 +62,7 @@
 
 								<!-- 	overview -->
 								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 ">
-									<div class="profile-content">
+									<!-- <div class="profile-content"> -->
 										<!-- Overview -->
 										<div id="overview" class="container-style">
 											<!-- Form Name -->
@@ -109,15 +109,28 @@
 														<!-- Form Name -->
 														<legend>Account setting</legend>
 
+														<!-- username input-->
+														<div class="form-group">
+															<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Username:</label>
+															<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+																<input id="textinput" name="textinput" type="text" class="form-control input-md height" disabled>
+															</div>
+														</div>
 														<!-- Email input-->
 														<div class="form-group">
-															<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Change Email ID</label>
+															<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Email:</label>
 															<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-																<input id="textinput" name="textinput" type="text" placeholder="your current email " class="form-control input-md height">
+																<input id="textinput" name="textinput" type="text" class="form-control input-md height" disabled>
 																<span class="help-block color">your new email ID</span>
 															</div>
 														</div>
-
+														<!-- name input-->
+														<div class="form-group">
+															<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">name:</label>
+															<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+																<input id="textinput" name="textinput" type="text" class="form-control input-md height">
+															</div>
+														</div>
 														<!-- Password input-->
 														<div class="form-group">
 															<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="passwordinput">New password</label>
@@ -132,14 +145,6 @@
 																<input id="passwordinput" name="passwordinput" type="password" placeholder="repeat password" class="form-control input-md">
 															</div>
 														</div>
-														<!-- Birth input-->
-														<div class="form-group">
-															<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="passwordinput">Birth</label>
-															<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-																<input id="passwordinput" name="passwordinput" type="password" placeholder="your birth" class="form-control input-md">
-
-															</div>
-														</div>
 														<!-- Select Basic -->
 														<div class="form-group">
 															<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="selectbasic">Gender</label>
@@ -147,31 +152,6 @@
 																<select id="selectbasic" name="selectbasic" class="form-control">
 																	<option value="1">Female</option>
 																	<option value="2">Male</option>
-																</select>
-															</div>
-														</div>
-														<!-- Address Input -->
-														<div class="form-group">
-															<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Address</label>
-															<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-																<input id="textinput" name="textinput" type="text" placeholder="your current address" class="form-control input-md">
-															</div>
-														</div>
-														<!-- Cel Input -->
-														<div class="form-group">
-															<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Celphone</label>
-															<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-																<input id="textinput" name="textinput" type="text" placeholder="your current celphone" class="form-control input-md">
-															</div>
-														</div>
-														<!-- Select Multiple -->
-														<div class="form-group">
-															<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="selectmultiple">What is your job ?</label>
-															<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-																<select id="selectmultiple" name="selectmultiple" class="form-control" multiple="multiple">
-																	<option value="1">Student</option>
-																	<option value="2">Office employee</option>
-																	<option value="3">Nini</option>
 																</select>
 															</div>
 														</div>
@@ -196,7 +176,7 @@
 											</div>
 
 											<!-- End Account Settings -->
-										</div>
+										<!-- </div> -->
 									</div>
 									<!-- End Overview -->
 
