@@ -15,7 +15,6 @@ class Home extends CI_Controller {
 		$this->load->library('pagination');
 		$init = 0;
 		$limit = 3;
-		$this->output->enable_profiler(TRUE);
 		if($page)
 		{
 			$init = ($page - 1) * $limit;
