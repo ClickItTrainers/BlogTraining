@@ -45,6 +45,7 @@
 
 					<div class="col-lg-1">
 						<legend for="category">Category</legend>
+											<div class="btn-group" data-toggle="buttons">		
 
 							<?php $count=0;
 							foreach ($category_arr as $item)
