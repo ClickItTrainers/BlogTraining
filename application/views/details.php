@@ -53,17 +53,16 @@
               <i class="fa fa-pencil-square-o"> Edit Post</i>
               </button>
           </div>
-          <?php echo form_open(base_url().'Profile_controller/delete_post') ?>
-            <?php echo form_hidden('id_post', $details->id_post); ?>
-          <div class="center display-inline">
-            <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-danger ">
-              <i class="fa fa-trash"> Delete Post</i>
-          </button>
-          </div>
-        <?php echo form_close();?>
+          <form method="post"  class="display-inline" action="<?php echo base_url();?>Profile_controller/delete_post">
+               <?php echo form_hidden('id_post', $details->id_post); ?>
+              <div class="center display-inline">
+                  <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-danger ">
+                    <i class="fa fa-trash"> Delete Post</i>
+                </button>
+              </div>
+          </form>
           <?php } ?>
         </p>
-      </p>
 
       <hr>
 

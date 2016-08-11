@@ -38,29 +38,21 @@
 							<ul class="nav">
 								<li class="active padding-li">
 									<a href="" onclick="myFunctionO()">
-										<i class="glyphicon glyphicon-home"></i>
-										Overview </a>
-									</li>
-									<li>
-										<a href="#settings" onclick="myFunctionS()">
-											<i class="glyphicon glyphicon-user"></i>
-											Account Settings </a>
-										</li>
-										<li>
-											<a href="" target="_blank">
-												<i class="glyphicon glyphicon-ok"></i>
-												Tasks </a>
-											</li>
-											<li>
-												<a href="">
-													<i class="glyphicon glyphicon-flag"></i>
-													Help </a>
-												</li>
-											</ul>
-										</div>
-										<!-- END MENU -->
-									</div>
-								</div>
+										<i class="glyphicon glyphicon-home"></i> Overview 
+									</a>
+								</li>
+								<li>
+									<a href="#settings" onclick="myFunctionS()">
+										<i class="glyphicon glyphicon-user"></i>Account Settings </a>
+								</li>
+								<li>
+									<a href="">
+										<i class="glyphicon glyphicon-flag"></i>Help </a>
+								</li>
+							</ul>
+						</div><!-- END MENU -->
+				</div>
+			</div>
 
 								<!-- 	overview -->
 								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 ">
@@ -71,22 +63,23 @@
 											<legend>Posts of <?php echo $user ?></legend>
 
 											<?php foreach ($posts as $my_posts):
-												$url = 'post/' . $my_posts->id_post . '/';
-					        			$url .= url_title(convert_accented_characters($my_posts->title), '-', TRUE);?>
+											$mostrar = substr($my_posts->description, 0,65);
+											$mostrarTitle = substr($my_posts->title, 0,55);
+											$url = 'post/' . $my_posts->id_post . '/';
+											$url .= url_title(convert_accented_characters($my_posts->title), '-', TRUE);?>
 												<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
 													<div class="size-img container-post">
-														<img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed">
+														<img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed"/>
 														<div class="caption">
-															<h3>
-																<?php echo anchor($url, $my_posts->title);?>
+															<h3 class="font-size-h3">
+																<?php echo anchor($url, $mostrarTitle."...");?>
 															</h3>
-															<p class="font-size">
-																<?php echo $my_posts->description; ?>
+															<p class="font-size-p">
+																<?php echo $mostrar."..."; ?>
 															</p>
-															<p class="down">
-																<a href="" class="btn btn-primary" role="button">Read more</a>
-																<span class="glyphicon glyphicon-chevron-right"></span></a>
-															</p>
+															<div class="down">
+																<a href="" class="btn btn-primary font-size-a" role="button">Read more</a>
+															</div>
 														</div>
 
 														<div class="down-delete center">
