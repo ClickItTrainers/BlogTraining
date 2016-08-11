@@ -46,8 +46,9 @@
                         <hr>
         	<?php
         		endforeach;
+            echo $this->pagination->create_links();
         	?>
-                        <nav aria-label="Page navigation">
+<!--                        <nav aria-label="Page navigation">
                           <ul class="pagination pagination-sm">
                             <li class="page-item">
                               <a class="page-link" href="#" aria-label="Previous">
@@ -64,5 +65,6 @@
                               </a>
                             </li>
                           </ul>
-                        </nav>
+                        </nav>-->
+
             </div>

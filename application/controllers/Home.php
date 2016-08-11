@@ -11,9 +11,30 @@ class Home extends CI_Controller {
 	}
 
 	// It loads the Home page view
-	public function index(){
+	public function index($page=false){
+		$this->load->library('pagination');
+		$init = 0;
+		$limit = 3;
+		$this->output->enable_profiler(TRUE);
+		if($page)
+		{
+			$init = ($page - 1) * $limit;
+		}
+		$data['posts_arr'] = $this->Posts_model->posts_list($init, $limit);
+		$config['base_url'] = base_url();
+		$config['total_rows'] = count($this->Posts_model->posts_list());
+		$config['per_page'] = $limit;
+		$config['num_links'] = 5;
+		$config['full_tag_open'] = '<p>';
+		$config['full_tag_close'] = '</p>';
+		$this->pagination->initialize($config);
+
+
+
+
+
+
 		$data['title'] = "Three Musketeers Blog";
-		$data['posts_arr'] = $this->Posts_model->posts_list();
 		$data['users_arr'] = $this->Posts_model->users_list();
 		$datestring = 'l, F d, o - h:i A';
 		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
@@ -21,6 +42,7 @@ class Home extends CI_Controller {
 		$data['category_arr'] = $this->Users_model->get_category();
 		$data['page'] = 'home';
 		$this->load->view('templates/template', $data);
+
 	}
 
 	// Shows the details of one post by ID
