@@ -46,14 +46,12 @@
 					<div class="col-lg-1">
 						<legend for="category">Category</legend>
 
-						<div class="btn-group" data-toggle="buttons">
-
 							<?php $count=0;
 							foreach ($category_arr as $item)
 							{
 								$count++?>
 								<label class="btn btn-outline-success">
-									<input type="radio" name="category" value="<?php echo $count;?>"><?php echo $item->name;?></input>
+									<input class="dropdown-item" type="radio" name="category" value="<?php echo $count;?>"><?php echo $item->name;?></input>
 								</label>
                                 </br>
 							<?php ; } ?>
@@ -67,7 +65,7 @@
                         <legend for="text">Content of the post</legend>
                         <textarea name="content" class="size-text" rows="8" onkeypress="return validar(event)"></textarea>
                         <span class="text-danger"><?php echo form_error('content'); ?></span>
-                        
+
                         </br>
                         </br>
 

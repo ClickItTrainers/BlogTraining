@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['admin'] = 'Admin_controller';
+$route['profile/user/(:num)'] = 'Profile_controller/user_profile/$1';
 $route['update'] = 'Admin_controller/update_post';
 $route['login'] = 'Login_controller/index';
 $route['profile'] = 'Profile_controller';

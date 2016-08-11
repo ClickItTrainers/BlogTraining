@@ -14,9 +14,11 @@ class Profile_controller extends CI_Controller
     if ($this->session->userdata('is_logued_in'))
     {
       $id_user = $this->Users_model->get_userID();
+      //$user = $this->session->userdata('username');
       $user = $this->session->userdata('username');
       $data['posts'] = $this->Posts_model->posts_list_user($id_user);
-      $data['title'] = " $user profile";
+      $data['title'] = "$user profile";
+      $data['user'] = $user;
       $this->load->view('templates/header', $data);
       $this->load->view('profile', $data);
       $this->load->view('templates/footer', $data);
@@ -26,13 +28,24 @@ class Profile_controller extends CI_Controller
     }
   }
 
+  public function user_profile($id_user)
+  {
+      $user = $this->Users_model->get_username_iduser($id_user);
+      $data['posts'] = $this->Posts_model->posts_list_user($id_user);
+      $data['title'] = "$user profile";
+      $data['user'] = $user;
+      $this->load->view('templates/header', $data);
+      $this->load->view('profile', $data);
+      $this->load->view('templates/footer', $data);
+  }
+
   public function delete_post()
   {
     $delete = $this->Posts_model->delete_post($this->input->post('id_post'));
 
     if ($delete)
     {
-      
+
       $url = base_url() . 'Profile_controller';
       echo "<script> alert('¡Post Deleted!');
       window.location.href='$url';

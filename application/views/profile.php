@@ -16,10 +16,10 @@
 					<!-- SIDEBAR USER TITLE -->
 					<div class="profile-usertitle">
 						<div class="profile-usertitle-name">
-							<?php echo $this->session->userdata('username'); ?>
+							<?php echo $user;?>
 						</div>
 						<div class="profile-usertitle-job">
-							Developer
+
 						</div>
 					</div>
 					<!-- END SIDEBAR USER TITLE -->
@@ -68,7 +68,7 @@
 										<!-- Overview -->
 										<div id="overview" class="container-style">
 											<!-- Form Name -->
-											<legend>My Posts</legend>
+											<legend>Posts of <?php echo $user ?></legend>
 
 											<?php foreach ($posts as $my_posts):
 												$url = 'post/' . $my_posts->id_post . '/';

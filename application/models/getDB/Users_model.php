@@ -50,18 +50,27 @@ class Users_model extends CI_Model{
 			return $query->result();
 		}
 
-	
+
 		//
 		public function get_username($id_post){
 			$this->db->select('username');
 			$this->db->from('users u');
 			$this->db->join('posts p', 'u.id_user = p.id_user');
 			$this->db->where('id_post', $id_post);
-
 			$query = $this->db->get();
-
 			foreach ($query->result() as $row){
 				   $username = $row->username;
+			}
+			return $username;
+		}
+
+		public function get_username_iduser($id_user){
+			$this->db->select('username');
+			$this->db->from('users');
+			$this->db->where('id_user', $id_user);
+			$query = $this->db->get();
+			foreach ($query->result() as $row){
+					 $username = $row->username;
 			}
 			return $username;
 		}

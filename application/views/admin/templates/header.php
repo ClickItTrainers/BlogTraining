@@ -41,7 +41,7 @@
                     <div class="container-login">
                       <ul class="nav navbar-nav navbar-right text-xs-right">
                           <li >
-                            <a class="nav-link" href="<?php echo base_url();?>logout">Logout</a>
+                                                            <a class="nav-link" href="<?php echo base_url();?>logout"><i class="fa fa-times" aria-hidden="true"></i> Logout</a>
                           </li>
                       </ul>
                     </div>
