@@ -50,7 +50,7 @@
         	?>
 
 
-            <div class="paginations col-center">
+            <div class="pagination col-center">
                 <?php
                 echo $this->pagination->create_links();
                 ?>
