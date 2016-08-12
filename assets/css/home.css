@@ -31,6 +31,10 @@ nav.navbar {background-color: #293F54;}
 
 .display-inline{display: inline-block; margin-right:15px; }
 
+.display{display: inline-block;}
+
+.float-right{ background-color: #D9534F; float: right; padding: 3px 10px; margin-top: 7px; font-weight: 700; line-height: 1; font-size: 14px; font-style: bold; color: white; border-radius: 15px;}
+
 
 @media screen and (max-width: 430px)
 {

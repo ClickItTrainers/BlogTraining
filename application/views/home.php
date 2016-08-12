@@ -40,6 +40,9 @@
                                 </a>
                         </p>
                         <p class="display-inline size-small"><i class="fa fa-clock-o"></i> <?php echo $date ?></p>
+                        <div class=" display float-right">
+                            <span>Internet</span >
+                        </div>
                         <img class="img-fluid down" src="<?php base_url() ?>assets/img/hitman.jpg" alt="">
                         <p><?php echo $item->description ?></p>
                         <a class="btn btn-primary" href="index.php/<?php echo $url ?>">Read More <i class="fa fa-angle-right "></i></a>
