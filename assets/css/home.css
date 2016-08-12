@@ -32,6 +32,16 @@ nav.navbar {background-color: #293F54;}
 .display-inline{display: inline-block; margin-right:15px; }
 
 
+@media screen and (max-width: 430px)
+{
+	div .right h1{font-size: 27px;}
+
+	h2{font-size: 26px;}
+	
+	div .right a.btn{font-size: 15px; padding:4px;}	
+}
+
+
 /*sidebar*/
 .display{display: inline-block;}
 
@@ -41,3 +51,24 @@ ul .list-unstyled li{display: inline-block;}
 
 /*footer*/
 footer p{text-align: center;}
+
+
+/*pagination*/
+
+.pagination {display: flex; justify-content: center; align-items: center;}
+
+.pagination p strong{padding: 10px; border-top:1px solid rgba(0,0,0,.2); border-bottom:1px solid rgba(0,0,0,.2); border-left:1px solid rgba(0,0,0,.2); border-right:1px solid rgba(0,0,0,.2); color:#0275d8;}
+
+.pagination p a{padding: 10px; border-top:1px solid rgba(0,0,0,.2); border-bottom:1px solid rgba(0,0,0,.2); border-left:1px solid rgba(0,0,0,.2);}
+
+.pagination p a:last-child{border-right:1px solid rgba(0,0,0,.2);}
+
+/*.paginador{display: flex; justify-content: center; align-items: center; padding: 20px 0;}
+
+.paginador ul{display: flex; list-style: none; margin: 0; padding: 0; margin-left: 10px; }
+
+.paginador li{background: #eaeaea; height: 40px; line-height: 40px; border: 1px solid gray; margin: 0 5px;  }
+
+.paginador li.selected{border-color: transparent; background:white;}
+
+.paginador a{text-decoration: none; display: block; height: inherit; padding: 0 10px;}*/

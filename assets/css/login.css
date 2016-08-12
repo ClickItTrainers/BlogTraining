@@ -4,15 +4,31 @@ body {
   -webkit-font-smoothing: antialiased;
   font: normal 14px Roboto,arial,sans-serif;
   background-image: url(../img/login.jpg);
-  background-size: 100% auto;
+  background-size: cover 100%;
 /*  background-size: cover;*/
 }
 
 .container {
-    margin-top:40px;
-    padding: 25px;
+    margin-top:140px;
+    padding: 100px 25px 25px 25px;
 }
 
+.container-register {
+    margin-top:140px;
+    padding: 40px 25px 25px 25px;
+}
+
+.col-center{
+    float: none;
+    margin: 0 auto;
+}
+
+/*tittle*/
+.tittle{text-align: center; margin-top: 100px;}
+
+.tittle h2{color: white; font-size: 80px; font-family: 'Fredoka One', cursive;}
+
+.tittle p{color: white; font-size: 20px;}
 
 div .form-login h4 {
  border:0 solid #fff;
@@ -163,7 +179,7 @@ div .form-login p
 
 
 
-/*media screen*/
+/*media screen loggin*/
 @media screen and (max-width: 550px)
 {
     div .form-login h4
@@ -183,5 +199,41 @@ div .form-login p
         padding-top: 10px;
         margin-bottom: 8px;
     }
+
+}
+
+
+/*media screen tittle*/
+@media screen and (max-width: 767px)
+{
+    .container {margin-top:40px; padding: 0 0 0 90px;}
+
+    .tittle{text-align: center; margin-top:0px;}
+
+    .tittle h2{color: white; font-size: 30px; font-family: 'Fredoka One', cursive;}
+}
+
+@media screen and (max-width: 550px)
+{
+    .container { padding: 0 0 0 0px;}
+    
+    .container-register { padding: 0 0 0 0px;}
+}
+
+@media screen and (min-width: 400px) and (max-width: 544px)
+{
+    .container {padding: 0 55px 0 55px;}
+    
+    .container-register {padding: 20px 45px 0 45px;}
+
+}
+
+@media screen and (max-width: 375px)
+{
+    .container { padding: 0;}
+    
+    .container-register { padding: 20px 0 0 0;}
+
+    .tittle p{font-size: 17px;}
 
 }

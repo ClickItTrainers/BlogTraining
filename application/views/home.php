@@ -1,7 +1,7 @@
 <div class="container">
          <div class="row padding">
             <!-- Blog Sidebar Widgets Column -->
-            <div class="col-lg-5 col-md-8 col-sm-10 col-xs-9 col-center">
+            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-11 col-center">
                 <!-- Blog Search Well -->
                      <div class="input-group">
                       <input type="text" class="form-control" placeholder="Search for...">
@@ -46,8 +46,17 @@
                         <hr>
         	<?php
         		endforeach;
+        
         	?>
-                        <nav aria-label="Page navigation">
+
+            
+            <div class="pagination col-center">
+                <?php
+                echo $this->pagination->create_links();
+                ?>
+            </div>
+
+<!--                        <nav aria-label="Page navigation">
                           <ul class="pagination pagination-sm">
                             <li class="page-item">
                               <a class="page-link" href="#" aria-label="Previous">
@@ -64,5 +73,6 @@
                               </a>
                             </li>
                           </ul>
-                        </nav>
+                        </nav>-->
+
             </div>

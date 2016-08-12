@@ -19,7 +19,7 @@ class Admin_controller extends CI_Controller
 
 	public function admin_profile(){
 		$data['title'] = "Three Musketeers Blog";
-		$data['page'] = 'admin/my_profile';
+		$data['page'] = 'admin';
 		$this->load->view('admin/templates/template', $data);
 	}
 

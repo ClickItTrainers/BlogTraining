@@ -41,7 +41,7 @@
 
                      <!-- Category -->
                      <div class="margin-bottom">
-                         <legend for="category" class="margin-category" ">Category</legend>
+                         <legend for="category" class="margin-category">Category</legend>
                         <div class="dropdown ">
                               <button class="btn btn-secondary dropdown-toggle"
                                       type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -60,9 +60,9 @@
                               </div>
                         </div>
                      </div>
-                    
+
                 </div>
-                
+
 
 
                 <!-- Content od the post -->

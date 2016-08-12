@@ -8,9 +8,13 @@
 		}
 
 		// Sends a list of the posts in Home page
-		public function posts_list(){
+		public function posts_list($init = false, $limit = false){
 			$this->db->order_by('id_post', 'desc');
 			//$this->db->limit(5);
+			if($init!== false && $limit !== false)
+			{
+				$this->db->limit($limit, $init);
+			}
 			$query = $this->db->get('posts');
 			return $query->result();
 		}

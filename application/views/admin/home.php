@@ -1,10 +1,12 @@
 <?php
 {
-	if($this->session->userdata('is_logued_in')===null)
+	if($this->session->userdata('is_logued_in')===null || $this->session->userdata('admin')===null)
 	{
 		redirect(base_url());
 	}
+
 }?>
+
 
 <div class="container">
 	<div class="row padding padding-top">
@@ -28,7 +30,7 @@
 			    <blockquote class="card-blockquote">
 			      <img src="<?php echo base_url(); ?>assets/img/profile.jpg" alt="Loading image failed" class="img-fluid url-profile">
 			      <div class="color">
-			     	<a href="<?php echo base_url() ?>Profile_controller"> <p>My profile</p> </a>
+			     	<a href="<?php echo base_url() ?>profile"> <p>My profile</p> </a>
 			      </div>
 			      <!-- <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer> -->
 			    </blockquote>
