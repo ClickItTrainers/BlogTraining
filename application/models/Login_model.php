@@ -34,9 +34,24 @@ class Login_model extends CI_Model
     }
   }
 
+  public function registro_fb($user, $email, $hash, $gender, $picture)
+  {
+    //Saved the data
+    $data = array(
+			'username' => $user,
+			'email' => $email,
+			'password' => $hash,
+      'picture' => $picture,
+      'gender' => $gender
+		);
+
+    //Linea para la insercion de los datos del array en la bd
+		return $this->db->insert('users', $data);
+  }
+
   public function registro($username,$email,$hash)
   {
-    //Aqui se almacenan los datos en un array
+    //Saved the data
     $data = array(
 			'username' => $username,
 			'email' => $email,

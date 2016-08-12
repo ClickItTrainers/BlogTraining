@@ -75,20 +75,13 @@ class Users_model extends CI_Model{
 			return $username;
 		}
 
-		// Gets the user type of the user that is logged in
-		/*public function get_userType(){
-			$user = $this->session->userdata('username');
-			$this->db->select('type');
-			$this->db->from('users');
-			$this->db->where('username', $user);
-
-			$query = $this->db->get();
-
-			foreach ($query->result() as $row){
-				   $type = $row->type;
-			}
-			return $type;
-		}*/
+		//Verify if a user from facebook is registered
+		public function verify_user_fb($email)
+		{
+			$this->db->where('email', $email);
+			$query = $this->db->get('users');
+			return $query->row();
+		}
 
 		// Gets a list of all categories
 		public function get_category(){
