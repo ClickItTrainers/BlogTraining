@@ -37,8 +37,8 @@ nav.navbar {background-color: #293F54;}
 	div .right h1{font-size: 27px;}
 
 	h2{font-size: 26px;}
-	
-	div .right a.btn{font-size: 15px; padding:4px;}	
+
+	div .right a.btn{font-size: 15px; padding:4px;}
 }
 
 
@@ -55,13 +55,13 @@ footer p{text-align: center;}
 
 /*pagination*/
 
-.pagination {display: flex; justify-content: center; align-items: center;}
+.paginations {display: flex; justify-content: center; align-items: center;}
 
-.pagination p strong{padding: 10px; border-top:1px solid rgba(0,0,0,.2); border-bottom:1px solid rgba(0,0,0,.2); border-left:1px solid rgba(0,0,0,.2); border-right:1px solid rgba(0,0,0,.2); color:#0275d8;}
+.paginations p strong{padding: 10px; border-top:1px solid rgba(0,0,0,.2); border-bottom:1px solid rgba(0,0,0,.2); border-left:1px solid rgba(0,0,0,.2); border-right:1px solid rgba(0,0,0,.2); color:#0275d8;}
 
-.pagination p a{padding: 10px; border-top:1px solid rgba(0,0,0,.2); border-bottom:1px solid rgba(0,0,0,.2); border-left:1px solid rgba(0,0,0,.2);}
+.paginations p a{padding: 10px; border-top:1px solid rgba(0,0,0,.2); border-bottom:1px solid rgba(0,0,0,.2); border-left:1px solid rgba(0,0,0,.2);}
 
-.pagination p a:last-child{border-right:1px solid rgba(0,0,0,.2);}
+.paginations p a:last-child{border-right:1px solid rgba(0,0,0,.2);}
 
 /*.paginador{display: flex; justify-content: center; align-items: center; padding: 20px 0;}
 
