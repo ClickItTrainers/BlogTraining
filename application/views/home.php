@@ -46,10 +46,10 @@
                         <hr>
         	<?php
         		endforeach;
-        
+
         	?>
 
-            
+
             <div class="pagination col-center">
                 <?php
                 echo $this->pagination->create_links();

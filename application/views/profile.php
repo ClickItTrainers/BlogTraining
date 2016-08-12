@@ -114,7 +114,6 @@
 															<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Email:</label>
 															<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 																<input id="textinput" name="textinput" type="text" class="form-control input-md height" disabled>
-																<span class="help-block color">your new email ID</span>
 															</div>
 														</div>
 														<!-- name input-->
