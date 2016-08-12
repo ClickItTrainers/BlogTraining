@@ -1,12 +1,13 @@
 <title><?php echo $title ?></title>
 <link href="<?php echo base_url(); ?>assets/css/profile.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/showProfile.js"></script>
+
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
 		<div class="row profile">
-			<div class=" col-lg-3 col-md-3 col-sm-4 col-xs-12">
+			<div class=" col-lg-3 col-md-4 col-sm-5 col-xs-12">
 				<div class="profile-sidebar">
 					<!-- SIDEBAR USERPIC -->
 					<div class="profile-userpic">
@@ -36,26 +37,23 @@
 						<!-- SIDEBAR MENU -->
 						<div class="profile-usermenu">
 							<ul class="nav">
-								<li class="active padding-li">
-									<a href="" onclick="myFunctionO()">
-										<i class="glyphicon glyphicon-home"></i> Overview 
-									</a>
-								</li>
-								<li>
-									<a href="#settings" onclick="myFunctionS()">
-										<i class="glyphicon glyphicon-user"></i>Account Settings </a>
-								</li>
-								<li>
-									<a href="">
-										<i class="glyphicon glyphicon-flag"></i>Help </a>
-								</li>
+								<a href="" onclick="myFunctionO()">
+									<li class=" padding-li">
+										<i class="fa fa-home"></i> Overview 
+									</li>
+								</a>
+								<a href="#settings" onclick="myFunctionS()">
+									<li>
+										<i class="fa fa-user"></i> Account Settings
+									</li> 
+								</a>
 							</ul>
 						</div><!-- END MENU -->
 				</div>
 			</div>
 
 								<!-- 	overview -->
-								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 ">
+								<div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 ">
 									<!-- <div class="profile-content"> -->
 										<!-- Overview -->
 										<div id="overview" class="container-style">

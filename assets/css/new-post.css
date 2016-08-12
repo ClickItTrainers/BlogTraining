@@ -32,7 +32,7 @@ div .dropdown label input{display: none;}
 
 .padding-top{padding-top: 15px;}
 
-.padding-container{padding: 27px 40px;}
+.padding-container{padding: 10px 40px 27px 40px;}
 
 .width{width: 60%}
 
@@ -42,7 +42,7 @@ div .dropdown label input{display: none;}
 
 .flex{display: flex; flex-wrap: wrap;}
 
-div .col-xs-12 .color{background-color: #293F54; border-color:  #263442; font-size: 13px;}
+div .col-xs-12 .color{background-color: #293F54; border-color:  #263442; font-size: 13px; padding: 5px 14px;}
 
 /*media*/
 

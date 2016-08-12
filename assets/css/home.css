@@ -32,6 +32,16 @@ nav.navbar {background-color: #293F54;}
 .display-inline{display: inline-block; margin-right:15px; }
 
 
+@media screen and (max-width: 430px)
+{
+	div .right h1{font-size: 27px;}
+
+	h2{font-size: 26px;}
+	
+	div .right a.btn{font-size: 15px; padding:4px;}	
+}
+
+
 /*sidebar*/
 .display{display: inline-block;}
 
