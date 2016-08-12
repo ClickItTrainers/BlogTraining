@@ -16,15 +16,14 @@ class Login_controller extends CI_Controller
   {
     $data['title']= 'Login';
     $data['token'] = $this->token();
-
     $fb = new Facebook\Facebook([
       'app_id' => '1092965707405902',
       'app_secret' => 'f053d3491233211c2266ed52748c1b2c',
       'default_graph_version' => 'v2.7',
     ]);
     $helper = $fb->getRedirectLoginHelper();
-    $permissions = ['email', 'user_posts'];
-    $data['loginUrl'] = $helper->getLoginUrl(base_url().'Login_controller/fb_login');
+    $permissions = ['email'];
+    $data['loginUrl'] = $helper->getLoginUrl(base_url().'Login_controller/fb_login', $permissions);
     $this->load->view('Login_view',$data);
   }
 
@@ -32,7 +31,13 @@ class Login_controller extends CI_Controller
   {
     $data['title'] = 'Register';
     $data['token'] = $this->token();
+    $data['fb'] = null;
     $this->load->view('Register_view', $data);
+  }
+
+  public function register_fb()
+  {
+    Echo "Si te mando :D";
   }
 
   public function token()
@@ -44,6 +49,7 @@ class Login_controller extends CI_Controller
 
   public function fb_login()
   {
+
     $fb = new Facebook\Facebook([
       'app_id' => '1092965707405902',
       'app_secret' => 'f053d3491233211c2266ed52748c1b2c',
@@ -66,10 +72,15 @@ class Login_controller extends CI_Controller
     if (isset($accessToken)) {
       $fb->setDefaultAccessToken($accessToken);
       try {
-        $profile_request = $fb->get('/me?fields=name,first_name,last_name,email');
+        $profile_request = $fb->get('/me?fields=id,name,first_name,email,picture,gender');
         $profile = $profile_request->getGraphNode()->asArray();
 
-        print_r($profile['id']);
+        $data['fb'] = $profile;
+        $data['title'] = 'Register';
+        $data['token'] = $this->token();
+        $this->load->view('Register_view', $data);
+
+        //rint_r($profile['id']);
       } catch(Facebook\Exceptions\FacebookSDKException $e) {
         // When validation fails or other local issues
         echo 'Facebook SDK returned an error:v ' . $e->getMessage();

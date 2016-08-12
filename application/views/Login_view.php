@@ -7,7 +7,7 @@
 	<title><?php echo $title ?></title>
 	<link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo base_url()?>assets/css/login.css" rel="stylesheet">
-	
+
 	<!--Pulling Awesome Font -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -36,7 +36,7 @@
 							<input class=" button btn azm-social azm-btn azm-border-bottom azm-drupal" type="submit" name="submit" value="Login">
 						</div>
 						<!-- <a href="#" class="btn azm-social azm-btn azm-border-bottom azm-drupal"><i class="fa"></i> Login </a> -->
-									<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
+									<a href="<?php echo $loginUrl ?>" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
 									<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-twitter"><i class="fa fa-twitter"></i></a>
 									<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a>
 							</div>

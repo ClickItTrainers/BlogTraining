@@ -24,8 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://149.56.23.33:3080/';
-// $config['base_url'] = 'http://www.blogtraining.com/';
+//$config['base_url'] = 'http://149.56.23.33:3080/';
+ $config['base_url'] = 'http://www.blogtraining.com/';
 
 
 
