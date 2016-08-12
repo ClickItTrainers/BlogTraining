@@ -37,12 +37,6 @@
                               <a class="nav-link" href="<?php echo base_url();?>new" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Add Post<span class="sr-only"></span></a>
                             </li>
                             <?php } ?>
-
-
-                            <li class="nav-item ">
-                              <a class="nav-link" href="<?php echo base_url();?>admin">Panel<span class="sr-only"></span></a>
-                            </li>
-
                           </ul>
                           <!-- Collect the nav links, forms, and other content for toggling -->
                       <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
