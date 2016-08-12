@@ -46,8 +46,16 @@
                         <hr>
         	<?php
         		endforeach;
-            echo $this->pagination->create_links();
+        
         	?>
+
+            
+            <div class="pagination col-center">
+                <?php
+                echo $this->pagination->create_links();
+                ?>
+            </div>
+
 <!--                        <nav aria-label="Page navigation">
                           <ul class="pagination pagination-sm">
                             <li class="page-item">

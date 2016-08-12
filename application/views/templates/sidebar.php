@@ -1,4 +1,4 @@
-    <div class="col-lg-3 col-md-4 col-sm-9 col-xs-9">
+    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
         <!-- Blog Categories Well -->
         <div class="card bg-faded card-block">
              <h4>Blog Categories</h4>

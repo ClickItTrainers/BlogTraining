@@ -7,13 +7,18 @@
 	<title><?php echo $title ?></title>
 	<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/login.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+	
 	<!--Pulling Awesome Font -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 	<body>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+				<div class="row col-center container-register">
+					<div class="col-lg-6 col-md-5 col-sm-8 col-xs-12 tittle ">
+						<h2>THE BBLOG</h2>
+						<p>Now you can see the latest news</p>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
 							<div class="form-login">
 								<form action="<?php echo base_url() ?>Login_controller/registro_user" method="post">
 									<h4>Please Register</h4>
@@ -52,7 +57,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
 
 	</body>
 </html>
