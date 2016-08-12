@@ -148,7 +148,11 @@ class Login_controller extends CI_Controller
             $login = $this->Login_model->login($email, $password);
             if($login)
             {
-
+              $dat = array(
+                'is_logued_in' => TRUE,
+                'username' => $login->username,
+                'email' => $login->email);
+                $this->session->set_userdata($dat);
 
               if ($login->type == 1) {
                 $url = base_url() . 'Admin_controller';
