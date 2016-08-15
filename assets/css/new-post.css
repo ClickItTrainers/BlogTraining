@@ -1,11 +1,12 @@
+.margin-top{margin-top:100px; }
 
 /*new post*/
 
 div .border{border: 1px solid #293F54; border-radius: 10px }
 
-div .row h2{text-align: center;}
+div .row h2{text-align: center; font-size: 24px; }
 
-div .border legend{display: inline; font-size: 20px;}
+div .border legend{display: inline; font-size: 17px;}
 
 div .row{display: flex; flex-direction: column; align-items: center;}
 
@@ -26,7 +27,7 @@ div .dropdown label input{display: none;}
 
 .margin-category{margin-right: 25px;}
 
-.margin-bottom{margin-bottom: 8px;}
+.margin-bottom{margin-bottom: 12px; padding-left: 0;}
 
 .margin-right{margin-right: 65px;}
 
@@ -35,6 +36,7 @@ div .dropdown label input{display: none;}
 .padding-container{padding: 10px 40px 27px 40px;}
 
 .width{width: 60%}
+
 
 .size-text{width: 95%; height: 140px;}
 
@@ -80,8 +82,19 @@ div .col-xs-12 .color{background-color: #293F54; border-color:  #263442; font-si
  {
 	.size-text{width: 50%; height: 25%}
  }
+*/
 
+.field-error .control-label,
+.field-error .help-block,
+.field-error .form-control-feedback {
+    color: #ff0039;
+}
 
+.field-success .control-label,
+.field-success .help-block,
+.field-success .form-control-feedback {
+    color: #2780e3;
+}
 
 
 

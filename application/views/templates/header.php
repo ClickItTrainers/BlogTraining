@@ -14,16 +14,15 @@
     <link href="<?php echo base_url(); ?>assets/css/home.css" rel="stylesheet">
  </head>
 <body>
-    <div class="row">
-      <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
-          <!-- Navigation -->
-          <nav class="navbar navbar-dark bg-inverse tall-header" role="navigation">
+  
+          <nav class="navbar navbar-dark bg-inverse tall-header navbar-fixed-top" role="navigation">
               <div class="container">
                   <!-- Brand and toggle get grouped for better mobile display -->
-                     <nav class="navbar navbar-light ">
+                     <div class="navbar navbar-light ">
                         <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
                           &#9776;
                         </button>
+
                         <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
                           <ul class="nav navbar-nav">
                             <li class="nav-item ">
@@ -38,8 +37,6 @@
                             </li>
                             <?php } ?>
                           </ul>
-                          <!-- Collect the nav links, forms, and other content for toggling -->
-                      <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
                       <div class="container-login">
                         <ul class="nav navbar-nav navbar-right text-xs-right">
                         <?php if ($this->session->userdata('is_logued_in') == FALSE) { ?>
@@ -65,8 +62,8 @@
                         <?php } ?>
                         </ul>
 
-                   </nav>
+                   </div>
               </div>
-          </nav>
-      </div>
-    </div>
+           </div>
+       </div>
+     </nav>

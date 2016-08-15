@@ -14,9 +14,9 @@
 			<div class="card card-inverse card-primary text-xs-center">
 			  <div class="card-block">
 			    <blockquote class="card-blockquote">
-			    <img src="<?php echo base_url(); ?>assets/img/user.jpg" alt="Loading image failed" class="img-fluid  url-user">
+			    <a href="<?php echo base_url() ?>admin/users"> <img src="<?php echo base_url(); ?>assets/img/user.jpg" alt="Loading image failed" class="img-fluid  url-user">
 			    <div class="color">
-			      <a href="<?php echo base_url() ?>admin/users"> <p>Users</p> </a>
+			     <p>Users</p> </a>
 			    </div>
 			    </blockquote>
 			  </div>
@@ -28,9 +28,9 @@
 			<div class="card card-inverse card-primary text-xs-center">
 			  <div class="card-block">
 			    <blockquote class="card-blockquote">
-			      <img src="<?php echo base_url(); ?>assets/img/profile.jpg" alt="Loading image failed" class="img-fluid url-profile">
+			      <a href="<?php echo base_url() ?>profile"><img src="<?php echo base_url(); ?>assets/img/profile.jpg" alt="Loading image failed" class="img-fluid url-profile">
 			      <div class="color">
-			     	<a href="<?php echo base_url() ?>profile"> <p>My profile</p> </a>
+			     	 <p>My profile</p> </a>
 			      </div>
 			      <!-- <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer> -->
 			    </blockquote>

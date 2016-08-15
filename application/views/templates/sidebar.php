@@ -71,10 +71,8 @@
                                         </li>
                                     <?php } ?>
                             </ul>
-                    </div>
-                <!-- /.col-xl-6 -->
-            </div>
-            <!-- /.row -->
+                    </div><!-- /.col-xl-6 -->
+            </div><!-- /.row -->
         </div>
         <!-- Side Widget Well -->
         <div class="card bg-faded card-block">
@@ -84,4 +82,4 @@
                 vero.</p>
          </div>
     </div>
-</div>
+</div> <!-- main row -->

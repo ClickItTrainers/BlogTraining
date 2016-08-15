@@ -11,6 +11,9 @@
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 
+    <!-- fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 <script type="text/javascript">
         function validar(e) {
             tecla = (document.all) ? e.keyCode : e.which;
@@ -20,22 +23,22 @@
             return !patron.test(te);
         }
 </script>
-<div class="container">
+<div class="container margin-top">
     <div class="row">
          <div class="col-lg-8 col-md-9 col-sm-12 col-xs-12 border padding-container">
             <form method="post" action="<?php echo base_url() ?>/Home/insert_post">
-                <h2><?php echo $title; ?></h2>
+                <h2> <?php echo $title; ?></h2>
                 <!-- Tittle -->
                 <div class="padding-top">
-                    <div class="margin-bottom">
+                    <div class="margin-bottom form-group">
                         <legend for="title" class="margin-right">Title:</legend>
-                        <input type="input" class="width" name="title" onkeypress="return validar(event)"/>
+                        <input type="input" class="width form-control display-inline-block" name="title" onkeypress="return validar(event)"/>
                         <span class="text-danger"><?php echo form_error('title'); ?></span>
                     </div>
                     <!-- Description -->
                     <div  class="margin-bottom">
                         <legend for="description">Description:</legend>
-                        <input type="input" class="width" name="description" onkeypress="return validar(event)"/>
+                        <input type="input" class="width form-control display-inline-block" name="description" onkeypress="return validar(event)"/>
                         <span class="text-danger"><?php echo form_error('description'); ?></span>
                     </div>
 
@@ -60,11 +63,7 @@
                               </div>
                         </div>
                      </div>
-
                 </div>
-
-
-
                 <!-- Content od the post -->
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom">
                     <legend for="text">Content of the post</legend>
@@ -73,6 +72,6 @@
                 </div>
                 <input type="submit" class="btn btn-success color" name="submit" value="Send"/>
             </form>
-         </div>
-    </div>
-</div>
+
+         </div> <!-- col -->
+    </div> <!-- row -->

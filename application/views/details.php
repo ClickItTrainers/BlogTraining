@@ -33,7 +33,7 @@
 </div>
 
 
-<div class="container">
+<div class="container margin-top">
   <div class="row">
     <div class="col-lg-9 margin-bottom">
       <title> <?php echo $title; ?> </title>
@@ -86,7 +86,7 @@
 
           <!-- Comments Form -->
           <div class="well">
-            <h4>Leave a Comment:</h4>
+            <h4><i class="fa fa-commenting-o"></i>Leave a Comment:</h4>
             <form role="form" action="<?php echo base_url(); ?>Mailgun_controller/comment" method="post">
               <div class="form-group">
                 <textarea maxlength="255" name="comment" class="form-control" rows="3" style="resize: none;"></textarea>

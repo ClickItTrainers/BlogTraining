@@ -1,12 +1,14 @@
-<div class="container">
 
-    <div class="row">
-        <!-- Blog Entries Column -->
-        <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 right">
+<div class="container margin-top">
+
+<div class="row">
+    <!-- Blog Entries Column -->
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 right">
+
         	<title> <?php echo $title ?> </title>
         	<h1 class="page-header tittle down">
                 Welcome to the BBlog
-          </h1>
+            </h1>
         	<?php
         		foreach ($posts_arr as $item):
         			$url = 'post/' . $item->id_post . '/';
@@ -46,24 +48,4 @@
                 echo $this->pagination->create_links();
                 ?>
             </div>
-
-<!--                        <nav aria-label="Page navigation">
-                          <ul class="pagination pagination-sm">
-                            <li class="page-item">
-                              <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                              </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item">
-                              <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                              </a>
-                            </li>
-                          </ul>
-                        </nav>-->
-
-            </div>
+    </div><!-- col -->
