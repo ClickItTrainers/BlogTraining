@@ -29,7 +29,7 @@
                             <?php echo anchor($url, $item->title) ?>
                         </h2>
                         <p class="lead display-inline size-small">
-                            by <a href="profile/user/<?php echo $item->id_user; ?>">
+                            by <a href="<?php echo base_url()?>profile/user/<?php echo $item->id_user; ?>">
                               <?php
                                 foreach ($users_arr as $key) {
                                     if ($item->id_user == $key->id_user){
@@ -45,7 +45,7 @@
                         </div>
                         <img class="img-fluid down" src="<?php base_url() ?>assets/img/hitman.jpg" alt="">
                         <p><?php echo $item->description ?></p>
-                        <a class="btn btn-primary" href="index.php/<?php echo $url ?>">Read More <i class="fa fa-angle-right "></i></a>
+                        <a class="btn btn-primary" href="<?php echo base_url().$url ?>">Read More <i class="fa fa-angle-right "></i></a>
                         <hr>
         	<?php
         		endforeach;

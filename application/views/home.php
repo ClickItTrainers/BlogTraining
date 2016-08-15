@@ -33,7 +33,7 @@
                         </div>
                         <img class="img-fluid down" src="<?php base_url() ?>assets/img/hitman.jpg" alt="">
                         <p><?php echo $item->description ?></p>
-                        <a class="btn btn-primary" href="index.php/<?php echo $url ?>">Read More <i class="fa fa-angle-right "></i></a>
+                        <a class="btn btn-primary" href="<?php echo base_url().$url ?>">Read More <i class="fa fa-angle-right "></i></a>
                         <hr>
         	<?php
         		endforeach;
