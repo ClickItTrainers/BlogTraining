@@ -24,9 +24,9 @@
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
-				<?php if ($this->session->userdata('admin')) {?>
-				<div class="profile-userbuttons">
-					<!-- <a href="<?php echo base_url(); ?>">
+				<?php if ($this->session->userdata('admin') && $this->session->userdata('username') != $user) {?>
+					<div class="profile-userbuttons">
+				 <a href="<?php echo base_url(); ?>">
 					<button type="button" class="btn btn-success btn-sm">Home</button>
 					<a href="<?php echo base_url(); ?>index.php/Security/logout">
 					<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</button></i></a>
@@ -38,13 +38,13 @@
 						<ul class="nav">
 							<a href="" onclick="myFunctionO()">
 								<li class=" padding-li">
-									<i class="fa fa-home"></i> Overview 
+									<i class="fa fa-home"></i> Overview
 								</li>
 							</a>
 							<a href="#settings" onclick="myFunctionS()">
 								<li>
 									<i class="fa fa-user"></i> Account Settings
-								</li> 
+								</li>
 							</a>
 						</ul>
 					</div><!-- END MENU -->
@@ -164,4 +164,3 @@
 			</div> <!--End Account Settings -->
 		</div><!-- col End Overview -->
 </div> <!-- row -->
-
