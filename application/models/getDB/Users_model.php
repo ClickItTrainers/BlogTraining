@@ -85,7 +85,7 @@ class Users_model extends CI_Model{
 
 		// Gets a list of all categories
 		public function get_category(){
-			$this->db->select('name');
+			$this->db->select('*');
 			$this->db->from('categories');
 
 			$query = $this->db->get()->result();

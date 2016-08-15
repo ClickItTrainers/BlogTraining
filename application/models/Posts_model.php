@@ -19,6 +19,15 @@
 			return $query->result();
 		}
 
+		//Gets the post of the same category
+		public function get_post_category($id_category)
+		{
+			$this->db->where('id_category', $id_category);
+			$res = $this->db->get('posts');
+
+			return $res->result();
+		}
+
 		// Gets the date in a long format
 		public function get_date(){
 			$this->db->select('date', "DATE_FORMAT(date,'%b %d %Y %h:%i %p')");

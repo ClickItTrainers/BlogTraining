@@ -10,6 +10,20 @@ class Home extends CI_Controller {
 		$this->load->helper('my_date');
 	}
 
+	//Select the posts by category
+	public function select_bycategory($id_category)
+	{
+		$data['By_category'] = $this->Posts_model->get_post_category($id_category);
+		$data['title'] = "Posts by category";
+		$data['users_arr'] = $this->Posts_model->users_list();
+		$datestring = 'l, F d, o - h:i A';
+		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
+		$data['page'] = 'by_category';
+		$data['date'] = timestamp_to_date($time, $datestring);
+		$this->load->view('templates/template', $data);
+
+	}
+
 	// It loads the Home page view
 	public function index($page=false){
 		$this->load->library('pagination');
