@@ -9,13 +9,15 @@
 
 		// Sends a list of the posts in Home page
 		public function posts_list($init = false, $limit = false){
+			$this->db->select('p.*, c.name');
+			$this->db->from('posts p');
+			$this->db->join('categories c', 'p.id_category = c.id_category');
 			$this->db->order_by('id_post', 'desc');
-			//$this->db->limit(5);
 			if($init!== false && $limit !== false)
 			{
 				$this->db->limit($limit, $init);
 			}
-			$query = $this->db->get('posts');
+			$query = $this->db->get();
 			return $query->result();
 		}
 
@@ -96,4 +98,5 @@
 			$this->db->order_by('id_comment', 'desc');
 			return $this->db->get()->result();
 		}
+
 	}

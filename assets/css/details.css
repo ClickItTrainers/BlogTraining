@@ -46,6 +46,11 @@ div .media-body small{color:gray;}
 
 /*div .media-body h4{display: inline-block;}*/
 
+.display{display: inline-block;}
+
+.float-right{ background-color: #D9534F; float: right; padding: 3px 10px; font-weight: 700; line-height: 1; font-size: 14px; font-style: bold; color: white; border-radius: 15px;}
+
+div .margin-bottom hr{margin-top:0;}
 
 
 

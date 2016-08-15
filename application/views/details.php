@@ -67,12 +67,17 @@
       <hr>
 
       <!-- Date/Time -->
-      <p class="color-date"><i class="fa fa-clock-o"></i> <?php echo $date; ?> </p>
+      <p class="color-date display"><i class="fa fa-clock-o"></i> <?php echo $date; ?> </p>
+
+      <!-- Tag -->
+      <div class=" display float-right">
+          <span>asda </span >
+      </div>
 
       <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid" src="<?php base_url(); ?>assets/img/hitman.jpg" alt="">
+        <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="">
 
       <!-- Post Content -->
       <p class="lead"> <?php echo $details->description; ?> </p>

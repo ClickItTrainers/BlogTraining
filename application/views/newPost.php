@@ -9,6 +9,7 @@
 <link href="<?php echo base_url(); ?>assets/css/new-post.css" rel="stylesheet">
 
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<!-- <script src="http://www.blogtraining.com/assets/js/previewImage.js" type="text/javascript"></script> -->
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 
     <!-- fonts -->
@@ -22,6 +23,75 @@
             te = String.fromCharCode(tecla);
             return !patron.test(te);
         }
+
+
+$(document).on('click', '#close-preview', function(){ 
+    $('.image-preview').popover('hide');
+    // Hover befor close the preview
+    $('.image-preview').hover(
+        function () {
+           $('.image-preview').popover('show');
+        }, 
+         function () {
+           $('.image-preview').popover('hide');
+        }
+    );    
+});
+
+$(function() {
+    // Create the close button
+    var closebtn = $('<button/>', {
+        type:"button",
+        text: 'x',
+        id: 'close-preview',
+        style: 'font-size: initial;',
+    });
+    closebtn.attr("class","close pull-right");
+    // Set the popover default content
+    $('.image-preview').popover({
+        trigger:'manual',
+        html:true,
+        title: "<strong>Preview</strong>"+$(closebtn)[0].outerHTML,
+        content: "There's no image",
+        placement:'bottom'
+    });
+    // Clear event
+    $('.image-preview-clear').click(function(){
+        $('.image-preview').attr("data-content","").popover('hide');
+        $('.image-preview-filename').val("");
+        $('.image-preview-clear').hide();
+        $('.image-preview-input input:file').val("");
+        $(".image-preview-input-title").text("Browse"); 
+    }); 
+    // Create the preview image
+    $(".image-preview-input input:file").change(function (){     
+        var img = $('<img/>', {
+            id: 'dynamic',
+            width:250,
+            height:200
+        });      
+        var file = this.files[0];
+        var reader = new FileReader();
+        // Set preview image into the popover data-content
+        reader.onload = function (e) {
+            $(".image-preview-input-title").text("Change");
+            $(".image-preview-clear").show();
+            $(".image-preview-filename").val(file.name);            
+            img.attr('src', e.target.result);
+            $(".image-preview").attr("data-content",$(img)[0].outerHTML).popover("show");
+        }        
+        reader.readAsDataURL(file);
+    });  
+});
+
+
+
+
+
+
+
+
+
 </script>
 <div class="container margin-top">
     <div class="row">
@@ -71,6 +141,7 @@
                     <span class="text-danger"><?php echo form_error('content'); ?></span>
                 </div>
                 <input type="submit" class="btn btn-success color" name="submit" value="Send"/>
+
             </form>
 
          </div> <!-- col -->
