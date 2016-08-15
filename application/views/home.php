@@ -1,23 +1,11 @@
 <div class="container">
-         <div class="row padding">
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-11 col-center">
-                <!-- Blog Search Well -->
-                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Search for...">
-                      <span class="input-group-btn">
-                        <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
-                      </span>
-                    </div>
-                    <!-- /.input-group -->
-            </div>
-    </div>
+
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 right">
         	<title> <?php echo $title ?> </title>
         	<h1 class="page-header tittle down">
-                Welcome to the Blog
+                Welcome to the BBlog
           </h1>
         	<?php
         		foreach ($posts_arr as $item):

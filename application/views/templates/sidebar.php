@@ -1,3 +1,15 @@
+
+  <!-- Blog Sidebar Widgets Column -->
+  <div class="col-lg-3 col-md-4 col-sm-12 col-xs-11">
+      <!-- Blog Search Well -->
+           <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+            </span>
+          </div>
+          <!-- /.input-group -->
+  </div><br/><br/>
     <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
         <!-- Blog Categories Well -->
         <div class="card bg-faded card-block">
