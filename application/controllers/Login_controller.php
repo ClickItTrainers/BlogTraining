@@ -24,14 +24,53 @@ class Login_controller extends CI_Controller
     $helper = $fb->getRedirectLoginHelper();
     $permissions = ['email'];
     $data['loginUrl'] = $helper->getLoginUrl(base_url().'Login_controller/fb_login', $permissions);
+    $data['google_url'] = base_url().'Login_controller/google_login';
     $this->load->view('Login_view',$data);
+  }
+
+  public function google_login()
+  {
+    /*$redirectUrl =  base_url();
+    // Google Client Configuration
+    $gClient = new Google_Client();
+    $gClient->setApplicationName('Login to codexworld.com');
+    $gClient->setClientId('30644026759-4tnfjfj9bs2q9vh2bvmrhpchjhtbda70.apps.googleusercontent.com');
+    $gClient->setClientSecret('KXXNjKbkH-5BI4EB8ygLY3Yp');
+    $gClient->setRedirectUri($redirectUrl);
+    $google_oauthV2 = new Google_Oauth2Service($gClient);
+
+    if (isset($_REQUEST['code'])) {
+      $gClient->authenticate();
+      $this->session->set_userdata('token', $gClient->getAccessToken());
+      redirect($redirectUrl);
+    }
+
+    $token = $this->session->userdata('token');
+    if (!empty($token)) {
+      $gClient->setAccessToken($token);
+    }
+
+    if ($gClient->getAccessToken()) {
+      $userProfile = $google_oauthV2->userinfo->get();
+      // Preparing data for database insertion
+      $userData['oauth_provider'] = 'google';
+      $userData['oauth_uid'] = $userProfile['id'];
+      $userData['first_name'] = $userProfile['given_name'];
+      $userData['last_name'] = $userProfile['family_name'];
+      $userData['email'] = $userProfile['email'];
+      $userData['gender'] = $userProfile['gender'];
+      $userData['locale'] = $userProfile['locale'];
+      $userData['profile_url'] = $userProfile['link'];
+      $userData['picture_url'] = $userProfile['picture'];
+
+      print_r($userData);
+    }*/
   }
 
   public function index_registro()
   {
     $data['title'] = 'Register';
     $data['token'] = $this->token();
-    $data['fb'] = null;
     $this->load->view('Register_view', $data);
   }
 
@@ -70,184 +109,184 @@ class Login_controller extends CI_Controller
         $tokenMetadata = $Client->debugToken($accessToken);
         $tokenMetadata->validateAppId('1092965707405902');
         if (! $accessToken->isLongLived()) {
-          try {
-            $longlivedaccessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
-            $fb->setdefaultAccessToken($longlivedaccessToken);
-          } catch (Facebook\Exceptions\FacebookSDKException $e) {
-            echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
-          }
-        }*/
-          $requestPicture = $fb->get('/me/picture?redirect=false&type=large', $accessToken); //getting user picture
-          $profile_request = $fb->get('/me?fields=id,name,first_name,email,picture,gender', $accessToken);
-          $profile = $profile_request->getGraphNode()->asArray();
-          $picture = $requestPicture->getGraphUser();
+        try {
+        $longlivedaccessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
+        $fb->setdefaultAccessToken($longlivedaccessToken);
+      } catch (Facebook\Exceptions\FacebookSDKException $e) {
+      echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
+    }
+  }*/
+  $requestPicture = $fb->get('/me/picture?redirect=false&type=large', $accessToken); //getting user picture
+  $profile_request = $fb->get('/me?fields=id,name,first_name,email,picture,gender', $accessToken);
+  $profile = $profile_request->getGraphNode()->asArray();
+  $picture = $requestPicture->getGraphUser();
 
-          $verify = $this->Users_model->verify_user_fb($profile['email']);
+  $verify = $this->Users_model->verify_user_fb($profile['email']);
 
-          if($verify){
-            $dat = array(
-              'is_logued_in' => TRUE,
-              'username' => $verify->username,
-              'email' => $verify->email);
-              $this->session->set_userdata($dat);
-              $url = base_url().'Home';
-              echo "<script> alert ('Welcome!');
-              window.location.href = '$url';
-              </script>";
-            }else {
-              $username = $profile['name'];
-              $email = $profile['email'];
-              $picture = $picture['url'];
-              if($profile['gender'] === "male"){
-                $gender = "M";
-              }else {
-                $gender = "F";
-              }
-              $password = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 12);
-              $hash = $this->bcrypt->hash_password($password);
-              //Probar si la contraseña se encripto
-              if ($this->bcrypt->check_password($password, $hash))
-              {
-                $fb_user = $this->Login_model->registro_fb($username, $email, $hash, $gender, $picture);
-                if ($fb_user)
-                {
-                  $dat = array(
-                    'is_logued_in' => TRUE,
-                    'username' => $profile['name'],
-                    'email' => $profile['email']);
-                    $this->session->set_userdata($dat);
-                    $url = base_url().'Home';
-                    echo "<script> alert ('Welcome!');
-                    window.location.href = '$url';
-                    </script>";
-                  }
-                }
-              }
-            } catch(Facebook\Exceptions\FacebookSDKException $e) {
-              // When validation fails or other local issues
-              echo 'Facebook SDK returned an error:' . $e->getMessage();
-            }
-          }
-        }
-
-        public function entrada_login()
+  if($verify){
+    $dat = array(
+      'is_logued_in' => TRUE,
+      'username' => $verify->username,
+      'email' => $verify->email);
+      $this->session->set_userdata($dat);
+      $url = base_url().'Home';
+      echo "<script> alert ('Welcome!');
+      window.location.href = '$url';
+      </script>";
+    }else {
+      $username = $profile['name'];
+      $email = $profile['email'];
+      $picture = $picture['url'];
+      if($profile['gender'] === "male"){
+        $gender = "M";
+      }else {
+        $gender = "F";
+      }
+      $password = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 12);
+      $hash = $this->bcrypt->hash_password($password);
+      //Probar si la contraseña se encripto
+      if ($this->bcrypt->check_password($password, $hash))
+      {
+        $fb_user = $this->Login_model->registro_fb($username, $email, $hash, $gender, $picture);
+        if ($fb_user)
         {
-          // Verify the token
-          if ($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token'))
-          {
-
-            // Validation rules
-
-            $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email|max_length[50]|htmlspecialchars');
-            $this->form_validation->set_rules('password', 'password', 'required|trim|max_length[50]|htmlspecialchars');
-
-            // Error messages
-            $this->form_validation->set_message('valid_email', '*Invalid email');
-            $this->form_validation->set_message('required', '*Required field');
-            $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
-            $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
-
-            if (!$this->form_validation->run())
-            {
-              $this->index();
-            }
-            else
-            {
-              $email = $this->input->post('email');
-              $password = $this->input->post('password');
-              $login = $this->Login_model->login($email, $password);
-              if($login)
-              {
-                $dat = array(
-                  'is_logued_in' => TRUE,
-                  'username' => $login->username,
-                  'email' => $login->email);
-                  $this->session->set_userdata($dat);
-
-                  if ($login->type == 1) {
-                    $url = base_url() . 'Admin_controller';
-                    echo "<script> alert('¡Welcome Admin!');
-                    window.location.href='$url';
-                    </script>";
-                    $this->session->set_userdata('admin', TRUE);
-                  }else{
-                    $url = base_url() . 'Home';
-                    echo "<script> alert('Welcome');
-                    window.location.href='$url';
-                    </script>";
-                  }
-                }
-                else
-                {
-
-                  $url = base_url().'Login_controller';
-                  echo "<script> alert('That user does not exist');
-                  window.location.href='$url';
-                  </script>";
-                }
-              }
-            }
-          }
-
-
-
-          public function logout()
-          {
-            $this->session->sess_destroy();
+          $dat = array(
+            'is_logued_in' => TRUE,
+            'username' => $profile['name'],
+            'email' => $profile['email']);
+            $this->session->set_userdata($dat);
             $url = base_url().'Home';
-            echo "<script> alert('See ya!');
-            window.location.href = '$url'; </script>";
-          }
-
-
-          public function registro_user()
-          {
-
-            if($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token'))
-            {
-
-              // Validation rules
-              $this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|max_length[40]|htmlspecialchars');
-              $this->form_validation->set_rules('username', 'username', 'required|trim|max_length[20]|htmlspecialchars');
-              $this->form_validation->set_rules('password', 'password', 'required|trim|min_length[8]|max_length[20]|htmlspecialchars');
-
-              // Error messages
-              //$this->form_validation->set_message('alpha_spaces', 'The field only accept alphabetic characters');
-              $this->form_validation->set_message('valid_email', '*Invalid email');
-              $this->form_validation->set_message('required', '*Required field');
-              $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
-              $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
-
-              if (!$this->form_validation->run())
-              {
-                //Si no pasamos la validación volvemos al formulario mostrando los errores
-                $this->index_registro();
-              }
-              else
-              {
-                //Si funciona se procesan los datos
-                $email = $this->input->post('email');
-                $username = $this->input->post('username');
-                $password = $this->input->post('password');
-                $hash = $this->bcrypt->hash_password($password);
-                //Probar si la contraseña se encripto
-                if ($this->bcrypt->check_password($password, $hash))
-                {
-                  $insert_pass = $this->Login_model->registro($username, $email, $hash);
-                  if ($insert_pass)
-                  {
-                    $url = base_url().'Login_controller/index';
-                    echo "<script> alert ('Saved!');
-                    window.location.href = '$url';
-                    </script>";
-                  }
-                  else
-                  {
-                    throw new Exception("Error Processing request", 1);
-                    echo Exception;
-                  }
-                }
-              }
-            }
+            echo "<script> alert ('Welcome!');
+            window.location.href = '$url';
+            </script>";
           }
         }
+      }
+    } catch(Facebook\Exceptions\FacebookSDKException $e) {
+      // When validation fails or other local issues
+      echo 'Facebook SDK returned an error:' . $e->getMessage();
+    }
+  }
+}
+
+public function entrada_login()
+{
+  // Verify the token
+  if ($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token'))
+  {
+
+    // Validation rules
+
+    $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email|max_length[50]|htmlspecialchars');
+    $this->form_validation->set_rules('password', 'password', 'required|trim|max_length[50]|htmlspecialchars');
+
+    // Error messages
+    $this->form_validation->set_message('valid_email', '*Invalid email');
+    $this->form_validation->set_message('required', '*Required field');
+    $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
+    $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
+
+    if (!$this->form_validation->run())
+    {
+      $this->index();
+    }
+    else
+    {
+      $email = $this->input->post('email');
+      $password = $this->input->post('password');
+      $login = $this->Login_model->login($email, $password);
+      if($login)
+      {
+        $dat = array(
+          'is_logued_in' => TRUE,
+          'username' => $login->username,
+          'email' => $login->email);
+          $this->session->set_userdata($dat);
+
+          if ($login->type == 1) {
+            $url = base_url() . 'Admin_controller';
+            echo "<script> alert('¡Welcome Admin!');
+            window.location.href='$url';
+            </script>";
+            $this->session->set_userdata('admin', TRUE);
+          }else{
+            $url = base_url() . 'Home';
+            echo "<script> alert('Welcome');
+            window.location.href='$url';
+            </script>";
+          }
+        }
+        else
+        {
+
+          $url = base_url().'Login_controller';
+          echo "<script> alert('That user does not exist');
+          window.location.href='$url';
+          </script>";
+        }
+      }
+    }
+  }
+
+
+
+  public function logout()
+  {
+    $this->session->sess_destroy();
+    $url = base_url().'Home';
+    echo "<script> alert('See ya!');
+    window.location.href = '$url'; </script>";
+  }
+
+
+  public function registro_user()
+  {
+
+    if($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token'))
+    {
+
+      // Validation rules
+      $this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|max_length[40]|htmlspecialchars');
+      $this->form_validation->set_rules('username', 'username', 'required|trim|max_length[20]|htmlspecialchars');
+      $this->form_validation->set_rules('password', 'password', 'required|trim|min_length[8]|max_length[20]|htmlspecialchars');
+
+      // Error messages
+      //$this->form_validation->set_message('alpha_spaces', 'The field only accept alphabetic characters');
+      $this->form_validation->set_message('valid_email', '*Invalid email');
+      $this->form_validation->set_message('required', '*Required field');
+      $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
+      $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
+
+      if (!$this->form_validation->run())
+      {
+        //Si no pasamos la validación volvemos al formulario mostrando los errores
+        $this->index_registro();
+      }
+      else
+      {
+        //Si funciona se procesan los datos
+        $email = $this->input->post('email');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $hash = $this->bcrypt->hash_password($password);
+        //Probar si la contraseña se encripto
+        if ($this->bcrypt->check_password($password, $hash))
+        {
+          $insert_pass = $this->Login_model->registro($username, $email, $hash);
+          if ($insert_pass)
+          {
+            $url = base_url().'Login_controller/index';
+            echo "<script> alert ('Saved!');
+            window.location.href = '$url';
+            </script>";
+          }
+          else
+          {
+            throw new Exception("Error Processing request", 1);
+            echo Exception;
+          }
+        }
+      }
+    }
+  }
+}
