@@ -11,7 +11,7 @@
 
 .absolute-tittle{bottom:2%; left: 0; padding: 9px;}
 
-div .absolute-tittle h1{font-size: 21px;  color: rgba(255,255,255,.9); font-weight: 600;}
+div .absolute-tittle h1{font-size: 22px;  color: rgba(255,255,255,.9); font-weight: 600;}
 
 .absolute-author{ top:2%; left: 2%; padding: 4px 0; }
 
@@ -93,25 +93,29 @@ div .margin-bottom hr{margin-top:0;}
 
 @media screen and (max-width: 991px)
 {
+	div .col-lg-9 img.img-fluid{height: 100%}
+
 	div .card-block{display: none; }
 }
 
 /*media img-text*/
 @media screen and (max-width: 1000px)
 {
-	div .absolute-tittle h1{font-size: 18px;}
+	div .absolute-tittle h1{font-size: 22px;}
 }
 
 @media screen and (max-width: 768px)
 {
-	div .absolute-tittle h1{font-size: 15px;}
+	div .absolute-tittle h1{font-size: 22px;}
 }
 
 @media screen and (max-width: 544px)
 {
-	div .absolute-tittle h1{font-size: 12px;  margin: 4px 0;}
+	.padding-container{padding: 10px 20px 2px 20px}
 
-	.absolute-tittle{padding: 0;}
+	div .absolute-tittle h1{font-size:22px;  margin: 4px 0;}
+
+	.absolute-tittle{padding: 6px;}
 
 	.absolute-author{padding: 0 2px 2px 2px;}
 
@@ -121,29 +125,34 @@ div .margin-bottom hr{margin-top:0;}
 
 	.absolute-date{padding:0;}
 
-	div .absolute-date span{font-size: 10px;}
+	div .absolute-date span{font-size: 11px;}
 
 	.float-right{ margin-top:5px;}
+
+	.font-content{font-size: 15px; }
 }
 
 @media screen and (max-width: 417px)
 {
-	div .absolute-tittle h1{font-size: 13px; margin: 2px 0;}
+	div .absolute-tittle h1{font-size: 21px; margin: 2px 0;}
 
-	.absolute-tittle{padding: 2px 0;}
+	.absolute-tittle{padding: 6px;}
 
 	.float-right{ margin-top:5px; font-size: 11px;}
 	
 	div .media-body button{font-size: 12px;}
+
 }
 
 @media screen and (max-width: 368px)
 {
-	div .absolute-tittle h1{font-size: 10px; margin: 1px 0;}
+	div .absolute-tittle h1{font-size: 18px; margin: 2px 0;}
+
+	.absolute-tittle{padding: 6px;}
 	
 	div .absolute-author a{font-size: 9px;}
 
-	div .absolute-date span{font-size: 8px;}
+	div .absolute-date span{font-size: 9px;}
 
 }
 

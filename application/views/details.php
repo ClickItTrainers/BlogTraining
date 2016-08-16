@@ -40,9 +40,9 @@
 
         <section class="relative row"">
             <!-- Preview Image -->
-            <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/category/Internet.jpg" alt=""/>
+            <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/category/Technology.jpg" alt=""/>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 absolute-tittle absolute">
-                    <h1> <?php echo $details->title; ?> las skdjnsk skdjnksj personas no lo entienden  </h1>
+                    <h1> <?php echo $details->title; ?> </h1>
                </div>
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 absolute-author absolute">
                      <a href="#">
@@ -50,7 +50,7 @@
                         <span><?php echo $username ?></span>
                     </a>
                </div>
-               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 absolute-date absolute">
+               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-7 absolute-date absolute">
                      <span class=""><i class="fa fa-clock-o"></i> <?php echo $date; ?> 
                      </span>
                </div>
@@ -87,7 +87,7 @@
           <?php echo $details->description; ?>
       </textarea> -->
       <p class="lead"> <?php echo $details->description; ?> </p>
-      <p> <?php echo $details->content; ?> </p>
+      <p class="font-content"> <?php echo $details->content; ?> </p>
 
       <hr>
 
