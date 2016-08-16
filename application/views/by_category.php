@@ -41,7 +41,7 @@
                         </p>
                         <p class="display-inline size-small"><i class="fa fa-clock-o"></i> <?php echo $date ?></p>
                         <div class=" display float-right">
-                            <span>Internet</span >
+                            <span> <?php echo $item->name ?> </span>
                         </div>
                         <img class="img-fluid down" src="<?php base_url() ?>assets/img/hitman.jpg" alt="">
                         <p><?php echo $item->description ?></p>

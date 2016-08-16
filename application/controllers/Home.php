@@ -11,8 +11,7 @@ class Home extends CI_Controller {
 	}
 
 	//Select the posts by category
-	public function select_bycategory($id_category)
-	{
+	public function select_bycategory($id_category){
 		$data['By_category'] = $this->Posts_model->get_post_category($id_category);
 		$data['title'] = "Posts by category";
 		$data['users_arr'] = $this->Posts_model->users_list();
@@ -21,11 +20,25 @@ class Home extends CI_Controller {
 		$data['page'] = 'by_category';
 		$data['date'] = timestamp_to_date($time, $datestring);
 		$this->load->view('templates/template', $data);
-
 	}
+
+	//Select the posts by search
+	/*public function selectPost_bySearch(){
+		$data['posts_arr'] = $this->Posts_model->posts_list();
+		$q = $this->security->xss_clean($this->input->post('search'));
+		$data['search'] = $this->Posts_model->search_posts($q);
+		$data['title'] = "Related Posts";
+		$data['users_arr'] = $this->Posts_model->users_list();
+		$datestring = 'l, F d, o - h:i A';
+		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
+		$data['page'] = 'searchPost';
+		$data['date'] = timestamp_to_date($time, $datestring);
+		$this->load->view('templates/template', $data);
+	}*/
 
 	// It loads the Home page view
 	public function index($page=false){
+		$this->output->enable_profiler(TRUE);
 		$this->load->library('pagination');
 		$init = 0;
 		$limit = 3;
@@ -33,7 +46,7 @@ class Home extends CI_Controller {
 		{
 			$init = ($page - 1) * $limit;
 		}
-		$data['posts_arr'] = $this->Posts_model->posts_list($init, $limit);
+		
 		$config['base_url'] = base_url();
 		$config['total_rows'] = count($this->Posts_model->posts_list());
 		$config['per_page'] = $limit;
@@ -42,18 +55,34 @@ class Home extends CI_Controller {
 		$config['full_tag_close'] = '</p>';
 		$this->pagination->initialize($config);
 
-
-
-
-
-
-		$data['title'] = "Three Musketeers Blog";
 		$data['users_arr'] = $this->Posts_model->users_list();
 		$datestring = 'l, F d, o - h:i A';
 		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
 		$data['date'] = timestamp_to_date($time, $datestring);
 		$data['category_arr'] = $this->Users_model->get_category();
-		$data['page'] = 'home';
+
+
+		
+		if ($this->input->post('search')) {
+
+			$q = $this->security->xss_clean($this->input->post('search'));
+			$data['title'] = "Related Posts";
+			$data['posts_arr'] = $this->Posts_model->search_posts($q);
+			$data['page'] = 'home';
+
+			if (empty($data['posts_arr'])) {
+				$data['page'] = 'message';
+			}
+
+		}else{
+
+			$data['page'] = 'home';
+			$data['title'] = "Three Musketeers Blog";
+			$data['posts_arr'] = $this->Posts_model->posts_list($init, $limit);
+
+		}
+
+		
 		$this->load->view('templates/template', $data);
 
 	}
