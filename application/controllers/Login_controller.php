@@ -66,16 +66,17 @@ class Login_controller extends CI_Controller
 
     if (isset($accessToken)) {
       try {
-        $Client = $fb->getOAuth2Client();
+        /*$Client = $fb->getOAuth2Client();
         $tokenMetadata = $Client->debugToken($accessToken);
         $tokenMetadata->validateAppId('1092965707405902');
         if (! $accessToken->isLongLived()) {
           try {
-            $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
+            $longlivedaccessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
+            $fb->setdefaultAccessToken($longlivedaccessToken);
           } catch (Facebook\Exceptions\FacebookSDKException $e) {
             echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
           }
-        }
+        }*/
           $requestPicture = $fb->get('/me/picture?redirect=false&type=large', $accessToken); //getting user picture
           $profile_request = $fb->get('/me?fields=id,name,first_name,email,picture,gender', $accessToken);
           $profile = $profile_request->getGraphNode()->asArray();
