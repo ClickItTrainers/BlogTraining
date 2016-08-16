@@ -31,3 +31,8 @@ assets3/*
 
 #-------Database config
 application/config/database.php
+
+
+
+composer.lock
+application/config/config.php
