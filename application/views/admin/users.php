@@ -48,7 +48,7 @@
                     <td><?php echo $item->username; ?></td>
                     <td><?php echo $item->email; ?></td>
                     <td></td>
-                    <td></td>
+                    <td><?php echo $item->gender; ?></td>
                     <td><button type="submit"><i class="fa fa-trash font-i"></i></a></td>
                     </form>
                   </tr>
