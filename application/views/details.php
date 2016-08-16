@@ -38,48 +38,54 @@
     <div class="col-lg-9 margin-bottom">
       <title> <?php echo $title; ?> </title>
 
-      <!-- Blog Post -->
+        <section class="relative row"">
+            <!-- Preview Image -->
+            <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/category/Internet.jpg" alt=""/>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 absolute-tittle absolute">
+                    <h1> <?php echo $details->title; ?> las skdjnsk skdjnksj personas no lo entienden  </h1>
+               </div>
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 absolute-author absolute">
+                     <a href="#">
+                      <img class="img-fluid display-in media-object size-img-main" src="http://placehold.it/64x64" alt=""/>
+                        <span><?php echo $username ?></span>
+                    </a>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 absolute-date absolute">
+                     <span class=""><i class="fa fa-clock-o"></i> <?php echo $date; ?> 
+                     </span>
+               </div>
+        </section>
+              
+            <!-- Tag -->
+            <div class="display float-right">
+                <span>asda </span >
+            </div>
 
-      <!-- Title -->
-      <h1> <?php echo $details->title; ?> </h1>
 
-      <!-- Author -->
-      <p class="lead display-inline">
-        by <a href="#"><?php echo $username ?></a>
-        <?php if($this->session->userdata('admin') || $this->session->userdata('username') == $username)
-        {?>
-          <div class="center display-inline">
-            <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-warning">
-              <i class="fa fa-pencil-square-o"> Edit Post</i>
-              </button>
-          </div>
-          <form method="post"  class="display-inline" action="<?php echo base_url();?>Profile_controller/delete_post">
-               <?php echo form_hidden('id_post', $details->id_post); ?>
-              <div class="center display-inline">
-                  <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-danger ">
-                    <i class="fa fa-trash"> Delete Post</i>
-                </button>
+              <div class="bottons">
+                 <?php if($this->session->userdata('admin') || $this->session->userdata('username') == $username)
+                  {?>
+                    <div class="center display-in">
+                      <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-warning">
+                        <i class="fa fa-pencil-square-o"> Edit Post</i>
+                        </button>
+                    </div>
+                    <form method="post"  class="display-in" action="<?php echo base_url();?>Profile_controller/delete_post">
+                         <?php echo form_hidden('id_post', $details->id_post); ?>
+                        <div class="center display-in">
+                            <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-danger ">
+                              <i class="fa fa-trash"> Delete Post</i>
+                          </button>
+                        </div>
+                    </form>
+                    <?php } ?>
               </div>
-          </form>
-          <?php } ?>
-        </p>
 
-      <hr>
-
-      <!-- Date/Time -->
-      <p class="color-date display"><i class="fa fa-clock-o"></i> <?php echo $date; ?> </p>
-
-      <!-- Tag -->
-      <div class=" display float-right">
-          <span>asda </span >
-      </div>
-
-      <hr>
-
-        <!-- Preview Image -->
-        <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="">
 
       <!-- Post Content -->
+      <!-- <textarea class="lead" disabled>
+          <?php echo $details->description; ?>
+      </textarea> -->
       <p class="lead"> <?php echo $details->description; ?> </p>
       <p> <?php echo $details->content; ?> </p>
 
@@ -112,7 +118,12 @@
                 <a class="pull-left margin-right" href="#">
                   <img class="media-object size-img" src="http://placehold.it/64x64" alt="">
                 </a>
-                  <h3 ><?php echo $item->username; ?></h3>
+                <div>
+                  <h3 class="display-in"><?php echo $item->username; ?></h3>
+                  <a href="">
+                     <button type="button" class="btn btn-danger btn-sm float"><i class="fa fa-trash"> Delete</button></i>
+                  </a>
+                </div>
                   <h4 class="media-heading size-font">
                       <small><?php echo $dates; ?></small>
                   </h4>

@@ -32,7 +32,7 @@
                     <th>ID user</th>
                     <th>Username</th>
                     <th>Email</th>
-                    <th>Name</th>
+                    <th></th>
                     <th>Gender</th>
                     <th></th>
 

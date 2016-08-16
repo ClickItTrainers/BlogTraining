@@ -1,14 +1,41 @@
 .margin-top{margin-top:90px; }
 
+/*.col-lg-9 textarea.lead{overflow: hidden; width: 100%; min-height: 20px; border: none; resize: none; background-color: white;}
+*/
+
+/*text-img*/
+
+.relative{position: relative; background-color: gray;}
+
+.absolute{position: absolute;background: rgba(0, 0, 0, .6); text-align: center;border-radius: 4px; }
+
+.absolute-tittle{bottom:2%; left: 0; padding: 9px;}
+
+div .absolute-tittle h1{font-size: 21px;  color: rgba(255,255,255,.9); font-weight: 600;}
+
+.absolute-author{ top:2%; left: 2%; padding: 4px 0; }
+
+div .absolute-author a{font-size: 12px; color: white;}
+
+.size-img-main{width: 25px; height: 25px; border-radius: 50%;} 
+
+.absolute-date{top:2%; right: 2%; padding: 4px 0;color: rgba(255,255,255,.9);}
+
+div .absolute-date span{font-size: 10px;}
+
 /*home comments*/
-.display-inline{display: inline-block;}
 
-.display-inline button{padding: 6px 9px;}
+.display-in{display: inline-block;}
 
-.color-date{color:gray;}
+.display-in button{padding: 6px 9px;}
+
+.color-date{color:black; font-size: 13px;}
 
 .margin-bottom{margin-bottom: 20px;}
 
+.float{float: right;}
+
+.bottons{margin: 20px 0;}
 
 /*update post*/
 .text-center{text-align: center;}
@@ -38,26 +65,30 @@ div .modal-body button {padding: 5px 9px;}
 
 div .media img{display: inline-block;}
 
-div .media-body{max-width: 690px; }
+div .media-body{max-width: 780px; }
 
 div .media-body h3{font-size: 20px; }
 
 div .media-body small{color:gray;}
 
-/*div .media-body h4{display: inline-block;}*/
-
 .display{display: inline-block;}
 
-.float-right{ background-color: #D9534F; float: right; padding: 3px 10px; font-weight: 700; line-height: 1; font-size: 14px; font-style: bold; color: white; border-radius: 15px;}
+.float-right{ background-color: #D9534F; padding: 3px 10px; font-weight: 700; line-height: 1; font-size: 14px; font-style: bold; color: white; border-radius: 15px;}
 
 div .margin-bottom hr{margin-top:0;}
 
 
 
 /*media buttons edit and delete, buttons size*/
-@media screen and (max-width: 390px)
+@media screen and (max-width: 410px)
 {
-	div .display-inline button{font-size:12px; padding: 4px 4px;/*position: absolute; bottom:470px;*/ }
+	div .display-in button{font-size:12px; padding: 4px 4px;/*position: absolute; bottom:470px;*/ }
+
+	div .col-lg-9 p{font-size: 16px;}
+
+	div .well button{font-size: 14px; padding: 5px 5px; }
+
+	div .well h4{font-size: 16px; }
 }
 
 @media screen and (max-width: 991px)
@@ -65,10 +96,56 @@ div .margin-bottom hr{margin-top:0;}
 	div .card-block{display: none; }
 }
 
+/*media img-text*/
+@media screen and (max-width: 1000px)
+{
+	div .absolute-tittle h1{font-size: 18px;}
+}
 
+@media screen and (max-width: 768px)
+{
+	div .absolute-tittle h1{font-size: 15px;}
+}
 
+@media screen and (max-width: 544px)
+{
+	div .absolute-tittle h1{font-size: 12px;  margin: 4px 0;}
 
+	.absolute-tittle{padding: 0;}
 
+	.absolute-author{padding: 0 2px 2px 2px;}
+
+	div .absolute-author a{font-size: 12px;}
+
+	.size-img-main{width: 22px; height: 22px;} 
+
+	.absolute-date{padding:0;}
+
+	div .absolute-date span{font-size: 10px;}
+
+	.float-right{ margin-top:5px;}
+}
+
+@media screen and (max-width: 417px)
+{
+	div .absolute-tittle h1{font-size: 13px; margin: 2px 0;}
+
+	.absolute-tittle{padding: 2px 0;}
+
+	.float-right{ margin-top:5px; font-size: 11px;}
+	
+	div .media-body button{font-size: 12px;}
+}
+
+@media screen and (max-width: 368px)
+{
+	div .absolute-tittle h1{font-size: 10px; margin: 1px 0;}
+	
+	div .absolute-author a{font-size: 9px;}
+
+	div .absolute-date span{font-size: 8px;}
+
+}
 
 
 

@@ -26,6 +26,7 @@
 				<!-- SIDEBAR BUTTONS -->
 				<?php if ($this->session->userdata('admin') && $this->session->userdata('username') != $user) {?>
 					<div class="profile-userbuttons">
+
 						<a href="<?php echo base_url(); ?>">
 							<button type="button" class="btn btn-success btn-sm">Home</button>
 							<a href="<?php echo base_url(); ?>index.php/Security/logout">
