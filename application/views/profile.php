@@ -108,7 +108,8 @@
 											<div class="form-group">
 												<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Username:</label>
 												<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-													<input name="username" type="text" class="form-control input-md height" >
+													<input name="username" type="text" class="form-control input-md height" value="<?php echo $this->session->userdata('username');?>" >
+													<span class="text-danger"><?php echo form_error('username')?></span>
 												</div>
 											</div>
 											<!-- Email input-->

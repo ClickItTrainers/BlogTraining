@@ -104,6 +104,14 @@ class Users_model extends CI_Model{
 		return $query->row();
 	}
 
+	public function getother_userinfo($id_user)
+	{
+		$this->db->where('id_user', $id_user);
+		$query = $this->db->get('users');
+
+		return $query->row();
+	}
+
 	// Gets a list of all categories
 	public function get_category(){
 		$this->db->select('*');

@@ -38,7 +38,7 @@ class Profile_controller extends CI_Controller
 
     if (!$this->form_validation->run())
     {
-      $this->index();
+      $this->index('#settings');
     }
     else
     {
@@ -48,8 +48,24 @@ class Profile_controller extends CI_Controller
       $repeat_pass = $this->input->post('repeatpassword');
       $name = $this->input->post('name');
       $gender = $this->input->post('gender');
+      if($new_password === null)
+      {
+        $update = $this->Users_model->update_profile($new_username, $email, "", $name, $gender);
 
-      if ($new_password == $repeat_pass)
+        if($update)
+        {
+          $this->session->set_userdata('username', $new_username);
+          $url = base_url() . 'Profile_controller';
+          echo "<script> alert('¡Profile updated!');
+          window.location.href='$url';
+          </script>";
+        }else
+        {
+          echo "<script> alert('Not is possible to update')
+          </script>";
+        }
+      }
+      elseif($new_password == $repeat_pass)
       {
         $hash = $this->bcrypt->hash_password($new_password);
         if ($this->bcrypt->check_password($new_password, $hash))
@@ -73,7 +89,9 @@ class Profile_controller extends CI_Controller
       }
       else
       {
-        echo "<script> alert('The passwords do not match')</script>";
+        $url = base_url() . 'Profile_controller';
+        echo "<script> alert('The passwords do not match');
+          window.location.href='$url';</script>";
       }
     }
   }
@@ -82,6 +100,7 @@ class Profile_controller extends CI_Controller
   {
     $user = $this->Users_model->get_username_iduser($id_user);
     $data['posts'] = $this->Posts_model->posts_list_user($id_user);
+    $data['user_info'] = $this->Users_model->getother_userinfo($id_user);
     $data['title'] = "$user profile";
     $data['user'] = $user;
     $this->load->view('templates/header', $data);
