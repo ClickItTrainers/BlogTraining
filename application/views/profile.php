@@ -70,10 +70,10 @@
 										<div class="size-img container-post">
 											<img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed"/>
 											<div class="caption">
-												<h3 class="font-size-h3">
+												<h3 class="font-size-h3 word-break">
 													<?php echo anchor($url, $mostrarTitle."...");?>
 												</h3>
-												<p class="font-size-p">
+												<p class="font-size-p word-break">
 													<?php echo $mostrar."..."; ?>
 												</p>
 												<div class="down">

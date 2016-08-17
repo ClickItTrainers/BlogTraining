@@ -25,30 +25,29 @@
     <nav class="navbar navbar-dark bg-inverse tall-header" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-               <nav class="navbar navbar-light ">
+               <div class="navbar navbar-light ">
                   <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
                     &#9776;
                   </button>
                   <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-                    <ul class="nav navbar-nav">
-                      <li class="nav-item ">
-                         <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only"></span></a>
-                      </li>
-
-                    </ul>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
-                    <div class="container-login">
-                      <ul class="nav navbar-nav navbar-right text-xs-right">
-                          <li class="right" >
-                             <a class="nav-link" href="<?php echo base_url();?>logout"><i class="fa fa-times" aria-hidden="true"></i> Logout</a>
-                          </li>
+                      <ul class="nav navbar-nav">
+                        <li class="nav-item ">
+                           <a class=" nav bar-brand nav-link" href="<?php echo base_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only"></span>
+                           </a>
+                        </li>
                       </ul>
-                    </div>
+                      <!-- Collect the nav links, forms, and other content for toggling -->
+                      <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+                      <div class="container-login">
+                        <ul class="nav navbar-nav navbar-right text-xs-right">
+                            <li class="right" >
+                               <a class="nav-link" href="<?php echo base_url();?>logout"><i class="fa fa-times" aria-hidden="true"></i> Logout
+                               </a>
+                            </li>
+                        </ul>
+                      </div>
                     <!-- /.navbar-collapse -->
                   </div>
-                </nav>
-
               </div>
-              <!-- /.container -->
-            </nav>
+        </div><!-- /.container -->
+  </nav>

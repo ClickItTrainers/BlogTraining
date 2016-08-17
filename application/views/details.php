@@ -42,7 +42,7 @@
             <!-- Preview Image -->
             <img class="img-fluid down" src="/assets/img/category/<?php echo $details->name.'.jpg'?>" alt="<?php echo $details->name ?>">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 absolute-tittle absolute">
-                    <h1> <?php echo $details->title; ?> </h1>
+                    <h1 class="word-break"> <?php echo $details->title; ?> </h1>
                </div>
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 absolute-author absolute">
                      <a href="#">
@@ -80,19 +80,12 @@
                     </form>
                     <?php } ?>
               </div>
-
-
       <!-- Post Content -->
-      <!-- <textarea class="lead" disabled>
-          <?php echo $details->description; ?>
-      </textarea> -->
-      <p class="lead"> <?php echo $details->description; ?> </p>
-      <p class="font-content"> <?php echo $details->content; ?> </p>
+      <p class="lead word-break"> <?php echo $details->description; ?></p>
+      <p class="font-content word-break"> <?php echo $details->content; ?> </p>
 
       <hr>
-
         <!-- Blog Comments -->
-
         <?php if ($this->session->userdata('is_logued_in') == TRUE) { ?>
 
           <!-- Comments Form -->
@@ -133,7 +126,7 @@
                       <small><?php echo $dates; ?></small>
                   </h4>
              </div>
-              <div class="padding-container">
+              <div class="padding-container word-break">
                   <?php echo $item->comment; ?>
               </div>
           </div>
