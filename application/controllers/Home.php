@@ -114,6 +114,23 @@ class Home extends CI_Controller {
 
 		}
 
+		public function delete_comments()
+		{
+			$id_comment = $this->input->post('id_comm');
+			$id_post = $this->input->post('red');
+
+			$delete = $this->Posts_model->delete_comment($id_comment);
+
+			if($delete)
+			{
+				$this->posts_details($id_post);
+			}
+			else
+			{
+				echo "<script> alert('It can't posible to delete); </script>";
+			}
+		}
+
 		//test
 		public function getcomments($id_user) {
 			var_dump($this->Posts_model->get_comments($id_user));

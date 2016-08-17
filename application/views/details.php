@@ -38,7 +38,7 @@
     <div class="col-lg-9 margin-bottom">
       <title> <?php echo $title; ?> </title>
 
-        <section class="relative row"">
+        <section class="relative row">
             <!-- Preview Image -->
             <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/category/Technology.jpg" alt=""/>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 absolute-tittle absolute">
@@ -51,11 +51,11 @@
                     </a>
                </div>
                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-7 absolute-date absolute">
-                     <span class=""><i class="fa fa-clock-o"></i> <?php echo $date; ?> 
+                     <span class=""><i class="fa fa-clock-o"></i> <?php echo $date; ?>
                      </span>
                </div>
         </section>
-              
+
             <!-- Tag -->
             <div class="display float-right">
                 <span>asda </span >
@@ -73,7 +73,7 @@
                     <form method="post"  class="display-in" action="<?php echo base_url();?>Profile_controller/delete_post">
                          <?php echo form_hidden('id_post', $details->id_post); ?>
                         <div class="center display-in">
-                            <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-danger ">
+                            <button class="btn btn-danger ">
                               <i class="fa fa-trash"> Delete Post</i>
                           </button>
                         </div>
@@ -120,9 +120,14 @@
                 </a>
                 <div>
                   <h3 class="display-in"><?php echo $item->username; ?></h3>
+                  <?php if ($this->session->userdata('username') == $item->username || $this->session->userdata('admin') || $this->session->userdata('username') == $username ){ ?>
+                    <form action="<?php echo base_url()?>Home/delete" method="POST">
+                    <input type="hidden" name="red" value="<?php echo $details->id_post?>">
+                    <input type="hidden" name="id_comm" value="<?php echo $item->id_comment?>">
                   <a href="">
-                     <button type="button" class="btn btn-danger btn-sm float"><i class="fa fa-trash"> Delete</button></i>
+                    <button type="submit" class="btn btn-danger btn-sm float"><i class="fa fa-trash"> Delete</button></i>
                   </a>
+                  <?php } ?>
                 </div>
                   <h4 class="media-heading size-font">
                       <small><?php echo $dates; ?></small>
