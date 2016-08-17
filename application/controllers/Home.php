@@ -22,23 +22,9 @@ class Home extends CI_Controller {
 		$this->load->view('templates/template', $data);
 	}
 
-	//Select the posts by search
-	/*public function selectPost_bySearch(){
-		$data['posts_arr'] = $this->Posts_model->posts_list();
-		$q = $this->security->xss_clean($this->input->post('search'));
-		$data['search'] = $this->Posts_model->search_posts($q);
-		$data['title'] = "Related Posts";
-		$data['users_arr'] = $this->Posts_model->users_list();
-		$datestring = 'l, F d, o - h:i A';
-		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
-		$data['page'] = 'searchPost';
-		$data['date'] = timestamp_to_date($time, $datestring);
-		$this->load->view('templates/template', $data);
-	}*/
-
 	// It loads the Home page view
 	public function index($page=false){
-		$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(FALSE);
 		$this->load->library('pagination');
 		$init = 0;
 		$limit = 3;

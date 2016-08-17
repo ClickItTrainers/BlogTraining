@@ -41,9 +41,10 @@
                         </p>
                         <p class="display-inline size-small"><i class="fa fa-clock-o"></i> <?php echo $date ?></p>
                         <div class=" display float-right">
+                            <!-- Tag -->
                             <span> <?php echo $item->name ?> </span>
                         </div>
-                        <img class="img-fluid down" src="<?php base_url() ?>assets/img/hitman.jpg" alt="">
+                        <img class="img-fluid down" src="/assets/img/category/<?php echo $item->name.'.jpg'?>" alt="<?php echo $item->name ?>">
                         <p><?php echo $item->description ?></p>
                         <a class="btn btn-primary" href="<?php echo base_url().$url ?>">Read More <i class="fa fa-angle-right "></i></a>
                         <hr>

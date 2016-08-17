@@ -23,8 +23,12 @@
 
 		//Gets the post of the same category
 		public function get_post_category($id_category){
-			$this->db->where('id_category', $id_category);
-			$res = $this->db->get('posts');
+			$this->db->select('p.*, c.name');
+			$this->db->from('posts p');
+			$this->db->join('categories c', 'p.id_category = c.id_category');
+			$this->db->where('c.id_category', $id_category);
+			$this->db->order_by('id_post', 'desc');
+			$res = $this->db->get();
 
 			return $res->result();
 		}
@@ -61,8 +65,12 @@
 
 		// Sends the details of one post by ID
 		public function posts_details($id_post){
+			$this->db->select('p.*, c.name');
+			$this->db->from('posts p');
+			$this->db->join('categories c', 'p.id_category = c.id_category');
 			$this->db->where('id_post', $id_post);
-			$query = $this->db->get('posts');
+			$this->db->order_by('id_post', 'desc');
+			$query = $this->db->get('');
 			return $query->row();
 		}
 

@@ -38,9 +38,9 @@
     <div class="col-lg-9 margin-bottom">
       <title> <?php echo $title; ?> </title>
 
-        <section class="relative row"">
+        <section class="relative row">
             <!-- Preview Image -->
-            <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/category/Technology.jpg" alt=""/>
+            <img class="img-fluid down" src="/assets/img/category/<?php echo $details->name.'.jpg'?>" alt="<?php echo $details->name ?>">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 absolute-tittle absolute">
                     <h1> <?php echo $details->title; ?> </h1>
                </div>
@@ -58,7 +58,7 @@
               
             <!-- Tag -->
             <div class="display float-right">
-                <span>asda </span >
+                <span><?php echo $details->name ?></span >
             </div>
 
 
