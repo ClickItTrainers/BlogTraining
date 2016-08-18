@@ -45,7 +45,7 @@
 					<a href="<?php echo $loginUrl ?>" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
 					<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-twitter"><i class="fa fa-twitter"></i></a>
 					<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a>
-					<div class="g-signin2" onclick="onSignIn();"></div>
+					<div class="g-signin2" on></div> 
 				</div>
 			</form>
 		</div>
