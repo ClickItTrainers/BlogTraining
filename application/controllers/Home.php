@@ -101,8 +101,8 @@ class Home extends CI_Controller {
 
 	public function insert_post(){
 
-		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[70]|htmlspecialchars');
-		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[100]|htmlspecialchars');
+		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars');
+		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[250]|htmlspecialchars');
 		$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]|htmlspecialchars');
 		$this->form_validation->set_rules('category', 'category', 'required');
 		// Error messages
