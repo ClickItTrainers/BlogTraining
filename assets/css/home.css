@@ -1,7 +1,11 @@
-
+/*search*/
+div .row .search{float: right;}
 
 /*header*/
 .tall-header{padding:0; background-color: #222; margin-bottom:40px;}
+
+/*word break text*/
+.word-break{word-break: break-all}
 
 nav a {margin-left: 15px;}
 
@@ -15,10 +19,12 @@ nav.navbar {background-color: #293F54;}
 
 .margin-top{margin-top:90px; }
 
-@media (min-width: 768px) {
-  .navbar-header {
-    float: left;
-  }
+@media (min-width: 768px) 
+{
+  .navbar-header
+  	{
+    	float: left;
+  	}
 }
 /*home*/
 .col-center{
@@ -82,3 +88,23 @@ footer p{text-align: center;}
 
 	.pagination p a{padding: 5px; font-size:15px;}
 }
+
+@media screen and (max-width: 768px)
+{
+	div .row .search{float: left; margin-left: 140px;}
+}
+
+@media screen and (max-width: 550px)
+{
+	div .row .search{float: left; margin-left: 60px;}
+}
+
+@media screen and (max-width: 400px)
+{
+	div .row .search{float: left; margin-left: 10px;}
+}
+
+
+
+
+

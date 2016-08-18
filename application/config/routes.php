@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['posts/by_category/(:num)'] = 'Home/select_bycategory/$1';
 $route['admin'] = 'Admin_controller';
 $route['profile/user/(:num)'] = 'Profile_controller/user_profile/$1';
+$route['Home/delete'] = 'Home/delete_comments';
 $route['update'] = 'Admin_controller/update_post';
 $route['login'] = 'Login_controller/index';
 $route['profile'] = 'Profile_controller';

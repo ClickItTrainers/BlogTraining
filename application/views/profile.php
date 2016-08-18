@@ -70,10 +70,10 @@
 										<div class="size-img container-post">
 											<img class="img-fluid height>" src="<?php echo base_url(); ?>assets/img/hitman.jpg" alt="Loading image failed"/>
 											<div class="caption">
-												<h3 class="font-size-h3">
+												<h3 class="font-size-h3 word-break">
 													<?php echo anchor($url, $mostrarTitle."...");?>
 												</h3>
-												<p class="font-size-p">
+												<p class="font-size-p word-break">
 													<?php echo $mostrar."..."; ?>
 												</p>
 												<div class="down">
@@ -108,7 +108,8 @@
 											<div class="form-group">
 												<label class="col-lg-4 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Username:</label>
 												<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-													<input name="username" type="text" class="form-control input-md height" >
+													<input name="username" type="text" class="form-control input-md height" placeholder="<?php echo $this->session->userdata('username');?>" >
+													<span class="text-danger"><?php echo form_error('username')?></span>
 												</div>
 											</div>
 											<!-- Email input-->

@@ -1,18 +1,6 @@
 
   <!-- Blog Sidebar Widgets Column -->
-  <div class="col-lg-3 col-md-4 col-sm-12 col-xs-11">
-      <!-- Blog Search Well -->
-        <form type="hidden" action="<?php echo base_url()?>Home" method="post">
-           <div class="input-group">
-            <input name="search" type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="submit"><i class="fa fa-search"></i></button>
-            </span>
-          </div>
-        </form>
-          <!-- /.input-group -->
-  </div><br/><br/>
-    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+   <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
         <!-- Blog Categories Well -->
         <div class="card bg-faded card-block">
              <h4>Blog Categories</h4>
@@ -77,11 +65,16 @@
             </div><!-- /.row -->
         </div>
         <!-- Side Widget Well -->
-        <div class="card bg-faded card-block">
-             <h4>Side Widget Well</h4>
+
+        <div class="">
+            <!-- <h4>Side Widget Well</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis
                 adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur
-                vero.</p>
+                vero.
+            </p> -->
+            <iframe src="http://embed.spotify.com/?uri=spotify:track:3CCyVdprlcXui4ZwMw1hNS" width="220" height="80" frameborder="0" allowtransparency="true"></iframe>
+            <iframe src="http://embed.spotify.com/?uri=spotify:track:4IdiGMOzEYXOh2897XOV8i" width="220" height="80" frameborder="0" allowtransparency="true"></iframe>
+            <iframe src="http://embed.spotify.com/?uri=spotify:track:06KyNuuMOX1ROXRhj787tj" width="220" height="80" frameborder="0" allowtransparency="true"></iframe>
          </div>
     </div>
 </div> <!-- main row -->

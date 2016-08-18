@@ -23,12 +23,14 @@ class Users_model extends CI_Model{
 
 	public function update_profile($new_username, $email, $new_password, $name, $gender)
 	{
+		
 		$data = array(
 			'username' => $new_username,
 			'password' => $new_password,
 			'name' => $name,
 			'gender' => $gender
 		);
+
 
 		$this->db->where('email', $email);
 		return $this->db->update('users', $data);
@@ -99,6 +101,14 @@ class Users_model extends CI_Model{
 	public function get_userinfo()
 	{
 		$this->db->where('email', $this->session->userdata('email'));
+		$query = $this->db->get('users');
+
+		return $query->row();
+	}
+
+	public function getother_userinfo($id_user)
+	{
+		$this->db->where('id_user', $id_user);
 		$query = $this->db->get('users');
 
 		return $query->row();

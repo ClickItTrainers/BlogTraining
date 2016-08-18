@@ -23,18 +23,18 @@
 				<form action="<?php	echo base_url()?>Login_controller/registro_user" method="post">
 					<h4>Please Register</h4>
 					<p>Username:</p>
-					<input type="text" name="username" class="form-control input-sm chat-input" value="<?php echo set_value('username');?>"/>
+					<input type="text" name="username" class="form-control input-sm chat-input" required value="<?php echo set_value('username');?>"/>
 					<span class="text-danger"><?php echo form_error('username'); ?></span>
 
 					<br>
 					<p>Email:</p>
-					<input type="email" name="email" class="form-control input-sm chat-input" value="<?php echo set_value('email');?>"/>
+					<input type="email" name="email" class="form-control input-sm chat-input" required value="<?php echo set_value('email');?>"/>
 					<span class="text-danger"><?php echo form_error('email')?></span>
 
 					<br>
 
 					<p>Password:</p>
-					<input type="password" name="password" class="form-control input-sm chat-input"/>
+					<input type="password" name="password" required class="form-control input-sm chat-input"/>
 					<span class="text-danger"><?php echo form_error('password')?></span>
 
 				</br>

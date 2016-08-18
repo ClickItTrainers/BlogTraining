@@ -56,9 +56,8 @@
                 <?php endforeach; ?>
 
                 </tbody>
-              </table>
+            </table>
 
-          </div>
-        </div>
+        </div> <!-- col -->
+    </div> <!-- row -->
 
-</div>

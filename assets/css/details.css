@@ -1,7 +1,10 @@
 .margin-top{margin-top:90px; }
 
-/*.col-lg-9 textarea.lead{overflow: hidden; width: 100%; min-height: 20px; border: none; resize: none; background-color: white;}
-*/
+/*word break text*/
+.word-break{word-break: break-all}
+
+/*quit search*/
+div .search{display: none;}
 
 /*text-img*/
 
@@ -79,6 +82,7 @@ div .margin-bottom hr{margin-top:0;}
 
 
 
+
 /*media buttons edit and delete, buttons size*/
 @media screen and (max-width: 410px)
 {
@@ -93,7 +97,7 @@ div .margin-bottom hr{margin-top:0;}
 
 @media screen and (max-width: 991px)
 {
-	div .col-lg-9 img.img-fluid{height: 100%}
+	div .col-lg-9 img.height-img{height: 100%}
 
 	div .card-block{display: none; }
 }
@@ -111,6 +115,8 @@ div .margin-bottom hr{margin-top:0;}
 
 @media screen and (max-width: 544px)
 {
+	div .col-lg-9 img.height-img{height: 200px}
+	
 	.padding-container{padding: 10px 20px 2px 20px}
 
 	div .absolute-tittle h1{font-size:22px;  margin: 4px 0;}

@@ -46,6 +46,12 @@
 			return $date;
 		}
 
+		public function delete_comment($id_comment)
+		{
+			$this->db->where('id_comment', $id_comment);
+			return $this->db->delete('comments');
+		}
+
 		// Sends a list of the users
 		public function users_list(){
 			$query = $this->db->get('users');
@@ -114,3 +120,4 @@
 		}
 
 	}
+
