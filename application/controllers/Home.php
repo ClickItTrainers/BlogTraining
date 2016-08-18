@@ -103,7 +103,7 @@ class Home extends CI_Controller {
 
 		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars');
 		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[250]|htmlspecialchars');
-		$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]|htmlspecialchars');
+		$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]|');
 		$this->form_validation->set_rules('category', 'category', 'required');
 		// Error messages
 		$this->form_validation->set_message('required', '*Required field');

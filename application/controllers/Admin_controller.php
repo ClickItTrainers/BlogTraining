@@ -46,7 +46,7 @@ class Admin_controller extends CI_Controller
 
     $this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars');
     $this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[250]|htmlspecialchars');
-    $this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]|htmlspecialchars');
+    $this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]');
     // Error messages
     $this->form_validation->set_message('required', '*Required field');
     $this->form_validation->set_message('min_length', '* The field %s must be at least %s characters');
