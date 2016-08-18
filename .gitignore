@@ -33,5 +33,5 @@ assets3/*
 application/config/database.php
 
 
-
+application/config/config.php
 composer.lock
