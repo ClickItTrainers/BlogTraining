@@ -22,10 +22,13 @@
 		}
 
 		//Gets the post of the same category
-		public function get_post_category($id_category)
-		{
-			$this->db->where('id_category', $id_category);
-			$res = $this->db->get('posts');
+		public function get_post_category($id_category){
+			$this->db->select('p.*, c.name');
+			$this->db->from('posts p');
+			$this->db->join('categories c', 'p.id_category = c.id_category');
+			$this->db->where('c.id_category', $id_category);
+			$this->db->order_by('id_post', 'desc');
+			$res = $this->db->get();
 
 			return $res->result();
 		}
@@ -56,8 +59,7 @@
 		}
 
 		//Update the information of the post
-		public function update_post($id_post, $title, $description, $content)
-	  {
+		public function update_post($id_post, $title, $description, $content){
 	    $data = array(
 	      'title' => $title,
 	      'description' => $description,
@@ -65,12 +67,16 @@
 	    );
 	    $this->db->where('id_post', $id_post);
 	    return $this->db->update('posts', $data);
-	  }
+	    }
 
 		// Sends the details of one post by ID
 		public function posts_details($id_post){
+			$this->db->select('p.*, c.name');
+			$this->db->from('posts p');
+			$this->db->join('categories c', 'p.id_category = c.id_category');
 			$this->db->where('id_post', $id_post);
-			$query = $this->db->get('posts');
+			$this->db->order_by('id_post', 'desc');
+			$query = $this->db->get('');
 			return $query->row();
 		}
 
@@ -88,20 +94,28 @@
 			return $this->db->get()->result();
 		}
 
-		public function delete_post($id_post)
-		{
+		public function delete_post($id_post){
 			$this->db->where('id_post', $id_post);
 			return $this->db->delete('posts');
 		}
 
 		//test
-		public function get_comments($id_post)
-		{
+		public function get_comments($id_post){
 			$this->db->select('u.username,c.*');
 			$this->db->from('users u, comments c');
 			$this->db->where('u.id_user=c.id_user');
 			$this->db->where('c.id_post', $id_post);
 			$this->db->order_by('id_comment', 'desc');
+			return $this->db->get()->result();
+		}
+
+		//
+		public function search_posts($q){
+			$this->db->select('p.*, c.name');
+			$this->db->from('posts p');
+			$this->db->join('categories c', 'p.id_category = c.id_category');
+			$this->db->like('title', $q, 'both');
+			$this->db->order_by('id_post', 'desc');
 			return $this->db->get()->result();
 		}
 
