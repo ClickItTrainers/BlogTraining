@@ -50,20 +50,11 @@
 									<a href="<?php echo $loginUrl ?>" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
 									<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-twitter"><i class="fa fa-twitter"></i></a>
 									<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a>
-							</div>
-						</form>
-						</div>
 					</div>
-					<!-- <a href="#" class="btn azm-social azm-btn azm-border-bottom azm-drupal"><i class="fa"></i> Login </a> -->
-					<a href="<?php echo $loginUrl ?>" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-twitter"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a>
-					<div class="g-signin2" on></div>
+					</form>
 				</div>
-			</form>
-		</div>
-	</div>
-</div>
+			</div>
+			</div>
 <script src="https://apis.google.com/js/platform.js" async defer>
 function onSignIn(googleUser) {
 	var profile = googleUser.getBasicProfile();
