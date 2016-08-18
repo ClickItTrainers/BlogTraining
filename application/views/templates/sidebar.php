@@ -65,11 +65,16 @@
             </div><!-- /.row -->
         </div>
         <!-- Side Widget Well -->
-        <div class="card bg-faded card-block">
-             <h4>Side Widget Well</h4>
+
+        <div class="">
+            <!-- <h4>Side Widget Well</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis
                 adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur
-                vero.</p>
+                vero.
+            </p> -->
+            <iframe src="http://embed.spotify.com/?uri=spotify:track:3CCyVdprlcXui4ZwMw1hNS" width="220" height="80" frameborder="0" allowtransparency="true"></iframe>
+            <iframe src="http://embed.spotify.com/?uri=spotify:track:4IdiGMOzEYXOh2897XOV8i" width="220" height="80" frameborder="0" allowtransparency="true"></iframe>
+            <iframe src="http://embed.spotify.com/?uri=spotify:track:06KyNuuMOX1ROXRhj787tj" width="220" height="80" frameborder="0" allowtransparency="true"></iframe>
          </div>
     </div>
 </div> <!-- main row -->

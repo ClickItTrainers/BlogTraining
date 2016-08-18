@@ -5,7 +5,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+        </button>
         <h3 class="modal-title text-center" id="lineModalLabel">Update Post</h3>
       </div>
       <div class="modal-body">
@@ -14,14 +17,17 @@
           <div class="form-group">
             <label for="title">Title:</label>
             <input type="text" class="form-control" value="<?php echo $details->title ?>" name="title">
+            <span class="text-danger"><?php echo form_error('title'); ?></span>
           </div>
           <div class="form-group">
             <label for="description">Description:</label>
             <input type="texts" class="form-control" value="<?php echo $details->description ?>" name="description">
+            <span class="text-danger"><?php echo form_error('description'); ?></span>
           </div>
           <div class="form-group">
             <label for="content">Content:</label>
             <textarea class="form-control" rows="8" name="content"><?php echo $details->content ?></textarea>
+            <span class="text-danger"><?php echo form_error('content'); ?></span>
 
           </div>
           <?php echo form_hidden('id_post', $details->id_post); ?>
@@ -40,7 +46,7 @@
 
         <section class="relative row">
             <!-- Preview Image -->
-            <img class="img-fluid down" src="/assets/img/category/<?php echo $details->name.'.jpg'?>" alt="<?php echo $details->name ?>">
+            <img class="img-fluid" src="/assets/img/category/<?php echo $details->name.'.jpg'?>" alt="<?php echo $details->name ?>">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 absolute-tittle absolute">
                     <h1 class="word-break"> <?php echo $details->title; ?> </h1>
                </div>
@@ -103,7 +109,7 @@
 
           <?php } ?>
 
-        <?php if (empty($comments)) {
+        <?php if (!empty($comments)) {
           foreach ($comentarios as $item): ?>
           <!-- Comment -->
           <div class="media padding-container border">
@@ -137,7 +143,7 @@
 
             <div class="media">
               <div class="media-body">
-                <?php echo "No hay comentarios" ?>
+                <strong><?php echo "There are no comments, leave yours..." ?></strong>
               </div>
             </div>
             <?php } ?>

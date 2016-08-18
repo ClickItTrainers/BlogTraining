@@ -42,7 +42,11 @@ class Profile_controller extends CI_Controller
     }
     else
     {
-      $new_username = $this->input->post('username');
+      if ($this->input->post('username') == '') {
+        $new_username = $this->session->userdata('username');
+      }else{
+        $new_username = $this->input->post('username');
+      }
       $email = $this->session->userdata('email');
       $new_password = $this->input->post('password');
       $repeat_pass = $this->input->post('repeatpassword');
@@ -61,7 +65,7 @@ class Profile_controller extends CI_Controller
           </script>";
         }else
         {
-          echo "<script> alert('Not is possible to update')
+          echo "<script> alert('It is not possible to update')
           </script>";
         }
       }
@@ -82,7 +86,7 @@ class Profile_controller extends CI_Controller
             </script>";
           }else
           {
-            echo "<script> alert('Not is possible to update')
+            echo "<script> alert('It is not possible to update')
             </script>";
           }
         }
