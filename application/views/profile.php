@@ -4,6 +4,18 @@
 <link href="https://fonts.googleapis.com/css?family=Candal|Patua+One" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
+<script type="text/javascript">
+        function validar(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla==8) return true;
+            patron =/[<>''$#%&=]/;
+            te = String.fromCharCode(tecla);
+            return !patron.test(te);
+        }
+</script>
+
+
+
 <div class="container margin-top ">
 	<div class="row">
 		<div class="col-lg-10 col-md-11 col-sm-11 col-xs-12 col-center">
@@ -98,7 +110,7 @@
 							<div class="form-group">
 								<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Username:</label>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="username" type="text" class="form-control input-md margin-bottom" value="<?php echo $this->session->userdata('username');?>" >
+									<input name="username" type="text" class="form-control input-md margin-bottom" onpaste="return false" onkeypress="return validar(event)" value="<?php echo $this->session->userdata('username');?>" >
 									<span class="text-danger"><?php echo form_error('username')?></span>
 								</div>
 							</div>
@@ -113,21 +125,21 @@
 							<div class="form-group">
 								<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Name:</label>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="name" value="<?php echo $user_info->name; ?>" type="text" class="form-control input-md margin-bottom">
+									<input name="name" value="<?php echo $user_info->name; ?>" type="text" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
 								</div>
 							</div>
 							<!-- Password input-->
 							<div class="form-group">
 								<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="passwordinput">New password:</label>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="password" type="password" placeholder="New password" class="form-control input-md margin-bottom">
+									<input name="password" type="password" placeholder="New password" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
 								</div>
 							</div>
 							<!-- Repeat Password input-->
 							<div class="form-group">
 								<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="passwordinput">Repeat password:</label>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="repeatpassword" type="password" placeholder="Repeat password" class="form-control input-md margin-bottom">
+									<input name="repeatpassword" type="password" placeholder="Repeat password" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
 								</div>
 							</div>
 							<!-- Select Basic -->

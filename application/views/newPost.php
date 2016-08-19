@@ -19,13 +19,13 @@
         function validar(e) {
             tecla = (document.all) ? e.keyCode : e.which;
             if (tecla==8) return true;
-            patron =/[<>'']/;
+            patron =/[<>''$#%&=]/;
             te = String.fromCharCode(tecla);
             return !patron.test(te);
         }
 
 
-$(document).on('click', '#close-preview', function(){
+/*$(document).on('click', '#close-preview', function(){
     $('.image-preview').popover('hide');
     // Hover befor close the preview
     $('.image-preview').hover(
@@ -82,17 +82,11 @@ $(function() {
         }
         reader.readAsDataURL(file);
     });
-});
-
-
-
-
-
-
-
-
-
+});X*/
 </script>
+
+
+
 <div class="container margin-top">
     <div class="row">
          <div class="col-lg-8 col-md-9 col-sm-12 col-xs-12 border padding-container">
