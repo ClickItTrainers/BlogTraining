@@ -234,7 +234,7 @@ public function entrada_login()
   {
     $this->session->sess_destroy();
     $url = base_url().'Home';
-    echo "<script> alert('See ya!');
+    echo "<script> alert('See you!');
     window.location.href = '$url'; </script>";
   }
 
