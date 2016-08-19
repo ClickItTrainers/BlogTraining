@@ -1,5 +1,6 @@
 <title><?php echo $title ?></title>
 <link href="<?php echo base_url(); ?>assets/css/profile.css" rel="stylesheet">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/showProfile.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Candal|Patua+One" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -33,13 +34,13 @@
 				<?php if ($this->session->userdata('admin') && $this->session->userdata('username') != $user) {?>
 					<div class="profile-userbuttons">
 					<a href="<?php echo base_url(); ?>index.php/Security/logout">
-						<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete user</button></i>
+						<button type="button" class="btn btn-danger btn-sm size-boton"><i class="fa fa-trash"> Delete user</button></i>
 					</a>
 					</div>
 				<?php } ?><!-- END SIDEBAR BUTTONS -->
 
 					<ul class="nav">
-						<a href="" onclick="myFunctionO()">
+						<a href="#" onclick="myFunctionO()">
 							<li class="display-inline line">
 								<i class="fa fa-home"></i> Overview
 							</li>
@@ -105,7 +106,6 @@
 					<form class="form-horizontal padding-left" action="<?php echo base_url()?>Profile_controller/update_profile" method="post">
 						<fieldset>
 
-
 							<!-- username input-->
 							<div class="form-group">
 								<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Username:</label>
@@ -158,18 +158,18 @@
 								<div class="form-group">
 									<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Gender:</label>
 									<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-										<input name="gender" value="<?php echo $user_info->gender; ?>" type="text" class="form-control input-md margin-bottom">
+										<input name="gender" value="<?php echo $user_info->gender; ?>" type="text" class="form-control input-md margin-bottom"/>
 									</div>
 								</div>
 							<?php endif ?>
 							<!-- Save Button -->
-							<div class="form-group">
-								<div class="col-md-3 margin-left">
+							<div class="form-group display-inline">
+								<div class="col-md-3 margin-left margin-bottom">
 									<button name="singlebutton" type="submit" class="btn btn-success">Update my profile</button>
 								</div>
 							</div>
 							<!-- Delete Button -->
-							<div class="form-group">
+							<div class="form-group display-inline">
 								<div class="col-md-3 margin-left">
 									<button name="singlebutton" class="btn btn-danger">Remove my account</button>
 								</div>

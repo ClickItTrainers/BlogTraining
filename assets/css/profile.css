@@ -60,11 +60,15 @@ div .caption h3 a{color: #577AA6; font-family: 'Patua One', cursive; text-decora
 /*setting*/
 .settings{ background-color:white; margin: 0 auto; border-radius:5px; display:none; border: 1px solid rgba(0,0,0,.2);  }
 
-.margin-bottom{margin-bottom: 10px;}
+div .form-group label, input{margin-bottom: 10px;}
 
-.padding-left{padding-left: 100px;}
+div .form-group select{margin-bottom: 20px;}
+
+.padding-left{padding: 20px 0 20px 100px;}
 
 .block{display: block;}
+
+div .form-group button{font-size: 15px; padding: 5px;}
 
 /*input setting*/
 @media screen and (max-width: 992px)
@@ -78,6 +82,8 @@ div .caption h3 a{color: #577AA6; font-family: 'Patua One', cursive; text-decora
   .line{border-left: 0;}
 
   div .options li{padding: 10px 5px;}
+
+  div .form-group button{display: inline-block;}
 }
 
 @media screen and (max-width:550px)
@@ -87,6 +93,10 @@ div .caption h3 a{color: #577AA6; font-family: 'Patua One', cursive; text-decora
 
 @media screen and (max-width:325px)
 {
+  .post-user{font-size: 20px;}
+
+  .size-boton{font-size: 10px;}
+
   div .row .size-profile{height:90px;}
 
   .position-name{font-size: 17px;}
