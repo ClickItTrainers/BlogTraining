@@ -15,6 +15,116 @@
         }
 </script>
 
+<!-- line modal Username  -->
+<div class="modal fade" id="userNameModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content col-lg-10 col-md-11 col-sm-11 col-xs-12 ">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h3 class="" id="lineModalLabel">Update Username</h3>
+      </div>
+      <div class="modal-body">
+        <!-- content goes here -->
+        <form method="post" action="">
+          <div class="form-group">
+            <label for="name">Username:</label>
+            <input type="text" class="form-control" value="" name="username">
+            <span class="text-danger"></span>
+          </div>
+           <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- line modal email  -->
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content col-lg-10 col-md-11 col-sm-11 col-xs-12 ">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h3 class="" id="lineModalLabel">Update Email</h3>
+      </div>
+      <div class="modal-body">
+        <!-- content goes here -->
+        <form method="post" action="">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" value="" name="email">
+            <span class="text-danger"></span>
+          </div>
+           <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- line modal name  -->
+<div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content col-lg-10 col-md-11 col-sm-11 col-xs-12 ">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h3 class="" id="lineModalLabel">Update Name</h3>
+      </div>
+      <div class="modal-body">
+        <!-- content goes here -->
+        <form method="post" action="">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" value="" name="name">
+            <span class="text-danger"></span>
+          </div>
+           <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- line modal password  -->
+<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content col-lg-10 col-md-11 col-sm-11 col-xs-12 ">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h3 class="" id="lineModalLabel">Update Password</h3>
+      </div>
+      <div class="modal-body">
+        <!-- content goes here -->
+        <form method="post" action="">
+          <div class="form-group">
+            <label for="password">Last Password:</label>
+            <input type="text" class="form-control" value="" name="password">
+            <span class="text-danger"></span>
+            <label for="password">New Password:</label>
+            <input type="text" class="form-control" value="" name="password">
+            <label for="password">Repeat Password:</label>
+            <input type="text" class="form-control" value="" name="password">
+          </div>
+           <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 <div class="container margin-top ">
@@ -103,65 +213,59 @@
 					<!-- Form Name -->
 					<legend class="post-user">Account setting</legend>
 
-					<form class="form-horizontal padding-left" action="<?php echo base_url()?>Profile_controller/update_profile" method="post">
-						<fieldset>
+					
+						<fieldset class="padding-left">
 
 							<!-- username input-->
 							<div class="form-group">
-								<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Username:</label>
+								<label class="col-lg-3 col-md-2 col-sm-12 col-xs-12 control-label" for="textinput">Username:</label>
+								<button data-toggle="modal" data-target="#userNameModal" class="btn">
+		                        	<i class="fa fa-pencil-square-o"></i>
+		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="username" type="text" class="form-control input-md margin-bottom" onpaste="return false" onkeypress="return validar(event)" value="<?php echo $this->session->userdata('username');?>" >
+									<input name="username" type="text" class="form-control input-md margin-bottom" onpaste="return false" disabled onkeypress="return validar(event)" value="<?php echo $this->session->userdata('username');?>" >
 									<span class="text-danger"><?php echo form_error('username')?></span>
 								</div>
 							</div>
 							<!-- Email input-->
 							<div class="form-group">
-								<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Email:</label>
+								<label class="col-lg-3 col-md-2 col-sm-2 col-xs-12 control-label" for="textinput">Email:</label>
+								<button data-toggle="modal" data-target="#emailModal" class="btn">
+		                        	<i class="fa fa-pencil-square-o"></i>
+		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
 									<input name="my_email" value="<?php echo $this->session->userdata('email');?>" type="text" class="form-control input-md margin-bottom" disabled>
 								</div>
 							</div>
 							<!-- name input-->
 							<div class="form-group">
-								<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Name:</label>
+								<label class="col-lg-3 col-md-2 col-sm-2 col-xs-12 control-label" for="textinput">Name:</label>
+								<button data-toggle="modal" data-target="#nameModal" class="btn">
+		                        	<i class="fa fa-pencil-square-o"></i>
+		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="name" value="<?php echo $user_info->name; ?>" type="text" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
+									<input name="name" disabled value="<?php echo $user_info->name; ?>" type="text" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
 								</div>
 							</div>
 							<!-- Password input-->
 							<div class="form-group">
-								<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="passwordinput">New password:</label>
+								<label class="col-lg-3 col-md-2 col-sm-2 col-xs-12 control-label" for="passwordinput">New password:</label>
+								<button data-toggle="modal" data-target="#passwordModal" class="btn">
+		                        	<i class="fa fa-pencil-square-o"></i>
+		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="password" type="password" placeholder="New password" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
+									<input name="password" disabled type="password" placeholder="New password" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
 								</div>
 							</div>
-							<!-- Repeat Password input-->
-							<div class="form-group">
-								<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="passwordinput">Repeat password:</label>
-								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="repeatpassword" type="password" placeholder="Repeat password" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
-								</div>
-							</div>
-							<!-- Select Basic -->
-							<?php if($user_info->gender === null): ?>
-								<div class="form-group">
-									<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="selectbasic">Gender:</label>
-									<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-										<select  name="gender" class="form-control margin-bottom">
-											<option value="F">Female</option>
-											<option value="M">Male</option>
-										</select>
-									</div>
-								</div>
-							<?php else: ?>
+							
 								<!-- Gender input-->
 								<div class="form-group">
 									<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Gender:</label>
 									<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-										<input name="gender" value="<?php echo $user_info->gender; ?>" type="text" class="form-control input-md margin-bottom"/>
+										<input name="gender" disabled value="<?php echo $user_info->gender; ?>" type="text" class="form-control input-md margin-bottom"/>
 									</div>
 								</div>
-							<?php endif ?>
+						
 							<!-- Save Button -->
 							<div class="form-group display-inline">
 								<div class="col-md-3 margin-left margin-bottom">
@@ -176,7 +280,7 @@
 							</div>
 
 						</fieldset>
-					</form>
+					
 				</div> <!--End Account Settings -->
 				<?php } ?>
 		</div> <!-- col-lg-10 -->
