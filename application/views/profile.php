@@ -13,6 +13,7 @@
             te = String.fromCharCode(tecla);
             return !patron.test(te);
         }
+
 </script>
 
 <!-- line modal Username  -->
@@ -28,11 +29,11 @@
       </div>
       <div class="modal-body">
         <!-- content goes here -->
-        <form method="post" action="<?php echo base_url()?>Profile_controller/update_username">
+        <form method="post" action="<?php echo base_url() ?>Profile_controller/update_username">
           <div class="form-group">
             <label for="name">Username:</label>
-            <input type="text" class="form-control" value="<?php echo set_value('username');?>" required onpaste="return false" onkeypress="return validar(event)" name="username">
-            	<span class="text-danger"><?php echo form_error('username'); ?></span>
+            <input type="text" class="form-control" required name="username">
+            <span class="text-danger"></span>
           </div>
            <button type="submit" class="btn btn-success">Submit</button>
         </form>

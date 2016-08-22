@@ -21,7 +21,67 @@ class Users_model extends CI_Model{
 		return $id_user;
 	}
 
-	public function verify_password()
+
+	public function update_username($new_username, $email){
+		$this->db->set('username', $new_username);
+		$this->db->where('email', $email);
+		$query = $this->db->update('users');
+
+		if(!$query){
+            show_error("Something went wrong! <a href=''>Go back!</a>", 500 );
+
+        }else{
+        	return $query;
+        }
+		/*if (isset($query)) {
+			return $query;
+		}else{
+			$error = $this->db->error();
+			return $error;
+		}*/
+	}
+
+	public function update_email($new_email, $username){
+		$this->db->set('email', $new_email);
+		$this->db->where('username', $username);
+		$query = $this->db->update('users');
+
+		if(!$query){
+            show_error("Something went wrong! <a href=''>Go back!</a>", 500 );
+
+        }else{
+        	return $query;
+        }
+	}
+
+	public function update_name($new_name, $username){
+		$this->db->set('name', $new_name);
+		$this->db->where('username', $username);
+		$query = $this->db->update('users');
+
+		if(!$query){
+            show_error("Something went wrong! <a href=''>Go back!</a>", 500 );
+
+        }else{
+        	return $query;
+        }
+	}
+
+	public function update_password($new_password, $username){
+		$this->db->set('password', $new_password);
+		$this->db->where('username', $username);
+		$query = $this->db->update('users');
+
+		if(!$query){
+            show_error("Something went wrong! <a href=''>Go back!</a>", 500 );
+
+        }else{
+        	return $query;
+        }
+	}
+
+	/*public function update_profile($new_username, $email, $new_password, $name, $gender)
+>>>>>>> Stashed changes
 	{
 		$this->db->select('password');
 		$this->db->from('users');
@@ -34,6 +94,7 @@ class Users_model extends CI_Model{
 		return $pass;
 	}
 
+<<<<<<< Updated upstream
 	public function update_username($new_username)
 	{
 		$this->db->set('username', $new_username);
@@ -68,6 +129,11 @@ class Users_model extends CI_Model{
 		$this->db->where('username', $this->session->userdata('username'));
 		return $this->db->update('users');
 	}
+=======
+		$this->db->where('email', $email);
+		return $this->db->update('users', $data);
+	}*/
+>>>>>>> Stashed changes
 
 	//Delete the user that the admin selected
 	public function delete_user($id_user)
