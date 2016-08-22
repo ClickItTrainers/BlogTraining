@@ -99,6 +99,38 @@ class Home extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+	public function update_post(){
+
+    $this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars');
+    $this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[250]|htmlspecialchars');
+    $this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]');
+    // Error messages
+    $this->form_validation->set_message('required', '*Required field');
+    $this->form_validation->set_message('min_length', '* The field %s must be at least %s characters');
+    $this->form_validation->set_message('max_length', "* The field %s can't be more than %s characters");
+
+    if($this->form_validation->run() == FALSE){
+      $this->posts_details($this->input->post('id_post'));
+
+    }else{
+
+        $id_post = $this->input->post('id_post');
+        $title = htmlentities($this->input->post('title'));
+        $desc = htmlentities($this->input->post('description'));
+        $cont = htmlentities($this->input->post('content'));
+
+        $update = $this->Posts_model->update_post($id_post, $title, $desc, $cont);
+
+        if($update){
+          $url = 'post/' . $id_post . '/';
+          $url .= url_title(convert_accented_characters($title), '-', TRUE);
+          echo "<script> alert('¡Post updated!');
+          window.location.href='$url';
+          </script>";
+        }
+    }
+  }
+
 	public function insert_post(){
 
 		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars');
