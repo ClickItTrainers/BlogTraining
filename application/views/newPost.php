@@ -8,9 +8,9 @@
 <title><?php echo $title ?></title>
 <link href="<?php echo base_url(); ?>assets/css/new-post.css" rel="stylesheet">
 
-<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<!-- <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script> -->
 <!-- <script src="http://www.blogtraining.com/assets/js/previewImage.js" type="text/javascript"></script> -->
-<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+<!-- <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script> -->
 
     <!-- fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -131,7 +131,7 @@ $(function() {
                 <!-- Content od the post -->
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom">
                     <legend for="text">Content of the post</legend>
-                    <textarea name="content" class="size-text" rows="8" onkeypress="return validar(event)"></textarea>
+                    <textarea name="content" class="size-text" rows="8" onkeypress="return validar(event)" style="resize: none;"></textarea>
                     <span class="text-danger"><?php echo form_error('content'); ?></span>
                 </div>
                 <input type="submit" class="btn btn-success color" name="submit" value="Send"/>

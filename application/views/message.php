@@ -13,8 +13,5 @@
               <h4 class="alert-heading">Something went wrong!</h4>
                 Does not found any post, try submitting again. 
             </div>
-            Loading...
-            <progress class="progress progress-striped progress-animated progress-danger" value="75" max="100">75%</progress>
 
-        			
     </div><!-- col -->

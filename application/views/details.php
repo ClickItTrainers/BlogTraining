@@ -26,7 +26,7 @@
           </div>
           <div class="form-group">
             <label for="content">Content:</label>
-            <textarea class="form-control" rows="8" name="content"><?php echo $details->content ?></textarea>
+            <textarea class="form-control" rows="8" name="content" style="resize: none;"><?php echo $details->content ?></textarea>
             <span class="text-danger"><?php echo form_error('content'); ?></span>
 
           </div>
@@ -48,12 +48,13 @@
             <!-- Preview Image -->
             <img class="img-fluid" src="/assets/img/category/<?php echo $details->name.'.jpg'?>" alt="<?php echo $details->name ?>">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 absolute-tittle absolute">
-                    <h1 class="word-break"> <?php echo $details->title; ?> </h1>
+                    <h1 class="word-break"> <?php echo htmlentities($details->title); ?> </h1>
                </div>
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 absolute-author absolute">
                      <a href="#">
+
                       <img class="img-fluid display-in media-object size-img-main" src="http://placehold.it/64x64" alt=""/>
-                        <span><?php echo $username ?></span>
+                        <span><?php echo htmlentities($username); ?></span>
                     </a>
                </div>
                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-7 absolute-date absolute">
@@ -87,8 +88,8 @@
                     <?php } ?>
               </div>
       <!-- Post Content -->
-      <p class="lead word-break"> <?php echo $details->description; ?></p>
-      <p class="font-content word-break"> <?php echo $details->content; ?> </p>
+      <p class="lead word-break"> <?php echo htmlentities($details->description); ?></p>
+      <p class="font-content word-break"> <?php echo htmlentities($details->content); ?> </p>
 
       <hr>
         <!-- Blog Comments -->
@@ -118,7 +119,7 @@
                   <img class="media-object size-img" src="http://placehold.it/64x64" alt="">
                 </a>
                 <div>
-                  <h3 class="display-in"><?php echo $item->username; ?></h3>
+                  <h3 class="display-in"><?php echo htmlentities($item->username); ?></h3>
                   <?php if ($this->session->userdata('username') == $item->username || $this->session->userdata('admin') || $this->session->userdata('username') == $username ){ ?>
                     <form action="<?php echo base_url()?>Home/delete" method="POST">
                     <input type="hidden" name="red" value="<?php echo $details->id_post?>">
@@ -133,7 +134,7 @@
                   </h4>
              </div>
               <div class="padding-container word-break">
-                  <?php echo $item->comment; ?>
+                  <?php echo htmlentities($item->comment); ?>
               </div>
           </div>
 

@@ -94,6 +94,15 @@ footer p{text-align: center;}
 	div .row .search{float: left; margin-left: 140px;}
 }
 
+/*header*/
+@media screen and (max-width: 543px)
+{
+	.text-xs-right{text-align: left!important;}
+	
+	.right{display: block;}
+}
+/*header*/
+
 @media screen and (max-width: 550px)
 {
 	div .row .search{float: left; margin-left: 60px;}

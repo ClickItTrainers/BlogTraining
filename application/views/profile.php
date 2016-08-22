@@ -138,7 +138,7 @@
 					<img class="size-profile img-fluid" src="/assets/img/profile-blog.jpg" alt="img-profile"/>
 				</div>
 				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 position-name word-break">
-					<span><?php echo $user;?><span>
+					<span><?php echo htmlentities($user);?><span>
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 options">
 
@@ -187,15 +187,15 @@
 						<!-- description -->
 						<div class="caption">
 							<h3 class="description word-break">
-								<?php echo anchor($url, $mostrarTitle."...");?>
+								<?php echo anchor($url, htmlentities($mostrarTitle."..."));?>
 							</h3>
 						<!-- content -->
 							<p class="content word-break">
-								<?php echo $mostrar."..."; ?>
+								<?php echo htmlentities($mostrar."..."); ?>
 							</p>
 						<!-- button read -->
 							<div class="position-button">
-								<a href="" class="btn btn-primary btn-sm" role="button">Read more</a>
+								<a href="<?php echo base_url().$url ?>" class="btn btn-primary btn-sm" role="button">Read more</a>
 							</div>
 						</div>
 						<?php if ($this->session->userdata('username') === $user || $this->session->userdata('admin')): ?>

@@ -49,3 +49,14 @@ footer p{text-align: center;}
 .pagination p a{padding: 10px; border-top:1px solid rgba(0,0,0,.2); border-bottom:1px solid rgba(0,0,0,.2); border-left:1px solid rgba(0,0,0,.2);}
 
 .pagination p a:last-child{border-right:1px solid rgba(0,0,0,.2);}
+
+
+
+/*header*/
+@media screen and (max-width: 543px)
+{
+	.text-xs-right{text-align: left!important;}
+	
+	.right{display: block;}
+}
+/*header*/

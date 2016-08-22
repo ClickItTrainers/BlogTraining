@@ -33,14 +33,14 @@
             	?>
             			<!-- Blog Post List -->
                             <h2 class="word-break">
-                                <?php echo anchor($url, $item->title) ?>
+                                <?php echo anchor($url, htmlentities($item->title)) ?>
                             </h2>
                             <p class="lead display-inline size-small">
                                 by <a class="word-break" href="profile/user/<?php echo $item->id_user; ?>">
                                     <?php
                                     foreach ($users_arr as $key) {
                                         if ($item->id_user == $key->id_user){
-                                            echo $key->username;
+                                            echo htmlentities($key->username);
                                         }
                                     }
                                     ?>
@@ -55,7 +55,7 @@
 
                             <img class="img-fluid down" src="/assets/img/category/<?php echo $item->name.'.jpg'?>" alt="<?php echo $item->name ?>">
 
-                            <p class="word-break"><?php echo $item->description ?></p>
+                            <p class="word-break"><?php echo htmlentities($item->description); ?></p>
                             <a class="btn btn-primary" href="<?php echo base_url().$url ?>">Read More <i class="fa fa-angle-right "></i></a>
                             <hr>
             	<?php

@@ -44,7 +44,11 @@
 
 					<div class="wrapper">
 						<div class="display">
-							<input class=" button btn azm-social azm-btn azm-border-bottom azm-drupal" type="submit" name="submit" value="Login">
+								<!-- <a href="<?php echo base_url() ?>" class="btn botton-back" ><i class="fa fa-chevron-left"></i>
+								</a> -->
+							<input class="display button btn azm-social azm-btn azm-border-bottom azm-drupal" type="submit" name="submit" value="Login">
+							<a href="<?php echo base_url() ?>" class="display" ><i class="fa fa-chevron-left"></i> back to blog
+								</a>
 						</div>
 						<!-- <a href="#" class="btn azm-social azm-btn azm-border-bottom azm-drupal"><i class="fa"></i> Login </a> -->
 									<!-- <a href="<?php echo $loginUrl ?>" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
