@@ -58,9 +58,9 @@ class Admin_controller extends CI_Controller
     }else{
 
         $id_post = $this->input->post('id_post');
-        $title = $this->input->post('title');
-        $desc = $this->input->post('description');
-        $cont = $this->input->post('content');
+        $title = htmlentities($this->input->post('title'));
+        $desc = htmlentities($this->input->post('description'));
+        $cont = htmlentities($this->input->post('content'));
 
         $update = $this->Posts_model->update_post($id_post, $title, $desc, $cont);
 

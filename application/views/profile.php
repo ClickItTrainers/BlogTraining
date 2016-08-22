@@ -31,7 +31,7 @@
         <form method="post" action="<?php echo base_url()?>Profile_controller/update_username">
           <div class="form-group">
             <label for="name">Username:</label>
-            <input type="text" class="form-control" value="<?php echo set_value('username');?>" name="username">
+            <input type="text" class="form-control" value="<?php echo set_value('username');?>" required onpaste="return false" onkeypress="return validar(event)" name="username">
             	<span class="text-danger"><?php echo form_error('username'); ?></span>
           </div>
            <button type="submit" class="btn btn-success">Submit</button>
@@ -57,7 +57,7 @@
         <form method="post" action="<?php echo base_url() ?>Profile_controller/update_email">
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="text" class="form-control" value="<?php echo set_value('email'); ?>" name="email">
+            <input type="email" class="form-control" value="<?php echo set_value('email'); ?>" required onpaste="return false" onkeypress="return validar(event)" name="email">
             <span class="text-danger"><?php echo form_error('email'); ?></span>
           </div>
            <button type="submit" class="btn btn-success">Submit</button>
@@ -83,7 +83,7 @@
         <form method="post" action="<?php echo base_url() ?>Profile_controller/update_name">
           <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" value="" name="name">
+            <input type="text" class="form-control" value="" required onpaste="return false" onkeypress="return validar(event)" name="name">
             <span class="text-danger"><?php echo form_error('name'); ?></span>
           </div>
            <button type="submit" class="btn btn-success">Submit</button>
@@ -109,13 +109,13 @@
         <form method="post" action="<?php echo base_url() ?>Profile_controller/update_password">
           <div class="form-group">
             <label for="last_password">Last Password:</label>
-            <input type="password" class="form-control" value="" name="last_password">
+            <input type="password" class="form-control" value="" required onpaste="return false" onkeypress="return validar(event)" name="last_password">
             <span class="text-danger"><?php echo form_error('last_password'); ?></span>
             <label for="new_password">New Password:</label>
-            <input type="password" class="form-control" value="" name="new_password">
+            <input type="password" class="form-control" value="" required onpaste="return false" onkeypress="return validar(event)" name="new_password">
             <span class="text-danger"><?php echo form_error('new_password'); ?></span>
             <label for="repeat_password">Repeat Password:</label>
-            <input type="password" class="form-control" value="" name="repeat_password">
+            <input type="password" class="form-control" value="" required onpaste="return false" onkeypress="return validar(event)" name="repeat_password">
             <span class="text-danger"><?php echo form_error('repeat_password'); ?></span>
           </div>
            <button type="submit" class="btn btn-success">Submit</button>

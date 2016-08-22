@@ -96,13 +96,13 @@ $(function() {
                 <div class="padding-top">
                     <div class="margin-bottom form-group">
                         <legend for="title" class="margin-right">Title:</legend>
-                        <input type="input" class="width form-control display-inline-block" name="title" onpaste="return false" onkeypress="return validar(event)"/>
+                        <input type="input" class="width form-control display-inline-block" name="title" required onpaste="return false" onkeypress="return validar(event)"/>
                         <span class="text-danger"><?php echo form_error('title'); ?></span>
                     </div>
                     <!-- Description -->
                     <div  class="margin-bottom">
                         <legend for="description">Description:</legend>
-                        <input type="input" class="width form-control display-inline-block" name="description" onpaste="return false" onkeypress="return validar(event)"/>
+                        <input type="input" class="width form-control display-inline-block" name="description" required onpaste="return false" onkeypress="return validar(event)"/>
                         <span class="text-danger"><?php echo form_error('description'); ?></span>
                     </div>
 

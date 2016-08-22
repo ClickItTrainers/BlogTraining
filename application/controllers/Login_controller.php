@@ -278,7 +278,7 @@ public function entrada_login()
         //Probar si la contraseña se encripto
         if ($this->bcrypt->check_password($password, $hash))
         {
-          $insert_pass = $this->Login_model->registro($username, $email, $hash);
+          $insert_pass = $this->Login_model->registro($username, $email, $hash, $name, $gender);
           if ($insert_pass)
           {
             $url = base_url().'Login_controller/index';

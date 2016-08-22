@@ -49,13 +49,15 @@ class Login_model extends CI_Model
 		return $this->db->insert('users', $data);
   }
 
-  public function registro($username,$email,$hash)
+  public function registro($username,$email,$hash, $name, $gender)
   {
     //Saved the data
     $data = array(
 			'username' => $username,
 			'email' => $email,
-			'password' => $hash
+			'password' => $hash,
+      'name' => $name,
+      'gender' => $gender
 		);
 
     //Linea para la insercion de los datos del array en la bd

@@ -23,21 +23,21 @@
 				<form action="<?php	echo base_url()?>Login_controller/registro_user" method="post">
 					<h4>Please Register</h4>
 					<p>Username:</p>
-					<input type="text" name="username" class="form-control input-sm chat-input" required value="<?php echo set_value('username');?>"/>
+					<input type="text" name="username" class="form-control input-sm chat-input" required onpaste="return false" onkeypress="return validar(event)" value="<?php echo set_value('username');?>"/>
 					<span class="text-danger"><?php echo form_error('username'); ?></span>
 
 					<p>Email:</p>
-					<input type="email" name="email" class="form-control input-sm chat-input" required value="<?php echo set_value('email');?>"/>
+					<input type="email" name="email" class="form-control input-sm chat-input" required onpaste="return false" onkeypress="return validar(event)" value="<?php echo set_value('email');?>"/>
 					<span class="text-danger"><?php echo form_error('email')?></span>
 
 
 					<p>Password:</p>
-					<input type="password" name="password" required class="form-control input-sm chat-input"/>
+					<input type="password" name="password" required onpaste="return false" onkeypress="return validar(event)" class="form-control input-sm chat-input"/>
 					<span class="text-danger"><?php echo form_error('password')?></span>
 
 
 					<p>Name:</p>
-					<input type="text" name="name" required  value="<?php echo set_value('name');?>" class="form-control input-sm chat-input"/>
+					<input type="text" name="name" required onpaste="return false" onkeypress="return validar(event)"  value="<?php echo set_value('name');?>" class="form-control input-sm chat-input"/>
 					<span class="text-danger"><?php echo form_error('name')?></span>
 
 

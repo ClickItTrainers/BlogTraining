@@ -32,7 +32,7 @@ class Home extends CI_Controller {
 		{
 			$init = ($page - 1) * $limit;
 		}
-		
+
 		$config['base_url'] = base_url();
 		$config['total_rows'] = count($this->Posts_model->posts_list());
 		$config['per_page'] = $limit;
@@ -48,7 +48,7 @@ class Home extends CI_Controller {
 		$data['category_arr'] = $this->Users_model->get_category();
 
 
-		
+
 		if ($this->input->post('search')) {
 
 			$q = $this->security->xss_clean($this->input->post('search'));
@@ -68,7 +68,7 @@ class Home extends CI_Controller {
 
 		}
 
-		
+
 		$this->load->view('templates/template', $data);
 
 	}
@@ -118,9 +118,9 @@ class Home extends CI_Controller {
 			$post = array(
 				'id_user' => $this->Users_model->get_userID(),
 				'id_category' => $this->input->post('category'),
-				'title' => $this->input->post('title'),
-				'description' => $this->input->post('description'),
-				'content' => $this->input->post('content'),
+				'title' => htmlentities($this->input->post('title')),
+				'description' => htmlentities($this->input->post('description')),
+				'content' => htmlentities($this->input->post('content')),
 				'date' => date('Y-m-d H:i:s'));
 
 				$this->Posts_model->insert('posts', $post);
