@@ -221,43 +221,45 @@
 
 							<!-- username input-->
 							<div class="form-group">
-								<label class="col-lg-3 col-md-2 col-sm-12 col-xs-12 control-label" for="textinput">Username:</label>
+								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="textinput">Username:</label>
 								<button data-toggle="modal" data-target="#userNameModal" class="btn">
 		                        	<i class="fa fa-pencil-square-o"></i>
 		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="username" type="text" class="form-control input-md margin-bottom" onpaste="return false" disabled onkeypress="return validar(event)" value="<?php echo $this->session->userdata('username');?>" >
+									<span class="form-control input-md min-area" onpaste="return false" onkeypress="return validar(event)" ><?php echo $this->session->userdata('username');?></span>
+
 									<span class="text-danger"></span>
+									
 								</div>
 							</div>
 							<!-- Email input-->
 							<div class="form-group">
-								<label class="col-lg-3 col-md-2 col-sm-2 col-xs-12 control-label" for="textinput">Email:</label>
+								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="textinput">Email:</label>
 								<button data-toggle="modal" data-target="#emailModal" class="btn">
 		                        	<i class="fa fa-pencil-square-o"></i>
 		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="my_email" value="<?php echo $this->session->userdata('email');?>" type="text" class="form-control input-md margin-bottom" disabled>
+									<span class="form-control input-md min-area"><?php echo $this->session->userdata('email');?></span>
 								</div>
 							</div>
 							<!-- name input-->
 							<div class="form-group">
-								<label class="col-lg-3 col-md-2 col-sm-2 col-xs-12 control-label" for="textinput">Name:</label>
+								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="textinput">Name:</label>
 								<button data-toggle="modal" data-target="#nameModal" class="btn">
 		                        	<i class="fa fa-pencil-square-o"></i>
 		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="name" disabled value="<?php echo $user_info->name; ?>" type="text" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
+									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area"><?php echo htmlentities($user_info->name); ?></span>
 								</div>
 							</div>
 							<!-- Password input-->
 							<div class="form-group">
-								<label class="col-lg-3 col-md-2 col-sm-2 col-xs-12 control-label" for="passwordinput">New password:</label>
+								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="passwordinput">New password:</label>
 								<button data-toggle="modal" data-target="#passwordModal" class="btn">
 		                        	<i class="fa fa-pencil-square-o"></i>
 		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<input name="password" disabled type="password" placeholder="New password" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
+									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area">********</span>
 								</div>
 							</div>
 
@@ -265,20 +267,20 @@
 								<div class="form-group">
 									<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Gender:</label>
 									<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-										<input name="gender" disabled value="<?php echo $user_info->gender; ?>" type="text" class="form-control input-md margin-bottom"/>
+										<span class="form-control input-md min-area"><?php echo $user_info->gender; ?></span>
 									</div>
 								</div>
 
 							<!-- Save Button -->
 							<div class="form-group display-inline">
-								<div class="col-md-3 margin-left margin-bottom">
-									<button name="singlebutton" type="submit" class="btn btn-success">Update my profile</button>
+								<div class="col-md-3 margin-left margin-bottons">
+									<button name="singlebutton" type="submit" class="btn btn-success ">Update my profile</button>
 								</div>
 							</div>
 							<!-- Delete Button -->
 							<div class="form-group display-inline">
-								<div class="col-md-3 margin-left">
-									<button name="singlebutton" class="btn btn-danger">Remove my account</button>
+								<div class="col-md-3 margin-left margin-bottons">
+									<button name="singlebutton" class="btn btn-danger ">Remove my account</button>
 								</div>
 							</div>
 

@@ -8,10 +8,10 @@ class Users_model extends CI_Model{
 
 	// Gets the user id of the user that is logged in
 	public function get_userID(){
-		$user = $this->session->userdata('username');
+		$user = $this->session->userdata('email');
 		$this->db->select('id_user');
 		$this->db->from('users');
-		$this->db->where('username', $user);
+		$this->db->where('email', $user);
 
 		$query = $this->db->get();
 
@@ -56,7 +56,7 @@ class Users_model extends CI_Model{
 
 	public function update_email($new_email){
 		$this->db->set('email', $new_email);
-		$this->db->where('username', $this->session->userdata('username'));
+		$this->db->where('email', $this->session->userdata('email'));
 		$query = $this->db->update('users');
 
 		if(!$query){
@@ -67,9 +67,9 @@ class Users_model extends CI_Model{
         }
 	}
 
-	public function update_name($new_name, $username){
+	public function update_name($new_name){
 		$this->db->set('name', $new_name);
-		$this->db->where('username',$this->session->userdata('username'));
+		$this->db->where('email',$this->session->userdata('email'));
 		$query = $this->db->update('users');
 
 		if(!$query){

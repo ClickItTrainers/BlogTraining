@@ -33,7 +33,7 @@ class Profile_controller extends CI_Controller{
       $this->index();
     }else{
       //rules
-      $this->form_validation->set_rules("username","username","min_length[4]|max_length[20]|htmlspecialchars|required|is_unique[users.username]");
+      $this->form_validation->set_rules("username","username","min_length[4]|max_length[25]|htmlspecialchars|required|is_unique[users.username]");
       //messages
       $this->form_validation->set_message('is_unique', 'The %s already exists');
       $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
@@ -46,7 +46,7 @@ class Profile_controller extends CI_Controller{
       else
       {
 
-        $new_username = $this->input->post('username', TRUE);
+        $new_username = htmlentities($this->input->post('username', TRUE));
         $resultado = strpos($new_username, 'script');
 
         if($resultado != FALSE):
@@ -170,7 +170,7 @@ class Profile_controller extends CI_Controller{
     }else
     {
       //rules
-      $this->form_validation->set_rules("email","email","is_unique[users.email]|max_length[50]|htmlspecialchars|valid_email|required");
+      $this->form_validation->set_rules("email","email","is_unique[users.email]|max_length[60]|htmlspecialchars|valid_email|required");
       //messages
       $this->form_validation->set_message('valid_email', '*Invalid email');
       $this->form_validation->set_message('is_unique', 'The %s already exists');
@@ -181,7 +181,7 @@ class Profile_controller extends CI_Controller{
         $this->index();
       }else
       {
-        $new_email = $this->input->post('email');
+        $new_email = $this->input->post('email', TRUE);
 
         $update = $this->Users_model->update_email($new_email);
 
