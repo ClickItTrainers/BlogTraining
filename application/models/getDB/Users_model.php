@@ -21,6 +21,19 @@ class Users_model extends CI_Model{
 		return $id_user;
 	}
 
+	public function verify_password()
+	{
+		$this->db->select('password');
+		$this->db->from('users');
+		$this->db->where('email', $this->session->userdata('email'));
+		$query = $this->db->get();
+
+		foreach ($query->result() as $row){
+			$pass = $row->password;
+		}
+		return $pass;
+	}
+
 
 	public function update_username($new_username){
 		$this->db->set('username', $new_username);
