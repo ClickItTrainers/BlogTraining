@@ -22,9 +22,9 @@ class Users_model extends CI_Model{
 	}
 
 
-	public function update_username($new_username, $email){
+	public function update_username($new_username){
 		$this->db->set('username', $new_username);
-		$this->db->where('email', $email);
+		$this->db->where('email', $this->session->userdata('email'));
 		$query = $this->db->update('users');
 
 		if(!$query){
@@ -41,9 +41,9 @@ class Users_model extends CI_Model{
 		}*/
 	}
 
-	public function update_email($new_email, $username){
+	public function update_email($new_email){
 		$this->db->set('email', $new_email);
-		$this->db->where('username', $username);
+		$this->db->where('username', $this->session->userdata('username'));
 		$query = $this->db->update('users');
 
 		if(!$query){
@@ -56,7 +56,7 @@ class Users_model extends CI_Model{
 
 	public function update_name($new_name, $username){
 		$this->db->set('name', $new_name);
-		$this->db->where('username', $username);
+		$this->db->where('username',$this->session->userdata('username'));
 		$query = $this->db->update('users');
 
 		if(!$query){
@@ -67,9 +67,9 @@ class Users_model extends CI_Model{
         }
 	}
 
-	public function update_password($new_password, $username){
+	public function update_password($new_password){
 		$this->db->set('password', $new_password);
-		$this->db->where('username', $username);
+		$this->db->where('username',$this->session->userdata('username'));
 		$query = $this->db->update('users');
 
 		if(!$query){

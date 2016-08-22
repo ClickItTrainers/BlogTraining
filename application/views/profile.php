@@ -33,7 +33,7 @@
           <div class="form-group">
             <label for="name">Username:</label>
             <input type="text" class="form-control" required name="username">
-            <span class="text-danger"></span>
+            <span class="text-danger"><?php echo form_error('username'); ?></span>
           </div>
            <button type="submit" class="btn btn-success">Submit</button>
         </form>
