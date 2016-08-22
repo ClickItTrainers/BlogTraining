@@ -271,12 +271,7 @@
 									</div>
 								</div>
 
-							<!-- Save Button -->
-							<div class="form-group display-inline">
-								<div class="col-md-3 margin-left margin-bottons">
-									<button name="singlebutton" type="submit" class="btn btn-success ">Update my profile</button>
-								</div>
-							</div>
+							
 							<!-- Delete Button -->
 							<div class="form-group display-inline">
 								<div class="col-md-3 margin-left margin-bottons">
