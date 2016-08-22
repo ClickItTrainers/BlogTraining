@@ -21,19 +21,52 @@ class Users_model extends CI_Model{
 		return $id_user;
 	}
 
-	public function update_profile($new_username, $email, $new_password, $name, $gender)
+	public function verify_password()
 	{
-		
-		$data = array(
-			'username' => $new_username,
-			'password' => $new_password,
-			'name' => $name,
-			'gender' => $gender
-		);
+		$this->db->select('password');
+		$this->db->from('users');
+		$this->db->where('email', $this->session->userdata('email'));
+		$query = $this->db->get();
 
+		foreach ($query->result() as $row){
+			$pass = $row->password;
+		}
+		return $pass;
+	}
 
-		$this->db->where('email', $email);
-		return $this->db->update('users', $data);
+	public function update_username($new_username)
+	{
+		$this->db->set('username', $new_username);
+		$this->db->where('email', $this->session->userdata('email'));
+		return $this->db->update('users');
+	}
+
+	public function update_password($new_password)
+	{
+		$this->db->set('password', $new_password);
+		$this->db->where('email', $this->session->userdata('email'));
+		return $this->db->update('users');
+	}
+
+	public function update_name($new_name)
+	{
+		$this->db->set('name', $new_name);
+		$this->db->where('username', $this->session->userdata('username'));
+		return $this->db->update('users');
+	}
+
+	public function update_gender($new_gender)
+	{
+		$this->db->set('gender', $new_gender);
+		$this->db->where('username', $this->db->userdata('username'));
+		return $this->db->update('users');
+	}
+
+	public function update_email($new_email)
+	{
+		$this->db->set('email', $new_email);
+		$this->db->where('username', $this->session->userdata('username'));
+		return $this->db->update('users');
 	}
 
 	//Delete the user that the admin selected

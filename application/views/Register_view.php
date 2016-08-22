@@ -26,34 +26,43 @@
 					<input type="text" name="username" class="form-control input-sm chat-input" required value="<?php echo set_value('username');?>"/>
 					<span class="text-danger"><?php echo form_error('username'); ?></span>
 
-					<br>
 					<p>Email:</p>
 					<input type="email" name="email" class="form-control input-sm chat-input" required value="<?php echo set_value('email');?>"/>
 					<span class="text-danger"><?php echo form_error('email')?></span>
 
-					<br>
 
 					<p>Password:</p>
 					<input type="password" name="password" required class="form-control input-sm chat-input"/>
 					<span class="text-danger"><?php echo form_error('password')?></span>
 
-				</br>
-				<input type="hidden" name="token" value="<?php echo $token?>" />
 
-				<div class="wrapper">
-					<div class="display">
-						<input class=" button btn azm-social azm-btn azm-border-bottom azm-drupal" type="submit" name="submit" value="Register">
-					</div>
-					<!-- <a href="#" class="btn azm-social azm-btn azm-border-bottom azm-drupal"><i class="fa"></i> Login </a> -->
-					
-				<!-- 	<div class="caja-redes">
+					<p>Name:</p>
+					<input type="text" name="name" required  value="<?php echo set_value('name');?>" class="form-control input-sm chat-input"/>
+					<span class="text-danger"><?php echo form_error('name')?></span>
+
+
+					<p>Gender:</p>
+					<select name="gender" class="form-control input-sm chat-input">
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+
+					<input type="hidden" name="token" value="<?php echo $token?>" />
+
+					<div class="wrapper">
+						<div class="display">
+							<input class=" button btn azm-social azm-btn azm-border-bottom azm-drupal" type="submit" name="submit" value="Registar">
+						</div>
+						<!-- <a href="#" class="btn azm-social azm-btn azm-border-bottom azm-drupal"><i class="fa"></i> Login </a> -->
+
+						<!-- 	<div class="caja-redes">
 						<a href="#" class="icon-button facebook"><i class="fa fa-facebook"></i><span></span></a>
 						<a href="#" class="icon-button google-plus"><i class="fa fa-google"></i><span></span></a>
-					
+
 					</div> -->
 
 
-					<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
+					<a href="<?php echo $loginUrl ?>" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
 					<!-- <a href="#" class="btn azm-social azm-btn azm-border-bottom azm-twitter"><i class="fa fa-twitter"></i></a> -->
 					<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a>
 				</div>

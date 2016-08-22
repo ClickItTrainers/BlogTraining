@@ -28,11 +28,11 @@
       </div>
       <div class="modal-body">
         <!-- content goes here -->
-        <form method="post" action="">
+        <form method="post" action="<?php echo base_url()?>Profile_controller/update_username">
           <div class="form-group">
             <label for="name">Username:</label>
-            <input type="text" class="form-control" value="" name="username">
-            <span class="text-danger"></span>
+            <input type="text" class="form-control" value="<?php echo set_value('username');?>" name="username">
+            	<span class="text-danger"><?php echo form_error('username'); ?></span>
           </div>
            <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -54,11 +54,11 @@
       </div>
       <div class="modal-body">
         <!-- content goes here -->
-        <form method="post" action="">
+        <form method="post" action="<?php echo base_url() ?>Profile_controller/update_email">
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="text" class="form-control" value="" name="email">
-            <span class="text-danger"></span>
+            <input type="text" class="form-control" value="<?php echo set_value('email'); ?>" name="email">
+            <span class="text-danger"><?php echo form_error('email'); ?></span>
           </div>
            <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -80,11 +80,11 @@
       </div>
       <div class="modal-body">
         <!-- content goes here -->
-        <form method="post" action="">
+        <form method="post" action="<?php echo base_url() ?>Profile_controller/update_name">
           <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" class="form-control" value="" name="name">
-            <span class="text-danger"></span>
+            <span class="text-danger"><?php echo form_error('name'); ?></span>
           </div>
            <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -106,15 +106,17 @@
       </div>
       <div class="modal-body">
         <!-- content goes here -->
-        <form method="post" action="">
+        <form method="post" action="<?php echo base_url() ?>Profile_controller/update_password">
           <div class="form-group">
-            <label for="password">Last Password:</label>
-            <input type="text" class="form-control" value="" name="password">
-            <span class="text-danger"></span>
-            <label for="password">New Password:</label>
-            <input type="text" class="form-control" value="" name="password">
-            <label for="password">Repeat Password:</label>
-            <input type="text" class="form-control" value="" name="password">
+            <label for="last_password">Last Password:</label>
+            <input type="password" class="form-control" value="" name="last_password">
+            <span class="text-danger"><?php echo form_error('last_password'); ?></span>
+            <label for="new_password">New Password:</label>
+            <input type="password" class="form-control" value="" name="new_password">
+            <span class="text-danger"><?php echo form_error('new_password'); ?></span>
+            <label for="repeat_password">Repeat Password:</label>
+            <input type="password" class="form-control" value="" name="repeat_password">
+            <span class="text-danger"><?php echo form_error('repeat_password'); ?></span>
           </div>
            <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -213,7 +215,7 @@
 					<!-- Form Name -->
 					<legend class="post-user">Account setting</legend>
 
-					
+
 						<fieldset class="padding-left">
 
 							<!-- username input-->
@@ -224,7 +226,7 @@
 		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
 									<input name="username" type="text" class="form-control input-md margin-bottom" onpaste="return false" disabled onkeypress="return validar(event)" value="<?php echo $this->session->userdata('username');?>" >
-									<span class="text-danger"><?php echo form_error('username')?></span>
+									<span class="text-danger"></span>
 								</div>
 							</div>
 							<!-- Email input-->
@@ -257,7 +259,7 @@
 									<input name="password" disabled type="password" placeholder="New password" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
 								</div>
 							</div>
-							
+
 								<!-- Gender input-->
 								<div class="form-group">
 									<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Gender:</label>
@@ -265,7 +267,7 @@
 										<input name="gender" disabled value="<?php echo $user_info->gender; ?>" type="text" class="form-control input-md margin-bottom"/>
 									</div>
 								</div>
-						
+
 							<!-- Save Button -->
 							<div class="form-group display-inline">
 								<div class="col-md-3 margin-left margin-bottom">
@@ -280,20 +282,10 @@
 							</div>
 
 						</fieldset>
-					
+
 				</div> <!--End Account Settings -->
 				<?php } ?>
 		</div> <!-- col-lg-10 -->
 
 
 	</div> <!-- row -->
-
-
-
-
-
-
-
-
-
-

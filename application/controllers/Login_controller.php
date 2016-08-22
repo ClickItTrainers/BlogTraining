@@ -16,15 +16,6 @@ class Login_controller extends CI_Controller
   {
     $data['title']= 'Login';
     $data['token'] = $this->token();
-    $fb = new Facebook\Facebook([
-      'app_id' => '1092965707405902',
-      'app_secret' => 'f053d3491233211c2266ed52748c1b2c',
-      'default_graph_version' => 'v2.7',
-    ]);
-    $helper = $fb->getRedirectLoginHelper();
-    $permissions = ['email'];
-    $data['loginUrl'] = $helper->getLoginUrl(base_url().'Login_controller/fb_login', $permissions);
-    $data['google_url'] = base_url().'Login_controller/google_login';
     $this->load->view('Login_view',$data);
   }
 
@@ -40,133 +31,142 @@ class Login_controller extends CI_Controller
     $google_oauthV2 = new Google_Oauth2Service($gClient);
 
     if (isset($_REQUEST['code'])) {
-      $gClient->authenticate();
-      $this->session->set_userdata('token', $gClient->getAccessToken());
-      redirect($redirectUrl);
-    }
-
-    $token = $this->session->userdata('token');
-    if (!empty($token)) {
-      $gClient->setAccessToken($token);
-    }
-
-    if ($gClient->getAccessToken()) {
-      $userProfile = $google_oauthV2->userinfo->get();
-      // Preparing data for database insertion
-      $userData['oauth_provider'] = 'google';
-      $userData['oauth_uid'] = $userProfile['id'];
-      $userData['first_name'] = $userProfile['given_name'];
-      $userData['last_name'] = $userProfile['family_name'];
-      $userData['email'] = $userProfile['email'];
-      $userData['gender'] = $userProfile['gender'];
-      $userData['locale'] = $userProfile['locale'];
-      $userData['profile_url'] = $userProfile['link'];
-      $userData['picture_url'] = $userProfile['picture'];
-
-      print_r($userData);
-    }*/
+    $gClient->authenticate();
+    $this->session->set_userdata('token', $gClient->getAccessToken());
+    redirect($redirectUrl);
   }
 
-  public function index_registro()
-  {
-    $data['title'] = 'Register';
-    $data['token'] = $this->token();
-    $this->load->view('Register_view', $data);
+  $token = $this->session->userdata('token');
+  if (!empty($token)) {
+  $gClient->setAccessToken($token);
+}
+
+if ($gClient->getAccessToken()) {
+$userProfile = $google_oauthV2->userinfo->get();
+// Preparing data for database insertion
+$userData['oauth_provider'] = 'google';
+$userData['oauth_uid'] = $userProfile['id'];
+$userData['first_name'] = $userProfile['given_name'];
+$userData['last_name'] = $userProfile['family_name'];
+$userData['email'] = $userProfile['email'];
+$userData['gender'] = $userProfile['gender'];
+$userData['locale'] = $userProfile['locale'];
+$userData['profile_url'] = $userProfile['link'];
+$userData['picture_url'] = $userProfile['picture'];
+
+print_r($userData);
+}*/
+}
+
+public function index_registro()
+{
+  $data['title'] = 'Register';
+  $data['token'] = $this->token();
+  $fb = new Facebook\Facebook([
+    'app_id' => '1092965707405902',
+    'app_secret' => 'f053d3491233211c2266ed52748c1b2c',
+    'default_graph_version' => 'v2.7',
+  ]);
+  $helper = $fb->getRedirectLoginHelper();
+  $permissions = ['email'];
+  $data['loginUrl'] = $helper->getLoginUrl(base_url().'Login_controller/fb_login', $permissions);
+  $data['google_url'] = base_url().'Login_controller/google_login';
+  $this->load->view('Register_view', $data);
+}
+
+public function token()
+{
+  $token = md5(uniqid(rand(), true));
+  $this->session->set_userdata('token', $token);
+  return $token;
+}
+
+public function fb_login()
+{
+
+  $fb = new Facebook\Facebook([
+    'app_id' => '1092965707405902',
+    'app_secret' => 'f053d3491233211c2266ed52748c1b2c',
+    'default_graph_version' => 'v2.7',
+  ]);
+
+  $helper = $fb->getRedirectLoginHelper();
+  try {
+    $accessToken = $helper->getAccessToken();
+  } catch(Facebook\Exceptions\FacebookResponseException $e) {
+    // When Graph returns an error
+    echo 'Graph returned an error: ' . $e->getMessage();
+    exit;
+  } catch(Facebook\Exceptions\FacebookSDKException $e) {
+    // When validation fails or other local issues
+    echo 'Facebook SDK returned an error: ' . $e->getMessage();
+    exit;
   }
 
-  public function token()
-  {
-    $token = md5(uniqid(rand(), true));
-    $this->session->set_userdata('token', $token);
-    return $token;
-  }
-
-  public function fb_login()
-  {
-
-    $fb = new Facebook\Facebook([
-      'app_id' => '1092965707405902',
-      'app_secret' => 'f053d3491233211c2266ed52748c1b2c',
-      'default_graph_version' => 'v2.7',
-    ]);
-
-    $helper = $fb->getRedirectLoginHelper();
+  if (isset($accessToken)) {
     try {
-      $accessToken = $helper->getAccessToken();
-    } catch(Facebook\Exceptions\FacebookResponseException $e) {
-      // When Graph returns an error
-      echo 'Graph returned an error: ' . $e->getMessage();
-      exit;
-    } catch(Facebook\Exceptions\FacebookSDKException $e) {
-      // When validation fails or other local issues
-      echo 'Facebook SDK returned an error: ' . $e->getMessage();
-      exit;
-    }
-
-    if (isset($accessToken)) {
+      /*$Client = $fb->getOAuth2Client();
+      $tokenMetadata = $Client->debugToken($accessToken);
+      $tokenMetadata->validateAppId('1092965707405902');
+      if (! $accessToken->isLongLived()) {
       try {
-        /*$Client = $fb->getOAuth2Client();
-        $tokenMetadata = $Client->debugToken($accessToken);
-        $tokenMetadata->validateAppId('1092965707405902');
-        if (! $accessToken->isLongLived()) {
-        try {
-        $longlivedaccessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
-        $fb->setdefaultAccessToken($longlivedaccessToken);
-      } catch (Facebook\Exceptions\FacebookSDKException $e) {
-      echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
-    }
-  }*/
-  $requestPicture = $fb->get('/me/picture?redirect=false&type=large', $accessToken); //getting user picture
-  $profile_request = $fb->get('/me?fields=id,name,first_name,email,picture,gender', $accessToken);
-  $profile = $profile_request->getGraphNode()->asArray();
-  $picture = $requestPicture->getGraphUser();
+      $longlivedaccessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
+      $fb->setdefaultAccessToken($longlivedaccessToken);
+    } catch (Facebook\Exceptions\FacebookSDKException $e) {
+    echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
+  }
+}*/
+$requestPicture = $fb->get('/me/picture?redirect=false&type=large', $accessToken); //getting user picture
+$profile_request = $fb->get('/me?fields=id,name,first_name,email,picture,gender', $accessToken);
+$profile = $profile_request->getGraphNode()->asArray();
+$picture = $requestPicture->getGraphUser();
 
-  $verify = $this->Users_model->verify_user_fb($profile['email']);
+$verify = $this->Users_model->verify_user_fb($profile['email']);
 
-  if($verify){
-    $dat = array(
-      'is_logued_in' => TRUE,
-      'username' => $verify->username,
-      'email' => $verify->email);
-      $this->session->set_userdata($dat);
-      $url = base_url().'Home';
-      echo "<script> alert ('Welcome!');
-      window.location.href = '$url';
-      </script>";
+if($verify){
+  $dat = array(
+    'is_logued_in' => TRUE,
+    'username' => $verify->username,
+    'email' => $verify->email);
+    $this->session->set_userdata($dat);
+    $url = base_url().'Home';
+    echo "<script> alert ('Welcome!');
+    window.location.href = '$url';
+    </script>";
+  }else {
+    $username = $profile['name'];
+    $email = $profile['email'];
+    $picture = $picture['url'];
+    if($profile['gender'] === "male"){
+      $gender = "M";
     }else {
-      $username = $profile['name'];
-      $email = $profile['email'];
-      $picture = $picture['url'];
-      if($profile['gender'] === "male"){
-        $gender = "M";
-      }else {
-        $gender = "F";
-      }
-      $password = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 12);
-      $hash = $this->bcrypt->hash_password($password);
-      //Probar si la contraseña se encripto
-      if ($this->bcrypt->check_password($password, $hash))
+      $gender = "F";
+    }
+    $password = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 12);
+    $hash = $this->bcrypt->hash_password($password);
+    //Probar si la contraseña se encripto
+    if ($this->bcrypt->check_password($password, $hash))
+    {
+      $fb_user = $this->Login_model->registro_fb($username, $email, $hash, $gender, $picture);
+      if ($fb_user)
       {
-        $fb_user = $this->Login_model->registro_fb($username, $email, $hash, $gender, $picture);
-        if ($fb_user)
-        {
-          $dat = array(
-            'is_logued_in' => TRUE,
-            'username' => $profile['name'],
-            'email' => $profile['email']);
-            $this->session->set_userdata($dat);
-            $url = base_url().'Home';
-            echo "<script> alert ('Welcome!');
-            window.location.href = '$url';
-            </script>";
-          }
+        $dat = array(
+          'is_logued_in' => TRUE,
+          'username' => $profile['name'],
+          'email' => $profile['email']);
+          $this->session->set_userdata($dat);
+          $url = base_url().'Home';
+          echo "<script> alert ('Welcome!');
+          window.location.href = '$url';
+          </script>";
         }
       }
-    } catch(Facebook\Exceptions\FacebookSDKException $e) {
-      // When validation fails or other local issues
-      echo 'Facebook SDK returned an error:' . $e->getMessage();
     }
+  } catch(Facebook\Exceptions\FacebookSDKException $e) {
+    // When validation fails or other local issues
+    echo 'Facebook SDK returned an error:' . $e->getMessage();
   }
+}
 }
 
 public function entrada_login()
@@ -177,8 +177,8 @@ public function entrada_login()
 
     // Validation rules
 
-    $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email|max_length[50]|htmlspecialchars');
-    $this->form_validation->set_rules('password', 'password', 'required|trim|max_length[50]|htmlspecialchars');
+    $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email|max_length[30]|htmlspecialchars');
+    $this->form_validation->set_rules('password', 'password', 'required|trim|max_length[25]|htmlspecialchars');
 
     // Error messages
     $this->form_validation->set_message('valid_email', '*Invalid email');
@@ -246,14 +246,17 @@ public function entrada_login()
     {
 
       // Validation rules
-      $this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|max_length[40]|htmlspecialchars');
-      $this->form_validation->set_rules('username', 'username', 'required|trim|max_length[20]|htmlspecialchars');
+      $this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|max_length[40]|htmlspecialchars|is_unique[users.email]');
+      $this->form_validation->set_rules('username', 'username', 'required|trim|max_length[20]|htmlspecialchars|is_unique[users.username]');
       $this->form_validation->set_rules('password', 'password', 'required|trim|min_length[8]|max_length[20]|htmlspecialchars');
+      $this->form_validation->set_rules('name', 'name', 'required|trim|htmlspecialchars');
+      $this->form_validation->set_rules('gender', 'gender', 'required|trim|htmlspecialchars');
 
       // Error messages
       //$this->form_validation->set_message('alpha_spaces', 'The field only accept alphabetic characters');
       $this->form_validation->set_message('valid_email', '*Invalid email');
       $this->form_validation->set_message('required', '*Required field');
+      $this->form_validation->set_message('is_unique', 'The %s already exists');
       $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
       $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
 
@@ -268,6 +271,9 @@ public function entrada_login()
         $email = $this->input->post('email');
         $username = $this->input->post('username');
         $password = $this->input->post('password');
+        $name = $this->input->post('name');
+        $gender = $this->input->post('gender');
+
         $hash = $this->bcrypt->hash_password($password);
         //Probar si la contraseña se encripto
         if ($this->bcrypt->check_password($password, $hash))
