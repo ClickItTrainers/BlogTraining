@@ -106,43 +106,20 @@ $(function() {
                         <span class="text-danger"><?php echo form_error('description'); ?></span>
                     </div>
 
-                     <!-- Category -->
-                     <div class="margin-bottom">
-                         <legend for="category" class="margin-category">Category</legend>
+                    <!-- Category -->
+                    <div class="margin-bottom">
+                        <legend for="category" class="margin-category">Category</legend>
 
-                    <!-- <div class="dropdown ">
-                        <select name="OS">
-                           <option selected value="0">  
-                                <button class="btn btn-secondary dropdown-toggle"
-                                          type="button" id="dropdownMenu1" data-toggle="dropdown"
-                                          aria-haspopup="true" aria-expanded="false">Choose a category
-                                </button> 
-                                </option>
-                            <div class="dropdown-menu">
-                               <option value="1">Windows Vista</option> 
-                               <option value="10">Fedora</option> 
-                            </div>
-                        </select>
-                    </div> -->
+                            <select class="selectpicker" name="category" required data-style="btn-primary">
+                                <?php $count=0;
+                                    foreach ($category_arr as $item){
+                                    $count++ ?>
+                                <option value="<?php echo $count;?>"> <?php echo $item->name;?></option>
+                                <?php } ?>
+                            </select>
+                            <span class="text-danger"><?php echo form_error('category'); ?></span>
 
-                        <div class="dropdown ">
-                              <button class="btn btn-secondary dropdown-toggle"
-                                      type="button" id="dropdownMenu1" data-toggle="dropdown"
-                                      aria-haspopup="true" aria-expanded="false">Choose a category
-                              </button>
-                              <div class="dropdown-menu">
-                                     <?php $count=0;
-                                    foreach ($category_arr as $item)
-                                    {
-                                    $count++?>
-                                    <label class="btn ">
-                                        <input type="radio" style="visibility:hidden;" name="category" value="<?php echo $count;?>"><?php echo $item->name;?></input>
-                                    </label>
-                                    <?php ; } ?>
-                                    <span class="text-danger"><?php echo form_error('category'); ?></span>
-                              </div>
-                        </div>
-                     </div>
+                    </div>
                 </div>
                 <!-- Content od the post -->
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom">
