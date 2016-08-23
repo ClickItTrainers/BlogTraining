@@ -115,9 +115,9 @@ class Home extends CI_Controller {
     }else{
 
         $id_post = $this->input->post('id_post');
-        $title = $this->input->post('title', TRUE);
-        $desc = $this->input->post('description', TRUE);
-        $cont = $this->input->post('content',TRUE);
+        $title = htmlentities($this->input->post('title'));
+        $desc = htmlentities($this->input->post('description'));
+        $cont = htmlentities($this->input->post('content'));
 
         $update = $this->Posts_model->update_post($id_post, $title, $desc, $cont);
 
@@ -150,9 +150,9 @@ class Home extends CI_Controller {
 			$post = array(
 				'id_user' => $this->Users_model->get_userID(),
 				'id_category' => $this->input->post('category'),
-				'title' => $this->input->post('title', TRUE),
-				'description' => $this->input->post('description',TRUE),
-				'content' => $this->input->post('content',TRUE),
+				'title' => htmlentities($this->input->post('title')),
+				'description' => htmlentities($this->input->post('description')),
+				'content' => htmlentities($this->input->post('content')),
 				'date' => date('Y-m-d H:i:s'));
 
 				$this->Posts_model->insert('posts', $post);

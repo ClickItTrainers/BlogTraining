@@ -86,9 +86,10 @@
 
         // Sends a list of the posts of the user
 		public function posts_list_user($id_user){
-			$this->db->select('*');
+			$this->db->select('*', 'c.name');
 			$this->db->from('posts p');
 			$this->db->join('users u', 'p.id_user = u.id_user');
+			$this->db->join('categories c', 'p.id_category = c.id_category');
 			$this->db->where('p.id_user', $id_user);
 			$this->db->order_by('id_post', 'desc');
 			return $this->db->get()->result();

@@ -184,7 +184,7 @@
 					$url .= url_title(convert_accented_characters($my_posts->title), '-', TRUE);?>
 					<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 post relative">
 						<!-- img -->
-						<img class="img-fluid size-post" src="/assets/img/category/Cloud.jpg" alt="Loading image failed"/>
+						<img class="img-fluid down" src="/assets/img/category/<?php echo $my_posts->name.'.jpg'?>" alt="<?php echo $my_posts->name ?>">
 						<!-- description -->
 						<div class="caption">
 							<h3 class="description word-break">
