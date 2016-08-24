@@ -4,7 +4,6 @@
 <head lang="es">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="google-signin-client_id" content="30644026759-4tnfjfj9bs2q9vh2bvmrhpchjhtbda70.apps.googleusercontent.com">
 	<title><?php echo $title ?></title>
 	<link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo base_url()?>assets/css/login.css" rel="stylesheet">
@@ -59,14 +58,6 @@
 						</div>
 					</div>
 				</div>
-<script src="https://apis.google.com/js/platform.js" async defer>
-	function onSignIn(googleUser) {
-	var profile = googleUser.getBasicProfile();
-	alert('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-	alert('Name: ' + profile.getName());
-	console.log('Image URL: ' + profile.getImageUrl());
-	console.log('Email: ' + profile.getEmail());
-	}
-</script>
+
 </body>
 </html>

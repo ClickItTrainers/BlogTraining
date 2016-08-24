@@ -64,8 +64,8 @@ class Mailgun_controller extends CI_Controller {
 		} else {
 
 			$email = $this->input->post('email');
-			$subject = $this->input->post('subject');
-			$msg = $this->input->post('message');
+			$subject = $this->input->post('subject',TRUE);
+			$msg = $this->input->post('message',TRUE);
 
 			$this->my_mailgun->admin_mail($email, $subject, $msg);
 

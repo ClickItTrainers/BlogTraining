@@ -148,7 +148,7 @@ class Users_model extends CI_Model{
 	}
 
 	//Verify if a user from facebook is registered
-	public function verify_user_fb($email)
+	public function verify_user_exists($email)
 	{
 		$this->db->where('email', $email);
 		$query = $this->db->get('users');
