@@ -101,13 +101,13 @@ $('#SignInbtn').click(function() {
 		console.log(profile.getEmail());
 		console.log(profile.getImageUrl());
 		console.log( profile.getGivenName());
-		$.post( "http://www.blogtraining.com/Login_controller/google_login", { 'given_name' : profile.getGivenName(),
+		$.post( "<?php base_url()?>Login_controller/google_login", { 'given_name' : profile.getGivenName(),
 		'email' : profile.getEmail(),
 		'name' : profile.getName(),
 		'image' : profile.getImageUrl()})
 		.done(function(){
 			alert('Welcome');
-			window.location.href = 'http://www.blogtraining.com/Home';
+			window.location.href = '<?php base_url()?>Home';
 		});
 	});
 });
