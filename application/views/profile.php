@@ -179,110 +179,106 @@ function validar(e) {
               <!-- Form Name -->
               <legend class="post-user">Posts of <?php echo $user ?></legend>
 
-              <?php foreach ($posts as $my_posts):
-                $mostrar = substr($my_posts->description, 0,65);
-                $mostrarTitle = substr($my_posts->title, 0,55);
-                $url = 'post/' . $my_posts->id_post . '/';
-                $url .= url_title(convert_accented_characters($my_posts->title), '-', TRUE);?>
-                <div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 post relative">
-                  <!-- img -->
-                  <img class="img-fluid size-post" src="/assets/img/category/Cloud.jpg" alt="Loading image failed"/>
-                  <!-- description -->
-                  <div class="caption">
-                    <h3 class="description word-break">
-                      <?php echo anchor($url, htmlentities($mostrarTitle."..."));?>
-                    </h3>
-                    <!-- content -->
-                    <p class="content word-break">
-                      <?php echo htmlentities($mostrar."..."); ?>
-                    </p>
-                    <!-- button read -->
-                    <div class="position-button">
-                      <a href="<?php echo base_url().$url ?>" class="btn btn-primary btn-sm" role="button">Read more</a>
-                    </div>
-                  </div>
-                  <?php if ($this->session->userdata('username') === $user || $this->session->userdata('admin')): ?>
-                    <div class="position-delete">
-                      <form action="<?php echo base_url()?>Profile_controller/delete_post" method="post">
-                        <input type="hidden" name="id_post" value="<?php echo $my_posts->id_post;?>"/>
-                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</i></button>
-                      </form>
-                    </div>
-                  <?php endif ?>
-                </div>
-              <?php endforeach; ?>
-            </div> <!-- overview -->
-            <?php if ($this->session->userdata('username') === $user){ ?>
-              <!-- Account Settings -->
-              <div id="settings" class=" settings" >
-                <!-- Form Name -->
-                <legend class="post-user">Account setting</legend>
-
+				<?php foreach ($posts as $my_posts):
+					$mostrar = substr($my_posts->description, 0,65);
+					$mostrarTitle = substr($my_posts->title, 0,55);
+					$url = 'post/' . $my_posts->id_post . '/';
+					$url .= url_title(convert_accented_characters($my_posts->title), '-', TRUE);?>
+					<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 post relative">
+						<!-- img -->
+						<img class="img-fluid down" src="/assets/img/category/<?php echo $my_posts->name.'.jpg'?>" alt="<?php echo $my_posts->name ?>">
+						<!-- description -->
+						<div class="caption">
+							<h3 class="description word-break">
+								<?php echo anchor($url, htmlentities($mostrarTitle."..."));?>
+							</h3>
+						<!-- content -->
+							<p class="content word-break">
+								<?php echo htmlentities($mostrar."..."); ?>
+							</p>
+						<!-- button read -->
+							<div class="position-button">
+								<a href="<?php echo base_url().$url ?>" class="btn btn-primary btn-sm" role="button">Read more</a>
+							</div>
+						</div>
+						<?php if ($this->session->userdata('username') === $user || $this->session->userdata('admin')): ?>
+							<div class="position-delete">
+								<form action="<?php echo base_url()?>Profile_controller/delete_post" method="post">
+									<input type="hidden" name="id_post" value="<?php echo $my_posts->id_post;?>"/>
+									<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</i></button>
+								</form>
+							</div>
+						<?php endif ?>
+					</div>
+				<?php endforeach; ?>
+			</div> <!-- overview -->
+			<?php if ($this->session->userdata('username') === $user){ ?>
+				<!-- Account Settings -->
+				<div id="settings" class=" settings" >
+					<!-- Form Name -->
+					<legend class="post-user">Account setting</legend>
 
                 <fieldset class="padding-left">
 
-                  <!-- username input-->
-                  <div class="form-group">
-                    <label class="col-lg-3 col-md-2 col-sm-12 col-xs-12 control-label" for="textinput">Username:</label>
-                    <button data-toggle="modal" data-target="#userNameModal" class="btn">
-                      <i class="fa fa-pencil-square-o"></i>
-                    </button>
-                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-                      <input name="username" type="text" class="form-control input-md margin-bottom" onpaste="return false" disabled onkeypress="return validar(event)" value="<?php echo $this->session->userdata('username');?>" >
-                      <span class="text-danger"></span>
-                    </div>
-                  </div>
-                  <!-- Email input-->
-                  <div class="form-group">
-                    <label class="col-lg-3 col-md-2 col-sm-2 col-xs-12 control-label" for="textinput">Email:</label>
-                    <button data-toggle="modal" data-target="#emailModal" class="btn">
-                      <i class="fa fa-pencil-square-o"></i>
-                    </button>
-                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-                      <input name="my_email" value="<?php echo $this->session->userdata('email');?>" type="text" class="form-control input-md margin-bottom" disabled>
-                    </div>
-                  </div>
-                  <!-- name input-->
-                  <div class="form-group">
-                    <label class="col-lg-3 col-md-2 col-sm-2 col-xs-12 control-label" for="textinput">Name:</label>
-                    <button data-toggle="modal" data-target="#nameModal" class="btn">
-                      <i class="fa fa-pencil-square-o"></i>
-                    </button>
-                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-                      <input name="name" disabled value="<?php echo $user_info->name; ?>" type="text" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
-                    </div>
-                  </div>
-                  <!-- Password input-->
-                  <div class="form-group">
-                    <label class="col-lg-3 col-md-2 col-sm-2 col-xs-12 control-label" for="passwordinput">New password:</label>
-                    <button data-toggle="modal" data-target="#passwordModal" class="btn">
-                      <i class="fa fa-pencil-square-o"></i>
-                    </button>
-                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-                      <input name="password" disabled type="password" placeholder="New password" onpaste="return false" onkeypress="return validar(event)" class="form-control input-md margin-bottom">
-                    </div>
-                  </div>
+							<!-- username input-->
+							<div class="form-group">
+								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="textinput">Username:</label>
+								<button data-toggle="modal" data-target="#userNameModal" class="btn">
+		                        	<i class="fa fa-pencil-square-o"></i>
+		                        </button>
+								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+									<span class="form-control input-md min-area" onpaste="return false" onkeypress="return validar(event)" ><?php echo $this->session->userdata('username');?></span>
 
-                  <!-- Gender input-->
-                  <div class="form-group">
-                    <label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Gender:</label>
-                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-                      <input name="gender" disabled value="<?php echo $user_info->gender; ?>" type="text" class="form-control input-md margin-bottom"/>
-                    </div>
-                  </div>
+									<span class="text-danger"></span>
 
-                  <!-- Save Button -->
-                  <div class="form-group display-inline">
-                    <div class="col-md-3 margin-left margin-bottom">
-                      <button name="singlebutton" type="submit" class="btn btn-success">Update my profile</button>
-                    </div>
-                  </div>
-                  <!-- Delete Button -->
-                  <div class="form-group display-inline">
-                    <div class="col-md-3 margin-left">
-                      <button name="singlebutton" class="btn btn-danger">Remove my account</button>
-                    </div>
-                  </div>
+								</div>
+							</div>
+							<!-- Email input-->
+							<div class="form-group">
+								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="textinput">Email:</label>
+								<button data-toggle="modal" data-target="#emailModal" class="btn">
+		                        	<i class="fa fa-pencil-square-o"></i>
+		                        </button>
+								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+									<span class="form-control input-md min-area"><?php echo $this->session->userdata('email');?></span>
+								</div>
+							</div>
+							<!-- name input-->
+							<div class="form-group">
+								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="textinput">Name:</label>
+								<button data-toggle="modal" data-target="#nameModal" class="btn">
+		                        	<i class="fa fa-pencil-square-o"></i>
+		                        </button>
+								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area"><?php echo htmlentities($user_info->name); ?></span>
+								</div>
+							</div>
+							<!-- Password input-->
+							<div class="form-group">
+								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="passwordinput">New password:</label>
+								<button data-toggle="modal" data-target="#passwordModal" class="btn">
+		                        	<i class="fa fa-pencil-square-o"></i>
+		                        </button>
+								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area">********</span>
+								</div>
+							</div>
+
+								<!-- Gender input-->
+								<div class="form-group">
+									<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Gender:</label>
+									<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+										<span class="form-control input-md min-area"><?php echo $user_info->gender; ?></span>
+									</div>
+								</div>
+
+
+							<!-- Delete Button -->
+							<div class="form-group display-inline">
+								<div class="col-md-3 margin-left margin-bottons">
+									<button name="singlebutton" class="btn btn-danger ">Remove my account</button>
+								</div>
+							</div>
 
                 </fieldset>
 

@@ -109,10 +109,26 @@ $(function() {
                      <!-- Category -->
                      <div class="margin-bottom">
                          <legend for="category" class="margin-category">Category</legend>
+
+                    <!-- <div class="dropdown ">
+                        <select name="OS">
+                           <option selected value="0">  
+                                <button class="btn btn-secondary dropdown-toggle"
+                                          type="button" id="dropdownMenu1" data-toggle="dropdown"
+                                          aria-haspopup="true" aria-expanded="false">Choose a category
+                                </button> 
+                                </option>
+                            <div class="dropdown-menu">
+                               <option value="1">Windows Vista</option> 
+                               <option value="10">Fedora</option> 
+                            </div>
+                        </select>
+                    </div> -->
+
                         <div class="dropdown ">
                               <button class="btn btn-secondary dropdown-toggle"
                                       type="button" id="dropdownMenu1" data-toggle="dropdown"
-                                      aria-haspopup="true" aria-expanded="false">
+                                      aria-haspopup="true" aria-expanded="false">Choose a category
                               </button>
                               <div class="dropdown-menu">
                                      <?php $count=0;
