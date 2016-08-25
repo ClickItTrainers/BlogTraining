@@ -4,7 +4,6 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/showProfile.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Candal|Patua+One" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script type="text/javascript">
@@ -222,12 +221,12 @@ function validar(e) {
 
 							<!-- username input-->
 							<div class="form-group">
-								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="textinput">Username:</label>
-								<button data-toggle="modal" data-target="#userNameModal" class="btn">
+								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label margin-span{" for="textinput">Username:</label>
+								<button data-toggle="modal" data-target="#userNameModal" class="btn color">
 		                        	<i class="fa fa-pencil-square-o"></i>
 		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<span class="form-control input-md min-area" onpaste="return false" onkeypress="return validar(event)" ><?php echo $this->session->userdata('username');?></span>
+									<span class="form-control input-md min-area margin-span" onpaste="return false" onkeypress="return validar(event)" ><?php echo $this->session->userdata('username');?></span>
 
 									<span class="text-danger"></span>
 
@@ -236,31 +235,31 @@ function validar(e) {
 							<!-- Email input-->
 							<div class="form-group">
 								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="textinput">Email:</label>
-								<button data-toggle="modal" data-target="#emailModal" class="btn">
+								<button data-toggle="modal" data-target="#emailModal" class="btn color	">
 		                        	<i class="fa fa-pencil-square-o"></i>
 		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<span class="form-control input-md min-area"><?php echo $this->session->userdata('email');?></span>
+									<span class="form-control input-md min-area margin-span"><?php echo $this->session->userdata('email');?></span>
 								</div>
 							</div>
 							<!-- name input-->
 							<div class="form-group">
 								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="textinput">Name:</label>
-								<button data-toggle="modal" data-target="#nameModal" class="btn">
+								<button data-toggle="modal" data-target="#nameModal" class="btn color	">
 		                        	<i class="fa fa-pencil-square-o"></i>
 		                        </button>
-								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area"><?php echo htmlentities($user_info->name); ?></span>
+								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 ">
+									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area margin-span"><?php echo htmlentities($user_info->name); ?></span>
 								</div>
 							</div>
 							<!-- Password input-->
 							<div class="form-group">
 								<label class="col-lg-3 col-md-2 col-sm-3 col-xs-4 control-label" for="passwordinput">New password:</label>
-								<button data-toggle="modal" data-target="#passwordModal" class="btn">
+								<button data-toggle="modal" data-target="#passwordModal" class="btn color	">
 		                        	<i class="fa fa-pencil-square-o"></i>
 		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area">********</span>
+									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area margin-span">********</span>
 								</div>
 							</div>
 
@@ -268,7 +267,7 @@ function validar(e) {
 								<div class="form-group">
 									<label class="col-lg-3 col-md-12 col-sm-12 col-xs-12 control-label" for="textinput">Gender:</label>
 									<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-										<span class="form-control input-md min-area"><?php echo $user_info->gender; ?></span>
+										<span class="form-control input-md min-area margin-span"><?php echo $user_info->gender; ?></span>
 									</div>
 								</div>
 

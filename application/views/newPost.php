@@ -16,13 +16,13 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script type="text/javascript">
-        function validar(e) {
-            tecla = (document.all) ? e.keyCode : e.which;
-            if (tecla==8) return true;
-            patron =/[<>''$#%&=]/;
-            te = String.fromCharCode(tecla);
-            return !patron.test(te);
-        }
+        // function validar(e) {
+        //     tecla = (document.all) ? e.keyCode : e.which;
+        //     if (tecla==8) return true;
+        //     patron =/[<>''$#%&=]/;
+        //     te = String.fromCharCode(tecla);
+        //     return !patron.test(te);
+        // }
 
 
 /*$(document).on('click', '#close-preview', function(){
@@ -108,7 +108,7 @@ $(function() {
 
                     <!-- Category -->
                     <div class="margin-bottom">
-                        <legend for="category" class="margin-category">Category</legend>
+                        <legend for="category" class="margin-category">Category:</legend>
 
                             <select class="selectpicker" name="category" required data-style="btn-primary">
                                 <?php $count=0;
@@ -119,15 +119,16 @@ $(function() {
                             </select>
                             <span class="text-danger"><?php echo form_error('category'); ?></span>
 
+
                     </div>
                 </div>
                 <!-- Content od the post -->
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom">
-                    <legend for="text">Content of the post</legend>
+                    <legend for="text">Content of the post:</legend>
                     <textarea name="content" class="size-text" rows="8" onkeypress="return validar(event)" style="resize: none;"></textarea>
                     <span class="text-danger"><?php echo form_error('content'); ?></span>
                 </div>
-                <input type="submit" class="btn btn-success color" name="submit" value="Send"/>
+                <input type="submit" class="btn color" name="submit" value="Send"/>
 
             </form>
 

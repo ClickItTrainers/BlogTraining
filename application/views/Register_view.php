@@ -68,7 +68,7 @@
 
 				</div> -->
 				<a href="<?php echo $loginUrl ?>" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
-				<a href"#" id="SignInbtn" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a>
+				<a href="#" id="SignInbtn" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a>
 			</div>
 
 		</form>

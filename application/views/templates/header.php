@@ -12,6 +12,8 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Home css -->
     <link href="<?php echo base_url(); ?>assets/css/home.css" rel="stylesheet">
+    <!-- font google -->
+    <link href="https://fonts.googleapis.com/css?family=Candal|Patua+One|Baloo+Thambi" rel="stylesheet">
  </head>
 <body>
   
