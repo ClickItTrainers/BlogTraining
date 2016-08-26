@@ -115,7 +115,7 @@
 
           <?php } ?>
 
-        <?php
+        <?php if($comentarios){
           foreach ($comentarios as $item): ?>
           <!-- Comment -->
           <div class="media padding-container border">
@@ -145,7 +145,14 @@
 
           <?php endforeach; ?>
 
-          
+          <?php }else{ ?>
+
+            <div class="media">
+              <div class="media-body">
+                <strong><?php echo "There are no comments, leave yours..." ?></strong>
+              </div>
+            </div>
+            <?php } ?>
 
             <!-- Comment on comment
             <div class="media">
@@ -172,4 +179,4 @@
 End Nested Comment
 </div>
 </div> -->
-
+</div>
