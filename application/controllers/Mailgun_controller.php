@@ -13,10 +13,10 @@ class Mailgun_controller extends CI_Controller {
 
 	// Creates data to send it to the model
 	public function comment(){
-		$id_post = $this->input->post('id_post');
+		$id_post = $this->input->post('id_post',TRUE);
 		$id_user = $this->Users_model->get_userID();
-		$comment = $this->input->post('comment');
-		$title = $this->input->post('tit');
+		$comment = $this->input->post('comment',TRUE);
+		$title = $this->input->post('tit',TRUE);
 		$query = $this->Comment_model->insert_comment($id_post, $id_user, $comment);
 
 		// if comment successfully inserted, the owner of the post is notified by the administrator
