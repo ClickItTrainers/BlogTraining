@@ -115,7 +115,7 @@
 
           <?php } ?>
 
-        <?php if (!empty($comments)) {
+        <?php
           foreach ($comentarios as $item): ?>
           <!-- Comment -->
           <div class="media padding-container border">
@@ -125,14 +125,14 @@
                 </a>
                 <div>
                   <h3 class="display-in"><?php echo $item->username; ?></h3>
-                  
+                  <?php if ($this->session->userdata('username') == $item->username || $this->session->userdata('admin') || $this->session->userdata('username') == $username ){ ?>
                     <form action="<?php echo base_url()?>Home/delete" method="POST">
                     <input type="hidden" name="red" value="<?php echo $details->id_post?>">
                     <input type="hidden" name="id_comm" value="<?php echo $item->id_comment?>">
                   <a href="">
                     <button type="submit" class="btn btn-danger btn-sm float"><i class="fa fa-trash"> Delete</button></i>
                   </a>
-
+                     <?php } ?>
                 </div>
                   <h4 class="media-heading size-font">
                       <small><?php echo $dates; ?></small>
@@ -145,14 +145,7 @@
 
           <?php endforeach; ?>
 
-          <?php }else{ ?>
-
-            <div class="media">
-              <div class="media-body">
-                <strong><?php echo "There are no comments, leave yours..." ?></strong>
-              </div>
-            </div>
-            <?php } ?>
+          
 
             <!-- Comment on comment
             <div class="media">
@@ -179,4 +172,4 @@
 End Nested Comment
 </div>
 </div> -->
-</div>
+
