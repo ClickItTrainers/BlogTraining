@@ -150,7 +150,7 @@ class Home extends CI_Controller {
 			$post = array(
 				'id_user' => $this->Users_model->get_userID(),
 				'id_category' => $this->input->post('category'),
-				'title' => htmlentities($this->input->post('title')),
+				'title' => htmlentities($this->input->post('title', TRUE)),
 				'description' => htmlentities($this->input->post('description')),
 				'content' => htmlentities($this->input->post('content')),
 				'date' => date('Y-m-d H:i:s'));

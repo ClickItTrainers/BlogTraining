@@ -54,11 +54,11 @@
                     <a href="<?php echo base_url()?>profile/user/<?php echo $details->id_user; ?>">
 
                       <img class="img-fluid display-in media-object size-img-main" src="http://placehold.it/64x64" alt=""/>
-                        
+
 
 
                         <span><?php echo htmlentities($username); ?></span>
-                    
+
 
                     </a>
                </div>
@@ -107,7 +107,7 @@
               <div class="form-group">
                 <textarea maxlength="255" name="comment" class="form-control" rows="3" style="resize: none;"></textarea>
               </div>
-              <?php echo form_hidden('id_post', $this->uri->segment(2)) ?>
+              <?php echo form_hidden('id_post', $details->id_post) ?>
               <?php echo form_hidden('tit', $details->title) ?>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>

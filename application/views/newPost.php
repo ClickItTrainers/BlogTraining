@@ -19,7 +19,7 @@
         function validar(e) {
             tecla = (document.all) ? e.keyCode : e.which;
             if (tecla==8) return true;
-            patron =/[<>''$#%&=]/;
+            patron =/[<>''$#%&=?¿]/;
             te = String.fromCharCode(tecla);
             return !patron.test(te);
         }
@@ -112,15 +112,15 @@ $(function() {
 
                     <!-- <div class="dropdown ">
                         <select name="OS">
-                           <option selected value="0">  
+                           <option selected value="0">
                                 <button class="btn btn-secondary dropdown-toggle"
                                           type="button" id="dropdownMenu1" data-toggle="dropdown"
                                           aria-haspopup="true" aria-expanded="false">Choose a category
-                                </button> 
+                                </button>
                                 </option>
                             <div class="dropdown-menu">
-                               <option value="1">Windows Vista</option> 
-                               <option value="10">Fedora</option> 
+                               <option value="1">Windows Vista</option>
+                               <option value="10">Fedora</option>
                             </div>
                         </select>
                     </div> -->

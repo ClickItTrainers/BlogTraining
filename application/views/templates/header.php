@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
   <head>
     <link rel="icon" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +15,7 @@
     <link href="<?php echo base_url(); ?>assets/css/home.css" rel="stylesheet">
  </head>
 <body>
-  
+
           <nav class="navbar navbar-dark bg-inverse tall-header navbar-fixed-top" role="navigation">
               <div class="container">
                   <!-- Brand and toggle get grouped for better mobile display -->
