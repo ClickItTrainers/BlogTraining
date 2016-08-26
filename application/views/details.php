@@ -115,7 +115,7 @@
 
           <?php } ?>
 
-        <?php if (!empty($comments)) {
+        <?php if($comentarios){
           foreach ($comentarios as $item): ?>
           <!-- Comment -->
           <div class="media padding-container border">
@@ -132,7 +132,7 @@
                   <a href="">
                     <button type="submit" class="btn btn-danger btn-sm float"><i class="fa fa-trash"> Delete</button></i>
                   </a>
-                  <?php } ?>
+                     <?php } ?>
                 </div>
                   <h4 class="media-heading size-font">
                       <small><?php echo $dates; ?></small>

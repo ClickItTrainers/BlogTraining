@@ -21,36 +21,43 @@
 			<h2>THE BBLOG</h2>
 			<p>Now you can see the latest news</p>
 		</div>
-		<div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+		<div class="col-lg-5 col-md-6 col-sm-8 col-xs-12">
 			<div class="form-login">
 				<form action="<?php	echo base_url()?>Login_controller/registro_user" method="post">
 					<h4>Please Register</h4>
-					<p>Username:</p>
-					<input type="text" name="username" class="form-control input-sm chat-input" required onpaste="return false" onkeypress="return validar(event)" value="<?php echo set_value('username');?>"/>
-					<span class="text-danger"><?php echo form_error('username'); ?></span>
+					<div>
+						<p class="display-inline ">Username:</p>
+						<input type="text" name="username" class="form-control input-sm chat-input width display-inline" required onpaste="return false" onkeypress="return validar(event)" value="<?php echo set_value('username');?>"/>
+						<span class="text-danger"><?php echo form_error('username'); ?></span>
+					</div>
 
-					<p>Email:</p>
-					<input type="email" name="email" class="form-control input-sm chat-input" required onpaste="return false" onkeypress="return validar(event)" value="<?php echo set_value('email');?>"/>
-					<span class="text-danger"><?php echo form_error('email')?></span>
+					<div class="margin-email">
+						<p class="display-inline">Email:</p>
+						<input type="email" name="email" class="form-control input-sm chat-input width display-inline" required onpaste="return false" onkeypress="return validar(event)" value="<?php echo set_value('email');?>"/>
+						<span class="text-danger"><?php echo form_error('email')?></span>
+					</div>
 
+					<div>
+						<p class="display-inline">Password:</p>
+						<input type="password" name="password" required onpaste="return false" onkeypress="return validar(event)" class="form-control input-sm chat-input width display-inline"/>
+						<span class="text-danger"><?php echo form_error('password')?></span>
+					</div>
 
-					<p>Password:</p>
-					<input type="password" name="password" required onpaste="return false" onkeypress="return validar(event)" class="form-control input-sm chat-input"/>
-					<span class="text-danger"><?php echo form_error('password')?></span>
+					<div class="margin-name">
+						<p class="display-inline">Name:</p>
+						<input type="text" name="name" required onpaste="return false" onkeypress="return validar(event)"  value="<?php echo set_value('name');?>" class="form-control input-sm chat-input width display-inline"/>
+						<span class="text-danger"><?php echo form_error('name')?></span>
+					</div>
 
+					<div class="margin-gender">
+						<p class="display-inline">Gender:</p>
+						<select name="gender" class="form-control input-sm chat-input width display-inline">
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select>
 
-					<p>Name:</p>
-					<input type="text" name="name" required onpaste="return false" onkeypress="return validar(event)"  value="<?php echo set_value('name');?>" class="form-control input-sm chat-input"/>
-					<span class="text-danger"><?php echo form_error('name')?></span>
-
-
-					<p>Gender:</p>
-					<select name="gender" class="form-control input-sm chat-input">
-						<option value="Male">Male</option>
-						<option value="Female">Female</option>
-					</select>
-
-					<input type="hidden" name="token" value="<?php echo $token?>" />
+						<input type="hidden" name="token" value="<?php echo $token?>" />
+					</div>
 
 					<div class="wrapper">
 						<div class="display">
@@ -68,7 +75,7 @@
 
 				</div> -->
 				<a href="<?php echo $loginUrl ?>" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
-				<a href"#" id="SignInbtn" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a>
+				<a href="#" id="SignInbtn" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a>
 			</div>
 
 		</form>

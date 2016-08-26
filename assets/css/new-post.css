@@ -4,7 +4,7 @@
 
 div .border{border: 1px solid #293F54; border-radius: 10px }
 
-div .row h2{text-align: center; font-size: 24px; }
+div .row h2{text-align: center; font-size: 25px; color: #3b5c86; font-family: 'Patua One', cursive; }
 
 div .border legend{display: inline; font-size: 17px;}
 
@@ -12,20 +12,17 @@ div .row{display: flex; flex-direction: column; align-items: center;}
 
 div .row input.form-control{padding: 0;}
 
-/*div .row h2{padding-top: 30px; border-bottom: 1px solid rgba(27, 35, 43, .1);}*/
 div .btn-group label{font-size: 13px; padding: 5px 7px;}
 
 div .padding-container h2{border-bottom: 1px solid rgba(27, 35, 43, .1)}
 
 div input{height: 25px;}
 
-div .dropdown{display: inline-block; width: 70%;}
+div .margin-bottom select{ -webkit-appearance: none; -moz-appearance: none; appearance: none; border-radius: 6px; background-color: #fff; border: 1px solid #d2c5c5; padding: 3px 10px;}
 
-div .dropdown button{font-size: 16px; padding: 0 12px; }
+div .margin-bottom  option{font-size: 16px; padding: 0 12px; }
 
-div .dropdown label:hover{ background-color: rgba(41,63,84,.7); color:white;}
-
-div .dropdown label input{display: none;}
+div .margin-bottom  option:hover{background-color: rgba(41,63,84,.7); color:white;}
 
 .margin-category{margin-right: 25px;}
 
@@ -39,64 +36,38 @@ div .dropdown label input{display: none;}
 
 .width{width: 60%}
 
-
 .size-text{width: 95%; height: 140px;}
 
 .display-inline-block{display: inline-block;}
 
 .flex{display: flex; flex-wrap: wrap;}
 
-div .col-xs-12 .color{background-color: #293F54; border-color:  #263442; font-size: 13px; padding: 5px 14px;}
+div .col-xs-12 .color{background-color: #293F54; border-color:  #263442; font-size: 13px; padding: 5px 14px; color: white;}
 
+div .col-xs-12 .color:hover{background-color: #32516f}
 /*media*/
 
 @media screen and (max-width:700px)
  {
 	.size-text{width: 100%; height: 35%}
-
-	div .dropdown label{font-size: 16px;}
  }
-
 
  @media screen and (max-width:400px)
  {
-	.size-text{width: 100%; height: 50%}
+ 	div .margin-bottom select{ padding: 3px 10px; font-size: 14px; }
 
-	div .dropdown label{font-size: 14px; padding: 0px; margin: 0; display: block; height: 25px;}
+	div .margin-bottom  option{font-size: 13px;}
+
+	.size-text{width: 100%; height: 50%}
 
 	div input{height: 25px; width: 90%; display: block;}
 
 	.width{width: 90%} 
+
+	.margin-category{margin-right: 10px;}
  }
 
-/*
- @media screen and (800px)
- {
-	.size-text{width: 65%; height: 30%}
- }
 
- @media screen and (600px)
- {
-	.size-text{width: 60%; height: 30%}
- }
-
- @media screen and (400px)
- {
-	.size-text{width: 50%; height: 25%}
- }
-*/
-
-.field-error .control-label,
-.field-error .help-block,
-.field-error .form-control-feedback {
-    color: #ff0039;
-}
-
-.field-success .control-label,
-.field-success .help-block,
-.field-success .form-control-feedback {
-    color: #2780e3;
-}
 
 
 

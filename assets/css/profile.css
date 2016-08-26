@@ -29,6 +29,7 @@ div .options ul{float: right; font-family: 'Patua One', cursive;}
 
 .line{border-right: 1px solid #d0cdcd; border-left: 1px solid #d0cdcd;}
 
+
 div .options li{padding: 10px 60px;}
 
 .profile-userbuttons{float: left; margin: 7px 0 0 12px; }
@@ -72,8 +73,21 @@ div .form-group select{margin-bottom: 20px;}
 
 .margin-bottons{margin-top: 14px;}
 
+div .form-group i.fa-pencil-square-o{color: #0449a0;}
+
+div .form-group button.color{background-color: white; transition: 1s;}
+
+div .form-group button.color:hover{background-color: #577AA6;}
+
+.color:hover .fa-pencil-square-o{color: white;}
+
+
+
+
 /*modal style*/
-div .modal-header h3#lineModalLabel{color: #577AA6; font-family: 'Patua One', cursive;}
+div .modal-header h3#lineModalLabel{color: #577AA6; font-family: 'Patua One', cursive; font-size: 26px;}
+
+
 
 
 
@@ -82,9 +96,14 @@ div .modal-header h3#lineModalLabel{color: #577AA6; font-family: 'Patua One', cu
 {
     .padding-left{padding-left: 0;}
 
-    div .form-group button.btn{padding: 2px;}
+    div .form-group button.btn{padding: 1px 5px; }
 
     div .display-inline button.btn{padding: 5px;}
+
+    .margin-bottons{margin-top: 14px;}
+
+    .margin-span{margin-bottom: 20px;}
+
 }
 
 /*media options*/
@@ -118,7 +137,7 @@ div .modal-header h3#lineModalLabel{color: #577AA6; font-family: 'Patua One', cu
 
   div .modal-content button.btn{padding: 5px; font-size: 14px;}
 
-
+  div .form-group label{font-size: 14px;}
 }
 
 
