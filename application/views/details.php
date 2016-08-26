@@ -124,7 +124,7 @@
                   <img class="media-object size-img" src="http://placehold.it/64x64" alt="">
                 </a>
                 <div>
-                  <h3 class="display-in"><?php echo $item->username; ?></h3>
+                  <h3 class="display-in"><?php echo htmlentities($item->username); ?></h3>
                   <?php if ($this->session->userdata('username') == $item->username || $this->session->userdata('admin') || $this->session->userdata('username') == $username ){ ?>
                     <form action="<?php echo base_url()?>Home/delete" method="POST">
                     <input type="hidden" name="red" value="<?php echo $details->id_post?>">
@@ -139,7 +139,7 @@
                   </h4>
              </div>
               <div class="padding-container word-break">
-                  <?php echo $item->comment; ?>
+                  <?php echo htmlentities($item->comment); ?>
               </div>
           </div>
 
