@@ -184,7 +184,7 @@ function validar(e) {
 					$url = 'post/' . $my_posts->url_post;;?>
 					<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 post relative">
 						<!-- img -->
-						<img class="img-fluid down" src="/assets/img/category/<?php echo $my_posts->name.'.jpg'?>" alt="<?php echo $my_posts->name ?>">
+						<img class="img-fluid" src="/assets/img/category/<?php echo $my_posts->name.'.jpg'?>" alt="<?php echo $my_posts->name ?>">
 						<!-- description -->
 						<div class="caption">
 							<h3 class="description word-break">

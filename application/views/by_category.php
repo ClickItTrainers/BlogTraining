@@ -24,7 +24,7 @@
         			$url = 'post/' . $item->url_post;
         	?>
         			<!-- Blog Post List -->
-                        <h2>
+                        <h2 class="word-break">
                             <?php echo anchor($url, $item->title) ?>
                         </h2>
                         <p class="lead display-inline size-small">

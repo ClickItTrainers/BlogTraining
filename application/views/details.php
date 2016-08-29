@@ -55,12 +55,7 @@
                     <a href="<?php echo base_url()?>profile/user/<?php echo $details->id_user; ?>">
 
                       <img class="img-fluid display-in media-object size-img-main" src="http://placehold.it/64x64" alt=""/>
-
-
-
                         <span><?php echo htmlentities($username); ?></span>
-
-
                     </a>
                </div>
                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-7 absolute-date absolute">

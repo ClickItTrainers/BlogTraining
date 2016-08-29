@@ -19,13 +19,6 @@ nav.navbar {background-color: #293F54;}
 
 .margin-top{margin-top:90px; }
 
-@media (min-width: 768px) 
-{
-  .navbar-header
-  	{
-    	float: left;
-  	}
-}
 /*home*/
 .col-center{
     float: none;
@@ -48,12 +41,15 @@ nav.navbar {background-color: #293F54;}
 
 .float-right{ background-color: #D9534F; float: right; padding: 3px 10px; margin-top: 7px; font-weight: 700; line-height: 1; font-size: 14px; font-style: bold; color: white; border-radius: 15px;}
 
+div .row h2 a{text-decoration: none;}
 
 
 /*sidebar*/
 .display{display: inline-block;}
 
 ul .list-unstyled li{display: inline-block;}
+
+div .display li a{text-decoration: none;}
 
 .display-font{display: flex; flex-direction: column; display: inline-block;}
 
@@ -67,7 +63,7 @@ footer p{text-align: center;}
 
 .pagination p strong{padding: 10px; border-top:1px solid rgba(0,0,0,.2); border-bottom:1px solid rgba(0,0,0,.2); border-left:1px solid rgba(0,0,0,.2); border-right:1px solid rgba(0,0,0,.2); color:#0275d8;}
 
-.pagination p a{padding: 10px; border-top:1px solid rgba(0,0,0,.2); border-bottom:1px solid rgba(0,0,0,.2); border-left:1px solid rgba(0,0,0,.2);}
+.pagination p a{text-decoration: none; padding: 10px; border-top:1px solid rgba(0,0,0,.2); border-bottom:1px solid rgba(0,0,0,.2); border-left:1px solid rgba(0,0,0,.2);}
 
 .pagination p a:last-child{border-right:1px solid rgba(0,0,0,.2);}
 
@@ -92,6 +88,8 @@ footer p{text-align: center;}
 @media screen and (max-width: 768px)
 {
 	div .row .search{float: left; margin-left: 140px;}
+
+	.navbar-header{float: left;}
 }
 
 /*header*/

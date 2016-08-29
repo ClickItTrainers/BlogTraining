@@ -29,6 +29,9 @@ div .card-primary p {color: black; font-size: 25px; margin: 0; background-color:
 
 div .card-block{padding: 4px;}
 
+div .card-block a{text-decoration: none;}
+
+
 .url-user{/*background-image: url("../img/user.png");*/ height: 250px; background-size: cover;}
 
 .url-profile{/*background-image: url("../img/profile.png");*/ height: 250px;}
