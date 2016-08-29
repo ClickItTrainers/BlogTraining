@@ -148,6 +148,8 @@ div .margin-bottom hr{margin-top:0;}
 	
 	div .media-body button{font-size: 12px;}
 
+	.size-font{font-size: 12px;}
+
 }
 
 @media screen and (max-width: 368px)

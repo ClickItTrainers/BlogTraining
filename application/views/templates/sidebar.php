@@ -6,7 +6,7 @@
              <h4>Blog Categories</h4>
             <div class="row">
                 <!-- /.col-xl-6 -->
-                    <div class="col-xl-2 display">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 display">
                         <ul class="list-unstyled">
 
                             <li>

@@ -53,6 +53,7 @@ div .display li a{text-decoration: none;}
 
 .display-font{display: flex; flex-direction: column; display: inline-block;}
 
+
 /*footer*/
 footer p{text-align: center;}
 
@@ -66,6 +67,36 @@ footer p{text-align: center;}
 .pagination p a{text-decoration: none; padding: 10px; border-top:1px solid rgba(0,0,0,.2); border-bottom:1px solid rgba(0,0,0,.2); border-left:1px solid rgba(0,0,0,.2);}
 
 .pagination p a:last-child{border-right:1px solid rgba(0,0,0,.2);}
+
+
+@media screen and (max-width: 1100px)
+{
+	div .card h4{font-size: 20px;}
+}
+
+@media screen and (max-width: 768px)
+{
+	div .row .search{float: left; margin-left: 140px;}
+
+	.navbar-header{float: left;}
+}
+
+/*header*/
+
+@media screen and (max-width: 550px)
+{
+	div .row .search{float: left; margin-left: 60px;}
+
+	div .right h1{font-size: 27px; margin-top: 10px;}
+}
+
+/*header*/
+@media screen and (max-width: 543px)
+{
+	.text-xs-right{text-align: left!important;}
+	
+	.right{display: block;}
+}
 
 /*media*/
 @media screen and (max-width: 430px)
@@ -85,30 +116,11 @@ footer p{text-align: center;}
 	.pagination p a{padding: 5px; font-size:15px;}
 }
 
-@media screen and (max-width: 768px)
-{
-	div .row .search{float: left; margin-left: 140px;}
-
-	.navbar-header{float: left;}
-}
-
-/*header*/
-@media screen and (max-width: 543px)
-{
-	.text-xs-right{text-align: left!important;}
-	
-	.right{display: block;}
-}
-/*header*/
-
-@media screen and (max-width: 550px)
-{
-	div .row .search{float: left; margin-left: 60px;}
-}
-
 @media screen and (max-width: 400px)
 {
 	div .row .search{float: left; margin-left: 10px;}
+	
+	div .right h1{font-size: 23px;}
 }
 
 

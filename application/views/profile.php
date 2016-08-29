@@ -140,7 +140,7 @@ function validar(e) {
           <img class="size-profile img-fluid" src="/assets/img/profile-blog.jpg" alt="img-profile"/>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 position-name word-break">
-          <span><?php echo htmlentities($user);?><span>
+          <span><?php echo $user;?><span>
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 options">
 
@@ -154,7 +154,7 @@ function validar(e) {
               <?php } ?><!-- END SIDEBAR BUTTONS -->
 
               <ul class="nav">
-                <a href="#" onclick="myFunctionO()">
+                <a href="#overview" onclick="myFunctionO()">
                   <li class="display-inline line">
                     <i class="fa fa-home"></i> Overview
                   </li>
@@ -176,7 +176,7 @@ function validar(e) {
             <!-- Overview -->
             <div id="overview" class="container-style">
               <!-- Form Name -->
-              <legend class="post-user">Posts of <?php echo $user ?></legend>
+              <legend class="post-user">Posts of <?php echo $user; ?></legend>
 
 				<?php foreach ($posts as $my_posts):
 					$mostrar = substr($my_posts->description, 0,65);
@@ -248,7 +248,7 @@ function validar(e) {
 		                        	<i class="fa fa-pencil-square-o"></i>
 		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 ">
-									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area margin-span"><?php echo html_escape($user_info->name); ?></span>
+									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area margin-span"><?php echo $user_info->name; ?></span>
 								</div>
 							</div>
 							<!-- Password input-->

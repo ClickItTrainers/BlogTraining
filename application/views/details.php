@@ -49,13 +49,13 @@
             <!-- Preview Image -->
             <img class="img-fluid" src="/assets/img/category/<?php echo $details->name.'.jpg'?>" alt="<?php echo $details->name ?>">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 absolute-tittle absolute">
-                    <h1 class="word-break"> <?php echo htmlentities($details->title); ?> </h1>
+                    <h1 class="word-break "> <?php echo htmlentities($details->title); ?> </h1>
                </div>
-                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 absolute-author absolute">
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 absolute-author absolute word-break ">
                     <a href="<?php echo base_url()?>profile/user/<?php echo $details->id_user; ?>">
 
-                      <img class="img-fluid display-in media-object size-img-main" src="http://placehold.it/64x64" alt=""/>
-                        <span><?php echo htmlentities($username); ?></span>
+                      <img class="img-fluid display-in media-object size-img-main" src="/assets/img/profile-blog.jpg" alt="img-profile"/>
+                        <span><?php echo $username; ?></span>
                     </a>
                </div>
                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-7 absolute-date absolute">
@@ -117,10 +117,10 @@
           <div class="media padding-container border">
               <div class="media-body">
                 <a class="pull-left margin-right" href="#">
-                  <img class="media-object size-img" src="http://placehold.it/64x64" alt="">
+                  <img class="media-object size-img" src="/assets/img/profile-blog.jpg" alt="img-profile">
                 </a>
                 <div>
-                  <h3 class="display-in"><?php echo htmlentities($item->username); ?></h3>
+                  <h3 class="display-in"><?php echo $item->username; ?></h3>
                   <?php if ($this->session->userdata('username') == $item->username || $this->session->userdata('admin') || $this->session->userdata('username') == $username ){ ?>
                     <form action="<?php echo base_url()?>Home/delete" method="POST">
                     <input type="hidden" name="red" value="<?php echo $details->id_post?>">
