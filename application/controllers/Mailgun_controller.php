@@ -13,25 +13,37 @@ class Mailgun_controller extends CI_Controller {
 
 	// Creates data to send it to the model
 	public function comment(){
-		$id_post = $this->input->post('id_post',TRUE);
-		$id_user = $this->Users_model->get_userID();
-		$comment = $this->input->post('comment',TRUE);
-		$title = $this->input->post('tit',TRUE);
-		$query = $this->Comment_model->insert_comment($id_post, $id_user, $comment);
 
-		// if comment successfully inserted, the owner of the post is notified by the administrator
-		if ($query) {
+		//Rules
+		$this->form_validation->set_rules('comment', 'comment', 'htmlspecialchars|required');
+		//Error messages
+		$this->form_validation->set_message('required', '*Required field');
 
-			// Email of the owner of the post
-			$email = $this->Users_model->get_email($id_post);
+		if (!$this->form_validation->run())
+		{
+			$this->index();
+		}
+		else
+		{
+			$id_post = $this->input->post('id_post');
+			$id_user = $this->Users_model->get_userID();
+			$comment = $this->input->post('comment');
+			$url_post = $this->input->post('url_post');
+			$query = $this->Comment_model->insert_comment($id_post, $id_user, $comment);
 
-			$this->my_mailgun->comment_mail($email, $comment);
+			// if comment successfully inserted, the owner of the post is notified by the administrator
+			if ($query) {
 
-			$url = base_url().'post/' . $id_post . '/';
-			$url .= url_title(convert_accented_characters($title), '-', TRUE);
-			echo "<script> alert('¡Your comment was posted!');
-			window.location.href='$url';
-			</script>";
+				// Email of the owner of the post
+				$email = $this->Users_model->get_email($id_post);
+
+				$this->my_mailgun->comment_mail($email, $comment);
+
+				$url = base_url().'post/' . $url_post;
+				echo "<script> alert('¡Your comment was posted!');
+				window.location.href='$url';
+				</script>";
+			}
 		}
 	}
 

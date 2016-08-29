@@ -33,7 +33,7 @@ function validar(e) {
         <form method="post" action="<?php echo base_url() ?>Profile_controller/update_username">
           <div class="form-group">
             <label for="name">Username:</label>
-            <input type="text" class="form-control" required name="username">
+            <input type="text" class="form-control" required onpaste="return false" onkeypress="return validar(event)" name="username">
             <span class="text-danger"><?php echo form_error('username'); ?></span>
           </div>
           <button type="submit" class="btn btn-success">Submit</button>
@@ -181,8 +181,7 @@ function validar(e) {
 				<?php foreach ($posts as $my_posts):
 					$mostrar = substr($my_posts->description, 0,65);
 					$mostrarTitle = substr($my_posts->title, 0,55);
-					$url = 'post/' . $my_posts->id_post . '/';
-					$url .= url_title(convert_accented_characters($my_posts->title), '-', TRUE);?>
+					$url = 'post/' . $my_posts->url_post;;?>
 					<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 post relative">
 						<!-- img -->
 						<img class="img-fluid down" src="/assets/img/category/<?php echo $my_posts->name.'.jpg'?>" alt="<?php echo $my_posts->name ?>">
@@ -249,7 +248,7 @@ function validar(e) {
 		                        	<i class="fa fa-pencil-square-o"></i>
 		                        </button>
 								<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 ">
-									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area margin-span"><?php echo htmlentities($user_info->name); ?></span>
+									<span onpaste="return false" onkeypress="return validar(event)" class="form-control input-md min-area margin-span"><?php echo html_escape($user_info->name); ?></span>
 								</div>
 							</div>
 							<!-- Password input-->

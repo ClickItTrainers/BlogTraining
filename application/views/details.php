@@ -30,6 +30,7 @@
             <span class="text-danger"><?php echo form_error('content'); ?></span>
 
           </div>
+          <?php echo form_hidden('url_post', $details->url_post); ?>
           <?php echo form_hidden('id_post', $details->id_post); ?>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -108,7 +109,7 @@
                 <textarea maxlength="255" name="comment" class="form-control" rows="3" style="resize: none;"></textarea>
               </div>
               <?php echo form_hidden('id_post', $details->id_post) ?>
-              <?php echo form_hidden('tit', $details->title) ?>
+              <?php echo form_hidden('url_post', $details->url_post); ?>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
@@ -129,6 +130,7 @@
                     <form action="<?php echo base_url()?>Home/delete" method="POST">
                     <input type="hidden" name="red" value="<?php echo $details->id_post?>">
                     <input type="hidden" name="id_comm" value="<?php echo $item->id_comment?>">
+                    <?php echo form_hidden('url_post', $details->url_post); ?>
                   <a href="">
                     <button type="submit" class="btn btn-danger btn-sm float"><i class="fa fa-trash"> Delete</button></i>
                   </a>

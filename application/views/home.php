@@ -28,8 +28,7 @@
                 </h1>
             	    <?php
             		foreach ($posts_arr as $item):
-            			$url = 'post/' . $item->id_post . '/';
-            			$url .= url_title(convert_accented_characters($item->title), '-', TRUE);
+            			$url = 'post/' . $item->url_post;
             	    ?>
             			<!-- Blog Post List -->
                             <h2 class="word-break">

@@ -65,5 +65,5 @@ $route['profileadmin'] = 'Home/admin_profile';
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['post/(:num)/:any'] = 'Home/posts_details/$1';
+$route['post/(:any)'] = 'Home/posts_details/$1';
 $route['(:num)'] = '/home/index/$1';

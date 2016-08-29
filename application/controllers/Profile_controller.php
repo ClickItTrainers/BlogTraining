@@ -74,7 +74,7 @@ class Profile_controller extends CI_Controller{
   public function update_name()
   {
     //rules
-    $this->form_validation->set_rules('name', 'name', 'required');
+    $this->form_validation->set_rules('name', 'name', 'required|htmlspecialchars');
     //messages
     $this->form_validation->set_message('required', '*The field must not be empty');
 
@@ -83,7 +83,7 @@ class Profile_controller extends CI_Controller{
       $this->index();
     }else
     {
-      $new_name = htmlentities($this->input->post('name', TRUE));
+      $new_name = $this->input->post('name', TRUE);
 
       $update = $this->Users_model->update_name($new_name);
 

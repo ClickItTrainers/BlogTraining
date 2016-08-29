@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 		$this->load->model('Posts_model');
 		$this->load->model('Comment_model');
 		$this->load->model('getDB/Users_model');
-		$this->load->helper('my_date', 'details');
+		$this->load->helper(array('my_date', 'details'));
 	}
 
 	//Select the posts by category
@@ -74,11 +74,11 @@ class Home extends CI_Controller {
 	}
 
 	// Shows the details of one post by ID
-	public function posts_details($id_post){
-		$id_clean = $this->security->xss_clean($id_post);
-		$data['comentarios'] = $this->Posts_model->get_comments($id_clean);
-		$data['username'] = $this->Users_model->get_username($id_clean);
-		$data['details'] = $this->Posts_model->posts_details($id_clean);
+	public function posts_details($url_post){
+		$url_clean = $this->security->xss_clean($url_post);
+		$data['details'] = $this->Posts_model->posts_details($url_clean);
+		$data['comentarios'] = $this->Posts_model->get_comments($data['details']->id_post);
+		$data['username'] = $this->Users_model->get_username($data['details']->id_post);
 		$data['category_arr'] = $this->Users_model->get_category();
 		$data['title'] = $data['details']->title;
 		$data['page'] = 'details';
@@ -114,7 +114,8 @@ class Home extends CI_Controller {
 
     }else{
 
-        $id_post = $this->input->post('id_post');
+        $url_post = $this->input->post('url_post');
+				$id_post = $this->input->post('id_post');
         $title = htmlentities($this->input->post('title'));
         $desc = htmlentities($this->input->post('description'));
         $cont = htmlentities($this->input->post('content'));
@@ -122,8 +123,7 @@ class Home extends CI_Controller {
         $update = $this->Posts_model->update_post($id_post, $title, $desc, $cont);
 
         if($update){
-          $url = 'post/' . $id_post . '/';
-          $url .= url_title(convert_accented_characters($title), '-', TRUE);
+          $url = 'post/' . $url_post;
           echo "<script> alert('¡Post updated!');
           window.location.href='$url';
           </script>";
@@ -150,6 +150,7 @@ class Home extends CI_Controller {
 			$post = array(
 				'id_user' => $this->Users_model->get_userID(),
 				'id_category' => $this->input->post('category'),
+				'url_post' => url_details($this->input->post('title', TRUE)),
 				'title' => htmlentities($this->input->post('title', TRUE)),
 				'description' => htmlentities($this->input->post('description')),
 				'content' => htmlentities($this->input->post('content')),
@@ -174,6 +175,7 @@ class Home extends CI_Controller {
 
 		public function delete_comments()
 		{
+			$url_post = $this->input->post('url_post');
 			$id_comment = $this->input->post('id_comm');
 			$id_post = $this->input->post('red');
 
@@ -181,7 +183,10 @@ class Home extends CI_Controller {
 
 			if($delete)
 			{
-				$this->posts_details($id_post);
+				$url = base_url().'post/' . $url_post;
+				echo "<script> alert('¡Deleted!');
+				window.location.href='$url';
+				</script>";
 			}
 			else
 			{
