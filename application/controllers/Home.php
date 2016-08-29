@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 		$this->load->model('Posts_model');
 		$this->load->model('Comment_model');
 		$this->load->model('getDB/Users_model');
-		$this->load->helper('my_date');
+		$this->load->helper('my_date', 'details');
 	}
 
 	//Select the posts by category
@@ -101,7 +101,7 @@ class Home extends CI_Controller {
 
 	public function update_post(){
 
-    $this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars');
+    $this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars|callback_characters_validation');
     $this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[250]|htmlspecialchars');
     $this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]');
     // Error messages
@@ -133,7 +133,7 @@ class Home extends CI_Controller {
 
 	public function insert_post(){
 
-		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars');
+		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars|callback_characters_validation');
 		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[250]|htmlspecialchars');
 		$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]');
 		$this->form_validation->set_rules('category', 'category', 'required');
@@ -159,6 +159,17 @@ class Home extends CI_Controller {
 				redirect(base_url());
 			}
 
+		}
+
+		public function characters_validation($title)
+	{
+			if(preg_match('/[\W]{3}/', $title))
+				{
+					$this->form_validation->set_message('characters_validation','The {field} can not accept more especial characters');
+											 return FALSE;
+				}else {
+					return TRUE;
+				}
 		}
 
 		public function delete_comments()
