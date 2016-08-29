@@ -227,8 +227,7 @@ class Login_controller extends CI_Controller
 
 
 
-      public function logout()
-      {
+      public function logout(){
         $this->session->sess_destroy();
         $url = base_url().'Home';
         echo "<script> alert('See you!');
@@ -236,15 +235,13 @@ class Login_controller extends CI_Controller
       }
 
 
-      public function registro_user()
-      {
+      public function registro_user(){
 
-        if($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token'))
-        {
+        if($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token')){
 
           // Validation rules
           $this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|max_length[40]|htmlspecialchars|is_unique[users.email]');
-          $this->form_validation->set_rules('username', 'username', 'required|trim|max_length[20]|htmlspecialchars|is_unique[users.username]');
+          $this->form_validation->set_rules('username', 'username', 'required|alpha|trim|max_length[20]|htmlspecialchars|is_unique[users.username]');
           $this->form_validation->set_rules('password', 'password', 'required|trim|min_length[8]|max_length[20]|htmlspecialchars');
           $this->form_validation->set_rules('name', 'name', 'required|trim|htmlspecialchars');
           $this->form_validation->set_rules('gender', 'gender', 'required|trim|htmlspecialchars');
@@ -253,17 +250,18 @@ class Login_controller extends CI_Controller
           //$this->form_validation->set_message('alpha_spaces', 'The field only accept alphabetic characters');
           $this->form_validation->set_message('valid_email', '*Invalid email');
           $this->form_validation->set_message('required', '*Required field');
+          $this->form_validation->set_message('alpha', '*Invalid username');
           $this->form_validation->set_message('is_unique', 'The %s already exists');
           $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
           $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
 
-          if (!$this->form_validation->run())
-          {
+          if (!$this->form_validation->run()){
+
             //Si no pasamos la validación volvemos al formulario mostrando los errores
             $this->index_registro();
-          }
-          else
-          {
+
+          }else{
+
             //Si funciona se procesan los datos
             $email = $this->input->post('email');
             $username = $this->input->post('username');
@@ -273,18 +271,19 @@ class Login_controller extends CI_Controller
 
             $hash = $this->bcrypt->hash_password($password);
             //Probar si la contraseña se encripto
-            if ($this->bcrypt->check_password($password, $hash))
-            {
+
+            if ($this->bcrypt->check_password($password, $hash) && ($this->valid_username($username) === TRUE)){
+              
               $insert_pass = $this->Login_model->registro($username, $email, $hash, $name, $gender);
-              if ($insert_pass)
-              {
+              if ($insert_pass){
+
                 $url = base_url().'Login_controller/index';
                 echo "<script> alert ('Saved!');
                 window.location.href = '$url';
                 </script>";
-              }
-              else
-              {
+
+              }else{
+
                 throw new Exception("Error Processing request", 1);
                 echo Exception;
               }

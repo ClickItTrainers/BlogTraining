@@ -104,11 +104,12 @@ class Profile_controller extends CI_Controller{
   public function update_password()
   {
     $this->form_validation->set_rules('last_password', 'last_password', 'required|trim|htmlspecialchars');
-    $this->form_validation->set_rules('new_password', 'new_password', 'required|trim|min_length[8]|max_length[20]|htmlspecialchars');
+    $this->form_validation->set_rules('new_password', 'new_password', 'required||matches[repeat_password]|trim|min_length[8]|max_length[20]|htmlspecialchars');
     $this->form_validation->set_rules('repeat_password', 'repeat_password', 'required|trim|min_length[8]|max_length[20]|htmlspecialchars');
 
     // Error messages
     $this->form_validation->set_message('required', '*Required field');
+    $this->form_validation->set_message('matches', '*The passwords does not match');
     $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
     $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
 
