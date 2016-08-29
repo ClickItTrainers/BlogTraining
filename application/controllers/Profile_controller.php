@@ -41,7 +41,7 @@ class Profile_controller extends CI_Controller{
 
       if (!$this->form_validation->run())
       {
-        $this->index();
+        echo '<div class="error">'.validation_errors().'</div>';
       }
       else
       {
