@@ -80,7 +80,7 @@ class Profile_controller extends CI_Controller{
 
     if (!$this->form_validation->run())
     {
-      $this->index();
+      echo '<div class="error">'.validation_errors().'</div>';
     }else
     {
       $new_name = $this->input->post('name', TRUE);
@@ -114,7 +114,11 @@ class Profile_controller extends CI_Controller{
 
     if (!$this->form_validation->run())
     {
-      $this->index();
+      //Se envian las validaciones por medio de un array codificado como json
+      echo json_encode(array('last' => form_error('last_password'),
+       'new' => form_error('new_password'),
+       'repeat' => form_error('repeat_password')));
+
     }else
     {
       $last_password = $this->input->post('last_password');
@@ -133,31 +137,24 @@ class Profile_controller extends CI_Controller{
           if($update)
           {
             $url = base_url() . 'Profile_controller/#settings';
-            echo "<script> alert('Password updated');
-            window.location.href='$url';
-            </script>";
-          }else
-          {
-            $url = base_url() . 'Profile_controller/#settings';
-            echo "<script> alert('It is not possible to update');
-            window.location.href='$url';
-            </script>";
+            echo json_encode(array('st' => 1,
+             'msg' => 'Password updated',
+             'url' => $url));
           }
-
         }else
         {
-          $url = base_url() . 'Profile_controller/#settings';
-          echo "<script> alert('The passwords does not match');
-          window.location.href='$url';
-          </script>";
+
+          echo json_encode(array('st' => 0,
+           'msg' => 'The passwords does not match'));
         }
 
       }else
       {
-
-        $url = base_url() . 'Profile_controller/#settings';
+        echo json_encode(array('st' => 0,
+         'msg' => 'Your old password is not correct'));
+        /*$url = base_url() . 'Profile_controller/#settings';
         echo "<script> alert('Your old password is not correct');
-        window.location.href = '$url'</script>";
+        window.location.href = '$url'</script>";*/
       }
     }
   }
@@ -174,11 +171,12 @@ class Profile_controller extends CI_Controller{
       //messages
       $this->form_validation->set_message('valid_email', '*Invalid email');
       $this->form_validation->set_message('is_unique', 'The %s already exists');
+      $this->form_validation->set_message('required', '*Required field');
       $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
 
       if (!$this->form_validation->run())
       {
-        $this->index();
+          echo '<div class="error">'.validation_errors().'</div>';
       }else
       {
         $new_email = $this->input->post('email', TRUE);
