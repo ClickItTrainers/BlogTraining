@@ -136,6 +136,8 @@ class Profile_controller extends CI_Controller{
 
           if($update)
           {
+            //Si la actualizacion resulto correcta el metodo en javascript recibe
+            //el mensaje que mostrar y la url a la cual redirigir
             $url = base_url() . 'Profile_controller/#settings';
             echo json_encode(array('st' => 1,
              'msg' => 'Password updated',

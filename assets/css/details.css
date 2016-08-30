@@ -18,7 +18,7 @@ div .absolute-tittle h1{font-size: 22px;  color: rgba(255,255,255,.9); font-weig
 
 .absolute-author{ top:2%; left: 2%; padding: 4px 0; }
 
-div .absolute-author a{font-size: 12px; color: white;}
+div .absolute-author a{text-decoration: none; font-size: 12px; color: white;}
 
 .size-img-main{width: 25px; height: 25px; border-radius: 50%;} 
 
@@ -147,6 +147,8 @@ div .margin-bottom hr{margin-top:0;}
 	.float-right{ margin-top:5px; font-size: 11px;}
 	
 	div .media-body button{font-size: 12px;}
+
+	.size-font{font-size: 12px;}
 
 }
 

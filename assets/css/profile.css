@@ -42,9 +42,11 @@ div .options li{padding: 10px 60px;}
 
 .size-post{height:120px;}
 
-.post{margin: 10px 0 10px 0; /*background-color: red;*/}
+.post{margin: 10px 0 30px 0; /*background-color: red;*/}
 
 div .post-user legend{margin-bottom: 0;}
+
+div .container-style legend{height: 40px;}
 
 .container-style{background-color: white; border: 1px solid rgba(0,0,0,.2); border-radius:5px; display: flex; flex-wrap: wrap; justify-content: flex-start; min-height: 425px;}
 

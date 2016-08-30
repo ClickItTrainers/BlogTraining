@@ -110,7 +110,7 @@ class Home extends CI_Controller {
     $this->form_validation->set_message('max_length', "* The field %s can't be more than %s characters");
 
     if($this->form_validation->run() == FALSE){
-      $this->posts_details($this->input->post('id_post'));
+      $this->posts_details($this->input->post('url_post'));
 
     }else{
 
@@ -151,9 +151,9 @@ class Home extends CI_Controller {
 				'id_user' => $this->Users_model->get_userID(),
 				'id_category' => $this->input->post('category'),
 				'url_post' => url_details($this->input->post('title', TRUE)),
-				'title' => htmlentities($this->input->post('title', TRUE)),
-				'description' => htmlentities($this->input->post('description')),
-				'content' => htmlentities($this->input->post('content')),
+				'title' =>$this->input->post('title'),
+				'description' => $this->input->post('description'),
+				'content' => $this->input->post('content'),
 				'date' => date('Y-m-d H:i:s'));
 
 				$this->Posts_model->insert('posts', $post);

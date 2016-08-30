@@ -138,7 +138,7 @@ function validar(e) {
           <img class="size-profile img-fluid" src="/assets/img/profile-blog.jpg" alt="img-profile"/>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 position-name word-break">
-          <span><?php echo htmlentities($user);?><span>
+          <span><?php echo $user;?><span>
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 options">
 
@@ -152,7 +152,7 @@ function validar(e) {
               <?php } ?><!-- END SIDEBAR BUTTONS -->
 
               <ul class="nav">
-                <a href="#" onclick="myFunctionO()">
+                <a href="#overview" onclick="myFunctionO()">
                   <li class="display-inline line">
                     <i class="fa fa-home"></i> Overview
                   </li>
@@ -174,7 +174,7 @@ function validar(e) {
             <!-- Overview -->
             <div id="overview" class="container-style">
               <!-- Form Name -->
-              <legend class="post-user">Posts of <?php echo $user ?></legend>
+              <legend class="post-user">Posts of <?php echo $user; ?></legend>
 
               <?php foreach ($posts as $my_posts):
                 $mostrar = substr($my_posts->description, 0,65);
