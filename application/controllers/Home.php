@@ -101,44 +101,44 @@ class Home extends CI_Controller {
 
 	public function update_post(){
 
-    $this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars|callback_characters_validation');
-    $this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[250]|htmlspecialchars');
-    $this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]');
-    // Error messages
-    $this->form_validation->set_message('required', '*Required field');
-    $this->form_validation->set_message('min_length', '* The field %s must be at least %s characters');
-    $this->form_validation->set_message('max_length', "* The field %s can't be more than %s characters");
+		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars|callback_characters_validation');
+		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[250]|htmlspecialchars');
+		$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]');
+		// Error messages
+		$this->form_validation->set_message('required', '*Required field');
+		$this->form_validation->set_message('min_length', '* The field %s must be at least %s characters');
+		$this->form_validation->set_message('max_length', "* The field %s can't be more than %s characters");
 
-    if($this->form_validation->run() == FALSE){
+		if($this->form_validation->run() == FALSE){
 
 			echo json_encode(array('title' => form_error('title'),
-			 'description' => form_error('description'),
-			 'content' => form_error('content')));
+			'description' => form_error('description'),
+			'content' => form_error('content')));
 
-    }else{
+		}else{
 
-        //$url_post = $this->input->post('url_post');
-				$id_post = $this->input->post('id_post');
-        $title = htmlentities($this->input->post('title'));
-        $desc = htmlentities($this->input->post('description'));
-        $cont = htmlentities($this->input->post('content'));
-				$url_post = url_details($this->input->post('title'));
+			//$url_post = $this->input->post('url_post');
+			$id_post = $this->input->post('id_post');
+			$title = htmlentities($this->input->post('title'));
+			$desc = htmlentities($this->input->post('description'));
+			$cont = htmlentities($this->input->post('content'));
+			$url_post = url_details($this->input->post('title'));
 
 
-        $update = $this->Posts_model->update_post($id_post,$url_post, $title, $desc, $cont);
+			$update = $this->Posts_model->update_post($id_post,$url_post, $title, $desc, $cont);
 
-        if($update){
-					$url = base_url().'post/' . $url_post;
-					echo json_encode(array('st' => 1,
-					 'msg' => "¡Post updated!",
-					 'url' => $url));
-          /*$url = 'post/' . $url_post;
-          echo "<script> alert('¡Post updated!');
-          window.location.href='$url';
-          </script>";*/
-        }
-    }
-  }
+			if($update){
+				$url = base_url().'post/' . $url_post;
+				echo json_encode(array('st' => 1,
+				'msg' => "¡Post updated!",
+				'url' => $url));
+				/*$url = 'post/' . $url_post;
+				echo "<script> alert('¡Post updated!');
+				window.location.href='$url';
+				</script>";*/
+			}
+		}
+	}
 
 	public function insert_post(){
 
@@ -152,7 +152,12 @@ class Home extends CI_Controller {
 		$this->form_validation->set_message('max_length', "* The field %s can't be more than %s characters");
 
 		if($this->form_validation->run() == FALSE){
-			$this->new_post();
+			echo json_encode(array(
+				'title' => form_error('title'),
+				'description' => form_error('description'),
+				'category' => form_error('category'),
+				'content' => form_error('content')
+			));
 		}else{
 
 
@@ -165,21 +170,35 @@ class Home extends CI_Controller {
 				'content' => $this->input->post('content'),
 				'date' => date('Y-m-d H:i:s'));
 
-				$this->Posts_model->insert('posts', $post);
-				redirect(base_url());
+				$insert = $this->Posts_model->insert('posts', $post);
+				if($insert)
+				{
+
+					echo json_encode(array(
+						'st' => 1,
+						'msg' => "¡Your post has been saved!",
+						'url' => base_url()
+					));
+				}else {
+					echo json_encode(array(
+						'st' => 0,
+						'msg' => "¡Sorry we have problems!",
+						'url' => base_url()
+					));
+				}
 			}
 
 		}
 
 		public function characters_validation($title)
-	{
+		{
 			if(preg_match('/[\W]{3}/', $title))
-				{
-					$this->form_validation->set_message('characters_validation','The {field} can not accept more especial characters');
-											 return FALSE;
-				}else {
-					return TRUE;
-				}
+			{
+				$this->form_validation->set_message('characters_validation','The {field} can not accept more especial characters');
+				return FALSE;
+			}else {
+				return TRUE;
+			}
 		}
 
 		public function delete_comments()
