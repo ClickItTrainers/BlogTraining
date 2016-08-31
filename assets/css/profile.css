@@ -87,9 +87,9 @@ div .form-group button.color:hover{background-color: #577AA6;}
 
 
 /*modal style*/
-div .modal-header h3#lineModalLabel{color: #577AA6; font-family: 'Patua One', cursive; font-size: 26px;}
+div .modal-header h3#lineModalLabel{color: #577AA6; font-family: 'Patua One', cursive; font-size: 23px;}
 
-
+div .modal-content{margin-top: 150px;}
 
 
 

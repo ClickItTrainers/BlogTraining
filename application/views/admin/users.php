@@ -10,6 +10,38 @@
 <link href="<?php echo base_url(); ?>assets/css/usersA.css" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+<script type="text/javascript">
+
+  $(function (){ 
+    $('#form').submit(function(event){
+      event.preventDefault();
+       swal({   
+          title: "Are you sure?",   
+          text: "You will delete this user!",   
+          type: "warning",   
+          showCancelButton: true,   
+          confirmButtonColor: "#DD6B55",   
+          confirmButtonText: "Yes, delete it!",   
+          closeOnConfirm: false 
+        },
+          function(isConfirm){
+         if (isConfirm)
+         {
+          $.post("<?php echo base_url()?>Admin_controller/delete_user", $("#form").serialize()).done(function(){
+          // swal("Deleted!", "Your user has been deleted.", "success");
+          // swal({   title: "Your user has been deleted!",  timer: 3000,   showConfirmButton: false });
+          window.location.href='<?php echo base_url();?>admin/users'; 
+          });
+         }
+      });
+    });
+  });
+
+</script>
+
+
 <div class="container">
          <div class="row">
             <!-- Blog Sidebar Widgets Column -->
@@ -41,19 +73,20 @@
                 </thead>
 
                 <tbody>
-                  <?php foreach ($users as $item): ?>
-                  <tr>
-                    <form action="<?php echo base_url()?>Admin_controller/delete_user" method="post">
-                    <td scope="row"><?php echo $item->id_user; ?></td>
-                    <input type="hidden" name="id" value="<?php echo $item->id_user;?>">
-                    <td><?php echo $item->username; ?></td>
-                    <td><?php echo htmlentities($item->email); ?></td>
-                    <td></td>
-                    <td><?php echo $item->gender; ?></td>
-                    <td><button type="submit"><i class="fa fa-trash font-i"></i></a></td>
-                    </form>
-                  </tr>
-                <?php endforeach; ?>
+                  <form id="form" action="<?php echo base_url()?>Admin_controller/delete_user" method="post">
+                    <?php foreach ($users as $item): ?>
+                    <tr>
+                      <td scope="row"><?php echo $item->id_user; ?></td>
+                      <input type="hidden" name="id" value="<?php echo $item->id_user;?>">
+                      <td><?php echo $item->username; ?></td>
+                      <td><?php echo htmlentities($item->email); ?></td>
+                      <td></td>
+                      <td><?php echo $item->gender; ?></td>
+                     <!--  <td><button type="submit"><i class="fa fa-trash font-i"></i></td> -->
+                      <td><button id="submit" type="submit"><i class="fa fa-trash font-i"></i></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  </form>
 
                 </tbody>
             </table>
