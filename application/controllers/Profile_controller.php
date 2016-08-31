@@ -41,7 +41,7 @@ class Profile_controller extends CI_Controller{
 
       if (!$this->form_validation->run())
       {
-        $this->index();
+        echo json_encode(array('username' => form_error('username')));
       }
       else
       {
@@ -59,13 +59,20 @@ class Profile_controller extends CI_Controller{
         {
           $this->session->set_userdata('username', $new_username);
           $url = base_url() . 'Profile_controller';
-          echo "<script>  alert('¡Username updated!');
+          echo json_encode(array('st' => 1,
+					 'msg' => "¡Username updated!",
+					 'url' => $url));
+          /*echo "<script>  alert('¡Username updated!');
           window.location.href='$url';
-          </script>";
+          </script>";*/
         }else
         {
-          echo "<script> alert('It is not possible to update')
-          </script>";
+          $url = base_url() . 'Profile_controller';
+          echo json_encode(array('st' => 0,
+					 'msg' => "It is not possible to update",
+					 'url' => $url));
+          /*echo "<script> alert('It is not possible to update')
+          </script>";*/
         }
       }
     }
@@ -80,7 +87,8 @@ class Profile_controller extends CI_Controller{
 
     if (!$this->form_validation->run())
     {
-      $this->index();
+      echo json_encode(array('user_name' => form_error('name')));
+      //echo '<div class="error">'.validation_errors().'</div>';
     }else
     {
       $new_name = $this->input->post('name', TRUE);
@@ -90,13 +98,20 @@ class Profile_controller extends CI_Controller{
       if($update)
       {
         $url = base_url() . 'Profile_controller/#settings';
-        echo "<script> alert('Name updated');
+        /*echo "<script> alert('Name updated');
         window.location.href='$url';
-        </script>";
+        </script>";*/
+        echo json_encode(array('st' => 1,
+         'msg' => "¡Name updated!",
+         'url' => $url));
       }else
       {
-        echo "<script> alert('It is not possible to update')
-        </script>";
+        /*echo "<script> alert('It is not possible to update')
+        </script>";*/
+        $url = base_url() . 'Profile_controller';
+        echo json_encode(array('st' => 0,
+         'msg' => "It is not possible to update",
+         'url' => $url));
       }
     }
   }
@@ -104,18 +119,21 @@ class Profile_controller extends CI_Controller{
   public function update_password()
   {
     $this->form_validation->set_rules('last_password', 'last_password', 'required|trim|htmlspecialchars');
-    $this->form_validation->set_rules('new_password', 'new_password', 'required||matches[repeat_password]|trim|min_length[8]|max_length[20]|htmlspecialchars');
+    $this->form_validation->set_rules('new_password', 'new_password', 'required|trim|min_length[8]|max_length[20]|htmlspecialchars');
     $this->form_validation->set_rules('repeat_password', 'repeat_password', 'required|trim|min_length[8]|max_length[20]|htmlspecialchars');
 
     // Error messages
     $this->form_validation->set_message('required', '*Required field');
-    $this->form_validation->set_message('matches', '*The passwords does not match');
     $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
     $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
 
     if (!$this->form_validation->run())
     {
-      $this->index();
+      //Se envian las validaciones por medio de un array codificado como json
+      echo json_encode(array('last' => form_error('last_password'),
+       'new' => form_error('new_password'),
+       'repeat' => form_error('repeat_password')));
+
     }else
     {
       $last_password = $this->input->post('last_password');
@@ -133,32 +151,27 @@ class Profile_controller extends CI_Controller{
 
           if($update)
           {
+            //Si la actualizacion resulto correcta el metodo en javascript recibe
+            //el mensaje que mostrar y la url a la cual redirigir
             $url = base_url() . 'Profile_controller/#settings';
-            echo "<script> alert('Password updated');
-            window.location.href='$url';
-            </script>";
-          }else
-          {
-            $url = base_url() . 'Profile_controller/#settings';
-            echo "<script> alert('It is not possible to update');
-            window.location.href='$url';
-            </script>";
+            echo json_encode(array('st' => 1,
+             'msg' => 'Password updated',
+             'url' => $url));
           }
-
         }else
         {
-          $url = base_url() . 'Profile_controller/#settings';
-          echo "<script> alert('The passwords does not match');
-          window.location.href='$url';
-          </script>";
+
+          echo json_encode(array('st' => 0,
+           'msg' => 'The passwords does not match'));
         }
 
       }else
       {
-
-        $url = base_url() . 'Profile_controller/#settings';
+        echo json_encode(array('st' => 0,
+         'msg' => 'Your old password is not correct'));
+        /*$url = base_url() . 'Profile_controller/#settings';
         echo "<script> alert('Your old password is not correct');
-        window.location.href = '$url'</script>";
+        window.location.href = '$url'</script>";*/
       }
     }
   }
@@ -175,11 +188,13 @@ class Profile_controller extends CI_Controller{
       //messages
       $this->form_validation->set_message('valid_email', '*Invalid email');
       $this->form_validation->set_message('is_unique', 'The %s already exists');
+      $this->form_validation->set_message('required', '*Required field');
       $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
 
       if (!$this->form_validation->run())
       {
-        $this->index();
+          echo json_encode(array('email' => form_error('email')));
+          //echo '<div class="error">'.validation_errors().'</div>';
       }else
       {
         $new_email = $this->input->post('email', TRUE);
@@ -190,13 +205,20 @@ class Profile_controller extends CI_Controller{
         {
           $this->session->set_userdata('email', $new_email);
           $url = base_url() . 'Profile_controller/#settings';
-          echo "<script> alert('Email updated');
+          /*echo "<script> alert('Email updated');
           window.location.href='$url';
-          </script>";
+          </script>";*/
+          echo json_encode(array('st' => 1,
+           'msg' => "¡Email updated!",
+           'url' => $url));
         }else
         {
-          echo "<script> alert('It is not possible to update')
-          </script>";
+          /*echo "<script> alert('It is not possible to update')
+          </script>";*/
+          $url = base_url() . 'Profile_controller';
+          echo json_encode(array('st' => 0,
+					 'msg' => "It is not possible to update",
+					 'url' => $url));
         }
       }
     }
