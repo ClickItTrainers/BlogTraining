@@ -59,8 +59,9 @@
 		}
 
 		//Update the information of the post
-		public function update_post($id_post, $title, $description, $content){
+		public function update_post($id_post,$url, $title, $description, $content){
 	    $data = array(
+				'url_post' => $url,
 	      'title' => $title,
 	      'description' => $description,
 	      'content' => $content

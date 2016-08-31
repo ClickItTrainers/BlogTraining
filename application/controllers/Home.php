@@ -110,23 +110,32 @@ class Home extends CI_Controller {
     $this->form_validation->set_message('max_length', "* The field %s can't be more than %s characters");
 
     if($this->form_validation->run() == FALSE){
-      $this->posts_details($this->input->post('url_post'));
+
+			echo json_encode(array('title' => form_error('title'),
+			 'description' => form_error('description'),
+			 'content' => form_error('content')));
 
     }else{
 
-        $url_post = $this->input->post('url_post');
+        //$url_post = $this->input->post('url_post');
 				$id_post = $this->input->post('id_post');
         $title = htmlentities($this->input->post('title'));
         $desc = htmlentities($this->input->post('description'));
         $cont = htmlentities($this->input->post('content'));
+				$url_post = url_details($this->input->post('title'));
 
-        $update = $this->Posts_model->update_post($id_post, $title, $desc, $cont);
+
+        $update = $this->Posts_model->update_post($id_post,$url_post, $title, $desc, $cont);
 
         if($update){
-          $url = 'post/' . $url_post;
+					$url = base_url().'post/' . $url_post;
+					echo json_encode(array('st' => 1,
+					 'msg' => "¡Post updated!",
+					 'url' => $url));
+          /*$url = 'post/' . $url_post;
           echo "<script> alert('¡Post updated!');
           window.location.href='$url';
-          </script>";
+          </script>";*/
         }
     }
   }
