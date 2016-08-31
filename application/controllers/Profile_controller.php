@@ -41,7 +41,7 @@ class Profile_controller extends CI_Controller{
 
       if (!$this->form_validation->run())
       {
-        echo '<div class="error">'.validation_errors().'</div>';
+        echo json_encode(array('username' => form_error('username')));
       }
       else
       {
@@ -59,13 +59,20 @@ class Profile_controller extends CI_Controller{
         {
           $this->session->set_userdata('username', $new_username);
           $url = base_url() . 'Profile_controller';
-          echo "<script>  alert('¡Username updated!');
+          echo json_encode(array('st' => 1,
+					 'msg' => "¡Username updated!",
+					 'url' => $url));
+          /*echo "<script>  alert('¡Username updated!');
           window.location.href='$url';
-          </script>";
+          </script>";*/
         }else
         {
-          echo "<script> alert('It is not possible to update')
-          </script>";
+          $url = base_url() . 'Profile_controller';
+          echo json_encode(array('st' => 0,
+					 'msg' => "It is not possible to update",
+					 'url' => $url));
+          /*echo "<script> alert('It is not possible to update')
+          </script>";*/
         }
       }
     }
@@ -80,7 +87,8 @@ class Profile_controller extends CI_Controller{
 
     if (!$this->form_validation->run())
     {
-      echo '<div class="error">'.validation_errors().'</div>';
+      echo json_encode(array('user_name' => form_error('name')));
+      //echo '<div class="error">'.validation_errors().'</div>';
     }else
     {
       $new_name = $this->input->post('name', TRUE);
@@ -90,13 +98,20 @@ class Profile_controller extends CI_Controller{
       if($update)
       {
         $url = base_url() . 'Profile_controller/#settings';
-        echo "<script> alert('Name updated');
+        /*echo "<script> alert('Name updated');
         window.location.href='$url';
-        </script>";
+        </script>";*/
+        echo json_encode(array('st' => 1,
+         'msg' => "¡Name updated!",
+         'url' => $url));
       }else
       {
-        echo "<script> alert('It is not possible to update')
-        </script>";
+        /*echo "<script> alert('It is not possible to update')
+        </script>";*/
+        $url = base_url() . 'Profile_controller';
+        echo json_encode(array('st' => 0,
+         'msg' => "It is not possible to update",
+         'url' => $url));
       }
     }
   }
@@ -178,7 +193,8 @@ class Profile_controller extends CI_Controller{
 
       if (!$this->form_validation->run())
       {
-          echo '<div class="error">'.validation_errors().'</div>';
+          echo json_encode(array('email' => form_error('email')));
+          //echo '<div class="error">'.validation_errors().'</div>';
       }else
       {
         $new_email = $this->input->post('email', TRUE);
@@ -189,13 +205,20 @@ class Profile_controller extends CI_Controller{
         {
           $this->session->set_userdata('email', $new_email);
           $url = base_url() . 'Profile_controller/#settings';
-          echo "<script> alert('Email updated');
+          /*echo "<script> alert('Email updated');
           window.location.href='$url';
-          </script>";
+          </script>";*/
+          echo json_encode(array('st' => 1,
+           'msg' => "¡Email updated!",
+           'url' => $url));
         }else
         {
-          echo "<script> alert('It is not possible to update')
-          </script>";
+          /*echo "<script> alert('It is not possible to update')
+          </script>";*/
+          $url = base_url() . 'Profile_controller';
+          echo json_encode(array('st' => 0,
+					 'msg' => "It is not possible to update",
+					 'url' => $url));
         }
       }
     }

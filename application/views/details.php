@@ -1,5 +1,6 @@
 <title><?php echo $title ?></title>
 <link href="<?php echo base_url(); ?>assets/css/details.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assets/css/sweetalert.css" rel="stylesheet">
 <!-- line modal -->
 <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -30,7 +31,7 @@
             <span class="text-danger Cont_error"></span>
 
           </div>
-        
+
           <?php echo form_hidden('id_post', $details->id_post); ?>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -177,7 +178,9 @@
     </div>
   </div> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-
+  <script type="text/javascript" src="<?php echo base_url()?>assets/js/sweetalert.js"></script>
+  <script type="text/javascript" src="<?php echo base_url()?>assets/js/sweetalert.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url()?>assets/js/sweetalert-dev.js"></script>
   <script type="text/javascript">
   $(document).ready(function(){
     //Cuando el usuario da submit al btn por el metodo post se envian los datos y se recibe
@@ -191,8 +194,16 @@
 
         if(data.st === 1)
         {
-          alert(data.msg);
+          swal({
+            title: data.msg,
+            type: "success"
+          },
+          function()
+        {
           window.location.href=data.url;
+        });
+          //swal(data.msg);
+          //setTimeout(function(){window.location.href=data.url; }, 2500);
         }
       }, 'json');
     });

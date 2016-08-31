@@ -3,6 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/showProfile.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assets/css/sweetalert.css" rel="stylesheet">
 
 <script type="text/javascript">
 function validar(e) {
@@ -32,7 +33,7 @@ function validar(e) {
           <div class="form-group">
             <label for="name">Username:</label>
             <input type="text" class="form-control" required onpaste="return false" onkeypress="return validar(event)" name="username">
-              <span class="text-danger ero"></span>
+            <span class="text-danger ero"></span>
           </div>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -285,52 +286,130 @@ function validar(e) {
 
           </div> <!-- row -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+          <script type="text/javascript" src="<?php echo base_url()?>assets/js/sweetalert.js"></script>
+          <script type="text/javascript" src="<?php echo base_url()?>assets/js/sweetalert.min.js"></script>
+          <script type="text/javascript" src="<?php echo base_url()?>assets/js/sweetalert-dev.js"></script>
+          <script type="text/javascript">
+          $(document).ready(function(){
+            //Cuando el usuario da submit al btn por el metodo post se envian los datos y se recibe
+            //la respuesta del controlador para asi mostarr las reglas si no se cumplieron
+            $('form.formUsername').on('submit', function(form){
+              form.preventDefault();
+              $.post("<?php echo base_url() ?>Profile_controller/update_username", $('form.formUsername').serialize(), function(data){
+                $('span.ero').html(data.username);
 
-<script type="text/javascript">
-$(document).ready(function(){
-  //Cuando el usuario da submit al btn por el metodo post se envian los datos y se recibe
-  //la respuesta del controlador para asi mostarr las reglas si no se cumplieron
-  $('form.formUsername').on('submit', function(form){
-    form.preventDefault();
-    $.post("<?php echo base_url() ?>Profile_controller/update_username", $('form.formUsername').serialize(), function(data){
-    $('span.ero').html(data);
-    });
-  });
 
-  $('form.formEmail').on('submit', function(form){
-    form.preventDefault();
-    $.post("<?php echo base_url() ?>Profile_controller/update_email", $('form.formEmail').serialize(), function(data){
-      $('span.Emailerror').html(data);
-    });
-  });
+                if(data.st === 0)
+                {
+                  swal({
+                    title: data.msg,
+                    type: "error"
+                  },
+                  function()
+                  {
+                    window.location.href=data.url;
+                  });
+                }else if(data.st === 1)
+                {
+                  swal({
+                    title: data.msg,
+                    type: "success"
+                  },
+                  function()
+                  {
+                    window.location.href=data.url;
+                  });
+                }
 
-  $('form.formName').on('submit', function(form){
-    form.preventDefault();
-    $.post("<?php echo base_url() ?>Profile_controller/update_name", $('form.formName').serialize(), function(data){
-      $('span.Nameerror').html(data);
-    });
-  });
+              }, 'json');
+            });
 
-  $('form.formPassword').on('submit', function(form){
-    form.preventDefault();
-    $.post("<?php echo base_url() ?>Profile_controller/update_password", $('form.formPassword').serialize(), function(data){
-      //Se imprime cada elemento del array recibido desde el controlador
-      //asignadosele a cada campo su validacion correspondiente
-      $('span.Lasterror').html(data.last);
-      $('span.Newerror').html(data.new);
-      $('span.Repeaterror').html(data.repeat);
+            $('form.formEmail').on('submit', function(form){
+              form.preventDefault();
+              $.post("<?php echo base_url() ?>Profile_controller/update_email", $('form.formEmail').serialize(), function(data){
+                $('span.Emailerror').html(data.email);
 
-      if(data.st === 0)
-      {
-        $('span.Repeaterror').html(data.msg);
-      }else if(data.st === 1)
-      {
-        alert(data.msg);
-        window.location.href=data.url;
-      }
+                if(data.st === 0)
+                {
+                  swal({
+                    title: data.msg,
+                    type: "error"
+                  },
+                  function()
+                  {
+                    window.location.href=data.url;
+                  });
+                }else if(data.st === 1)
+                {
+                  swal({
+                    title: data.msg,
+                    type: "success"
+                  },
+                  function()
+                  {
+                    window.location.href=data.url;
+                  });
+                }
 
-    }, 'json');
-  });
-});
-</script>
+              }, 'json');
+            });
+
+            $('form.formName').on('submit', function(form){
+              form.preventDefault();
+              $.post("<?php echo base_url() ?>Profile_controller/update_name", $('form.formName').serialize(), function(data){
+                $('span.Nameerror').html(data.user_name);
+
+                if(data.st === 0)
+                {
+                  swal({
+                    title: data.msg,
+                    type: "error"
+                  },
+                  function()
+                  {
+                    window.location.href=data.url;
+                  });
+                }else if(data.st === 1)
+                {
+                  swal({
+                    title: data.msg,
+                    type: "success"
+                  },
+                  function()
+                  {
+                    window.location.href=data.url;
+                  });
+                }
+
+              }, 'json');
+            });
+
+            $('form.formPassword').on('submit', function(form){
+              form.preventDefault();
+              $.post("<?php echo base_url() ?>Profile_controller/update_password", $('form.formPassword').serialize(), function(data){
+                //Se imprime cada elemento del array recibido desde el controlador
+                //asignadosele a cada campo su validacion correspondiente
+                $('span.Lasterror').html(data.last);
+                $('span.Newerror').html(data.new);
+                $('span.Repeaterror').html(data.repeat);
+
+                if(data.st === 0)
+                {
+                  $('span.Repeaterror').html(data.msg);
+                }else if(data.st === 1)
+                {
+                  swal({
+                    title: data.msg,
+                    type: "success"
+                  },
+                  function()
+                  {
+                    window.location.href=data.url;
+                  });
+                }
+
+              }, 'json');
+            });
+          });
+          </script>
