@@ -179,4 +179,24 @@ class Users_model extends CI_Model{
 		$query = $this->db->get()->result();
 		return $query;
 	}
+
+	public function getUSerData($email){
+		$this->db->select('*');
+		$this->db->from('users');
+		$this->db->where('email', $email);
+		$query = $this->db->get()->row();
+
+		if ($query) {
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	}
+
+	public function temp_password($email, $temp_pass){
+		$this->db->set('password', $temp_pass);
+		$this->db->where('email', $email);
+		$query = $this->db->update('users');
+		return $query;
+	}
 }

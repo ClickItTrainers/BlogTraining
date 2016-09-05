@@ -63,5 +63,34 @@
 				}
 	    }
 
+	    public function mail_psw($email, $temp_pass) {
+
+				$api_key = new Mailgun("key-90006bdde06d8e24c02532aa3f2767d8");
+				$domain = "sandboxd014b091eeac4ec8b218c0fe9ba75da2.mailgun.org";
+				$msg = '<html>
+							<h3> Here you can see your temporal new password </h3>
+						<body>
+							<hr>
+							<p> This is your new temporal password: <strong>' . $temp_pass . '</strong> </p>
+							<hr>
+							<p> Use it to login in your account and change your password. </p>
+							<hr>
+							<p> Click here --> <a href="http://www.blogtraining.com/Login_controller"> www.unblogtraining.tk </a> and do it! </p>
+						</body>
+						</html>';
+
+				$api_key->sendMessage($domain, array(
+											'from'		=> 'luischa04@gmail.com',
+											'to' 		=> $email,
+											'subject' 	=> 'Reset your password',
+											'html' 		=> $msg));
+
+				if ($api_key) {
+						echo "<script> alert('Check your mail!'); </script>";
+				} else {
+						echo "<script> alert('Error sending the email! Try again!'); </script>";
+				}
+	    }
+
 
 	}

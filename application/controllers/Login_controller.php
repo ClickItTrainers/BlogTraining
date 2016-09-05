@@ -225,15 +225,12 @@ class Login_controller extends CI_Controller
         }
       }
 
-
-
       public function logout(){
         $this->session->sess_destroy();
         $url = base_url().'Home';
         echo "<script> alert('See you!');
         window.location.href = '$url'; </script>";
       }
-
 
       public function registro_user(){
 
