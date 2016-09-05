@@ -1,6 +1,5 @@
 /*users*/
 .container {
-
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -12,42 +11,19 @@
 
 .border{border: 1px solid gray; border-radius: 10px; }
 
-/*.head-table{color: #fff; background-color: #293F54;}
-*/
-
 .padding-top{padding-top: 50px; padding-bottom: 30px;}
 
 .padding-bottom{margin-bottom:60px;}
 
-/*table*/
-
-/*	tbody {
-	 display: block;
-	  height: 40vh;
-	  min-height: 200px;
-	  overflow-Y:scroll;
-	}
-	tr {
-	 display: block;
-	  overflow: hidden;
-	}
-*/
-/*
-thead, tbody { display: block; }
-tbody {
-    height: 200px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}*/
-
-tbody, thead tr { display: block; }
+/*para hacer un scroll pero con auto*/
+/*tbody, thead tr { display: block; }
 
 tbody {
 	height: 40vh;
 	min-height: 200px;
 	overflow-Y:scroll;
     overflow-x: hidden;
-}
+}*/
 
 thead th {
     width: 160px;
@@ -56,6 +32,15 @@ thead th {
 tbody td {
     width: 162px;
 }
+
+.AreaTablaAdmin-scrollAdmin {
+	width: 100%;
+	height: 20.6em;
+	overflow: auto;
+	position: relative;
+}
+
+
 
 
 
