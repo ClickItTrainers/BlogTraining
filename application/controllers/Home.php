@@ -1,4 +1,4 @@
-<?php
+s<?php
 
 class Home extends CI_Controller {
 
@@ -8,6 +8,13 @@ class Home extends CI_Controller {
 		$this->load->model('Comment_model');
 		$this->load->model('getDB/Users_model');
 		$this->load->helper(array('my_date', 'details'));
+	}
+
+	public function token()
+	{
+		$token = md5(uniqid(rand(), true));
+		$this->session->set_userdata('token', $token);
+		return $token;
 	}
 
 	//Select the posts by category
@@ -77,6 +84,8 @@ class Home extends CI_Controller {
 	public function posts_details($url_post){
 		$url_clean = $this->security->xss_clean($url_post);
 		$data['details'] = $this->Posts_model->posts_details($url_clean);
+
+		if ($data['details'] != null):
 		$data['comentarios'] = $this->Posts_model->get_comments($data['details']->id_post);
 		$data['username'] = $this->Users_model->get_username($data['details']->id_post);
 		$data['category_arr'] = $this->Users_model->get_category();
@@ -88,6 +97,9 @@ class Home extends CI_Controller {
 		$times = mysqldatetime_to_timestamp($this->Comment_model->get_date());
 		$data['dates'] = timestamp_to_date($times, $datestring);
 		$this->load->view('templates/template', $data);
+	else:
+		show_404();
+	endif;
 	}
 
 	// It loads the newpost view
@@ -99,11 +111,11 @@ class Home extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function update_post(){
+	public function update_post($past_url){
 
 		$this->form_validation->set_rules('title', 'title', 'required|trim|min_length[10]|max_length[150]|htmlspecialchars|callback_characters_validation');
 		$this->form_validation->set_rules('description', 'description', 'required|trim|min_length[10]|max_length[250]|htmlspecialchars');
-		$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]');
+		$this->form_validation->set_rules('content', 'content', 'required|trim|min_length[30]|htmlspecialchars');
 		// Error messages
 		$this->form_validation->set_message('required', '*Required field');
 		$this->form_validation->set_message('min_length', '* The field %s must be at least %s characters');
@@ -118,14 +130,13 @@ class Home extends CI_Controller {
 		}else{
 
 			//$url_post = $this->input->post('url_post');
-			$id_post = $this->input->post('id_post');
-			$title = htmlentities($this->input->post('title'));
-			$desc = htmlentities($this->input->post('description'));
-			$cont = htmlentities($this->input->post('content'));
+			$title = $this->input->post('title');
+			$desc = $this->input->post('description');
+			$cont = $this->input->post('content');
 			$url_post = url_details($this->input->post('title'));
 
 
-			$update = $this->Posts_model->update_post($id_post,$url_post, $title, $desc, $cont);
+			$update = $this->Posts_model->update_post($past_url,$url_post, $title, $desc, $cont);
 
 			if($update){
 				$url = base_url().'post/' . $url_post;
@@ -192,7 +203,7 @@ class Home extends CI_Controller {
 
 		public function characters_validation($title)
 		{
-			if(preg_match('/[\W]{3}/', $title))
+			if(preg_match('/[\W]{7}/', $title))
 			{
 				$this->form_validation->set_message('characters_validation','The {field} can not accept more especial characters');
 				return FALSE;
@@ -201,12 +212,9 @@ class Home extends CI_Controller {
 			}
 		}
 
-		public function delete_comments()
+		public function delete_comments($id_comment)
 		{
 			$url_post = $this->input->post('url_post');
-			$id_comment = $this->input->post('id_comm');
-			$id_post = $this->input->post('red');
-
 			$delete = $this->Posts_model->delete_comment($id_comment);
 
 			if($delete)

@@ -33,6 +33,7 @@ class Login_controller extends CI_Controller
       $dat = array(
         'is_logued_in' => TRUE,
         'username' => $verify->username,
+        'id_user' => $verify->id_user,
         'email' => $verify->email);
         $this->session->set_userdata($dat);
         }else {
@@ -197,7 +198,8 @@ class Login_controller extends CI_Controller
             $dat = array(
               'is_logued_in' => TRUE,
               'username' => $login->username,
-              'email' => $login->email);
+              'email' => $login->email,
+              'id_user' => $login->id_user);
               $this->session->set_userdata($dat);
 
               if ($login->type == 1) {
@@ -273,7 +275,7 @@ class Login_controller extends CI_Controller
             //Probar si la contraseña se encripto
 
             if ($this->bcrypt->check_password($password, $hash) && ($this->valid_username($username) === TRUE)){
-              
+
               $insert_pass = $this->Login_model->registro($username, $email, $hash, $name, $gender);
               if ($insert_pass){
 

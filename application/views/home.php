@@ -51,7 +51,6 @@
                             <div class=" display float-right">
                                 <span> <?php echo $item->name ?> </span>
                             </div>
-
                             <img class="img-fluid down" src="/assets/img/category/<?php echo $item->name.'.jpg'?>" alt="<?php echo $item->name ?>">
 
                             <p class="word-break"><?php echo htmlentities($item->description); ?></p>

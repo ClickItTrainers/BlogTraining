@@ -111,16 +111,16 @@ $(document).ready(function(){
 					window.location.href=data.url;
 				});
 			}else if(data.st === 0)
+			{
+				swal({
+					title: data.msg,
+					type: "error"
+				},
+				function()
 				{
-					swal({
-						title: data.msg,
-						type: "error"
-					},
-					function()
-					{
-						window.location.href=data.url;
-					});
-				}
+					window.location.href=data.url;
+				});
+			}
 		}, 'json');
 	});
 
@@ -132,7 +132,7 @@ $(document).ready(function(){
 <div class="container margin-top">
 	<div class="row">
 		<div class="col-lg-8 col-md-9 col-sm-12 col-xs-12 border padding-container">
-			<form class="new_post" method="post" action="<?php echo base_url() ?>Home/insert_post">
+				<?php echo form_open(base_url().'Home/insert_post', 'class="new_post"');?>
 				<h2> <?php echo $title; ?></h2>
 				<!-- Tittle -->
 				<div class="padding-top">
@@ -172,8 +172,6 @@ $(document).ready(function(){
 						<span class="text-danger Cont_error"></span>
 					</div>
 					<input type="submit" class="btn color" name="submit" value="Send"/>
-
-				</form>
-
-			</div> <!-- col -->
-		</div> <!-- row -->
+					<?php echo form_close(); ?>
+				</div> <!-- col -->
+			</div> <!-- row -->

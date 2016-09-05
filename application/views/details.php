@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
         <!-- content goes here -->
-        <form class="form_Update" method="post" action="<?php echo base_url();?>update">
+        <?php echo form_open(base_url().'update/'. $details->url_post, 'class="form_Update"'); ?>
           <div class="form-group">
             <label for="title">Title:</label>
             <input type="text" class="form-control" value="<?php echo $details->title ?>" name="title">
@@ -31,10 +31,8 @@
             <span class="text-danger Cont_error"></span>
 
           </div>
-
-          <?php echo form_hidden('id_post', $details->id_post); ?>
           <button type="submit" class="btn btn-success">Submit</button>
-        </form>
+          <?php echo form_close(); ?>
       </div>
     </div>
   </div>
@@ -90,8 +88,8 @@
             <?php } ?>
           </div>
           <!-- Post Content -->
-          <p class="lead word-break"> <?php echo htmlentities($details->description); ?></p>
-          <p class="font-content word-break"> <?php echo htmlentities($details->content); ?> </p>
+          <p class="lead word-break"> <?php echo $details->description; ?></p>
+          <p class="font-content word-break"> <?php echo $details->content; ?> </p>
 
           <hr>
           <!-- Blog Comments -->
@@ -122,15 +120,15 @@
                   </a>
                   <div>
                     <h3 class="display-in"><?php echo $item->username; ?></h3>
-                    <?php if ($this->session->userdata('username') == $item->username || $this->session->userdata('admin') || $this->session->userdata('username') == $username ){ ?>
-                      <form action="<?php echo base_url()?>Home/delete" method="POST">
-                        <input type="hidden" name="red" value="<?php echo $details->id_post?>">
-                        <input type="hidden" name="id_comm" value="<?php echo $item->id_comment?>">
-                        <?php echo form_hidden('url_post', $details->url_post); ?>
+                    <?php if ($this->session->userdata('username') == $item->username || $this->session->userdata('admin') || $this->session->userdata('username') == $username ){
+                          echo form_open(base_url().'delete_comment/'.$item->id_comment);?>
+                          <?php echo form_hidden('url_post', $details->url_post); ?>
                         <a href="">
                           <button type="submit" class="btn btn-danger btn-sm float"><i class="fa fa-trash"> Delete</button></i>
                         </a>
-                        <?php } ?>
+                        <?php
+                        echo form_close();
+                      } ?>
                       </div>
                       <h4 class="media-heading size-font">
                         <small><?php echo $dates; ?></small>
@@ -187,7 +185,7 @@
     //la respuesta del controlador para asi mostar las reglas si no se cumplieron
     $('form.form_Update').on('submit', function(form){
       form.preventDefault();
-      $.post("<?php echo base_url();?>update", $('form.form_Update').serialize(), function(data){
+      $.post("<?php echo base_url().'update/'.$details->url_post?>", $('form.form_Update').serialize(), function(data){
         $('span.Title_error').html(data.title);
         $('span.Desc_error').html(data.description);
         $('span.Cont_error').html(data.content);

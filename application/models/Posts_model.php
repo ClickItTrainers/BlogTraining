@@ -59,14 +59,14 @@
 		}
 
 		//Update the information of the post
-		public function update_post($id_post,$url, $title, $description, $content){
+		public function update_post($past_url ,$url, $title, $description, $content){
 	    $data = array(
 				'url_post' => $url,
 	      'title' => $title,
 	      'description' => $description,
 	      'content' => $content
 	    );
-	    $this->db->where('id_post', $id_post);
+	    $this->db->where('url_post', $past_url);
 	    return $this->db->update('posts', $data);
 	    }
 
