@@ -161,7 +161,7 @@ class Profile_controller extends CI_Controller{
         }else
         {
 
-          echo json_encode(array('st' => 0,
+          echo json_encode(array('st' => 2,
            'msg' => 'The passwords does not match'));
         }
 

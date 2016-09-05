@@ -238,7 +238,7 @@ class Login_controller extends CI_Controller
 
           // Validation rules
           $this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|max_length[40]|htmlspecialchars|is_unique[users.email]');
-          $this->form_validation->set_rules('username', 'username', 'required|alpha|trim|max_length[20]|htmlspecialchars|is_unique[users.username]');
+          $this->form_validation->set_rules('username', 'username', 'required|alpha_dash|trim|max_length[20]|htmlspecialchars|is_unique[users.username]');
           $this->form_validation->set_rules('password', 'password', 'required|trim|min_length[8]|max_length[20]|htmlspecialchars');
           $this->form_validation->set_rules('name', 'name', 'required|trim|htmlspecialchars');
           $this->form_validation->set_rules('gender', 'gender', 'required|trim|htmlspecialchars');

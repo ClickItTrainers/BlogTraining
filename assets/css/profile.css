@@ -48,7 +48,7 @@ div .post-user legend{margin-bottom: 0;}
 
 div .container-style legend{height: 40px;}
 
-.container-style{background-color: white; border: 1px solid rgba(0,0,0,.2); border-radius:5px; display: flex; flex-wrap: wrap; justify-content: flex-start; min-height: 425px;}
+.container-style{background-color: white; border: 1px solid rgba(0,0,0,.2); border-radius:5px; display: flex; flex-wrap: wrap; justify-content: flex-start; min-height: 630px;}
 
 .description{font-size: 20px; padding: 10px 30px 0 10px;}
 
@@ -60,6 +60,37 @@ div .caption h3 a{color: #577AA6; font-family: 'Patua One', cursive; text-decora
 
 .position-delete{position: absolute; bottom: 0; right: 20%;}
 
+.scroll{
+  width: 100%;
+  height: 630px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+
+.scroll::-webkit-scrollbar {
+      width: 14px; background-color: #f1f1f1;
+      border-radius: 200px;
+}
+
+.scroll::-webkit-scrollbar-track {
+      background-color: white;
+} 
+
+.scroll::-webkit-scrollbar-thumb {
+      background-color: #efebeb;
+}
+
+/*F1F1F1  C1C1C1
+
+::-webkit-scrollbar-corner {
+      background-color: black;
+}
+
+body {
+    scrollbar-face-color: #F1F1F1;
+}*/
+  
 /*setting*/
 .settings{ background-color:white; margin: 0 auto; border-radius:5px; display:none; border: 1px solid rgba(0,0,0,.2);  }
 
@@ -83,14 +114,31 @@ div .form-group button.color:hover{background-color: #577AA6;}
 
 .color:hover .fa-pencil-square-o{color: white;}
 
-
+div .display-inline button{background-color: #D9534F; font-size: 14px;}
 
 
 /*modal style*/
-div .modal-header h3#lineModalLabel{color: #577AA6; font-family: 'Patua One', cursive; font-size: 26px;}
+div .modal-header h3#lineModalLabel{color: #526379; font-family: 'Patua One', cursive; font-size: 23px;}
 
+div .modal-header span{font-size: 14px;}
 
+div .modal-content{margin-top: 130px;}
 
+div .top-password{margin-top: 40px;}
+
+div .modal-header{padding-bottom: 0; text-align: center;}
+
+div .modal-header i.icon-close{font-size: 25px; color: black;}
+
+div .modal-body label{color:gray; margin-bottom: 2px;}
+
+div .modal-body button{background-color: #428442; padding: 6px 8px; font-size: 15px;}
+
+.input-group{margin-bottom: 8px;}
+
+/*modal message eror*/
+.style-span{font-size: 13px; text-align: left; margin-bottom: 2px;}
+ 
 
 
 /*input setting*/
@@ -116,11 +164,19 @@ div .modal-header h3#lineModalLabel{color: #577AA6; font-family: 'Patua One', cu
   div .options li{padding: 10px 5px;}
 
   div .form-group button{display: inline-block;}
+
+  .scroll{overflow: hidden; height: 100%}
 }
 
 @media screen and (max-width:550px)
 {
   div .row .size-profile{height:100px;}
+
+  div .modal-content{margin-top: 80px;}
+
+  div .top-password{margin-top: 20px;}
+
+  div .modal-header h3{font-size: 15px;}
 }
 
 @media screen and (max-width:325px)
