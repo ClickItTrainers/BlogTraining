@@ -9,12 +9,11 @@
     margin: 0 auto;
 }
 
-.border{border: 1px solid gray; border-radius: 10px; }
-
 .padding-top{padding-top: 50px; padding-bottom: 30px;}
 
 .padding-bottom{margin-bottom:60px;}
 
+.display{display: inline-block;}
 /*para hacer un scroll pero con auto*/
 /*tbody, thead tr { display: block; }
 
@@ -40,10 +39,50 @@ tbody td {
 	position: relative;
 }
 
+/*search filter*/
+.filterable .filters input[disabled] { background-color: transparent; border: none; cursor: auto; box-shadow: none; padding: 0; height: auto;}
+
+.filterable .filters input[disabled]::-webkit-input-placeholder {color: #333;}
+
+.filterable .filters input[disabled]::-moz-placeholder {color: #333;}
+
+.filterable .filters input[disabled]:-ms-input-placeholder {color: #333;}
+
+/*design table*/
+.custab{border: 1px solid #ccc; padding: 5px; margin:0 0; box-shadow: 3px 3px 2px #ccc; transition: 0.5s;}
+
+.custab:hover{box-shadow: 3px 3px 0px transparent; transition: 0.5s;}
+
+.panel-heading{border-top: 1px solid #CCCCCC; padding: 6px 25px; }
+
+div .panel-heading i {font-size: 18px;}
+
+div .panel-heading h3{font-size: 20px; }
+
+div .panel-heading .btn{padding: 4px 15px; background-color: #eaedef;  border: 1px solid #CCCCCC;}
+
+div .panel-heading .btn:hover{ background-color: #d2d9de }
 
 
+/*table media*/
 
+@media screen and (max-width: 768px)
+{
+	div .custab input.form-control{width: 92px;}
+}
 
+@media screen and (max-width: 567px)
+{
+	div .panel-heading h3{font-size: 15px; }
 
+	div .panel-heading i {font-size: 13px;}
 
+	div .panel-heading .btn{padding: 2px 7px; font-size: 15px;}
 
+	div .custab input.form-control{font-size: 14px; height: 30px;}
+	
+	tbody td{font-size: 13px;}
+
+	div.container{padding:0 6px;}
+
+}
