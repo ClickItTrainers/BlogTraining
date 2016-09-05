@@ -10,13 +10,6 @@ class Home extends CI_Controller {
 		$this->load->helper(array('my_date', 'details'));
 	}
 
-	public function token()
-	{
-		$token = md5(uniqid(rand(), true));
-		$this->session->set_userdata('token', $token);
-		return $token;
-	}
-
 	//Select the posts by category
 	public function select_bycategory($category){
 		$data['By_category'] = $this->Posts_model->get_post_category($category);
@@ -83,7 +76,7 @@ class Home extends CI_Controller {
 		$url_clean = $this->security->xss_clean($url_post);
 		$data['details'] = $this->Posts_model->posts_details($url_clean);
 
-		if ($data['details'] != null):
+		if ($data['details'] != null){
 		$data['comentarios'] = $this->Posts_model->get_comments($data['details']->id_post);
 		$data['username'] = $this->Users_model->get_username($data['details']->id_post);
 		$data['category_arr'] = $this->Users_model->get_category();
@@ -95,9 +88,9 @@ class Home extends CI_Controller {
 		$times = mysqldatetime_to_timestamp($this->Comment_model->get_date());
 		$data['dates'] = timestamp_to_date($times, $datestring);
 		$this->load->view('templates/template', $data);
-	else:
+	}else{
 		show_404();
-	endif;
+	}
 	}
 
 	// It loads the newpost view
@@ -120,10 +113,10 @@ class Home extends CI_Controller {
 		$this->form_validation->set_message('max_length', "* The field %s can't be more than %s characters");
 
 		if($this->form_validation->run() == FALSE){
-
-			echo json_encode(array('title' => form_error('title'),
+			$this->posts_details($past_url);
+			/*echo json_encode(array('title' => form_error('title'),
 			'description' => form_error('description'),
-			'content' => form_error('content')));
+			'content' => form_error('content')));*/
 
 		}else{
 
@@ -137,14 +130,14 @@ class Home extends CI_Controller {
 			$update = $this->Posts_model->update_post($past_url,$url_post, $title, $desc, $cont);
 
 			if($update){
-				$url = base_url().'post/' . $url_post;
+				/*$url = base_url().'post/' . $url_post;
 				echo json_encode(array('st' => 1,
 				'msg' => "¡Post updated!",
-				'url' => $url));
-				/*$url = 'post/' . $url_post;
+				'url' => $url));*/
+				$url = 'post/' . $url_post;
 				echo "<script> alert('¡Post updated!');
 				window.location.href='$url';
-				</script>";*/
+				</script>";
 			}
 		}
 	}
@@ -161,12 +154,13 @@ class Home extends CI_Controller {
 		$this->form_validation->set_message('max_length', "* The field %s can't be more than %s characters");
 
 		if($this->form_validation->run() == FALSE){
-			echo json_encode(array(
+			$this->new_post();
+			/*echo json_encode(array(
 				'title' => form_error('title'),
 				'description' => form_error('description'),
 				'category' => form_error('category'),
 				'content' => form_error('content')
-			));
+			));*/
 		}else{
 
 
@@ -183,17 +177,15 @@ class Home extends CI_Controller {
 				if($insert)
 				{
 
-					echo json_encode(array(
-						'st' => 1,
-						'msg' => "¡Your post has been saved!",
-						'url' => base_url()
-					));
+					$url = base_url();
+					echo "<script> alert ('Saved!');
+					window.location.href = '$url';
+					</script>";
 				}else {
-					echo json_encode(array(
-						'st' => 0,
-						'msg' => "¡Sorry we have problems!",
-						'url' => base_url()
-					));
+					$url = base_url();
+					echo "<script> alert ('Sorry, we have problems!');
+					window.location.href = '$url';
+					</script>";
 				}
 			}
 
@@ -201,7 +193,7 @@ class Home extends CI_Controller {
 
 		public function characters_validation($title)
 		{
-			if(preg_match('/[\W]{4}/', $title))
+			if(preg_match('/[\W]{3}/', $title))
 			{
 				$this->form_validation->set_message('characters_validation','The {field} can not accept more especial characters');
 				return FALSE;

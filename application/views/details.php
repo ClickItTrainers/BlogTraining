@@ -18,17 +18,17 @@
           <div class="form-group">
             <label for="title">Title:</label>
             <input type="text" class="form-control" value="<?php echo $details->title ?>" name="title">
-            <span class="text-danger Title_error"></span>
+            <span class="text-danger Title_error"><?php echo form_error('title') ?></span>
           </div>
           <div class="form-group">
             <label for="description">Description:</label>
             <input type="texts" class="form-control" value="<?php echo $details->description ?>" name="description">
-            <span class="text-danger Desc_error"></span>
+            <span class="text-danger Desc_error"><?php echo form_error('description') ?></span>
           </div>
           <div class="form-group">
             <label for="content">Content:</label>
             <textarea class="form-control" rows="8" name="content" style="resize: none;"><?php echo $details->content ?></textarea>
-            <span class="text-danger Cont_error"></span>
+            <span class="text-danger Cont_error"><?php echo form_error('content') ?></span>
 
           </div>
           <button type="submit" class="btn btn-success">Submit</button>
@@ -180,7 +180,7 @@
   <script type="text/javascript" src="<?php echo base_url()?>assets/js/sweetalert.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url()?>assets/js/sweetalert-dev.js"></script>
   <script type="text/javascript">
-  $(document).ready(function(){
+  /*$(document).ready(function(){
     //Cuando el usuario da submit al btn por el metodo post se envian los datos y se recibe
     //la respuesta del controlador para asi mostar las reglas si no se cumplieron
     $('form.form_Update').on('submit', function(form){
@@ -205,6 +205,6 @@
         }
       }, 'json');
     });
-  });
+  });*/
   </script>
 </div>
