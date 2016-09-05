@@ -163,9 +163,9 @@ class Users_model extends CI_Model{
 		return $query->row();
 	}
 
-	public function getother_userinfo($id_user)
+	public function getother_userinfo($username)
 	{
-		$this->db->where('id_user', $id_user);
+		$this->db->where('username', $username);
 		$query = $this->db->get('users');
 
 		return $query->row();

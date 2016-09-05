@@ -28,14 +28,8 @@
                             <?php echo anchor($url, $item->title) ?>
                         </h2>
                         <p class="lead display-inline size-small">
-                            by <a href="<?php echo base_url()?>profile/user/<?php echo $item->id_user; ?>">
-                              <?php
-                                foreach ($users_arr as $key) {
-                                    if ($item->id_user == $key->id_user){
-                                        echo $key->username;
-                                    }
-                                }
-                                ?>
+                            by <a href="<?php echo base_url()?>profile/user/<?php echo $item->username ?>">
+                            <?php echo $item->username; ?>
                                 </a>
                         </p>
                         <p class="display-inline size-small"><i class="fa fa-clock-o"></i> <?php echo $date ?></p>

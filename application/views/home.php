@@ -35,14 +35,8 @@
                                 <?php echo anchor($url, htmlentities($item->title)) ?>
                             </h2>
                             <p class="lead display-inline size-small">
-                                by <a class="word-break" href="profile/user/<?php echo $item->id_user; ?>">
-                                    <?php
-                                    foreach ($users_arr as $key) {
-                                        if ($item->id_user == $key->id_user){
-                                            echo $key->username;
-                                        }
-                                    }
-                                    ?>
+                                by <a class="word-break" href="profile/user/<?php echo $item->username; ?>">
+                                    <?php echo $item->username; ?>
                                     </a>
                             </p>
                             <p class="display-inline size-small"><i class="fa fa-clock-o"></i> <?php echo $date ?></p>
@@ -51,7 +45,6 @@
                             <div class=" display float-right">
                                 <span> <?php echo $item->name ?> </span>
                             </div>
-
                             <img class="img-fluid down" src="/assets/img/category/<?php echo $item->name.'.jpg'?>" alt="<?php echo $item->name ?>">
 
                             <p class="word-break"><?php echo htmlentities($item->description); ?></p>

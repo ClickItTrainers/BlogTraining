@@ -292,6 +292,7 @@ function validar(e) {
           <script type="text/javascript" src="<?php echo base_url()?>assets/js/sweetalert-dev.js"></script>
           <script type="text/javascript">
           $(document).ready(function(){
+            var url = '<?php echo base_url()?>Profile_controller';
             //Cuando el usuario da submit al btn por el metodo post se envian los datos y se recibe
             //la respuesta del controlador para asi mostarr las reglas si no se cumplieron
             $('form.formUsername').on('submit', function(form){
@@ -360,26 +361,29 @@ function validar(e) {
               $.post("<?php echo base_url() ?>Profile_controller/update_name", $('form.formName').serialize(), function(data){
                 $('span.Nameerror').html(data.user_name);
 
-                if(data.st === 0)
+                if(data.st == 0)
                 {
                   swal({
                     title: data.msg,
                     type: "error"
-                  },
+                  /*},
                   function()
                   {
-                    window.location.href=data.url;
+                    window.location.href=url;*/
+
                   });
-                }else if(data.st === 1)
+                }else if(data.st == 1)
                 {
                   swal({
                     title: data.msg,
                     type: "success"
-                  },
-                  function()
-                  {
-                    window.location.href=data.url;
+                    /*},
+                    function()
+                    {
+                      window.location.href=url;*/
+
                   });
+                  window.setTimeout(url, 2000);
                 }
 
               }, 'json');

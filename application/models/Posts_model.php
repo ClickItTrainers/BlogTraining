@@ -9,10 +9,12 @@
 
 		// Sends a list of the posts in Home page
 		public function posts_list($init = false, $limit = false){
-			$this->db->select('p.*, c.name');
-			$this->db->from('posts p');
-			$this->db->join('categories c', 'p.id_category = c.id_category');
+			$this->db->select('p.*, c.name, u.username');
+			$this->db->from('posts p, categories c, users u');
+			$this->db->where('p.id_category = c.id_category');
+			$this->db->where('u.id_user=p.id_user');
 			$this->db->order_by('id_post', 'desc');
+
 			if($init!== false && $limit !== false)
 			{
 				$this->db->limit($limit, $init);
@@ -22,11 +24,12 @@
 		}
 
 		//Gets the post of the same category
-		public function get_post_category($id_category){
-			$this->db->select('p.*, c.name');
-			$this->db->from('posts p');
-			$this->db->join('categories c', 'p.id_category = c.id_category');
-			$this->db->where('c.id_category', $id_category);
+		public function get_post_category($category){
+			$this->db->select('p.*, c.name, u.username');
+			$this->db->from('posts p, categories c, users u');
+			$this->db->where('p.id_category = c.id_category');
+			$this->db->where('p.id_user=u.id_user');
+			$this->db->where('c.name', $category);
 			$this->db->order_by('id_post', 'desc');
 			$res = $this->db->get();
 
@@ -59,14 +62,14 @@
 		}
 
 		//Update the information of the post
-		public function update_post($id_post,$url, $title, $description, $content){
+		public function update_post($past_url ,$url, $title, $description, $content){
 	    $data = array(
 				'url_post' => $url,
 	      'title' => $title,
 	      'description' => $description,
 	      'content' => $content
 	    );
-	    $this->db->where('id_post', $id_post);
+	    $this->db->where('url_post', $past_url);
 	    return $this->db->update('posts', $data);
 	    }
 
@@ -86,12 +89,12 @@
         }
 
         // Sends a list of the posts of the user
-		public function posts_list_user($id_user){
+		public function posts_list_user($username){
 			$this->db->select('*', 'c.name');
 			$this->db->from('posts p');
 			$this->db->join('users u', 'p.id_user = u.id_user');
 			$this->db->join('categories c', 'p.id_category = c.id_category');
-			$this->db->where('p.id_user', $id_user);
+			$this->db->where('u.username', $username);
 			$this->db->order_by('id_post', 'desc');
 			return $this->db->get()->result();
 		}
@@ -113,9 +116,10 @@
 
 		//
 		public function search_posts($q){
-			$this->db->select('p.*, c.name');
-			$this->db->from('posts p');
-			$this->db->join('categories c', 'p.id_category = c.id_category');
+			$this->db->select('p.*, c.name, u.username');
+			$this->db->from('posts p, categories c, users u');
+			$this->db->where('p.id_category = c.id_category');
+			$this->db->where('u.id_user=p.id_user');
 			$this->db->like('title', $q, 'both');
 			$this->db->order_by('id_post', 'desc');
 			return $this->db->get()->result();

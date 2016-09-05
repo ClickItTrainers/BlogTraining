@@ -57,7 +57,7 @@
                             <ul class="list-unstyled">
                                     <?php foreach ($category_arr as $item){ ?>
                                         <li>
-                                            <a href="<?php echo base_url()?>posts/by_category/<?php echo $item->id_category;?>"> <?php echo $item->name ?> </a>
+                                            <a href="<?php echo base_url()?>posts/by_category/<?php echo $item->name;?>"> <?php echo $item->name ?> </a>
                                         </li>
                                     <?php } ?>
                             </ul>

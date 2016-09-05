@@ -14,27 +14,25 @@
       </div>
       <div class="modal-body">
         <!-- content goes here -->
-        <form class="form_Update" method="post" action="<?php echo base_url();?>update">
+        <?php echo form_open(base_url().'update/'. $details->url_post, 'class="form_Update"'); ?>
           <div class="form-group">
             <label for="title">Title:</label>
             <input type="text" class="form-control" value="<?php echo $details->title ?>" name="title">
-            <span class="text-danger Title_error"></span>
+            <span class="text-danger Title_error"><?php echo form_error('title') ?></span>
           </div>
           <div class="form-group">
             <label for="description">Description:</label>
             <input type="texts" class="form-control" value="<?php echo $details->description ?>" name="description">
-            <span class="text-danger Desc_error"></span>
+            <span class="text-danger Desc_error"><?php echo form_error('description') ?></span>
           </div>
           <div class="form-group">
             <label for="content">Content:</label>
             <textarea class="form-control" rows="8" name="content" style="resize: none;"><?php echo $details->content ?></textarea>
-            <span class="text-danger Cont_error"></span>
+            <span class="text-danger Cont_error"><?php echo form_error('content') ?></span>
 
           </div>
-
-          <?php echo form_hidden('id_post', $details->id_post); ?>
           <button type="submit" class="btn btn-success">Submit</button>
-        </form>
+          <?php echo form_close(); ?>
       </div>
     </div>
   </div>
@@ -53,7 +51,7 @@
           <h1 class="word-break "> <?php echo htmlentities($details->title); ?> </h1>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 absolute-author absolute word-break ">
-          <a href="<?php echo base_url()?>profile/user/<?php echo $details->id_user; ?>">
+          <a href="<?php echo base_url().'profile/user/'.$username; ?>">
 
             <img class="img-fluid display-in media-object size-img-main" src="/assets/img/profile-blog.jpg" alt="img-profile"/>
             <span><?php echo $username; ?></span>
@@ -80,7 +78,7 @@
               </button>
             </div>
             <form method="post"  class="display-in" action="<?php echo base_url();?>Profile_controller/delete_post">
-              <?php echo form_hidden('id_post', $details->id_post); ?>
+              <?php //echo form_hidden('id_post', $details->id_post); ?>
               <div class="center display-in">
                 <button class="btn btn-danger ">
                   <i class="fa fa-trash"> Delete Post</i>
@@ -90,8 +88,8 @@
             <?php } ?>
           </div>
           <!-- Post Content -->
-          <p class="lead word-break"> <?php echo htmlentities($details->description); ?></p>
-          <p class="font-content word-break"> <?php echo htmlentities($details->content); ?> </p>
+          <p class="lead word-break"> <?php echo $details->description; ?></p>
+          <p class="font-content word-break"> <?php echo $details->content; ?> </p>
 
           <hr>
           <!-- Blog Comments -->
@@ -100,14 +98,14 @@
             <!-- Comments Form -->
             <div class="well">
               <h4><i class="fa fa-commenting-o"></i>Leave a Comment:</h4>
-              <form role="form" action="<?php echo base_url(); ?>Mailgun_controller/comment" method="post">
+                <?php echo form_open(base_url().'Mailgun_controller/comment', 'class="form_comment"'); ?>
                 <div class="form-group">
                   <textarea maxlength="255" name="comment" class="form-control" rows="3" style="resize: none;"></textarea>
                 </div>
-                <?php echo form_hidden('id_post', $details->id_post) ?>
                 <?php echo form_hidden('url_post', $details->url_post); ?>
                 <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+
+              <?php echo form_close(); ?>
             </div>
 
             <?php } ?>
@@ -122,15 +120,15 @@
                   </a>
                   <div>
                     <h3 class="display-in"><?php echo $item->username; ?></h3>
-                    <?php if ($this->session->userdata('username') == $item->username || $this->session->userdata('admin') || $this->session->userdata('username') == $username ){ ?>
-                      <form action="<?php echo base_url()?>Home/delete" method="POST">
-                        <input type="hidden" name="red" value="<?php echo $details->id_post?>">
-                        <input type="hidden" name="id_comm" value="<?php echo $item->id_comment?>">
-                        <?php echo form_hidden('url_post', $details->url_post); ?>
+                    <?php if ($this->session->userdata('username') == $item->username || $this->session->userdata('admin') || $this->session->userdata('username') == $username ){
+                          echo form_open(base_url().'delete_comment/'.$item->id_comment);?>
+                          <?php echo form_hidden('url_post', $details->url_post); ?>
                         <a href="">
                           <button type="submit" class="btn btn-danger btn-sm float"><i class="fa fa-trash"> Delete</button></i>
                         </a>
-                        <?php } ?>
+                        <?php
+                        echo form_close();
+                      } ?>
                       </div>
                       <h4 class="media-heading size-font">
                         <small><?php echo $dates; ?></small>
@@ -182,12 +180,12 @@
   <script type="text/javascript" src="<?php echo base_url()?>assets/js/sweetalert.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url()?>assets/js/sweetalert-dev.js"></script>
   <script type="text/javascript">
-  $(document).ready(function(){
+  /*$(document).ready(function(){
     //Cuando el usuario da submit al btn por el metodo post se envian los datos y se recibe
     //la respuesta del controlador para asi mostar las reglas si no se cumplieron
     $('form.form_Update').on('submit', function(form){
       form.preventDefault();
-      $.post("<?php echo base_url();?>update", $('form.form_Update').serialize(), function(data){
+      $.post("<?php echo base_url().'update/'.$details->url_post?>", $('form.form_Update').serialize(), function(data){
         $('span.Title_error').html(data.title);
         $('span.Desc_error').html(data.description);
         $('span.Cont_error').html(data.content);
@@ -207,6 +205,6 @@
         }
       }, 'json');
     });
-  });
+  });*/
   </script>
 </div>
