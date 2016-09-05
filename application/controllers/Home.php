@@ -16,9 +16,13 @@ class Home extends CI_Controller {
 		$data['title'] = "Posts by category";
 		$datestring = 'l, F d, o - h:i A';
 		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
+		$data['category_arr'] = $this->Users_model->get_category();
 		$data['page'] = 'by_category';
 		$data['date'] = timestamp_to_date($time, $datestring);
 		$this->load->view('templates/template', $data);
+		// $this->load->view('templates/header', $data);
+		// $this->load->view('templates/sidebar', $data);
+		// $this->load->view('templates/footer', $data);
 	}
 
 	// It loads the Home page view

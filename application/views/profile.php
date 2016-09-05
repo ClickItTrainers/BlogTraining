@@ -22,18 +22,23 @@ function validar(e) {
     <div class="modal-content col-lg-10 col-md-11 col-sm-11 col-xs-12 ">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">
-          <span aria-hidden="true">×</span>
+          <span aria-hidden="true"><i class="fa fa-times-circle-o color-blue icon-close"></i></span>
           <span class="sr-only">Close</span>
         </button>
+        <h3><i class="fa fa-user fa-4x"></i></h3>
         <h3 class="" id="lineModalLabel">Update Username</h3>
+        <p>change your username here!</p>
       </div>
       <div class="modal-body">
         <!-- content goes here -->
         <form class="formUsername" method="post" action="<?php echo base_url() ?>Profile_controller/update_username">
           <div class="form-group">
             <label for="name">Username:</label>
-            <input type="text" class="form-control" required onpaste="return false" onkeypress="return validar(event)" name="username">
-            <span class="text-danger ero"></span>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user color-blue"></i></span>
+              <input type="text" class="form-control" required onpaste="return false" onkeypress="return validar(event)" name="username">
+            </div>
+            <span class="text-danger ero style-span"></span>
           </div>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -48,18 +53,23 @@ function validar(e) {
     <div class="modal-content col-lg-10 col-md-11 col-sm-11 col-xs-12 ">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">
-          <span aria-hidden="true">×</span>
+          <span aria-hidden="true"><i class="fa fa-times-circle-o color-blue icon-close"></i></span>
           <span class="sr-only">Close</span>
         </button>
+         <h3><i class="fa fa-envelope-o fa-4x"></i></h3>
         <h3 class="" id="lineModalLabel">Update Email</h3>
+        <p>change your email here!</p>
       </div>
       <div class="modal-body">
         <!-- content goes here -->
         <form class="formEmail" method="post" action="<?php echo base_url() ?>Profile_controller/update_email">
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" class="form-control" value="<?php echo set_value('email'); ?>" required onpaste="return false" onkeypress="return validar(event)" name="email">
-            <span class="text-danger Emailerror"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope-o  color-blue"></i></span>
+                <input type="email" class="form-control" value="<?php echo set_value('email'); ?>" required onpaste="return false" onkeypress="return validar(event)" name="email">
+            </div>
+            <span class="text-danger Emailerror style-span"></span>
           </div>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -74,18 +84,23 @@ function validar(e) {
     <div class="modal-content col-lg-10 col-md-11 col-sm-11 col-xs-12 ">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">
-          <span aria-hidden="true">×</span>
+          <span aria-hidden="true"><i class="fa fa-times-circle-o color-blue icon-close"></i></span>
           <span class="sr-only">Close</span>
         </button>
+        <h3><i class="fa fa-user fa-4x"></i></h3>
         <h3 class="" id="lineModalLabel">Update Name</h3>
+         <p>change your name here!</p>
       </div>
       <div class="modal-body">
         <!-- content goes here -->
         <form class="formName" method="post" action="<?php echo base_url() ?>Profile_controller/update_name">
           <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" value="" required onpaste="return false" onkeypress="return validar(event)" name="name">
-            <span class="text-danger Nameerror"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user  color-blue"></i></span>
+               <input type="text" class="form-control" value="" required onpaste="return false" onkeypress="return validar(event)" name="name">
+            </div>
+            <span class="text-danger Nameerror style-span"></span>
           </div>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -97,27 +112,38 @@ function validar(e) {
 <!-- line modal password  -->
 <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content col-lg-10 col-md-11 col-sm-11 col-xs-12 ">
+    <div class="modal-content top-password col-lg-10 col-md-11 col-sm-11 col-xs-12 ">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">
-          <span aria-hidden="true">×</span>
+          <span aria-hidden="true"><i class="fa fa-times-circle-o color-blue icon-close"></i></span>
           <span class="sr-only">Close</span>
         </button>
+        <h5><i class="fa fa-key fa-4x"></i></h5>
         <h3 class="" id="lineModalLabel">Update Password</h3>
+       <span>change your password here!</span>
       </div>
       <div class="modal-body">
         <!-- content goes here -->
         <form class="formPassword" method="post" action="<?php echo base_url() ?>Profile_controller/update_password">
           <div class="form-group">
             <label for="last_password">Last Password:</label>
-            <input type="password" class="form-control" value=""  onpaste="return false" onkeypress="return validar(event)" name="last_password">
-            <span class="text-danger Lasterror"></span>
+             <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key  color-blue"></i></span>
+                <input type="password" class="form-control" value=""  onpaste="return false" onkeypress="return validar(event)" name="last_password">
+            </div>
+            <span class="text-danger Lasterror style-span"></span>
             <label for="new_password">New Password:</label>
-            <input type="password" class="form-control" value=""  onpaste="return false" onkeypress="return validar(event)" name="new_password">
-            <span class="text-danger Newerror"></span>
+             <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key  color-blue"></i></span>
+                <input type="password" class="form-control" value=""  onpaste="return false" onkeypress="return validar(event)" name="new_password">
+            </div>
+            <span class="text-danger Newerror style-span"></span>
             <label for="repeat_password">Repeat Password:</label>
-            <input type="password" class="form-control" value=""  onpaste="return false" onkeypress="return validar(event)" name="repeat_password">
-            <span class="text-danger Repeaterror"></span>
+             <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key  color-blue"></i></span>
+                <input type="password" class="form-control" value=""  onpaste="return false" onkeypress="return validar(event)" name="repeat_password">
+            </div>
+            <span class="text-danger Repeaterror style-span"></span>
           </div>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
@@ -173,17 +199,19 @@ function validar(e) {
           <!-- 	col -->
           <div class="col-lg-11 col-md-10 col-sm-10 col-xs-12 col-center margin-container">
             <!-- Overview -->
-            <div id="overview" class="container-style">
+            <div id="overview" class="container-style scroll">
+              
               <!-- Form Name -->
               <legend class="post-user">Posts of <?php echo $user; ?></legend>
-
+            
+            
               <?php foreach ($posts as $my_posts):
                 $mostrar = substr($my_posts->description, 0,65);
                 $mostrarTitle = substr($my_posts->title, 0,55);
                 $url = 'post/' . $my_posts->url_post;;?>
                 <div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 post relative">
                   <!-- img -->
-                  <img class="img-fluid down" src="/assets/img/category/<?php echo $my_posts->name.'.jpg'?>" alt="<?php echo $my_posts->name ?>">
+                  <img class="img-fluid " src="/assets/img/category/<?php echo $my_posts->name.'.jpg'?>" alt="<?php echo $my_posts->name ?>">
                   <!-- description -->
                   <div class="caption">
                     <h3 class="description word-break">
@@ -208,6 +236,7 @@ function validar(e) {
                   <?php endif ?>
                 </div>
               <?php endforeach; ?>
+           
             </div> <!-- overview -->
             <?php if ($this->session->userdata('username') === $user){ ?>
               <!-- Account Settings -->
@@ -400,7 +429,12 @@ function validar(e) {
 
                 if(data.st === 0)
                 {
+                  $('span.Lasterror').html(data.msg);
+
+                }else if(data.st === 2)
+                {
                   $('span.Repeaterror').html(data.msg);
+
                 }else if(data.st === 1)
                 {
                   swal({
