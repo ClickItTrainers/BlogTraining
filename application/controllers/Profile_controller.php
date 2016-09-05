@@ -224,12 +224,12 @@ class Profile_controller extends CI_Controller{
     }
   }
 
-  public function user_profile($id_user){
-    $user = $this->Users_model->get_username_iduser($id_user);
-    $data['posts'] = $this->Posts_model->posts_list_user($id_user);
-    $data['user_info'] = $this->Users_model->getother_userinfo($id_user);
-    $data['title'] = "$user profile";
-    $data['user'] = $user;
+  public function user_profile($username){
+    //$user = $this->Users_model->get_username_iduser($id_user);
+    $data['posts'] = $this->Posts_model->posts_list_user($username);
+    $data['user_info'] = $this->Users_model->getother_userinfo($username);
+    $data['title'] = "$username profile";
+    $data['user'] = $username;
     $this->load->view('templates/header', $data);
     $this->load->view('profile', $data);
     $this->load->view('templates/footer', $data);

@@ -48,7 +48,7 @@ class Home extends CI_Controller {
 		$config['full_tag_close'] = '</p>';
 		$this->pagination->initialize($config);
 
-		$data['users_arr'] = $this->Posts_model->users_list();
+		//$data['users_arr'] = $this->Posts_model->users_list();
 		$datestring = 'l, F d, o - h:i A';
 		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
 		$data['date'] = timestamp_to_date($time, $datestring);

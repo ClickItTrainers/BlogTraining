@@ -7,7 +7,7 @@ class Mailgun_controller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Comment_model');
-		$this->load->model('getDB/Users_model');
+		$this->load->model(array('getDB/Users_model', 'Posts_model'));
 		$this->load->library('My_mailgun');
 	}
 
@@ -25,21 +25,20 @@ class Mailgun_controller extends CI_Controller {
 		}
 		else
 		{
-			$id_post = $this->input->post('id_post');
+			$data = $this->Posts_model->posts_details($this->input->post('url_post'));
 			$id_user = $this->Users_model->get_userID();
 			$comment = $this->input->post('comment');
-			$url_post = $this->input->post('url_post');
-			$query = $this->Comment_model->insert_comment($id_post, $id_user, $comment);
+			$query = $this->Comment_model->insert_comment($data->id_post, $id_user, $comment);
 
 			// if comment successfully inserted, the owner of the post is notified by the administrator
 			if ($query) {
 
 				// Email of the owner of the post
-				$email = $this->Users_model->get_email($id_post);
+				$email = $this->Users_model->get_email($data->id_post);
 
 				$this->my_mailgun->comment_mail($email, $comment);
 
-				$url = base_url().'post/' . $url_post;
+				$url = base_url().'post/' . $this->input->post('url_post');;
 				echo "<script> alert('¡Your comment was posted!');
 				window.location.href='$url';
 				</script>";

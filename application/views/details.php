@@ -51,7 +51,7 @@
           <h1 class="word-break "> <?php echo htmlentities($details->title); ?> </h1>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 absolute-author absolute word-break ">
-          <a href="<?php echo base_url()?>profile/user/<?php echo $details->id_user; ?>">
+          <a href="<?php echo base_url().'profile/user/'.$username; ?>">
 
             <img class="img-fluid display-in media-object size-img-main" src="/assets/img/profile-blog.jpg" alt="img-profile"/>
             <span><?php echo $username; ?></span>
@@ -78,7 +78,7 @@
               </button>
             </div>
             <form method="post"  class="display-in" action="<?php echo base_url();?>Profile_controller/delete_post">
-              <?php echo form_hidden('id_post', $details->id_post); ?>
+              <?php //echo form_hidden('id_post', $details->id_post); ?>
               <div class="center display-in">
                 <button class="btn btn-danger ">
                   <i class="fa fa-trash"> Delete Post</i>
@@ -98,14 +98,14 @@
             <!-- Comments Form -->
             <div class="well">
               <h4><i class="fa fa-commenting-o"></i>Leave a Comment:</h4>
-              <form role="form" action="<?php echo base_url(); ?>Mailgun_controller/comment" method="post">
+                <?php echo form_open(base_url().'Mailgun_controller/comment', 'class="form_comment"'); ?>
                 <div class="form-group">
                   <textarea maxlength="255" name="comment" class="form-control" rows="3" style="resize: none;"></textarea>
                 </div>
-                <?php echo form_hidden('id_post', $details->id_post) ?>
                 <?php echo form_hidden('url_post', $details->url_post); ?>
                 <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+
+              <?php echo form_close(); ?>
             </div>
 
             <?php } ?>
