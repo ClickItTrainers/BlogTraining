@@ -132,9 +132,11 @@ $(document).ready(function(){
 <div class="container margin-top">
 	<div class="row">
 		<div class="col-lg-8 col-md-9 col-sm-12 col-xs-12 border padding-container">
-				<?php echo form_open(base_url().'Home/insert_post', 'class="new_post"');?>
+				<?php //echo form_open(base_url().'Home/insert_post', 'class="new_post"');?>
 				<h2> <?php echo $title; ?></h2>
 				<!-- Tittle -->
+				<form class="new_post" action="<?php echo base_url().'Home/insert_post' ?>" method="post">
+
 				<div class="padding-top">
 					<div class="margin-bottom form-group">
 						<legend for="title" class="margin-right">Title:</legend>
@@ -160,9 +162,6 @@ $(document).ready(function(){
 								<?php } ?>
 							</select>
 							<span class="text-danger Category_error"></span>
-
-
-
 						</div>
 					</div>
 					<!-- Content od the post -->
@@ -172,6 +171,8 @@ $(document).ready(function(){
 						<span class="text-danger Cont_error"></span>
 					</div>
 					<input type="submit" class="btn color" name="submit" value="Send"/>
-					<?php echo form_close(); ?>
+					<?php //echo form_close(); ?>
+
+					</form>
 				</div> <!-- col -->
 			</div> <!-- row -->

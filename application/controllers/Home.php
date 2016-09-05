@@ -18,10 +18,9 @@ class Home extends CI_Controller {
 	}
 
 	//Select the posts by category
-	public function select_bycategory($id_category){
-		$data['By_category'] = $this->Posts_model->get_post_category($id_category);
+	public function select_bycategory($category){
+		$data['By_category'] = $this->Posts_model->get_post_category($category);
 		$data['title'] = "Posts by category";
-		$data['users_arr'] = $this->Posts_model->users_list();
 		$datestring = 'l, F d, o - h:i A';
 		$time = mysqldatetime_to_timestamp($this->Posts_model->get_date());
 		$data['page'] = 'by_category';
@@ -74,7 +73,6 @@ class Home extends CI_Controller {
 			$data['posts_arr'] = $this->Posts_model->posts_list($init, $limit);
 
 		}
-
 
 		$this->load->view('templates/template', $data);
 
@@ -203,7 +201,7 @@ class Home extends CI_Controller {
 
 		public function characters_validation($title)
 		{
-			if(preg_match('/[\W]{7}/', $title))
+			if(preg_match('/[\W]{4}/', $title))
 			{
 				$this->form_validation->set_message('characters_validation','The {field} can not accept more especial characters');
 				return FALSE;

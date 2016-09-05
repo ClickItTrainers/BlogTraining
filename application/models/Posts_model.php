@@ -24,11 +24,12 @@
 		}
 
 		//Gets the post of the same category
-		public function get_post_category($id_category){
-			$this->db->select('p.*, c.name');
-			$this->db->from('posts p');
-			$this->db->join('categories c', 'p.id_category = c.id_category');
-			$this->db->where('c.id_category', $id_category);
+		public function get_post_category($category){
+			$this->db->select('p.*, c.name, u.username');
+			$this->db->from('posts p, categories c, users u');
+			$this->db->where('p.id_category = c.id_category');
+			$this->db->where('p.id_user=u.id_user');
+			$this->db->where('c.name', $category);
 			$this->db->order_by('id_post', 'desc');
 			$res = $this->db->get();
 
@@ -115,9 +116,10 @@
 
 		//
 		public function search_posts($q){
-			$this->db->select('p.*, c.name');
-			$this->db->from('posts p');
-			$this->db->join('categories c', 'p.id_category = c.id_category');
+			$this->db->select('p.*, c.name, u.username');
+			$this->db->from('posts p, categories c, users u');
+			$this->db->where('p.id_category = c.id_category');
+			$this->db->where('u.id_user=p.id_user');
 			$this->db->like('title', $q, 'both');
 			$this->db->order_by('id_post', 'desc');
 			return $this->db->get()->result();
