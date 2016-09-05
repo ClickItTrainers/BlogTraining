@@ -84,4 +84,43 @@ class Mailgun_controller extends CI_Controller {
 			redirect('/Mailgun_controller/contactUs', 'refresh');
 		}
 	}
+
+    public function temp_password($temp_pass){
+    	$temp_pass = substr(md5(uniqid(mt_rand(), true)), 0, 8);
+    	//$temp_pass = "hola1234";
+    	return $temp_pass;
+    }
+
+	public function mail_psw($temp_pass = ""){
+
+		$this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|max_length[40]|htmlspecialchars');
+        $this->form_validation->set_message('valid_email', '*Invalid email');
+
+        if($this->form_validation->run() == FALSE){
+
+            redirect('/Login_controller', 'refresh');
+
+        }else{
+
+        	$userData = $this->Users_model->getUserData($this->input->post('email'));
+
+        	if($userData == TRUE){
+        		$email = $this->input->post('email');
+        		$this->load->library('bcrypt');
+        		$temp_pass = $this->temp_password($temp_pass);
+        		$temp_passHash = $this->bcrypt->hash_password($temp_pass);
+        		if($this->Users_model->temp_password($email, $temp_passHash)){
+		            $this->my_mailgun->mail_psw($email, $temp_pass);
+		            redirect('/Login_controller', 'refresh');
+		        }else{
+		        	echo "<script> alert('Please, try again!'); </script>";
+        			redirect('/Login_controller', 'refresh');
+		        }
+        	}else{
+        		echo "<script> alert('Your email is not in our database, please register first!'); </script>";
+        		redirect('/Login_controller/index_registro', 'refresh');
+        	}
+            
+        }
+	}
 }

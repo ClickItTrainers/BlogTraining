@@ -225,15 +225,12 @@ class Login_controller extends CI_Controller
         }
       }
 
-
-
       public function logout(){
         $this->session->sess_destroy();
         $url = base_url().'Home';
         echo "<script> alert('See you!');
         window.location.href = '$url'; </script>";
       }
-
 
       public function registro_user(){
 
@@ -272,7 +269,7 @@ class Login_controller extends CI_Controller
             $hash = $this->bcrypt->hash_password($password);
             //Probar si la contraseña se encripto
 
-            if ($this->bcrypt->check_password($password, $hash) && ($this->valid_username($username) === TRUE)){
+            if ($this->bcrypt->check_password($password, $hash)){
               
               $insert_pass = $this->Login_model->registro($username, $email, $hash, $name, $gender);
               if ($insert_pass){
