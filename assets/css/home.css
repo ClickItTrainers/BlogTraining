@@ -17,13 +17,15 @@ nav button{color:white;}
 
 nav.navbar {background-color: #293F54;}
 
-.margin-top{margin-top:90px; }
+.margin-top{margin-top:90px;}
+
 
 /*home*/
 .col-center{
     float: none;
     margin: 0 auto;
 }
+.search-heigth{height: 38px;}
 
 .padding{padding-bottom: 40px;}
 
@@ -81,6 +83,11 @@ footer p{text-align: center;}
 	.navbar-header{float: left;}
 }
 
+@media screen and (min-width: 544px) and (max-width: 768px) 
+{
+	div .navbar a{font-size: 14px; margin-left: 2px;}
+}
+
 /*header*/
 
 @media screen and (max-width: 550px)
@@ -96,6 +103,8 @@ footer p{text-align: center;}
 	.text-xs-right{text-align: left!important;}
 	
 	.right{display: block;}
+
+	.size-small{font-size: 11px; margin: 0;}
 }
 
 /*media*/

@@ -196,6 +196,20 @@ div .modal-body button:hover{background-color:#529452; border: 1px solid transpa
     .container {padding: 0 55px 0 55px;}
     
     .container-register {padding: 20px 45px 0 45px;}
+
+}
+
+@media screen and (max-width: 400px)
+{
+    div .modal-header i.fa{font-size: 70px;}
+
+    div .modal-header h3.title{font-size: 20px;}
+
+    div .modal-header p{font-size: 12px;}
+
+    div .form-group span.input-group-addon{padding: 4px .75rem; }
+
+    div .modal-body button.btn{padding:6px 8px; font-size: 12px;}
 }
 
 @media screen and (max-width: 375px)

@@ -1,10 +1,9 @@
+
+<title><?php echo $title;?></title>
 <style media="screen">
-  div
-  {
-    background-size: cover;
-    width: 100%;
-  }
+  img{width: 100%; margin-top: 70px;}
 </style>
-<div class="">
-  <img src="assets/img/404.jpg" alt="Not found" />
-</div>
+
+<div class="container">
+  <img src="assets/img/404.jpg" alt="Not found" class="img-fluid" />
+

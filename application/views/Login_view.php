@@ -24,7 +24,7 @@
 					<span class="sr-only">Close</span>
 				</button>
 				<h3><i class="fa fa-lock fa-4x"></i></h3>
-				<h3 class="" id="lineModalLabel">Forgot your password?</h3>
+				<h3 class="title" id="lineModalLabel">Forgot your password?</h3>
 				<p>You can reset your password here.</p>
 			</div>
 			<div class="modal-body">

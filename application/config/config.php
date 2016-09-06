@@ -6,7 +6,7 @@ $config['base_url'] = 'http://unblogtraining.tk/';
 
 //$config['base_url'] = 'http://149.56.23.33:3080/';
 
-//$config['base_url'] = 'http://www.blogtraining.com/';
+// $config['base_url'] = 'http://www.blogtraining.com/';
 
 
 
@@ -16,9 +16,6 @@ $config['base_url'] = 'http://unblogtraining.tk/';
 
 
 $config['index_page'] = '';
-//$config['redis_host'] = '127.0.0.1';
-//$config['redis_host'] = 'localhost';
-//$config['redis_port'] = '6379';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '';
 $config['language']	= 'english';

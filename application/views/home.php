@@ -10,7 +10,7 @@
                <div class="input-group">
                    <input name="search" type="text" class="form-control" placeholder="Search for...">
                     <span class="input-group-btn">
-                      <button class="btn btn-secondary" type="submit"><i class="fa fa-search"></i></button>
+                      <button class="btn btn-secondary search-heigth" type="submit"><i class="fa fa-search"></i></button>
                     </span>
                </div>
             </form>
