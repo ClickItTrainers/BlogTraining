@@ -15,7 +15,7 @@ class Profile_controller extends CI_Controller{
       $id_user = $this->Users_model->get_userID();
       $data['user_info'] = $this->Users_model->get_userinfo();
       $user = $this->session->userdata('username');
-      $data['posts'] = $this->Posts_model->posts_list_user($id_user);
+      $data['posts'] = $this->Posts_model->posts_list_user($user);
       $data['title'] = "$user profile";
       $data['user'] = $user;
       $this->load->view('templates/header', $data);
@@ -235,8 +235,8 @@ class Profile_controller extends CI_Controller{
     $this->load->view('templates/footer', $data);
   }
 
-  public function delete_post(){
-    $delete = $this->Posts_model->delete_post($this->input->post('id_post'));
+  public function delete_mypost($url_post){
+    $delete = $this->Posts_model->delete_mypost($url_post);
 
     if ($delete){
 

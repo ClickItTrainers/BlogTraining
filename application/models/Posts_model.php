@@ -99,8 +99,8 @@
 			return $this->db->get()->result();
 		}
 
-		public function delete_post($id_post){
-			$this->db->where('id_post', $id_post);
+		public function delete_mypost($url_post){
+			$this->db->where('url_post', $url_post);
 			return $this->db->delete('posts');
 		}
 

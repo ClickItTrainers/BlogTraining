@@ -200,11 +200,11 @@ function validar(e) {
           <div class="col-lg-11 col-md-10 col-sm-10 col-xs-12 col-center margin-container">
             <!-- Overview -->
             <div id="overview" class="container-style scroll">
-              
+
               <!-- Form Name -->
               <legend class="post-user">Posts of <?php echo $user; ?></legend>
-            
-            
+
+
               <?php foreach ($posts as $my_posts):
                 $mostrar = substr($my_posts->description, 0,65);
                 $mostrarTitle = substr($my_posts->title, 0,55);
@@ -228,15 +228,14 @@ function validar(e) {
                   </div>
                   <?php if ($this->session->userdata('username') === $user || $this->session->userdata('admin')): ?>
                     <div class="position-delete">
-                      <form action="<?php echo base_url()?>Profile_controller/delete_post" method="post">
-                        <input type="hidden" name="id_post" value="<?php echo $my_posts->id_post;?>"/>
+                      <form action="<?php echo base_url().'delete/my_post/'.$my_posts->url_post; ?>" method="post">
                         <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</i></button>
                       </form>
                     </div>
                   <?php endif ?>
                 </div>
               <?php endforeach; ?>
-           
+
             </div> <!-- overview -->
             <?php if ($this->session->userdata('username') === $user){ ?>
               <!-- Account Settings -->

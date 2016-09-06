@@ -49,6 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+$route['delete/my_post/(:any)'] = 'Profile_controller/delete_mypost/$1';
 $route['posts/by_category/(:any)'] = 'Home/select_bycategory/$1';
 $route['admin'] = 'Admin_controller';
 $route['profile/user/(:any)'] = 'Profile_controller/user_profile/$1';
