@@ -224,8 +224,14 @@ class Home extends CI_Controller {
 			}
 		}
 
-		//test
-		public function getcomments($id_user) {
-			var_dump($this->Posts_model->get_comments($id_user));
+		public function delete_post($url_post) {
+			$delete = $this->Posts_model->delete_post($url_post);
+			if ($delete){
+
+				$url = base_url();
+				echo "<script> alert('¡Post Deleted!');
+				window.location.href='$url';
+				</script>";
+			}
 		}
 	}

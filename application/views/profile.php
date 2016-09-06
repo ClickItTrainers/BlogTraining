@@ -228,9 +228,9 @@ function validar(e) {
                   </div>
                   <?php if ($this->session->userdata('username') === $user || $this->session->userdata('admin')): ?>
                     <div class="position-delete">
-                      <form action="<?php echo base_url().'delete/my_post/'.$my_posts->url_post; ?>" method="post">
+                        <?php echo form_open(base_url().'delete/my_post/'.$my_posts->url_post);?>
                         <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</i></button>
-                      </form>
+                        <?php echo form_close(); ?>
                     </div>
                   <?php endif ?>
                 </div>

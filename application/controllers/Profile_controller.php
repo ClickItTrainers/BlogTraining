@@ -236,7 +236,7 @@ class Profile_controller extends CI_Controller{
   }
 
   public function delete_mypost($url_post){
-    $delete = $this->Posts_model->delete_mypost($url_post);
+    $delete = $this->Posts_model->delete_post($url_post);
 
     if ($delete){
 

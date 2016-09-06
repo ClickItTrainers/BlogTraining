@@ -77,15 +77,14 @@
                 <i class="fa fa-pencil-square-o"> Edit Post</i>
               </button>
             </div>
-            <form method="post"  class="display-in" action="<?php echo base_url();?>Profile_controller/delete_post">
-              <?php //echo form_hidden('id_post', $details->id_post); ?>
+            <!--form method="post"  class="display-in" action=""-->
+            <?php echo form_open(base_url().'delete_post/'.$details->url_post, 'class="display-in"');?>
               <div class="center display-in">
                 <button class="btn btn-danger ">
                   <i class="fa fa-trash"> Delete Post</i>
                 </button>
               </div>
-            </form>
-            <?php } ?>
+            <?php echo form_close(); } ?>
           </div>
           <!-- Post Content -->
           <p class="lead word-break"> <?php echo $details->description; ?></p>
