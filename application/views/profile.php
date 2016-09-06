@@ -299,11 +299,13 @@ function validar(e) {
 
 
                   <!-- Delete Button -->
-                  <div class="form-group display-inline">
-                    <div class="col-md-3 margin-left margin-bottons">
-                      <button name="singlebutton" class="btn btn-danger ">Remove my account</button>
+                  <form action="<?php echo base_url()?>Profile_controller/delete_user">
+                    <div class="form-group display-inline">
+                      <div class="col-md-3 margin-left margin-bottons">
+                        <button name="singlebutton" class="btn btn-danger ">Remove my account</button>
+                      </div>
                     </div>
-                  </div>
+                  </form>
 
                 </fieldset>
 

@@ -26,6 +26,12 @@ class Profile_controller extends CI_Controller{
     }
   }
 
+  public function cleaning($msg){
+    $noPermitidos = array("'",'\\','<','>',"\"",";","$","%","&","/","|","{","}","[","]","+","#","!","(",")","=","?","¡","¿");
+    $msg = str_replace($noPermitidos, "", $msg);
+    return $msg;
+  }
+
   public function update_username()
   {
     if ($this->input->post('username') == $this->session->userdata('username'))
@@ -33,7 +39,7 @@ class Profile_controller extends CI_Controller{
       $this->index();
     }else{
       //rules
-      $this->form_validation->set_rules("username","username","min_length[4]|max_length[25]|htmlspecialchars|required|is_unique[users.username]");
+      $this->form_validation->set_rules("username","username","min_length[4]|max_length[25]|required|is_unique[users.username]");
       //messages
       $this->form_validation->set_message('is_unique', 'The %s already exists');
       $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
@@ -46,7 +52,8 @@ class Profile_controller extends CI_Controller{
       else
       {
 
-        $new_username = htmlentities($this->input->post('username', TRUE));
+        //$new_username = htmlentities($this->input->post('username', TRUE));
+        $new_username = htmlentities($this->cleaning($this->input->post('username')));
         $resultado = strpos($new_username, 'script');
 
         if($resultado != FALSE):
@@ -81,7 +88,7 @@ class Profile_controller extends CI_Controller{
   public function update_name()
   {
     //rules
-    $this->form_validation->set_rules('name', 'name', 'required|htmlspecialchars');
+    $this->form_validation->set_rules('name', 'name', 'required');
     //messages
     $this->form_validation->set_message('required', '*The field must not be empty');
 
@@ -91,8 +98,8 @@ class Profile_controller extends CI_Controller{
       //echo '<div class="error">'.validation_errors().'</div>';
     }else
     {
-      $new_name = $this->input->post('name', TRUE);
-
+      //$new_name = $this->input->post('name', TRUE);
+      $new_name = htmlentities($this->cleaning($this->input->post('name')));
       $update = $this->Users_model->update_name($new_name);
 
       if($update)
@@ -242,6 +249,17 @@ class Profile_controller extends CI_Controller{
 
       $url = base_url() . 'Profile_controller';
       echo "<script> alert('¡Post Deleted!');
+      window.location.href='$url';
+      </script>";
+    }
+  }
+
+  public function delete_user(){
+    $query = $this->Users_model->get_userinfo();
+    $delete = $this->Users_model->delete_user($query->id_user);
+    if($delete){
+      $url = base_url() . 'Login_controller/index_registro';
+      echo "<script> alert('¡Your account was deleted!');
       window.location.href='$url';
       </script>";
     }

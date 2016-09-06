@@ -234,22 +234,27 @@ class Login_controller extends CI_Controller
         window.location.href = '$url'; </script>";
       }
 
+      public function cleaning($msg){
+        $noPermitidos = array("'",'\\','<','>',"\"",";","$","%","&","/","|","{","}","[","]","+","#","!","(",")","=","?","¡","¿");
+        $msg = str_replace($noPermitidos, "", $msg);
+        return $msg;
+      }
+
       public function registro_user(){
 
         if($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token')){
 
           // Validation rules
           $this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|max_length[40]|htmlspecialchars|is_unique[users.email]');
-          $this->form_validation->set_rules('username', 'username', 'required|alpha_dash|trim|max_length[20]|htmlspecialchars|is_unique[users.username]');
+          $this->form_validation->set_rules('username', 'username', 'required|trim|max_length[20]|is_unique[users.username]');
           $this->form_validation->set_rules('password', 'password', 'required|trim|min_length[8]|max_length[20]|htmlspecialchars');
-          $this->form_validation->set_rules('name', 'name', 'required|trim|htmlspecialchars');
+          $this->form_validation->set_rules('name', 'name', 'required|trim');
           $this->form_validation->set_rules('gender', 'gender', 'required|trim|htmlspecialchars');
 
           // Error messages
           //$this->form_validation->set_message('alpha_spaces', 'The field only accept alphabetic characters');
           $this->form_validation->set_message('valid_email', '*Invalid email');
           $this->form_validation->set_message('required', '*Required field');
-          $this->form_validation->set_message('alpha', '*Invalid username');
           $this->form_validation->set_message('is_unique', 'The %s already exists');
           $this->form_validation->set_message('min_length', '*The field %s must be at least %s characters');
           $this->form_validation->set_message('max_length', '*The field %s cant be more than %s characters');
@@ -263,9 +268,9 @@ class Login_controller extends CI_Controller
 
             //Si funciona se procesan los datos
             $email = $this->input->post('email');
-            $username = $this->input->post('username');
+            $username = htmlentities($this->cleaning($this->input->post('username')));
             $password = $this->input->post('password');
-            $name = $this->input->post('name');
+            $name = htmlentities($this->cleaning($this->input->post('name')));
             $gender = $this->input->post('gender');
 
             $hash = $this->bcrypt->hash_password($password);
