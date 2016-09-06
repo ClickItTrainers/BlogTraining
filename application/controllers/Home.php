@@ -93,7 +93,7 @@ class Home extends CI_Controller {
 		$data['dates'] = timestamp_to_date($times, $datestring);
 		$this->load->view('templates/template', $data);
 	}else{
-		show_404();
+		redirect('Not_Found');
 	}
 	}
 
