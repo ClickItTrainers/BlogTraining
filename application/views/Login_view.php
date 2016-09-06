@@ -24,7 +24,7 @@
 					<span class="sr-only">Close</span>
 				</button>
 				<h3><i class="fa fa-lock fa-4x"></i></h3>
-				<h3 class="" id="lineModalLabel">Forgot your password ??</h3>
+				<h3 class="" id="lineModalLabel">Forgot your password?</h3>
 				<p>You can reset your password here.</p>
 			</div>
 			<div class="modal-body">
@@ -37,7 +37,7 @@
 						</div>
 					</div>
 					<span class="text-danger"><?php echo form_error('email'); ?></span>
-					<button type="submit" class="btn btn-warning">Reset password</button>
+					<button type="submit" class="btn pull-right">Reset password</button>
 				</form>
 
 			</div>
@@ -67,29 +67,29 @@
 					<input type="password" name="password" required class="form-control input-sm chat-input" />
 					<span class="text-danger"><?php echo form_error('password')?></span>
 
-				</br>
+					</br>
 
-				<input type="hidden" name="token" value="<?php echo $token?>" />
+					<input type="hidden" name="token" value="<?php echo $token?>" />
 
-				<div class="wrapper">
-					<div class="display">
-								<!-- <a href="<?php echo base_url() ?>" class="btn botton-back" ><i class="fa fa-chevron-left"></i>
-							</a> -->
-							<input class="display button btn azm-social azm-btn azm-border-bottom azm-drupal" type="submit" name="submit" value="Login">
-							<a href="<?php echo base_url() ?>" class="display" ><i class="fa fa-chevron-left"></i> Back to blog </a> 
-						</div>
-						<!-- <a href="#" class="btn azm-social azm-btn azm-border-bottom azm-drupal"><i class="fa"></i> Login </a> -->
-									<!-- <a href="<?php echo $loginUrl ?>" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
-									<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-twitter"><i class="fa fa-twitter"></i></a>
-									<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a> -->
-								</div>
-							</form>
-							<button data-toggle="modal" data-target="#forgot" class="btn">
-								Forgot Password? <i class="fa fa-chevron-right"></i>
-							</button>
-						</div>
+					<div class="wrapper">
+							<div class="display">
+									<!-- <a href="<?php echo base_url() ?>" class="btn botton-back" ><i class="fa fa-chevron-left"></i>
+								</a> -->
+								<input class="display button btn azm-social azm-btn azm-border-bottom azm-drupal" type="submit" name="submit" value="Login">
+								<button data-toggle="modal" data-target="#forgot" class="font-size">
+									Forgot Password?
+								</button>
+								<a href="<?php echo base_url() ?>" class="display" ><i class="fa fa-chevron-left"></i> Back to blog </a> 
+							</div>
+							<!-- <a href="#" class="btn azm-social azm-btn azm-border-bottom azm-drupal"><i class="fa"></i> Login </a> -->
+										<!-- <a href="<?php echo $loginUrl ?>" class="btn azm-social azm-btn azm-border-bottom azm-facebook"><i class="fa fa-facebook"></i></a>
+										<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-twitter"><i class="fa fa-twitter"></i></a>
+										<a href="#" class="btn azm-social azm-btn azm-border-bottom azm-google-plus"><i class="fa fa-google"></i></a> -->
 					</div>
-				</div>
+				</form>
+			</div>
+		</div> <!-- col -->
+	</div> <!-- row -->
 
 				<!-- jQuery -->
 				<script src="<?php echo base_url() ?>assets/js/jquery.js"></script>
